@@ -14,7 +14,7 @@ Slayer Swaps side panel or the plugin settings.
   teleport menus (fairy ring log, cape teleports, spirit trees, gliders, quetzals, boat teleports and more).
 - **Slayer Swaps panel**: for every task, switch it on or off and choose the location and teleport.
 - **Wilderness** locations are behind their own setting, and are used automatically for Krystilia tasks.
-- **Only with slayer helmet**: optionally only act while you're wearing a slayer helmet.
+- **Only with slayer helmet** (on by default): only acts while you're wearing a slayer helmet. Turn it off in settings to use it any time.
 
 Every slayer master, slayer task and boss task, with its locations and teleports, is listed in
 [Slayer_Swaps.pdf](Slayer_Swaps.pdf). The data lives in

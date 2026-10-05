@@ -63,7 +63,7 @@ public interface SlayerSwapsConfig extends Config
 	)
 	default boolean onlyWithSlayerHelmet()
 	{
-		return false;
+		return true;
 	}
 
 	@ConfigItem(
