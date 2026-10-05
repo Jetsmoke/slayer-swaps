@@ -16,6 +16,7 @@ def burning(d): return {'type': 'burning_amulet', 'value': d}
 def dueling(d): return {'type': 'ring_of_dueling', 'value': d}
 def gloves(d): return {'type': 'karamja_gloves', 'value': d}
 def boat(i): return {'type': 'boat', 'value': i}
+def glory(d): return {'type': 'amulet_of_glory', 'value': d}
 
 W = 'wilderness'
 
@@ -38,9 +39,9 @@ LOCATIONS = {
     'Smoke Devil Dungeon': [fairy('BKP')],
     'Smoke Dungeon': [portal('Pollnivneach'), fairy('DLQ')],
     'Kalphite Lair': [fairy('BIQ')],
-    'Kalphite Cave': [fairy('BIQ')],
+    'Kalphite Cave': [fairy('BIQ'), glory('Al Kharid')],
     'Mor Ul Rek': [fairy('BLP')],
-    'Karamja Volcano': [fairy('BLP')],
+    'Karamja Volcano': [glory('Karamja'), fairy('BLP')],
     'Lighthouse': [fairy('ALP')],
     'Asgarnian Ice Dungeon': [fairy('AIQ'), portal('Rimmington')],
     'Mudskipper Point': [fairy('AIQ'), portal('Rimmington')],
@@ -79,8 +80,13 @@ LOCATIONS = {
     "Mort'ton": [fairy('BIP')],
     'Barrows': [fairy('BKR')],
     'Morytania': [fairy('BKR')],
-    'Edgeville Dungeon': [fairy('DKR')],
-    'Draynor Village': [fairy('DIS')],
+    'Edgeville Dungeon': [glory('Edgeville'), fairy('DKR')],
+    'Draynor Village': [glory('Draynor Village'), fairy('DIS')],
+    'Draynor Sewers': [glory('Draynor Village')],
+    'Draynor Manor': [glory('Draynor Village')],
+    'Al Kharid': [glory('Al Kharid')],
+    'Al Kharid Mine': [glory('Al Kharid')],
+    'Al Kharid mine': [glory('Al Kharid')],
     "Wizards' Tower": [fairy('DIS')],
     'Ape Atoll': [fairy('CLR')],
     'Kebos Lowlands': [fairy('CIR')],
@@ -133,7 +139,7 @@ LOCATIONS = {
     'Bone Yard': [dueling('Ferox Enclave')],
     'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
     'Bone Yard Hunter area': [maxcape('Wilderness Hunter area')],
-    'Edgeville': [fairy('DKR')],
+    'Edgeville': [glory('Edgeville'), fairy('DKR')],
     'Gryphons (dungeon)': [fairy('CJQ'), boat('The Great Conch')],
     'Shellbane Gryphon Cave': [fairy('CJQ'), boat('The Great Conch')],
     'Sophanem Dungeon': [fairy('AKP'), portal('Pollnivneach')],
@@ -167,14 +173,14 @@ WILDERNESS = {
 MASTERS = [
     # id is the SLAYER_MASTER varbit value where known (core Slayer plugin: Krystilia 7, Mortimer 10)
     {'key': 'TURAEL', 'name': 'Turael / Spria', 'location': 'Burthorpe', 'routes': [portal('Taverley')],
-     'note': 'Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (fairy ring DIS).'},
+     'note': 'Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).'},
     {'key': 'MAZCHNA', 'name': 'Mazchna', 'location': 'Canifis', 'routes': [fairy('CKS')]},
-    {'key': 'VANNAKA', 'name': 'Vannaka', 'location': 'Edgeville Dungeon', 'routes': [fairy('DKR')]},
+    {'key': 'VANNAKA', 'name': 'Vannaka', 'location': 'Edgeville Dungeon', 'routes': [glory('Edgeville'), fairy('DKR')]},
     {'key': 'CHAELDAR', 'name': 'Chaeldar', 'location': 'Zanaris', 'routes': [fairy('BKS')]},
     {'key': 'KONAR', 'name': 'Konar quo Maten', 'location': 'Mount Karuulm', 'routes': [fairy('CIR'), maxcape('Farming Guild')]},
     {'key': 'NIEVE', 'name': 'Nieve / Steve', 'location': 'Tree Gnome Stronghold', 'routes': [ring('Stronghold')]},
     {'key': 'DURADEL', 'name': 'Duradel / Kuradal', 'location': 'Shilo Village', 'routes': [gloves('Slayer Master'), fairy('CKR')]},
-    {'key': 'KRYSTILIA', 'name': 'Krystilia', 'location': 'Edgeville', 'routes': [fairy('DKR')]},
+    {'key': 'KRYSTILIA', 'name': 'Krystilia', 'location': 'Edgeville', 'routes': [glory('Edgeville'), fairy('DKR')]},
     {'key': 'MORTIMER', 'name': 'Mortimer', 'location': 'Wyrmscraig Cavern', 'routes': [ring('Wyrmscraig Cavern'), boat('Wyrmscraig')]},
 ]
 
@@ -210,7 +216,7 @@ EXTRA_LOCATIONS = {
 
 BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytania': 'Barrows'}
 
-RANK = {'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
+RANK = {'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
         'maxcape': 2, 'boat': 3}
 
 

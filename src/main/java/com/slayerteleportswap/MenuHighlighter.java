@@ -36,12 +36,14 @@ class MenuHighlighter
 		.add("warrior's guild", "fishing guild", "crafting guild", "farming guild", "otto's grotto",
 			"feldip hunter area", "wilderness hunter area", "hunter guild", "the pandemonium", "boat", "last boat")
 		.build();
-	private static final Map<RouteType, Set<String>> FAMILIES = ImmutableMap.of(
-		RouteType.PORTAL, PORTALS,
-		RouteType.MAXCAPE, MAXCAPE,
-		RouteType.BURNING_AMULET, ImmutableSet.of("chaos temple", "bandit camp", "lava maze"),
-		RouteType.RING_OF_DUELING, ImmutableSet.of("emir's arena", "castle wars", "ferox enclave", "fortis colosseum"),
-		RouteType.KARAMJA_GLOVES, ImmutableSet.of("gem mine", "slayer master"));
+	private static final Map<RouteType, Set<String>> FAMILIES = ImmutableMap.<RouteType, Set<String>>builder()
+		.put(RouteType.PORTAL, PORTALS)
+		.put(RouteType.MAXCAPE, MAXCAPE)
+		.put(RouteType.BURNING_AMULET, ImmutableSet.of("chaos temple", "bandit camp", "lava maze"))
+		.put(RouteType.RING_OF_DUELING, ImmutableSet.of("emir's arena", "castle wars", "ferox enclave", "fortis colosseum"))
+		.put(RouteType.KARAMJA_GLOVES, ImmutableSet.of("gem mine", "slayer master"))
+		.put(RouteType.AMULET_OF_GLORY, ImmutableSet.of("edgeville", "karamja", "draynor village", "al kharid"))
+		.build();
 
 	private final Client client;
 

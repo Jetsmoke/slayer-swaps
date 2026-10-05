@@ -17,6 +17,7 @@ public enum RouteType
 	KARAMJA_GLOVES("karamja_gloves", "Karamja gloves 4"),
 	BURNING_AMULET("burning_amulet", "Burning amulet"),
 	RING_OF_DUELING("ring_of_dueling", "Ring of dueling"),
+	AMULET_OF_GLORY("amulet_of_glory", "Amulet of glory"),
 	BOAT("boat", "Teleport to Boat");
 
 	private final String key;

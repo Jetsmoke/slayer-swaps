@@ -102,7 +102,13 @@ public interface SlayerTeleportSwapConfig extends Config
 		return true;
 	}
 
-	@ConfigItem(keyName = "useBoat", name = "Teleport to Boat", description = "Highlight the boat to teleport to when your task is on an island your boat can be moored at", position = 7, section = teleportsSection)
+	@ConfigItem(keyName = "useGlory", name = "Amulet of glory", description = "Amulet of glory teleports, including eternal and trimmed", position = 7, section = teleportsSection)
+	default boolean useGlory()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "useBoat", name = "Teleport to Boat", description = "Highlight the boat to teleport to when your task is on an island your boat can be moored at", position = 8, section = teleportsSection)
 	default boolean useBoat()
 	{
 		return true;
@@ -144,6 +150,8 @@ public interface SlayerTeleportSwapConfig extends Config
 				return useBurningAmulet();
 			case RING_OF_DUELING:
 				return useRingOfDueling();
+			case AMULET_OF_GLORY:
+				return useGlory();
 			case BOAT:
 				return useBoat();
 			default:

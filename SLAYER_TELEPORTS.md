@@ -14,14 +14,14 @@
 ## Slayer masters (used when you have no task)
 
 - **Turael / Spria** (Burthorpe) — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
-  - Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (fairy ring DIS).
+  - Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).
 - **Mazchna** (Canifis) — Fairy ring: **CKS**
-- **Vannaka** (Edgeville Dungeon) — Fairy ring: **DKR**
+- **Vannaka** (Edgeville Dungeon) — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - **Chaeldar** (Zanaris) — Fairy ring: **BKS**
 - **Konar quo Maten** (Mount Karuulm) — Fairy ring: **CIR** · Max cape: **Farming Guild** ⁽ᵘ⁾
 - **Nieve / Steve** (Tree Gnome Stronghold) — Slayer ring: **Stronghold**
 - **Duradel / Kuradal** (Shilo Village) — Karamja gloves 4: **Slayer Master** ⁽ᵘ⁾ · Fairy ring: **CKR**
-- **Krystilia** (Edgeville) — Fairy ring: **DKR**
+- **Krystilia** (Edgeville) — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - **Mortimer** (Wyrmscraig Cavern) — Slayer ring: **Wyrmscraig Cavern** · Teleport to Boat (boat moored at): **Wyrmscraig** ⁽ᵘ⁾
 
 ## Slayer tasks
@@ -109,7 +109,7 @@ Masters: Turael, Spria
 Masters: Krystilia, Chaeldar, Konar, Nieve, Duradel
 - ★ Chasm of Fire — Fairy ring: **DJR**
 - Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
-- Edgeville Dungeon — Fairy ring: **DKR**
+- Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - Brimhaven Dungeon — Construction/max cape portal: **Brimhaven** ⁽ᵘ⁾ · Fairy ring: **CKR**
 - Catacombs of Kourend — Fairy ring: **CIS**
 - Charred Dungeon — Teleport to Boat (boat moored at): **Charred Island** ⁽ᵘ⁾
@@ -128,7 +128,7 @@ Masters: Krystilia, Konar, Nieve, Duradel
 
 ### Black Knight
 Masters: Krystilia
-- ★ Draynor Village — Fairy ring: **DIS**
+- ★ Draynor Village — Amulet of glory: **Draynor Village** ⁽ᵘ⁾ · Fairy ring: **DIS**
 - Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
 - Varrock — _no supported teleport_
 - Jolly Boar Inn — _no supported teleport_
@@ -195,7 +195,7 @@ Masters: Turael, Spria, Mazchna
 
 ### Chaos druid
 Masters: Krystilia
-- ★ Edgeville Dungeon — Fairy ring: **DKR**
+- ★ Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
 - Chaos Druid Tower — _no supported teleport_
 - Slepe — _no supported teleport_
@@ -295,7 +295,7 @@ Masters: Turael, Spria
 
 ### Earth Warriors
 Masters: Krystilia
-- ★ Edgeville Dungeon — Fairy ring: **DKR**
+- ★ Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 
 ### Elves
 Masters: Vannaka, Chaeldar, Nieve, Duradel
@@ -347,10 +347,10 @@ Masters: Vannaka, Chaeldar, Konar, Nieve, Duradel, Mortimer
 
 ### Ghosts
 Masters: Turael, Spria, Mazchna
-- ★ Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
+- ★ Draynor Manor — Amulet of glory: **Draynor Village** ⁽ᵘ⁾
+- Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
 - Catacombs of Kourend — Fairy ring: **CIS**
 - Varrock Sewers — _no supported teleport_
-- Draynor Manor — _no supported teleport_
 - Melzar's Maze — _no supported teleport_
 - Stronghold of Security — _no supported teleport_
 - West Ardougne — _no supported teleport_
@@ -428,7 +428,7 @@ Masters: Krystilia, Vannaka, Chaeldar, Konar, Nieve, Duradel
 
 ### Hill Giants
 Masters: Krystilia, Mazchna, Vannaka
-- ★ Edgeville Dungeon — Fairy ring: **DKR**
+- ★ Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
 - Tree Gnome Village (location) — Fairy ring: **CIQ**
 - Catacombs of Kourend — Fairy ring: **CIS**
@@ -440,7 +440,7 @@ Masters: Krystilia, Mazchna, Vannaka
 ### Hobgoblins
 Masters: Mazchna, Vannaka
 - ★ Asgarnian Ice Dungeon — Fairy ring: **AIQ** · Construction/max cape portal: **Rimmington** ⁽ᵘ⁾
-- Edgeville Dungeon — Fairy ring: **DKR**
+- Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
 - Witchaven Dungeon — Fairy ring: **BLR**
 - Crandor — _no supported teleport_
 - Hobgoblin Peninsula — _no supported teleport_
@@ -498,7 +498,7 @@ Masters: Vannaka, Chaeldar
 ### Kalphites
 Masters: Turael, Spria, Mazchna, Vannaka, Chaeldar, Konar, Nieve, Duradel
 - ★ Kalphite Lair — Fairy ring: **BIQ**
-- Kalphite Cave — Fairy ring: **BIQ**
+- Kalphite Cave — Fairy ring: **BIQ** · Amulet of glory: **Al Kharid** ⁽ᵘ⁾
 
 ### Killerwatt
 Masters: Mazchna
@@ -682,8 +682,8 @@ Masters: Nieve
 
 ### Scorpions
 Masters: Krystilia, Turael, Spria, Mazchna
-- ★ Ardougne Zoo — Fairy ring: **BIS**
-- Al Kharid Mine — _no supported teleport_
+- ★ Al Kharid Mine — Amulet of glory: **Al Kharid** ⁽ᵘ⁾
+- Ardougne Zoo — Fairy ring: **BIS**
 - Dwarven mines — _no supported teleport_
 - Stronghold of Security — _no supported teleport_
 - Varrock Sewers — _no supported teleport_
@@ -711,11 +711,11 @@ Masters: Chaeldar, Konar, Nieve, Duradel
 
 ### Skeletons
 Masters: Krystilia, Turael, Spria, Mazchna
-- ★ Edgeville Dungeon — Fairy ring: **DKR**
-- Karamja Volcano — Fairy ring: **BLP**
+- ★ Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
+- Draynor Sewers — Amulet of glory: **Draynor Village** ⁽ᵘ⁾
+- Karamja Volcano — Amulet of glory: **Karamja** ⁽ᵘ⁾ · Fairy ring: **BLP**
 - Taverley Dungeon — Construction/max cape portal: **Taverley** ⁽ᵘ⁾
 - Barrows — Fairy ring: **BKR**
-- Draynor Sewers — _no supported teleport_
 - Ogre Enclave — _no supported teleport_
 - Stronghold of Security — _no supported teleport_
 - Temple of Ikov (dungeon) — _no supported teleport_
@@ -826,12 +826,12 @@ Masters: Chaeldar, Konar, Nieve, Duradel, Mortimer
 ### Zombies
 Masters: Krystilia, Turael, Spria, Mazchna
 - ★ Tree Gnome Village (location) — Fairy ring: **CIQ**
-- Edgeville Dungeon — Fairy ring: **DKR**
+- Edgeville Dungeon — Amulet of glory: **Edgeville** ⁽ᵘ⁾ · Fairy ring: **DKR**
+- Draynor Sewers — Amulet of glory: **Draynor Village** ⁽ᵘ⁾
 - Entrana Dungeon — _no supported teleport_
 - Stronghold of Security — _no supported teleport_
 - Varrock Sewers — _no supported teleport_
 - Wizards' Guild — _no supported teleport_
-- Draynor Sewers — _no supported teleport_
 - Lair of Tarn Razorlor (dungeon) — _no supported teleport_
 - Graveyard of Shadows ☠️ — Ring of dueling: **Ferox Enclave** ⁽ᵘ⁾
 

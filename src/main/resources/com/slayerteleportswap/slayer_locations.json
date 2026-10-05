@@ -286,6 +286,10 @@
   "Edgeville Dungeon": {
    "routes": [
     {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
      "type": "fairy",
      "value": "DKR"
     }
@@ -341,6 +345,10 @@
   },
   "Draynor Village": {
    "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
+    },
     {
      "type": "fairy",
      "value": "DIS"
@@ -823,11 +831,16 @@
    ],
    "wilderness": false
   },
-  "Varrock Sewers": {
-   "routes": [],
+  "Draynor Manor": {
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
+    }
+   ],
    "wilderness": false
   },
-  "Draynor Manor": {
+  "Varrock Sewers": {
    "routes": [],
    "wilderness": false
   },
@@ -1051,6 +1064,10 @@
     {
      "type": "fairy",
      "value": "BIQ"
+    },
+    {
+     "type": "amulet_of_glory",
+     "value": "Al Kharid"
     }
    ],
    "wilderness": false
@@ -1307,7 +1324,12 @@
    "wilderness": false
   },
   "Al Kharid Mine": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Al Kharid"
+    }
+   ],
    "wilderness": false
   },
   "Dwarven mines": {
@@ -1353,8 +1375,21 @@
    ],
    "wilderness": false
   },
+  "Draynor Sewers": {
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
+    }
+   ],
+   "wilderness": false
+  },
   "Karamja Volcano": {
    "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Karamja"
+    },
     {
      "type": "fairy",
      "value": "BLP"
@@ -1369,10 +1404,6 @@
      "value": "BKR"
     }
    ],
-   "wilderness": false
-  },
-  "Draynor Sewers": {
-   "routes": [],
    "wilderness": false
   },
   "Temple of Ikov (dungeon)": {
@@ -1642,6 +1673,10 @@
   },
   "Edgeville": {
    "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
     {
      "type": "fairy",
      "value": "DKR"
@@ -2534,10 +2569,10 @@
    ],
    "boss": false,
    "locations": [
+    "Draynor Manor",
     "Taverley Dungeon",
     "Catacombs of Kourend",
     "Varrock Sewers",
-    "Draynor Manor",
     "Melzar's Maze",
     "Stronghold of Security",
     "West Ardougne",
@@ -3341,8 +3376,8 @@
    ],
    "boss": false,
    "locations": [
-    "Ardougne Zoo",
     "Al Kharid Mine",
+    "Ardougne Zoo",
     "Dwarven mines",
     "Stronghold of Security",
     "Varrock Sewers",
@@ -3424,10 +3459,10 @@
    "boss": false,
    "locations": [
     "Edgeville Dungeon",
+    "Draynor Sewers",
     "Karamja Volcano",
     "Taverley Dungeon",
     "Barrows",
-    "Draynor Sewers",
     "Ogre Enclave",
     "Stronghold of Security",
     "Temple of Ikov (dungeon)",
@@ -3739,11 +3774,11 @@
    "locations": [
     "Tree Gnome Village (location)",
     "Edgeville Dungeon",
+    "Draynor Sewers",
     "Entrana Dungeon",
     "Stronghold of Security",
     "Varrock Sewers",
     "Wizards' Guild",
-    "Draynor Sewers",
     "Lair of Tarn Razorlor (dungeon)",
     "Graveyard of Shadows"
    ]
@@ -4146,7 +4181,7 @@
      "value": "Taverley"
     }
    ],
-   "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (fairy ring DIS)."
+   "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS)."
   },
   {
    "key": "MAZCHNA",
@@ -4164,6 +4199,10 @@
    "name": "Vannaka",
    "location": "Edgeville Dungeon",
    "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
     {
      "type": "fairy",
      "value": "DKR"
@@ -4227,6 +4266,10 @@
    "name": "Krystilia",
    "location": "Edgeville",
    "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
     {
      "type": "fairy",
      "value": "DKR"

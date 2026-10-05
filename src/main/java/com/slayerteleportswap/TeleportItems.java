@@ -79,6 +79,11 @@ class TeleportItems
 		{
 			types.add(RouteType.PORTAL);
 		}
+		else if (name.startsWith("amulet of") && name.contains("glory"))
+		{
+			// "Amulet of glory(1-6)", "Amulet of glory(t1-t6)" and "Amulet of eternal glory"
+			types.add(RouteType.AMULET_OF_GLORY);
+		}
 		else if (name.startsWith("sailing cape"))
 		{
 			types.add(RouteType.BOAT);

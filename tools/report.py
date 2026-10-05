@@ -19,6 +19,7 @@ LABEL = {
     'karamja_gloves': 'Karamja gloves 4',
     'burning_amulet': 'Burning amulet',
     'ring_of_dueling': 'Ring of dueling',
+    'amulet_of_glory': 'Amulet of glory',
     'boat': 'Teleport to Boat (boat moored at)',
 }
 # Which route types have had their in-game menu text confirmed from the dev client's menu log
