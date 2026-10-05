@@ -54,6 +54,17 @@ public interface SlayerTeleportSwapConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "onlyWithSlayerHelmet",
+		name = "Only with slayer helmet",
+		description = "Only swap and highlight teleports while you're wearing a slayer helmet (any variant)",
+		position = 3
+	)
+	default boolean onlyWithSlayerHelmet()
+	{
+		return false;
+	}
+
+	@ConfigItem(
 		keyName = "askOnNewTask",
 		name = "Ask on new task",
 		description = "The first time you get a task that can be done in more than one place, open the Slayer Teleports panel to choose. Change it there any time.",

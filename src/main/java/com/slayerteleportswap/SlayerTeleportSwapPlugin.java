@@ -19,6 +19,7 @@ import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
+import net.runelite.api.EquipmentInventorySlot;
 import net.runelite.api.GameState;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
@@ -123,6 +124,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private boolean menusDirty;
 	// The route whose item to outline: the first one in order that the player is carrying
 	private SlayerData.Route carriedRoute;
+	private boolean wearingSlayerHelmet;
 
 	@Override
 	protected void startUp()
@@ -201,9 +203,26 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
+		if (event.getContainerId() == InventoryID.WORN)
+		{
+			updateSlayerHelmet();
+		}
 		if (event.getContainerId() == InventoryID.INV || event.getContainerId() == InventoryID.WORN)
 		{
 			updateCarriedRoute();
+		}
+	}
+
+	private void updateSlayerHelmet()
+	{
+		ItemContainer worn = client.getItemContainer(InventoryID.WORN);
+		Item head = worn == null ? null : worn.getItem(EquipmentInventorySlot.HEAD.getSlotIdx());
+		boolean wearing = head != null && head.getId() > 0
+			&& client.getItemDefinition(head.getId()).getName().toLowerCase().contains("slayer helmet");
+		if (wearing != wearingSlayerHelmet)
+		{
+			wearingSlayerHelmet = wearing;
+			menusDirty = true;
 		}
 	}
 
@@ -213,6 +232,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		{
 			return;
 		}
+		updateSlayerHelmet();
 
 		int remaining = client.getVarpValue(VarPlayerID.SLAYER_COUNT);
 		String name = remaining > 0 ? lookupTaskName(client.getVarpValue(VarPlayerID.SLAYER_TARGET)) : null;
@@ -345,6 +365,10 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	 */
 	List<SlayerData.Route> currentRoutes()
 	{
+		if (config.onlyWithSlayerHelmet() && !wearingSlayerHelmet)
+		{
+			return Collections.emptyList();
+		}
 		if (taskName == null)
 		{
 			SlayerData.MasterData master = data.master(config.slayerMaster().name());
