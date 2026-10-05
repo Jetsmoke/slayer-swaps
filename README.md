@@ -21,3 +21,5 @@ Every slayer master, slayer task and boss task, with its locations and teleports
 `src/main/resources/com/slayerswaps/slayer_locations.json` and is built from the
 [OSRS Wiki](https://oldschool.runescape.wiki) by `tools/curate.py` (keeping the best 3 locations per task and 3
 teleports per location); `tools/pdf_report.py` regenerates the PDF.
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed in each update.
