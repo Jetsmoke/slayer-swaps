@@ -1,8 +1,11 @@
 package com.slayerteleportswap;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.gson.Gson;
 import com.google.inject.Provides;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -16,13 +19,14 @@ import net.runelite.api.Menu;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.PostMenuSort;
 import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.DBTableID;
 import net.runelite.api.gameval.InterfaceID;
-import net.runelite.api.gameval.ItemID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
@@ -30,6 +34,7 @@ import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
@@ -39,18 +44,15 @@ import net.runelite.client.util.Text;
 @Slf4j
 @PluginDescriptor(
 	name = "Slayer Teleport Swap",
-	description = "Swaps the left-click of teleport items to the location of your slayer task, or to your slayer master when you have no task",
-	tags = {"slayer", "teleport", "menu", "swap", "ring", "fairy", "mortimer"}
+	description = "Swaps and highlights the teleports to your slayer task's location, or to your slayer master when you have no task",
+	tags = {"slayer", "teleport", "menu", "swap", "ring", "fairy", "cape", "mortimer", "duradel", "highlight"}
 )
 public class SlayerTeleportSwapPlugin extends Plugin
 {
 	// From [proc,helper_slayer_current_assignment], same as the core Slayer plugin
 	private static final int BOSS_TASK_ID = 98;
-
-	private static final Set<Integer> SLAYER_RINGS = ImmutableSet.of(
-		ItemID.SLAYER_RING_1, ItemID.SLAYER_RING_2, ItemID.SLAYER_RING_3, ItemID.SLAYER_RING_4,
-		ItemID.SLAYER_RING_5, ItemID.SLAYER_RING_6, ItemID.SLAYER_RING_7, ItemID.SLAYER_RING_8,
-		ItemID.SLAYER_RING_ETERNAL);
+	// SLAYER_MASTER varbit value for Krystilia, same as the core Slayer plugin
+	private static final int KRYSTILIA = 7;
 
 	private static final Set<MenuAction> OBJECT_MENU_TYPES = ImmutableSet.of(
 		MenuAction.GAME_OBJECT_FIRST_OPTION, MenuAction.GAME_OBJECT_SECOND_OPTION, MenuAction.GAME_OBJECT_THIRD_OPTION,
@@ -74,22 +76,41 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private OverlayManager overlayManager;
 
 	@Inject
-	private FairyRingFavouriteOverlay fairyRingFavouriteOverlay;
+	private MenuHighlightOverlay menuHighlightOverlay;
 
-	// Current task name, or null when there is no task
+	@Inject
+	private TeleportItemOverlay teleportItemOverlay;
+
+	@Inject
+	private MenuHighlighter menuHighlighter;
+
+	@Inject
+	private TeleportItems teleportItems;
+
+	@Inject
+	private Gson gson;
+
+	private SlayerData data;
+
+	// Current task name as the game names it, or null when there is no task
 	private String taskName;
+	private boolean menusDirty;
 
 	@Override
 	protected void startUp()
 	{
-		overlayManager.add(fairyRingFavouriteOverlay);
+		data = SlayerData.load(gson);
+		overlayManager.add(menuHighlightOverlay);
+		overlayManager.add(teleportItemOverlay);
 		clientThread.invokeLater(this::updateTask);
 	}
 
 	@Override
 	protected void shutDown()
 	{
-		overlayManager.remove(fairyRingFavouriteOverlay);
+		overlayManager.remove(menuHighlightOverlay);
+		overlayManager.remove(teleportItemOverlay);
+		menuHighlighter.clear();
 		taskName = null;
 	}
 
@@ -108,9 +129,19 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		int varpId = event.getVarpId();
 		if (varpId == VarPlayerID.SLAYER_COUNT
 			|| varpId == VarPlayerID.SLAYER_TARGET
-			|| event.getVarbitId() == VarbitID.SLAYER_TARGET_BOSSID)
+			|| event.getVarbitId() == VarbitID.SLAYER_TARGET_BOSSID
+			|| event.getVarbitId() == VarbitID.SLAYER_MASTER)
 		{
 			clientThread.invokeLater(this::updateTask);
+		}
+	}
+
+	@Subscribe
+	public void onConfigChanged(ConfigChanged event)
+	{
+		if (event.getGroup().equals(SlayerTeleportSwapConfig.GROUP))
+		{
+			menusDirty = true;
 		}
 	}
 
@@ -130,8 +161,14 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		if (!Objects.equals(name, taskName))
 		{
 			taskName = name;
-			log.debug("Task is now {} ({} left), location {}",
-				taskName, client.getVarpValue(VarPlayerID.SLAYER_COUNT), currentLocation());
+			menusDirty = true;
+			if (name != null && data.findTask(name) == null)
+			{
+				log.debug("Task {} isn't in the location data", name);
+			}
+			log.debug("Task is now {} ({} left), master {}, location {}, routes {}",
+				taskName, client.getVarpValue(VarPlayerID.SLAYER_COUNT), client.getVarbitValue(VarbitID.SLAYER_MASTER),
+				currentLocation(), currentRoutes());
 		}
 	}
 
@@ -165,70 +202,148 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
+	 * @return the locations the current task can be done at with at least one enabled teleport, best first
+	 */
+	private List<String> taskLocations()
+	{
+		SlayerData.TaskData task = data.findTask(taskName);
+		if (task == null)
+		{
+			return Collections.emptyList();
+		}
+
+		boolean krystilia = client.getVarbitValue(VarbitID.SLAYER_MASTER) == KRYSTILIA;
+		List<String> locations = new ArrayList<>();
+		for (String location : task.getLocations())
+		{
+			SlayerData.LocationData info = data.location(location);
+			if (info == null || enabledRoutes(location).isEmpty())
+			{
+				continue;
+			}
+			// Krystilia's tasks only count in the Wilderness
+			if (krystilia ? !info.isWilderness() : info.isWilderness() && !config.wilderness())
+			{
+				continue;
+			}
+			locations.add(location);
+		}
+		return locations;
+	}
+
+	/**
 	 * @return where teleports should take the player right now, or null to leave menus alone
 	 */
-	private Location currentLocation()
+	String currentLocation()
 	{
 		if (taskName == null)
 		{
-			return config.slayerMaster().getLocation();
+			SlayerData.MasterData master = data.master(config.slayerMaster().name());
+			return master != null ? master.getLocation() : null;
 		}
 
-		List<Location> locations = TaskLocations.get(taskName);
+		List<String> locations = taskLocations();
 		if (locations.isEmpty())
 		{
 			return null;
 		}
 
 		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(taskName));
-		for (Location location : locations)
-		{
-			if (location.name().equals(chosen))
-			{
-				return location;
-			}
-		}
-		return locations.get(0);
+		return locations.contains(chosen) ? chosen : locations.get(0);
 	}
 
 	/**
-	 * @return the fairy ring code to highlight in the fairy ring log, or null
+	 * @return the enabled teleports to the current location
 	 */
-	String fairyCodeToHighlight()
+	List<SlayerData.Route> currentRoutes()
 	{
-		if (!config.swapFairyRing() || client.getWidget(InterfaceID.FairyringsLog.FAVES) == null)
+		if (taskName == null)
 		{
-			return null;
+			SlayerData.MasterData master = data.master(config.slayerMaster().name());
+			return master != null ? filterEnabled(master.getRoutes()) : Collections.emptyList();
 		}
 
-		Location location = currentLocation();
-		return location != null ? location.getFairyCode() : null;
+		String location = currentLocation();
+		return location != null ? enabledRoutes(location) : Collections.emptyList();
 	}
 
-	// Development aid: logs the fairy ring favourites so their text format can be checked
-	@Subscribe
-	public void onWidgetLoaded(WidgetLoaded event)
+	private List<SlayerData.Route> enabledRoutes(String location)
 	{
-		if (event.getGroupId() != InterfaceID.FAIRYRINGS_LOG || !log.isDebugEnabled())
-		{
-			return;
-		}
+		return filterEnabled(data.routes(location));
+	}
 
-		clientThread.invokeLater(() ->
+	private List<SlayerData.Route> filterEnabled(List<SlayerData.Route> routes)
+	{
+		List<SlayerData.Route> enabled = new ArrayList<>();
+		for (SlayerData.Route route : routes)
 		{
-			StringBuilder sb = new StringBuilder();
-			for (int id : FairyRingFavouriteOverlay.FAVE_CODES)
+			RouteType type = route.routeType();
+			if (type != null && config.isEnabled(type))
 			{
-				Widget w = client.getWidget(id);
-				sb.append(w == null ? "null" : "'" + w.getText() + "'" + (w.isHidden() ? "(hidden)" : "")).append(' ');
+				enabled.add(route);
 			}
-			log.debug("Fairy ring favourites: {} highlight {}", sb, fairyCodeToHighlight());
-		});
+		}
+		return enabled;
+	}
+
+	/**
+	 * @return true if an item that teleports by these route types reaches the current location
+	 */
+	boolean isUsefulItem(Set<RouteType> itemTypes)
+	{
+		if (itemTypes.isEmpty())
+		{
+			return false;
+		}
+		for (SlayerData.Route route : currentRoutes())
+		{
+			if (itemTypes.contains(route.routeType()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static String locationKey(String task)
 	{
-		return SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX + TaskLocations.normalize(task);
+		return SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX + SlayerData.normalize(task);
+	}
+
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded event)
+	{
+		menusDirty = true;
+		if (log.isDebugEnabled())
+		{
+			int group = event.getGroupId();
+			clientThread.invokeLater(() -> logInterface(group));
+		}
+		clientThread.invokeLater(this::updateMenuHighlights);
+	}
+
+	@Subscribe
+	public void onWidgetClosed(WidgetClosed event)
+	{
+		menusDirty = true;
+	}
+
+	@Subscribe
+	public void onGameTick(GameTick event)
+	{
+		// Teleport dialogs are often built by scripts after the interface loads, so rescan each tick
+		menusDirty = true;
+		updateMenuHighlights();
+	}
+
+	private void updateMenuHighlights()
+	{
+		if (!menusDirty)
+		{
+			return;
+		}
+		menusDirty = false;
+		menuHighlighter.update(config.highlightMenus() ? currentRoutes() : Collections.emptyList());
 	}
 
 	// Runs after the Menu Entry Swapper (priority 0), so our swap wins over a custom swap there
@@ -241,48 +356,81 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			return;
 		}
 
-		Location location = currentLocation();
-		if (location == null)
+		List<SlayerData.Route> routes = currentRoutes();
+		if (routes.isEmpty())
 		{
 			return;
 		}
 
-		if (location.getRingOption() != null && config.swapSlayerRing())
+		if (swapItem(routes))
 		{
-			swapSlayerRing(location.getRingOption());
+			return;
 		}
-		if (location.getFairyCode() != null && config.swapFairyRing())
+		for (SlayerData.Route route : routes)
 		{
-			swapFairyRing(location.getFairyCode());
-		}
-	}
-
-	private void swapSlayerRing(String ringOption)
-	{
-		for (MenuEntry entry : client.getMenu().getMenuEntries())
-		{
-			Menu sub = entry.getSubMenu();
-			if (sub == null || !SLAYER_RINGS.contains(itemIdOf(entry)))
+			if (route.routeType() == RouteType.FAIRY && swapFairyRing(route.getValue()))
 			{
-				continue;
-			}
-
-			for (MenuEntry subEntry : sub.getMenuEntries())
-			{
-				if (Text.removeTags(subEntry.getOption()).equalsIgnoreCase(ringOption))
-				{
-					clone(subEntry);
-					return;
-				}
+				return;
 			}
 		}
 	}
 
 	/**
-	 * Puts the fairy ring option for a code on left-click: a favourite or last-destination option naming
-	 * the code if there is one, otherwise Configure so the code can be picked from the interface.
+	 * Puts a teleport item's option for the current location on left-click.
 	 */
-	private void swapFairyRing(String code)
+	private boolean swapItem(List<SlayerData.Route> routes)
+	{
+		Menu menu = client.getMenu();
+		MenuEntry[] entries = menu.getMenuEntries();
+		for (int i = entries.length - 1; i >= 0; i--)
+		{
+			MenuEntry entry = entries[i];
+			Set<RouteType> itemTypes = teleportItems.routeTypes(itemIdOf(entry));
+			if (itemTypes.isEmpty())
+			{
+				continue;
+			}
+
+			for (SlayerData.Route route : routes)
+			{
+				if (!itemTypes.contains(route.routeType()))
+				{
+					continue;
+				}
+
+				if (optionMatches(entry.getOption(), route.getValue()))
+				{
+					moveToTop(menu, entries, i);
+					return true;
+				}
+
+				Menu sub = entry.getSubMenu();
+				if (sub != null)
+				{
+					for (MenuEntry subEntry : sub.getMenuEntries())
+					{
+						if (optionMatches(subEntry.getOption(), route.getValue()))
+						{
+							clone(subEntry);
+							return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	private static boolean optionMatches(String option, String value)
+	{
+		return Text.removeTags(option).trim().equalsIgnoreCase(value);
+	}
+
+	/**
+	 * Puts the fairy ring option for a code on left-click: a favourite or last-destination option naming
+	 * the code if there is one, otherwise Configure so the code can be picked from the fairy ring log.
+	 */
+	private boolean swapFairyRing(String code)
 	{
 		Pattern codePattern = Pattern.compile("\\b" + code + "\\b");
 		Menu menu = client.getMenu();
@@ -301,7 +449,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			if (codePattern.matcher(option).find())
 			{
 				moveToTop(menu, entries, i);
-				return;
+				return true;
 			}
 
 			Menu sub = entry.getSubMenu();
@@ -312,7 +460,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 					if (codePattern.matcher(Text.removeTags(subEntry.getOption())).find())
 					{
 						clone(subEntry);
-						return;
+						return true;
 					}
 				}
 			}
@@ -326,7 +474,9 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		if (configureIdx != -1)
 		{
 			moveToTop(menu, entries, configureIdx);
+			return true;
 		}
+		return false;
 	}
 
 	private static boolean isFairyRing(MenuEntry entry)
@@ -344,6 +494,11 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		}
 
 		MenuEntry entry = entries[index];
+		// Item op4 and op5 are low priority, which makes them right-click only
+		if (entry.getType() == MenuAction.CC_OP_LOW_PRIORITY)
+		{
+			entry.setType(MenuAction.CC_OP);
+		}
 		entries[index] = entries[top];
 		entries[top] = entry;
 		menu.setMenuEntries(entries);
@@ -402,8 +557,8 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
-	 * Adds a client-side "Slayer location" submenu under the slayer ring's options, for picking where the
-	 * current task is done. Nothing is sent to the server; choosing just stores the choice in config.
+	 * Adds a client-side "Slayer location" submenu under a teleport item's or fairy ring's options, for picking
+	 * where the current task is done. Nothing is sent to the server; choosing just stores the choice in config.
 	 */
 	private void addLocationPicker(MenuEntry[] entries)
 	{
@@ -412,45 +567,43 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			return;
 		}
 
-		List<Location> locations = TaskLocations.get(taskName);
+		List<String> locations = taskLocations();
 		if (locations.size() < 2)
 		{
 			return;
 		}
 
-		int ringIdx = -1;
+		int anchor = -1;
 		for (int i = 0; i < entries.length; i++)
 		{
-			if (SLAYER_RINGS.contains(itemIdOf(entries[i])))
+			if (!teleportItems.routeTypes(itemIdOf(entries[i])).isEmpty() || isFairyRing(entries[i]))
 			{
-				ringIdx = i;
+				anchor = i;
 				break;
 			}
 		}
-		if (ringIdx == -1)
+		if (anchor == -1)
 		{
 			return;
 		}
 
 		String task = taskName;
-		Location current = currentLocation();
-		MenuEntry picker = client.getMenu().createMenuEntry(ringIdx)
+		String current = currentLocation();
+		MenuEntry picker = client.getMenu().createMenuEntry(anchor)
 			.setOption("Slayer location")
 			.setTarget(ColorUtil.wrapWithColorTag(task, Color.ORANGE))
 			.setType(MenuAction.RUNELITE);
 		Menu sub = picker.createSubMenu();
-		for (Location location : locations)
+		for (int i = locations.size() - 1; i >= 0; i--)
 		{
-			String label = location == current
-				? ColorUtil.wrapWithColorTag(location.getName(), Color.GREEN)
-				: location.getName();
+			String location = locations.get(i);
 			sub.createMenuEntry(0)
-				.setOption(label)
+				.setOption(location.equals(current) ? ColorUtil.wrapWithColorTag(location, Color.GREEN) : location)
 				.setType(MenuAction.RUNELITE)
 				.onClick(e ->
 				{
-					configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task), location.name());
-					log.debug("Location for {} set to {}", task, location);
+					configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task), location);
+					log.debug("Location for {} set to {}, routes {}", task, location, currentRoutes());
 				});
 		}
 	}
@@ -479,6 +632,46 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		log.debug("{}option='{}' target='{}' type={} id={} itemId={} widgetItemId={} p0={} p1={}",
 			prefix, Text.removeTags(e.getOption()), Text.removeTags(e.getTarget()), e.getType(),
 			e.getIdentifier(), e.getItemId(), itemIdOf(e), e.getParam0(), e.getParam1());
+	}
+
+	// Development aid: logs the text of newly opened interfaces, to find how teleport menus label destinations
+	private void logInterface(int group)
+	{
+		List<String> texts = new ArrayList<>();
+		Widget[] roots = client.getWidgetRoots();
+		if (roots != null)
+		{
+			for (Widget root : roots)
+			{
+				collectTexts(root, group, texts);
+			}
+		}
+		if (!texts.isEmpty())
+		{
+			log.debug("Interface {} opened: {}", group, texts.size() > 60 ? texts.subList(0, 60) : texts);
+		}
+	}
+
+	private static void collectTexts(Widget w, int group, List<String> out)
+	{
+		if (w == null || w.isHidden())
+		{
+			return;
+		}
+		if (WidgetUtil.componentToInterface(w.getId()) == group && w.getText() != null && !w.getText().isEmpty())
+		{
+			out.add(Text.removeTags(w.getText()));
+		}
+		for (Widget[] children : new Widget[][]{w.getStaticChildren(), w.getDynamicChildren(), w.getNestedChildren()})
+		{
+			if (children != null)
+			{
+				for (Widget child : children)
+				{
+					collectTexts(child, group, out);
+				}
+			}
+		}
 	}
 
 	@Provides

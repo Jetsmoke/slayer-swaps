@@ -3,17 +3,25 @@ package com.slayerteleportswap;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Slayer masters to return to when there's no task. Keys match the masters in slayer_locations.json.
+ */
 @Getter
 @RequiredArgsConstructor
 public enum SlayerMaster
 {
-	MORTIMER("Mortimer", Location.WYRMSCRAIG),
-	NIEVE("Nieve / Steve", Location.STRONGHOLD),
-	NONE("None", null);
+	MORTIMER("Mortimer"),
+	DURADEL("Duradel / Kuradal"),
+	NIEVE("Nieve / Steve"),
+	KONAR("Konar quo Maten"),
+	CHAELDAR("Chaeldar"),
+	VANNAKA("Vannaka"),
+	MAZCHNA("Mazchna"),
+	TURAEL("Turael / Spria"),
+	KRYSTILIA("Krystilia"),
+	NONE("None");
 
 	private final String name;
-	// Where to teleport to reach this master, or null to not swap when there's no task
-	private final Location location;
 
 	@Override
 	public String toString()

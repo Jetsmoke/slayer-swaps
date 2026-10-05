@@ -1,0 +1,143 @@
+package com.slayerteleportswap;
+
+import com.google.gson.Gson;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import lombok.Data;
+
+/**
+ * Slayer tasks, the locations they're done at and the teleports that reach each location.
+ * Loaded from slayer_locations.json, which is built from the OSRS wiki (see README).
+ */
+@Data
+class SlayerData
+{
+	private Map<String, LocationData> locations;
+	private List<TaskData> tasks;
+	private List<MasterData> masters;
+
+	private transient Map<String, TaskData> taskIndex;
+
+	@Data
+	static class Route
+	{
+		private String type;
+		private String value;
+
+		RouteType routeType()
+		{
+			return RouteType.forKey(type);
+		}
+	}
+
+	@Data
+	static class LocationData
+	{
+		private List<Route> routes;
+		private boolean wilderness;
+	}
+
+	@Data
+	static class TaskData
+	{
+		private String name;
+		private List<String> aliases;
+		private List<String> masters;
+		private boolean boss;
+		private List<String> locations;
+	}
+
+	@Data
+	static class MasterData
+	{
+		private String key;
+		private String name;
+		private String location;
+		private List<Route> routes;
+		private String note;
+	}
+
+	static SlayerData load(Gson gson)
+	{
+		try (InputStream in = SlayerData.class.getResourceAsStream("slayer_locations.json");
+			Reader reader = new InputStreamReader(in, StandardCharsets.UTF_8))
+		{
+			SlayerData data = gson.fromJson(reader, SlayerData.class);
+			data.buildIndex();
+			return data;
+		}
+		catch (IOException | NullPointerException e)
+		{
+			throw new IllegalStateException("Unable to load slayer_locations.json", e);
+		}
+	}
+
+	private void buildIndex()
+	{
+		taskIndex = new HashMap<>();
+		for (TaskData task : tasks)
+		{
+			for (String alias : task.getAliases())
+			{
+				taskIndex.putIfAbsent(normalize(alias), task);
+			}
+		}
+	}
+
+	TaskData findTask(String name)
+	{
+		return name == null ? null : taskIndex.get(normalize(name));
+	}
+
+	LocationData location(String name)
+	{
+		return locations.get(name);
+	}
+
+	List<Route> routes(String location)
+	{
+		LocationData data = locations.get(location);
+		return data == null || data.getRoutes() == null ? Collections.emptyList() : data.getRoutes();
+	}
+
+	MasterData master(String key)
+	{
+		for (MasterData master : masters)
+		{
+			if (master.getKey().equals(key))
+			{
+				return master;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Reduces a task name to a comparable key, so "Abyssal demons", "abyssal demon" and "ABYSSAL DEMONS" all
+	 * match, as do "Jellies"/"Jelly" and "Werewolves"/"Werewolf".
+	 */
+	static String normalize(String name)
+	{
+		String s = name.toLowerCase().replaceAll("[^a-z]", "");
+		if (s.endsWith("ves"))
+		{
+			return s.substring(0, s.length() - 3) + "f";
+		}
+		if (s.endsWith("ies"))
+		{
+			return s.substring(0, s.length() - 3) + "y";
+		}
+		if (s.endsWith("s") && !s.endsWith("ss"))
+		{
+			return s.substring(0, s.length() - 1);
+		}
+		return s;
+	}
+}
