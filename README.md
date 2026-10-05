@@ -7,11 +7,12 @@ Makes getting to your slayer task a matter of clicking what's highlighted:
   no task.
 - **Highlights** the teleport item to use in your inventory/equipment, and the destination to pick in teleport menus
   (fairy ring log, max cape and construction cape teleports, boat teleports, item dialogs).
-- **Location picker**: when a task can be done in several places, right-click a teleport item or fairy ring and choose
-  *Slayer location*. The choice is remembered per task.
+- **Slayer Teleports panel** in the sidebar: for every task, switch it on or off and choose the location and teleport.
+  It opens by itself the first time you get a task that can be done in more than one place.
 - **Wilderness** locations and teleports are behind their own setting, and are used automatically for Krystilia tasks.
 
-Every slayer task and boss task, with its locations and teleports, is listed in
-[SLAYER_TELEPORTS.md](SLAYER_TELEPORTS.md). The data lives in
+Every slayer master, slayer task and boss task, with its locations and teleports, is listed in
+[Slayer_Teleports.pdf](Slayer_Teleports.pdf). The data lives in
 `src/main/resources/com/slayerteleportswap/slayer_locations.json` and is built from the
-[OSRS Wiki](https://oldschool.runescape.wiki) by `tools/curate.py`; `tools/report.py` regenerates the listing.
+[OSRS Wiki](https://oldschool.runescape.wiki) by `tools/curate.py` (keeping the best 3 locations per task and 3
+teleports per location); `tools/pdf_report.py` regenerates the PDF.

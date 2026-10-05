@@ -203,8 +203,7 @@ MASTERS = [
     {'key': 'MORTIMER', 'name': 'Mortimer', 'location': 'Wyrmscraig Cavern', 'routes': [ring('Wyrmscraig Cavern'), boat('Wyrmscraig')]},
 ]
 
-# Locations for tasks where the wiki table has none, or where one location is clearly the standard spot
-# that should be the default. Applied before automatic ordering.
+# Which location is the default for a task when it's the standard spot. Applied before automatic ordering.
 PREFERRED_FIRST = {
     'Abyssal demons': 'Slayer Tower',
     'Aberrant spectres': 'Stronghold Slayer Cave',
@@ -226,6 +225,7 @@ PREFERRED_FIRST = {
     'Red dragons': 'Brimhaven Dungeon',
 }
 
+# Locations always kept for a task, beyond the best few (the wiki table misses them, or they're a common choice)
 EXTRA_LOCATIONS = {
     'Abyssal demons': ['Abyssal Nexus'],  # Abyssal Sire counts for an abyssal demon task
     'Smoke devils': [],
@@ -234,6 +234,10 @@ EXTRA_LOCATIONS = {
 }
 
 BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytania': 'Barrows'}
+
+# How many locations per task, and teleports per location, to keep (best first). Raise to show more.
+MAX_LOCATIONS = 3
+MAX_ROUTES = 3
 
 RANK = {'item': 2, 'spell': 2, 'network': 3, 'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
         'maxcape': 2, 'boat': 3}
@@ -253,8 +257,16 @@ def routes(loc):
         for r in routes_for(loc) if loc else []:
             if r not in merged:
                 merged.append(r)
-        _auto[loc] = merged
+        # Best teleport types first; the hand-curated routes stay ahead of wiki-derived ones of the same rank
+        merged.sort(key=route_rank)
+        _auto[loc] = merged[:MAX_ROUTES]
     return _auto[loc]
+
+
+def route_rank(r):
+    if r['type'] == 'item' and not r.get('value'):
+        return 5
+    return RANK[r['type']]
 
 
 def location_rank(loc):
@@ -273,6 +285,12 @@ def build():
         locs = list(dict.fromkeys(l for l in locs if l))
         pref = PREFERRED_FIRST.get(name)
         locs.sort(key=lambda l: (0 if l == pref else 1, l in WILDERNESS, location_rank(l)))
+        routed = [l for l in locs if routes(l)]
+        if routed:
+            # Keep the best few normal and Wilderness locations; drop places no supported teleport reaches
+            pinned = [canon(l) for l in EXTRA_LOCATIONS.get(name, []) if routes(l)]
+            normal = [l for l in routed if l not in WILDERNESS and l not in pinned][:MAX_LOCATIONS]
+            locs = normal + pinned + [l for l in routed if l in WILDERNESS][:MAX_LOCATIONS]
         aliases = list(dict.fromkeys([name, t['page'].split('/')[-1]] + [m for m in t['monsters'] if m not in LOCATIONS]))
         out_tasks.append({'name': name, 'aliases': aliases, 'masters': t['masters'], 'boss': False,
                           'locations': locs})
@@ -308,7 +326,9 @@ def build():
         for r in routes(m['location']):
             if r not in merged:
                 merged.append(r)
-        m['routes'] = merged
+        merged.sort(key=route_rank)
+        m['routes'] = merged[:MAX_ROUTES]
+        merged = m['routes']
         locations[m['location']] = {'routes': merged, 'wilderness': False}
 
     items = {k: {'label': v[0], 'names': v[1], 'options': v[2]} for k, v in catalog.ITEMS.items()}
