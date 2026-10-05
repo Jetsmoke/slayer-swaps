@@ -166,37 +166,4 @@ public interface SlayerSwapsConfig extends Config
 	{
 		return Color.GREEN;
 	}
-
-	default boolean isEnabled(RouteType type)
-	{
-		switch (type)
-		{
-			case RING:
-				return useRing();
-			case FAIRY:
-				return useFairy();
-			case PORTAL:
-				return usePortal();
-			case MAXCAPE:
-				return useMaxcape();
-			case KARAMJA_GLOVES:
-				return useKaramjaGloves();
-			case BURNING_AMULET:
-				return useBurningAmulet();
-			case RING_OF_DUELING:
-				return useRingOfDueling();
-			case AMULET_OF_GLORY:
-				return useGlory();
-			case BOAT:
-				return useBoat();
-			case ITEM:
-				return useItems();
-			case SPELL:
-				return useSpells();
-			case NETWORK:
-				return useNetworks();
-			default:
-				return false;
-		}
-	}
 }

@@ -153,7 +153,11 @@ public class SlayerSwapsPlugin extends Plugin
 	{
 		overlayManager.remove(menuHighlightOverlay);
 		overlayManager.remove(teleportItemOverlay);
-		clientToolbar.removeNavigation(navButton);
+		if (navButton != null)
+		{
+			clientToolbar.removeNavigation(navButton);
+			navButton = null;
+		}
 		menuHighlighter.clear();
 		taskName = null;
 		carriedRoute = null;
@@ -491,7 +495,7 @@ public class SlayerSwapsPlugin extends Plugin
 		for (SlayerData.Route route : routes)
 		{
 			RouteType type = route.routeType();
-			if (type != null && config.isEnabled(type))
+			if (type != null && isEnabled(config, type))
 			{
 				enabled.add(route);
 			}
@@ -967,6 +971,40 @@ public class SlayerSwapsPlugin extends Plugin
 			{
 				configManager.setConfiguration(SlayerSwapsConfig.GROUP, key, true);
 			}
+		}
+	}
+
+	// Not a config method: RuneLite config interfaces only support @ConfigItem methods without arguments
+	private static boolean isEnabled(SlayerSwapsConfig config, RouteType type)
+	{
+		switch (type)
+		{
+			case RING:
+				return config.useRing();
+			case FAIRY:
+				return config.useFairy();
+			case PORTAL:
+				return config.usePortal();
+			case MAXCAPE:
+				return config.useMaxcape();
+			case KARAMJA_GLOVES:
+				return config.useKaramjaGloves();
+			case BURNING_AMULET:
+				return config.useBurningAmulet();
+			case RING_OF_DUELING:
+				return config.useRingOfDueling();
+			case AMULET_OF_GLORY:
+				return config.useGlory();
+			case BOAT:
+				return config.useBoat();
+			case ITEM:
+				return config.useItems();
+			case SPELL:
+				return config.useSpells();
+			case NETWORK:
+				return config.useNetworks();
+			default:
+				return false;
 		}
 	}
 
