@@ -8,6 +8,8 @@ import net.runelite.client.config.ConfigItem;
 public interface SlayerTeleportSwapConfig extends Config
 {
 	String GROUP = "slayerteleportswap";
+	// Per-task chosen location is stored under this prefix + the normalized task name
+	String LOCATION_KEY_PREFIX = "location_";
 
 	@ConfigItem(
 		keyName = "slayerMaster",
@@ -32,13 +34,24 @@ public interface SlayerTeleportSwapConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "taskOverrides",
-		name = "Task overrides",
-		description = "One per line, as 'Task = Destination'. Destination is matched against the teleport option text; use 'none' to never swap for that task. Example: Abyssal demons = Stronghold Slayer Cave",
+		keyName = "swapFairyRing",
+		name = "Fairy rings",
+		description = "When your task's location uses a fairy ring, swap the fairy ring's left-click to the last destination if it matches, otherwise to Configure",
 		position = 2
 	)
-	default String taskOverrides()
+	default boolean swapFairyRing()
 	{
-		return "";
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "locationPicker",
+		name = "Location picker",
+		description = "Add a 'Slayer location' option to the slayer ring's right-click menu when your task can be done in more than one place",
+		position = 3
+	)
+	default boolean locationPicker()
+	{
+		return true;
 	}
 }

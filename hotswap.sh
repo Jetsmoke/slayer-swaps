@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Dev only: recompile and push changed method bodies into a running client started with
-#   JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 ./gradlew run
+#   ./dev-run.sh
 # Structural changes (new methods/fields) still need a relaunch.
 set -e
 cd "${0:a:h}"

@@ -2,9 +2,11 @@ package com.slayerteleportswap;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Provides;
+import java.awt.Color;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Pattern;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -27,16 +29,16 @@ import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
-import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
 	name = "Slayer Teleport Swap",
 	description = "Swaps the left-click of teleport items to the location of your slayer task, or to your slayer master when you have no task",
-	tags = {"slayer", "teleport", "menu", "swap", "ring", "mortimer"}
+	tags = {"slayer", "teleport", "menu", "swap", "ring", "fairy", "mortimer"}
 )
 public class SlayerTeleportSwapPlugin extends Plugin
 {
@@ -48,6 +50,12 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		ItemID.SLAYER_RING_5, ItemID.SLAYER_RING_6, ItemID.SLAYER_RING_7, ItemID.SLAYER_RING_8,
 		ItemID.SLAYER_RING_ETERNAL);
 
+	private static final Set<MenuAction> OBJECT_MENU_TYPES = ImmutableSet.of(
+		MenuAction.GAME_OBJECT_FIRST_OPTION, MenuAction.GAME_OBJECT_SECOND_OPTION, MenuAction.GAME_OBJECT_THIRD_OPTION,
+		MenuAction.GAME_OBJECT_FOURTH_OPTION, MenuAction.GAME_OBJECT_FIFTH_OPTION);
+
+	private static final String FAIRY_RING_CONFIGURE = "ring-configure";
+
 	@Inject
 	private Client client;
 
@@ -55,9 +63,10 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private ClientThread clientThread;
 
 	@Inject
-	private SlayerTeleportSwapConfig config;
+	private ConfigManager configManager;
 
-	private final TaskDestinations taskDestinations = new TaskDestinations();
+	@Inject
+	private SlayerTeleportSwapConfig config;
 
 	// Current task name, or null when there is no task
 	private String taskName;
@@ -65,7 +74,6 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	@Override
 	protected void startUp()
 	{
-		taskDestinations.setOverrides(config.taskOverrides());
 		clientThread.invokeLater(this::updateTask);
 	}
 
@@ -73,16 +81,6 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	protected void shutDown()
 	{
 		taskName = null;
-	}
-
-	@Subscribe
-	public void onConfigChanged(ConfigChanged event)
-	{
-		if (event.getGroup().equals(SlayerTeleportSwapConfig.GROUP))
-		{
-			taskDestinations.setOverrides(config.taskOverrides());
-			log.debug("Config changed, destination is now {}", ringDestination());
-		}
 	}
 
 	@Subscribe
@@ -122,9 +120,8 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		if (!Objects.equals(name, taskName))
 		{
 			taskName = name;
-			log.debug("Task is now {} ({} left), master {}, ring destination {}",
-				taskName, client.getVarpValue(VarPlayerID.SLAYER_COUNT),
-				client.getVarbitValue(VarbitID.SLAYER_MASTER), ringDestination());
+			log.debug("Task is now {} ({} left), location {}",
+				taskName, client.getVarpValue(VarPlayerID.SLAYER_COUNT), currentLocation());
 		}
 	}
 
@@ -158,15 +155,35 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
-	 * @return the slayer ring option to put on left-click, or null to leave the menu alone
+	 * @return where teleports should take the player right now, or null to leave menus alone
 	 */
-	private String ringDestination()
+	private Location currentLocation()
 	{
-		if (taskName != null)
+		if (taskName == null)
 		{
-			return taskDestinations.get(taskName);
+			return config.slayerMaster().getLocation();
 		}
-		return config.slayerMaster().getRingDestination();
+
+		List<Location> locations = TaskLocations.get(taskName);
+		if (locations.isEmpty())
+		{
+			return null;
+		}
+
+		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(taskName));
+		for (Location location : locations)
+		{
+			if (location.name().equals(chosen))
+			{
+				return location;
+			}
+		}
+		return locations.get(0);
+	}
+
+	private static String locationKey(String task)
+	{
+		return SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX + TaskLocations.normalize(task);
 	}
 
 	// Runs after the Menu Entry Swapper (priority 0), so our swap wins over a custom swap there
@@ -174,17 +191,29 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	public void onPostMenuSort(PostMenuSort event)
 	{
 		// The menu isn't rebuilt while it's open, so swapping now would swap repeatedly
-		if (client.isMenuOpen() || client.isKeyPressed(KeyCode.KC_SHIFT) || !config.swapSlayerRing())
+		if (client.isMenuOpen() || client.isKeyPressed(KeyCode.KC_SHIFT))
 		{
 			return;
 		}
 
-		String destination = ringDestination();
-		if (destination == null)
+		Location location = currentLocation();
+		if (location == null)
 		{
 			return;
 		}
 
+		if (location.getRingOption() != null && config.swapSlayerRing())
+		{
+			swapSlayerRing(location.getRingOption());
+		}
+		if (location.getFairyCode() != null && config.swapFairyRing())
+		{
+			swapFairyRing(location.getFairyCode());
+		}
+	}
+
+	private void swapSlayerRing(String ringOption)
+	{
 		for (MenuEntry entry : client.getMenu().getMenuEntries())
 		{
 			Menu sub = entry.getSubMenu();
@@ -195,13 +224,84 @@ public class SlayerTeleportSwapPlugin extends Plugin
 
 			for (MenuEntry subEntry : sub.getMenuEntries())
 			{
-				if (Text.removeTags(subEntry.getOption()).toLowerCase().contains(destination.toLowerCase()))
+				if (Text.removeTags(subEntry.getOption()).equalsIgnoreCase(ringOption))
 				{
 					clone(subEntry);
 					return;
 				}
 			}
 		}
+	}
+
+	/**
+	 * Puts the fairy ring option for a code on left-click: a favourite or last-destination option naming
+	 * the code if there is one, otherwise Configure so the code can be picked from the interface.
+	 */
+	private void swapFairyRing(String code)
+	{
+		Pattern codePattern = Pattern.compile("\\b" + code + "\\b");
+		Menu menu = client.getMenu();
+		MenuEntry[] entries = menu.getMenuEntries();
+		int configureIdx = -1;
+
+		for (int i = entries.length - 1; i >= 0; i--)
+		{
+			MenuEntry entry = entries[i];
+			if (!isFairyRing(entry))
+			{
+				continue;
+			}
+
+			String option = Text.removeTags(entry.getOption());
+			if (codePattern.matcher(option).find())
+			{
+				moveToTop(menu, entries, i);
+				return;
+			}
+
+			Menu sub = entry.getSubMenu();
+			if (sub != null)
+			{
+				for (MenuEntry subEntry : sub.getMenuEntries())
+				{
+					if (codePattern.matcher(Text.removeTags(subEntry.getOption())).find())
+					{
+						clone(subEntry);
+						return;
+					}
+				}
+			}
+
+			if (configureIdx == -1 && option.equalsIgnoreCase(FAIRY_RING_CONFIGURE))
+			{
+				configureIdx = i;
+			}
+		}
+
+		if (configureIdx != -1)
+		{
+			moveToTop(menu, entries, configureIdx);
+		}
+	}
+
+	private static boolean isFairyRing(MenuEntry entry)
+	{
+		return OBJECT_MENU_TYPES.contains(entry.getType())
+			&& Text.removeTags(entry.getTarget()).toLowerCase().contains("fairy");
+	}
+
+	private static void moveToTop(Menu menu, MenuEntry[] entries, int index)
+	{
+		int top = entries.length - 1;
+		if (index == top)
+		{
+			return;
+		}
+
+		MenuEntry entry = entries[index];
+		entries[index] = entries[top];
+		entries[top] = entry;
+		menu.setMenuEntries(entries);
 	}
 
 	/**
@@ -242,18 +342,80 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			.onClick(menuEntry.onClick());
 	}
 
-	// Development aid: logs every right-click menu so option names can be read from the log
-	// instead of guessed. Debug level, so it's silent in normal clients.
 	@Subscribe
 	public void onMenuOpened(MenuOpened event)
 	{
-		if (!log.isDebugEnabled())
+		if (config.locationPicker())
+		{
+			addLocationPicker(event.getMenuEntries());
+		}
+
+		if (log.isDebugEnabled())
+		{
+			logMenu(event.getMenuEntries());
+		}
+	}
+
+	/**
+	 * Adds a client-side "Slayer location" submenu under the slayer ring's options, for picking where the
+	 * current task is done. Nothing is sent to the server; choosing just stores the choice in config.
+	 */
+	private void addLocationPicker(MenuEntry[] entries)
+	{
+		if (taskName == null)
 		{
 			return;
 		}
 
-		log.debug("Menu opened (task {}, destination {}):", taskName, ringDestination());
-		for (MenuEntry entry : event.getMenuEntries())
+		List<Location> locations = TaskLocations.get(taskName);
+		if (locations.size() < 2)
+		{
+			return;
+		}
+
+		int ringIdx = -1;
+		for (int i = 0; i < entries.length; i++)
+		{
+			if (SLAYER_RINGS.contains(itemIdOf(entries[i])))
+			{
+				ringIdx = i;
+				break;
+			}
+		}
+		if (ringIdx == -1)
+		{
+			return;
+		}
+
+		String task = taskName;
+		Location current = currentLocation();
+		MenuEntry picker = client.getMenu().createMenuEntry(ringIdx)
+			.setOption("Slayer location")
+			.setTarget(ColorUtil.wrapWithColorTag(task, Color.ORANGE))
+			.setType(MenuAction.RUNELITE);
+		Menu sub = picker.createSubMenu();
+		for (Location location : locations)
+		{
+			String label = location == current
+				? ColorUtil.wrapWithColorTag(location.getName(), Color.GREEN)
+				: location.getName();
+			sub.createMenuEntry(0)
+				.setOption(label)
+				.setType(MenuAction.RUNELITE)
+				.onClick(e ->
+				{
+					configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task), location.name());
+					log.debug("Location for {} set to {}", task, location);
+				});
+		}
+	}
+
+	// Development aid: logs every right-click menu so option names can be read from the log
+	// instead of guessed. Debug level, so it's silent in normal clients.
+	private void logMenu(MenuEntry[] entries)
+	{
+		log.debug("Menu opened (task {}, location {}):", taskName, currentLocation());
+		for (MenuEntry entry : entries)
 		{
 			logEntry("  ", entry);
 			Menu sub = entry.getSubMenu();

@@ -7,13 +7,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum SlayerMaster
 {
-	MORTIMER("Mortimer", "Wyrmscraig Cavern"),
-	NIEVE("Nieve / Steve", "Stronghold Slayer Cave"),
+	MORTIMER("Mortimer", Location.WYRMSCRAIG),
+	NIEVE("Nieve / Steve", Location.STRONGHOLD),
 	NONE("None", null);
 
 	private final String name;
-	// Slayer ring destination closest to this master, or null if the ring can't reach them
-	private final String ringDestination;
+	// Where to teleport to reach this master, or null to not swap when there's no task
+	private final Location location;
 
 	@Override
 	public String toString()
