@@ -348,11 +348,6 @@
     {
      "type": "spell",
      "value": "Falador Teleport"
-    },
-    {
-     "type": "item",
-     "item": "skills_necklace",
-     "value": "Crafting Guild"
     }
    ],
    "wilderness": false
@@ -411,11 +406,6 @@
     {
      "type": "fairy",
      "value": "DIS"
-    },
-    {
-     "type": "network",
-     "item": "minigame",
-     "value": "Rat Pits"
     }
    ],
    "wilderness": false
@@ -427,9 +417,9 @@
      "value": "Varrock Teleport"
     },
     {
-     "type": "network",
-     "item": "canoe",
-     "value": "Barbarian Village"
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Grand Exchange"
     }
    ],
    "wilderness": false
@@ -650,15 +640,6 @@
      "type": "item",
      "item": "digsite_pendant",
      "value": "Fossil Island"
-    },
-    {
-     "type": "spell",
-     "value": "Varrock Teleport"
-    },
-    {
-     "type": "item",
-     "item": "digsite_pendant",
-     "value": "Digsite"
     }
    ],
    "wilderness": false
@@ -770,13 +751,13 @@
      "value": "ALP"
     },
     {
-     "type": "portal",
-     "value": "Rellekka"
-    },
-    {
      "type": "item",
      "item": "games_necklace",
      "value": "Barbarian Outpost"
+    },
+    {
+     "type": "portal",
+     "value": "Rellekka"
     }
    ],
    "wilderness": false
@@ -808,6 +789,16 @@
    "routes": [
     {
      "type": "portal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
      "value": "Prifddinas"
     }
    ],
@@ -886,10 +877,6 @@
     {
      "type": "fairy",
      "value": "CKR"
-    },
-    {
-     "type": "spell",
-     "value": "Ardougne Teleport"
     }
    ],
    "wilderness": false
@@ -897,12 +884,13 @@
   "Karuulm Slayer Dungeon": {
    "routes": [
     {
-     "type": "fairy",
-     "value": "CIR"
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
     },
     {
-     "type": "maxcape",
-     "value": "Farming Guild"
+     "type": "fairy",
+     "value": "CIR"
     },
     {
      "type": "item",
@@ -921,11 +909,6 @@
     {
      "type": "fairy",
      "value": "DLQ"
-    },
-    {
-     "type": "item",
-     "item": "desert_amulet",
-     "value": null
     }
    ],
    "wilderness": false
@@ -947,20 +930,21 @@
    ],
    "wilderness": false
   },
-  "Falador": {
+  "Ice Mountain": {
    "routes": [
     {
-     "type": "portal",
-     "value": "Taverley"
-    },
-    {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Lassar Teleport"
     },
     {
      "type": "item",
-     "item": "ring_of_wealth",
-     "value": "Falador"
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "item",
+     "item": "skull_sceptre",
+     "value": "Invoke"
     }
    ],
    "wilderness": false
@@ -977,9 +961,9 @@
      "value": "Prifddinas"
     },
     {
-     "type": "item",
-     "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Prifddinas"
     }
    ],
    "wilderness": false
@@ -988,6 +972,16 @@
    "routes": [
     {
      "type": "portal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
      "value": "Prifddinas"
     }
    ],
@@ -1092,11 +1086,6 @@
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Farm Teleport"
-    },
-    {
-     "type": "item",
-     "item": "fishing_cape",
-     "value": null
     }
    ],
    "wilderness": false
@@ -1110,11 +1099,6 @@
     {
      "type": "maxcape",
      "value": "Wilderness Hunter area"
-    },
-    {
-     "type": "item",
-     "item": "combat_bracelet",
-     "value": "Monastery"
     }
    ],
    "wilderness": true
@@ -1154,26 +1138,25 @@
    ],
    "wilderness": false
   },
-  "Tai Bwo Wannai": {
-   "routes": [
-    {
-     "type": "fairy",
-     "value": "CKR"
-    }
-   ],
-   "wilderness": false
-  },
   "Karamja": {
    "routes": [
     {
-     "type": "network",
-     "item": "gnome_glider",
-     "value": "Ta Quir Priw"
+     "type": "amulet_of_glory",
+     "value": "Karamja"
     },
     {
      "type": "network",
      "item": "gnome_glider",
      "value": "Gandius"
+    }
+   ],
+   "wilderness": false
+  },
+  "Tai Bwo Wannai": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "CKR"
     }
    ],
    "wilderness": false
@@ -1215,11 +1198,6 @@
     {
      "type": "portal",
      "value": "Rimmington"
-    },
-    {
-     "type": "network",
-     "item": "minigame",
-     "value": "Rat Pits"
     }
    ],
    "wilderness": false
@@ -1233,25 +1211,6 @@
     {
      "type": "spell",
      "value": "Ardougne Teleport"
-    }
-   ],
-   "wilderness": false
-  },
-  "Ice Mountain": {
-   "routes": [
-    {
-     "type": "spell",
-     "value": "Lassar Teleport"
-    },
-    {
-     "type": "item",
-     "item": "combat_bracelet",
-     "value": "Monastery"
-    },
-    {
-     "type": "item",
-     "item": "skull_sceptre",
-     "value": "Invoke"
     }
    ],
    "wilderness": false
@@ -1281,11 +1240,6 @@
      "type": "item",
      "item": "games_necklace",
      "value": "Wintertodt Camp"
-    },
-    {
-     "type": "item",
-     "item": "games_necklace",
-     "value": null
     }
    ],
    "wilderness": false
@@ -1308,7 +1262,7 @@
     {
      "type": "network",
      "item": "gnome_glider",
-     "value": "Ta Quir Priw"
+     "value": "Sindarpos"
     }
    ],
    "wilderness": false
@@ -1397,11 +1351,6 @@
     {
      "type": "spell",
      "value": "Annakarl Teleport"
-    },
-    {
-     "type": "network",
-     "item": "canoe",
-     "value": "Ferox Enclave"
     }
    ],
    "wilderness": true
@@ -1409,18 +1358,17 @@
   "Wizards' Tower": {
    "routes": [
     {
-     "type": "fairy",
-     "value": "DIS"
-    },
-    {
      "type": "item",
      "item": "necklace_of_passage",
      "value": "Wizards' Tower"
     },
     {
-     "type": "item",
-     "item": "diary_cape",
-     "value": null
+     "type": "fairy",
+     "value": "DIS"
+    },
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
     }
    ],
    "wilderness": false
@@ -1579,26 +1527,6 @@
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Monastery Teleport"
-    }
-   ],
-   "wilderness": false
-  },
-  "Crash Site Cavern": {
-   "routes": [
-    {
-     "type": "item",
-     "item": "royal_seed_pod",
-     "value": "Commune"
-    },
-    {
-     "type": "network",
-     "item": "spirit_tree",
-     "value": "Gnome Stronghold"
-    },
-    {
-     "type": "network",
-     "item": "gnome_glider",
-     "value": "Ta Quir Priw"
     }
    ],
    "wilderness": false
@@ -1972,9 +1900,8 @@
      "value": "Mor Ul Rek"
     },
     {
-     "type": "item",
-     "item": "diary_cape",
-     "value": null
+     "type": "amulet_of_glory",
+     "value": "Karamja"
     }
    ],
    "wilderness": false
@@ -2004,11 +1931,6 @@
      "type": "item",
      "item": "drakans_medallion",
      "value": "Castle Drakan"
-    },
-    {
-     "type": "item",
-     "item": "drakans_medallion",
-     "value": null
     }
    ],
    "wilderness": false
@@ -2031,12 +1953,13 @@
     },
     {
      "type": "item",
-     "item": "games_necklace",
-     "value": "Barbarian Outpost"
+     "item": "fishing_cape",
+     "value": "Otto's Grotto"
     },
     {
-     "type": "spell",
-     "value": "Barbarian Teleport"
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
     }
    ],
    "wilderness": false
@@ -2230,10 +2153,6 @@
   "Burthorpe": {
    "routes": [
     {
-     "type": "portal",
-     "value": "Taverley"
-    },
-    {
      "type": "item",
      "item": "games_necklace",
      "value": "Burthorpe"
@@ -2249,27 +2168,24 @@
   "Mount Karuulm": {
    "routes": [
     {
-     "type": "fairy",
-     "value": "CIR"
-    },
-    {
-     "type": "maxcape",
-     "value": "Farming Guild"
-    },
-    {
      "type": "item",
      "item": "radas_blessing",
      "value": "Mount Karuulm"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
     }
    ],
    "wilderness": false
   },
   "Tree Gnome Stronghold": {
    "routes": [
-    {
-     "type": "ring",
-     "value": "Stronghold"
-    },
     {
      "type": "item",
      "item": "royal_seed_pod",
@@ -2279,6 +2195,11 @@
      "type": "item",
      "item": "necklace_of_passage",
      "value": "The Outpost"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
     }
    ],
    "wilderness": false
@@ -2286,16 +2207,13 @@
   "Shilo Village": {
    "routes": [
     {
-     "type": "karamja_gloves",
-     "value": "Slayer Master"
-    },
-    {
-     "type": "fairy",
-     "value": "CKR"
-    },
-    {
      "type": "portal",
      "value": "Brimhaven"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Gandius"
     }
    ],
    "wilderness": false
@@ -2977,7 +2895,7 @@
    "locations": [
     "Lovakengj",
     "Yanille",
-    "Falador"
+    "Ice Mountain"
    ]
   },
   {
@@ -3238,8 +3156,8 @@
    ],
    "boss": false,
    "locations": [
-    "Tai Bwo Wannai",
     "Karamja",
+    "Tai Bwo Wannai",
     "Colossal Wyrm Remains"
    ]
   },
@@ -3654,9 +3572,9 @@
    ],
    "boss": false,
    "locations": [
+    "Karamja",
     "Ardougne Zoo",
-    "Mos Le'Harmless",
-    "Crash Site Cavern"
+    "Mos Le'Harmless"
    ]
   },
   {
@@ -3988,7 +3906,7 @@
    "locations": [
     "Stronghold of Security",
     "Ape Atoll",
-    "Morytania Spider Cave",
+    "Karamja",
     "Wilderness"
    ]
   },
@@ -4628,10 +4546,6 @@
    "location": "Burthorpe",
    "routes": [
     {
-     "type": "portal",
-     "value": "Taverley"
-    },
-    {
      "type": "item",
      "item": "games_necklace",
      "value": "Burthorpe"
@@ -4640,6 +4554,10 @@
      "type": "network",
      "item": "minigame",
      "value": "Burthorpe Games Room"
+    },
+    {
+     "type": "portal",
+     "value": "Taverley"
     }
    ],
    "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS)."
@@ -4695,17 +4613,18 @@
    "location": "Mount Karuulm",
    "routes": [
     {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
+    },
+    {
      "type": "fairy",
      "value": "CIR"
     },
     {
-     "type": "maxcape",
-     "value": "Farming Guild"
-    },
-    {
      "type": "item",
-     "item": "radas_blessing",
-     "value": "Mount Karuulm"
+     "item": "skills_necklace",
+     "value": "Farming Guild"
     }
    ]
   },
@@ -4740,12 +4659,13 @@
      "value": "Slayer Master"
     },
     {
-     "type": "fairy",
-     "value": "CKR"
+     "type": "item",
+     "item": "karamja_gloves_3",
+     "value": "Gem Mine"
     },
     {
-     "type": "portal",
-     "value": "Brimhaven"
+     "type": "fairy",
+     "value": "CKR"
     }
    ]
   },
@@ -4761,11 +4681,6 @@
     {
      "type": "fairy",
      "value": "DKR"
-    },
-    {
-     "type": "network",
-     "item": "minigame",
-     "value": "Soul Wars"
     }
    ]
   },

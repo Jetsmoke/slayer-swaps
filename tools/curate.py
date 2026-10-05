@@ -191,16 +191,22 @@ WILDERNESS = {
 
 MASTERS = [
     # id is the SLAYER_MASTER varbit value where known (core Slayer plugin: Krystilia 7, Mortimer 10)
-    {'key': 'TURAEL', 'name': 'Turael / Spria', 'location': 'Burthorpe', 'routes': [portal('Taverley')],
+    {'key': 'TURAEL', 'name': 'Turael / Spria', 'location': 'Burthorpe',
+     'routes': [item('games_necklace', 'Burthorpe'), network('minigame', 'Burthorpe Games Room'), portal('Taverley')],
      'note': 'Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).'},
-    {'key': 'MAZCHNA', 'name': 'Mazchna', 'location': 'Canifis', 'routes': [fairy('CKS')]},
-    {'key': 'VANNAKA', 'name': 'Vannaka', 'location': 'Edgeville Dungeon', 'routes': [glory('Edgeville'), fairy('DKR')]},
+    {'key': 'MAZCHNA', 'name': 'Mazchna', 'location': 'Canifis', 'routes': [fairy('CKS'), spell('Kharyrll Teleport')]},
+    {'key': 'VANNAKA', 'name': 'Vannaka', 'location': 'Edgeville Dungeon',
+     'routes': [glory('Edgeville'), fairy('DKR'), spell('Paddewwa Teleport')]},
     {'key': 'CHAELDAR', 'name': 'Chaeldar', 'location': 'Zanaris', 'routes': [fairy('BKS')]},
-    {'key': 'KONAR', 'name': 'Konar quo Maten', 'location': 'Mount Karuulm', 'routes': [fairy('CIR'), maxcape('Farming Guild')]},
-    {'key': 'NIEVE', 'name': 'Nieve / Steve', 'location': 'Tree Gnome Stronghold', 'routes': [ring('Stronghold')]},
-    {'key': 'DURADEL', 'name': 'Duradel / Kuradal', 'location': 'Shilo Village', 'routes': [gloves('Slayer Master'), fairy('CKR')]},
+    {'key': 'KONAR', 'name': 'Konar quo Maten', 'location': 'Mount Karuulm',
+     'routes': [item('radas_blessing', 'Mount Karuulm'), fairy('CIR'), item('skills_necklace', 'Farming Guild')]},
+    {'key': 'NIEVE', 'name': 'Nieve / Steve', 'location': 'Tree Gnome Stronghold',
+     'routes': [ring('Stronghold'), item('royal_seed_pod', 'Commune'), item('necklace_of_passage', 'The Outpost')]},
+    {'key': 'DURADEL', 'name': 'Duradel / Kuradal', 'location': 'Shilo Village',
+     'routes': [gloves('Slayer Master'), item('karamja_gloves_3', 'Gem Mine'), fairy('CKR')]},
     {'key': 'KRYSTILIA', 'name': 'Krystilia', 'location': 'Edgeville', 'routes': [glory('Edgeville'), fairy('DKR')]},
-    {'key': 'MORTIMER', 'name': 'Mortimer', 'location': 'Wyrmscraig Cavern', 'routes': [ring('Wyrmscraig Cavern'), boat('Wyrmscraig')]},
+    {'key': 'MORTIMER', 'name': 'Mortimer', 'location': 'Wyrmscraig Cavern',
+     'routes': [ring('Wyrmscraig Cavern'), item('necklace_of_passage', 'Wyrmscraig'), boat('Wyrmscraig')]},
 ]
 
 # Which location is the default for a task when it's the standard spot. Applied before automatic ordering.
@@ -223,6 +229,30 @@ PREFERRED_FIRST = {
     'Black dragons': 'Taverley Dungeon',
     'Metal dragons': 'Brimhaven Dungeon',
     'Red dragons': 'Brimhaven Dungeon',
+}
+
+# Hand-checked routes that replace the wiki-derived ones for a location, best first. Used where the automatic
+# extraction picked detours (e.g. a house portal on the wrong side of an island) or missed the direct teleport.
+OVERRIDE_ROUTES = {
+    'Ancient Cavern': [maxcape("Otto's Grotto"), item('fishing_cape', "Otto's Grotto"), item('games_necklace', 'Barbarian Outpost')],
+    'Asgarnian Ice Dungeon': [fairy('AIQ'), portal('Rimmington')],
+    'Brimhaven Dungeon': [portal('Brimhaven'), fairy('CKR')],
+    'Draynor Village': [glory('Draynor Village'), fairy('DIS')],
+    'Falador': [spell('Falador Teleport'), item('ring_of_wealth', 'Falador')],
+    'Fossil Island': [item('digsite_pendant', 'Fossil Island')],
+    'Iorwerth Dungeon': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
+    'Prifddinas': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
+    'Tower of Voices': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
+    'Karamja': [glory('Karamja'), network('gnome_glider', 'Gandius')],
+    'Karuulm Slayer Dungeon': [item('radas_blessing', 'Mount Karuulm'), fairy('CIR'), item('skills_necklace', 'Farming Guild')],
+    'Lava Dragon Isle': [item('revenant_cave_teleport', 'Teleport'), spell('Annakarl Teleport')],
+    'Lighthouse': [fairy('ALP'), item('games_necklace', 'Barbarian Outpost'), portal('Rellekka')],
+    'Mor Ul Rek': [fairy('BLP'), item('ghommals_hilt', 'Mor Ul Rek'), glory('Karamja')],
+    'Taverley Dungeon': [portal('Taverley'), spell('Falador Teleport')],
+    'Varrock': [spell('Varrock Teleport'), item('ring_of_wealth', 'Grand Exchange')],
+    'White Wolf Mountain': [network('gnome_glider', 'Sindarpos')],
+    'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
+    "Wizards' Tower": [item('necklace_of_passage', "Wizards' Tower"), fairy('DIS'), glory('Draynor Village')],
 }
 
 # Locations always kept for a task, beyond the best few (the wiki table misses them, or they're a common choice)
@@ -252,11 +282,15 @@ _auto = {}
 
 def routes(loc):
     loc = canon(loc)
+    if loc in OVERRIDE_ROUTES:
+        return OVERRIDE_ROUTES[loc][:MAX_ROUTES]
     if loc not in _auto:
         merged = list(LOCATIONS.get(loc, []))
         for r in routes_for(loc) if loc else []:
             if r not in merged:
                 merged.append(r)
+        # A teleport item with no known destination can't be swapped or highlighted in a menu
+        merged = [r for r in merged if not (r['type'] == 'item' and not r.get('value'))]
         # Best teleport types first; the hand-curated routes stay ahead of wiki-derived ones of the same rank
         merged.sort(key=route_rank)
         _auto[loc] = merged[:MAX_ROUTES]
@@ -322,14 +356,8 @@ def build():
     for l in used:
         locations[l] = {'routes': routes(l), 'wilderness': l in WILDERNESS}
     for m in MASTERS:
-        merged = list(m['routes'])
-        for r in routes(m['location']):
-            if r not in merged:
-                merged.append(r)
-        merged.sort(key=route_rank)
-        m['routes'] = merged[:MAX_ROUTES]
-        merged = m['routes']
-        locations[m['location']] = {'routes': merged, 'wilderness': False}
+        # Master routes are hand-checked: the wiki pages list too many detours to rely on extraction
+        locations.setdefault(m['location'], {'routes': m['routes'], 'wilderness': False})
 
     items = {k: {'label': v[0], 'names': v[1], 'options': v[2]} for k, v in catalog.ITEMS.items()}
     networks = {k: {'label': v[0], 'destinations': v[2]} for k, v in catalog.NETWORKS.items()}
