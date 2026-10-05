@@ -1,5 +1,5 @@
 import json, re, urllib.request, urllib.parse, os, time, sys
-UA={'User-Agent':'slayer-teleport-swap plugin research (https://github.com/Jetsmoke/slayer-teleport-swap)'}
+UA={'User-Agent':'slayer-swaps plugin research (https://github.com/Jetsmoke/slayer-swaps)'}
 def raw(title, depth=0):
     fn='wiki/'+re.sub(r'[^A-Za-z0-9_.-]','_',title)+'.txt'
     if os.path.exists(fn): return open(fn).read()

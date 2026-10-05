@@ -1,5 +1,5 @@
 """
-Writes Slayer_Teleports.pdf: every slayer master, slayer task and boss task with the teleports the plugin supports.
+Writes Slayer_Swaps.pdf: every slayer master, slayer task and boss task with the teleports the plugin supports.
 Needs reportlab (pip install reportlab).
 
     python3 tools/pdf_report.py
@@ -16,8 +16,8 @@ from reportlab.lib.units import inch
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle, KeepTogether
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, 'src/main/resources/com/slayerteleportswap/slayer_locations.json')
-OUT = os.path.join(ROOT, 'Slayer_Teleports.pdf')
+DATA = os.path.join(ROOT, 'src/main/resources/com/slayerswaps/slayer_locations.json')
+OUT = os.path.join(ROOT, 'Slayer_Swaps.pdf')
 
 data = json.load(open(DATA))
 LABEL = {
@@ -123,7 +123,7 @@ def footer(canvas, doc):
     canvas.saveState()
     canvas.setFont('Helvetica', 7.5)
     canvas.setFillColor(colors.HexColor('#7d7570'))
-    canvas.drawString(0.5 * inch, 0.35 * inch, 'Slayer Teleport Swap - teleports per slayer task. Source: Old School RuneScape Wiki.')
+    canvas.drawString(0.5 * inch, 0.35 * inch, 'Slayer Swaps - teleports per slayer task. Source: Old School RuneScape Wiki.')
     canvas.drawRightString(10.5 * inch, 0.35 * inch, f'Page {doc.page}')
     canvas.restoreState()
 
@@ -135,7 +135,7 @@ def main():
     total_routes = sum(len(v['routes']) for v in data['locations'].values())
 
     story = [
-        Paragraph('Slayer Teleports', title),
+        Paragraph('Slayer Swaps', title),
         Paragraph(f'{len(tasks)} slayer tasks and {len(bosses)} boss tasks: {covered} have at least one supported '
                   f'teleport, {len(data["tasks"]) - covered} have none. {len(data["masters"])} slayer masters. '
                   f'{total_routes} teleports mapped across {len(data["locations"])} locations.', body),
@@ -163,8 +163,8 @@ def main():
     story += [Paragraph('Slayer tasks', h2), task_table(tasks), Paragraph('Boss tasks', h2), task_table(bosses)]
 
     doc = SimpleDocTemplate(OUT, pagesize=landscape(letter), leftMargin=0.5 * inch, rightMargin=0.5 * inch,
-                            topMargin=0.5 * inch, bottomMargin=0.55 * inch, title='Slayer Teleports',
-                            author='Slayer Teleport Swap')
+                            topMargin=0.5 * inch, bottomMargin=0.55 * inch, title='Slayer Swaps',
+                            author='Slayer Swaps')
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
     print('wrote', OUT)
 

@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 /**
  * Human-readable descriptions of routes, for the side panel and chat messages.

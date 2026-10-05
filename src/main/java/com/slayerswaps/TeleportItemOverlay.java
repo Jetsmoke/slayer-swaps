@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
@@ -12,11 +12,11 @@ import net.runelite.client.ui.overlay.WidgetItemOverlay;
  */
 class TeleportItemOverlay extends WidgetItemOverlay
 {
-	private final SlayerTeleportSwapPlugin plugin;
-	private final SlayerTeleportSwapConfig config;
+	private final SlayerSwapsPlugin plugin;
+	private final SlayerSwapsConfig config;
 
 	@Inject
-	TeleportItemOverlay(SlayerTeleportSwapPlugin plugin, SlayerTeleportSwapConfig config)
+	TeleportItemOverlay(SlayerSwapsPlugin plugin, SlayerSwapsConfig config)
 	{
 		this.plugin = plugin;
 		this.config = config;

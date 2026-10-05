@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import net.runelite.client.ui.components.IconTextField;
  * Side panel for choosing, per task, which location to go to and which teleport to use.
  * Swing code; runs on the event dispatch thread.
  */
-class SlayerTeleportPanel extends PluginPanel
+class SlayerSwapsPanel extends PluginPanel
 {
 	static final String AUTO = "Best teleport I'm carrying";
 
@@ -53,7 +53,7 @@ class SlayerTeleportPanel extends PluginPanel
 	private final JPanel list = new JPanel();
 	private final List<TaskRow> rows = new ArrayList<>();
 
-	SlayerTeleportPanel(SlayerData data, Choices choices)
+	SlayerSwapsPanel(SlayerData data, Choices choices)
 	{
 		this.data = data;
 		this.choices = choices;
@@ -61,7 +61,7 @@ class SlayerTeleportPanel extends PluginPanel
 
 		JPanel top = new JPanel();
 		top.setLayout(new BoxLayout(top, BoxLayout.Y_AXIS));
-		JLabel title = new JLabel("Slayer Teleports");
+		JLabel title = new JLabel("Slayer Swaps");
 		title.setFont(FontManager.getRunescapeBoldFont());
 		title.setForeground(Color.WHITE);
 		top.add(title);

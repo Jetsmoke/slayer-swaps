@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import java.awt.Color;
 import net.runelite.client.config.Config;
@@ -6,16 +6,18 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
-@ConfigGroup(SlayerTeleportSwapConfig.GROUP)
-public interface SlayerTeleportSwapConfig extends Config
+@ConfigGroup(SlayerSwapsConfig.GROUP)
+public interface SlayerSwapsConfig extends Config
 {
-	String GROUP = "slayerteleportswap";
+	String GROUP = "slayerswaps";
 	// Per-task chosen location is stored under this prefix + the normalized task name
 	String LOCATION_KEY_PREFIX = "location_";
 	// Per-task chosen teleport (see Routes.key), or unset for the best one carried
 	String ROUTE_KEY_PREFIX = "route_";
 	// Set to true for tasks the player has switched off in the panel
 	String DISABLED_KEY_PREFIX = "disabled_";
+	// Set once a slayer master has been chosen, so the slayer helmet stops offering the choice
+	String MASTER_CHOSEN_KEY = "masterChosen";
 
 	@ConfigSection(
 		name = "Teleports",
@@ -67,7 +69,7 @@ public interface SlayerTeleportSwapConfig extends Config
 	@ConfigItem(
 		keyName = "askOnNewTask",
 		name = "Ask on new task",
-		description = "The first time you get a task that can be done in more than one place, open the Slayer Teleports panel to choose. Change it there any time.",
+		description = "The first time you get a task that can be done in more than one place, remind you in chat to choose by right-clicking your slayer helmet. Change it any time in the Slayer Swaps panel.",
 		position = 2
 	)
 	default boolean askOnNewTask()

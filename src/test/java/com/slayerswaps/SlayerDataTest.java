@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

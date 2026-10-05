@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
@@ -54,15 +54,16 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Slayer Teleport Swap",
-	description = "Swaps and highlights the teleports to your slayer task's location, or to your slayer master when you have no task",
+	name = "Slayer Swaps",
+	description = "Automatically swaps menu entries, and highlights teleport items and spells to quickly teleport to your slayer task. Supports choosing your preferred slayer master and preferred task location. To start right click your slayer helmet or check settings panel.",
 	tags = {"slayer", "teleport", "menu", "swap", "ring", "fairy", "cape", "mortimer", "duradel", "highlight"}
 )
-public class SlayerTeleportSwapPlugin extends Plugin
+public class SlayerSwapsPlugin extends Plugin
 {
 	// From [proc,helper_slayer_current_assignment], same as the core Slayer plugin
 	private static final int BOSS_TASK_ID = 98;
@@ -89,7 +90,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private ConfigManager configManager;
 
 	@Inject
-	private SlayerTeleportSwapConfig config;
+	private SlayerSwapsConfig config;
 
 	@Inject
 	private OverlayManager overlayManager;
@@ -116,7 +117,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private Gson gson;
 
 	private SlayerData data;
-	private SlayerTeleportPanel panel;
+	private SlayerSwapsPanel panel;
 	private NavigationButton navButton;
 
 	// Current task name as the game names it, or null when there is no task
@@ -135,9 +136,9 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		overlayManager.add(menuHighlightOverlay);
 		overlayManager.add(teleportItemOverlay);
 
-		panel = new SlayerTeleportPanel(data, new PanelChoices());
+		panel = new SlayerSwapsPanel(data, new PanelChoices());
 		navButton = NavigationButton.builder()
-			.tooltip("Slayer Teleports")
+			.tooltip("Slayer Swaps")
 			.icon(icon())
 			.priority(7)
 			.panel(panel)
@@ -184,15 +185,20 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
 	{
-		if (event.getGroup().equals(SlayerTeleportSwapConfig.GROUP))
+		if (event.getGroup().equals(SlayerSwapsConfig.GROUP))
 		{
 			menusDirty = true;
 			clientThread.invokeLater(this::updateCarriedRoute);
 			String key = event.getKey();
-			SlayerTeleportPanel p = panel;
-			if (p != null && !key.startsWith(SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX)
-				&& !key.startsWith(SlayerTeleportSwapConfig.ROUTE_KEY_PREFIX)
-				&& !key.startsWith(SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX))
+			if (key.equals("slayerMaster"))
+			{
+				// Choosing a master in settings counts as the first-time choice, so the helmet stops asking
+				configManager.setConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsConfig.MASTER_CHOSEN_KEY, true);
+			}
+			SlayerSwapsPanel p = panel;
+			if (p != null && !key.startsWith(SlayerSwapsConfig.LOCATION_KEY_PREFIX)
+				&& !key.startsWith(SlayerSwapsConfig.ROUTE_KEY_PREFIX)
+				&& !key.startsWith(SlayerSwapsConfig.DISABLED_KEY_PREFIX))
 			{
 				// Teleport and Wilderness settings change which locations and teleports the panel offers
 				SwingUtilities.invokeLater(p::refresh);
@@ -255,7 +261,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			}
 		}
 
-		SlayerTeleportPanel p = panel;
+		SlayerSwapsPanel p = panel;
 		if (p != null)
 		{
 			SwingUtilities.invokeLater(() -> p.setCurrentTask(task, remaining));
@@ -263,22 +269,102 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
-	 * The first time a task with more than one location comes up, open the panel so a location can be chosen.
+	 * The first time a task with more than one location comes up, say how to choose one.
 	 */
 	private void askForLocation(SlayerData.TaskData task)
 	{
 		if (!config.askOnNewTask() || isDisabled(task) || taskLocations(task, true).size() < 2
-			|| configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName())) != null)
+			|| configManager.getConfiguration(SlayerSwapsConfig.GROUP, locationKey(task.getName())) != null)
 		{
 			return;
 		}
 
 		String message = new ChatMessageBuilder()
-			.append("Slayer Teleports: choose where to do " + task.getName() + " in the Slayer Teleports panel. Using "
-				+ currentLocation() + " until you do.")
+			.append("Slayer Swaps: right-click your slayer helmet to choose where to do " + task.getName()
+				+ ". Using " + currentLocation() + " until you do.")
 			.build();
 		chatMessageManager.queue(QueuedMessage.builder().type(ChatMessageType.GAMEMESSAGE).runeLiteFormattedMessage(message).build());
-		SwingUtilities.invokeLater(() -> clientToolbar.openPanel(navButton));
+	}
+
+	/**
+	 * Adds a client-side "Slayer Swaps" option to the slayer helmet's right-click menu while there's a first-time
+	 * choice to make: the current task's location, or the slayer master when there's no task. After that the
+	 * choice is changed in the panel. Nothing is sent to the server; choosing just stores the choice in config.
+	 */
+	private void addHelmetChooser(MenuEntry[] entries)
+	{
+		int helmetIdx = -1;
+		for (int i = 0; i < entries.length; i++)
+		{
+			int itemId = itemIdOf(entries[i]);
+			if (itemId > 0 && client.getItemDefinition(itemId).getName().toLowerCase().contains("slayer helmet"))
+			{
+				helmetIdx = i;
+				break;
+			}
+		}
+		if (helmetIdx == -1)
+		{
+			return;
+		}
+
+		SlayerData.TaskData task = data.findTask(taskName);
+		if (task != null)
+		{
+			List<String> locations = taskLocations(task, true);
+			if (isDisabled(task) || locations.size() < 2
+				|| configManager.getConfiguration(SlayerSwapsConfig.GROUP, locationKey(task.getName())) != null)
+			{
+				return;
+			}
+
+			Menu sub = chooserEntry(helmetIdx, "Choose location", task.getName()).createSubMenu();
+			String current = currentLocation();
+			for (int i = locations.size() - 1; i >= 0; i--)
+			{
+				String location = locations.get(i);
+				sub.createMenuEntry(0)
+					.setOption(location.equals(current) ? ColorUtil.wrapWithColorTag(location, Color.GREEN) : location)
+					.setType(MenuAction.RUNELITE)
+					.onClick(e ->
+					{
+						configManager.setConfiguration(SlayerSwapsConfig.GROUP, locationKey(task.getName()), location);
+						chat("Slayer Swaps: " + task.getName() + " set to " + location + ". Change it any time in the Slayer Swaps panel.");
+					});
+			}
+		}
+		else if (configManager.getConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsConfig.MASTER_CHOSEN_KEY) == null)
+		{
+			Menu sub = chooserEntry(helmetIdx, "Choose slayer master", "").createSubMenu();
+			SlayerMaster[] masters = SlayerMaster.values();
+			for (int i = masters.length - 1; i >= 0; i--)
+			{
+				SlayerMaster master = masters[i];
+				sub.createMenuEntry(0)
+					.setOption(master == config.slayerMaster() ? ColorUtil.wrapWithColorTag(master.toString(), Color.GREEN) : master.toString())
+					.setType(MenuAction.RUNELITE)
+					.onClick(e ->
+					{
+						configManager.setConfiguration(SlayerSwapsConfig.GROUP, "slayerMaster", master);
+						configManager.setConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsConfig.MASTER_CHOSEN_KEY, true);
+						chat("Slayer Swaps: slayer master set to " + master + ". Change it any time in the plugin settings.");
+					});
+			}
+		}
+	}
+
+	private MenuEntry chooserEntry(int index, String option, String target)
+	{
+		return client.getMenu().createMenuEntry(index)
+			.setOption(ColorUtil.wrapWithColorTag("Slayer Swaps: ", Color.ORANGE) + option)
+			.setTarget(target)
+			.setType(MenuAction.RUNELITE);
+	}
+
+	private void chat(String text)
+	{
+		String message = new ChatMessageBuilder().append(text).build();
+		chatMessageManager.queue(QueuedMessage.builder().type(ChatMessageType.GAMEMESSAGE).runeLiteFormattedMessage(message).build());
 	}
 
 	private String lookupTaskName(int taskId)
@@ -341,7 +427,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		{
 			return null;
 		}
-		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName()));
+		String chosen = configManager.getConfiguration(SlayerSwapsConfig.GROUP, locationKey(task.getName()));
 		return locations.contains(chosen) ? chosen : locations.get(0);
 	}
 
@@ -382,7 +468,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		}
 
 		List<SlayerData.Route> routes = new ArrayList<>(enabledRoutes(location));
-		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, routeKey(taskName));
+		String chosen = configManager.getConfiguration(SlayerSwapsConfig.GROUP, routeKey(taskName));
 		for (int i = 0; i < routes.size(); i++)
 		{
 			if (Routes.key(routes.get(i)).equals(chosen))
@@ -468,18 +554,18 @@ public class SlayerTeleportSwapPlugin extends Plugin
 
 	private boolean isDisabled(SlayerData.TaskData task)
 	{
-		return Boolean.parseBoolean(configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP,
-			SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName())));
+		return Boolean.parseBoolean(configManager.getConfiguration(SlayerSwapsConfig.GROUP,
+			SlayerSwapsConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName())));
 	}
 
 	private static String locationKey(String task)
 	{
-		return SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX + SlayerData.normalize(task);
+		return SlayerSwapsConfig.LOCATION_KEY_PREFIX + SlayerData.normalize(task);
 	}
 
 	private static String routeKey(String task)
 	{
-		return SlayerTeleportSwapConfig.ROUTE_KEY_PREFIX + SlayerData.normalize(task);
+		return SlayerSwapsConfig.ROUTE_KEY_PREFIX + SlayerData.normalize(task);
 	}
 
 	@Subscribe
@@ -719,6 +805,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	@Subscribe
 	public void onMenuOpened(MenuOpened event)
 	{
+		addHelmetChooser(event.getMenuEntries());
 		if (!log.isDebugEnabled())
 		{
 			return;
@@ -812,7 +899,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	/**
 	 * Lets the side panel read and change per-task choices. Panel calls come from the Swing thread.
 	 */
-	private class PanelChoices implements SlayerTeleportPanel.Choices
+	private class PanelChoices implements SlayerSwapsPanel.Choices
 	{
 		@Override
 		public String location(SlayerData.TaskData task)
@@ -823,7 +910,7 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		@Override
 		public String routeKey(SlayerData.TaskData task)
 		{
-			return configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()));
+			return configManager.getConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsPlugin.routeKey(task.getName()));
 		}
 
 		@Override
@@ -850,14 +937,14 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		@Override
 		public void choose(SlayerData.TaskData task, String location, String routeKey)
 		{
-			configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName()), location);
+			configManager.setConfiguration(SlayerSwapsConfig.GROUP, locationKey(task.getName()), location);
 			if (routeKey == null)
 			{
-				configManager.unsetConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()));
+				configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsPlugin.routeKey(task.getName()));
 			}
 			else
 			{
-				configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()), routeKey);
+				configManager.setConfiguration(SlayerSwapsConfig.GROUP, SlayerSwapsPlugin.routeKey(task.getName()), routeKey);
 			}
 			log.debug("{}: location {}, teleport {}", task.getName(), location, routeKey == null ? "best carried" : routeKey);
 		}
@@ -871,21 +958,21 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		@Override
 		public void setEnabled(SlayerData.TaskData task, boolean enabled)
 		{
-			String key = SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName());
+			String key = SlayerSwapsConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName());
 			if (enabled)
 			{
-				configManager.unsetConfiguration(SlayerTeleportSwapConfig.GROUP, key);
+				configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, key);
 			}
 			else
 			{
-				configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, key, true);
+				configManager.setConfiguration(SlayerSwapsConfig.GROUP, key, true);
 			}
 		}
 	}
 
 	@Provides
-	SlayerTeleportSwapConfig provideConfig(ConfigManager configManager)
+	SlayerSwapsConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(SlayerTeleportSwapConfig.class);
+		return configManager.getConfig(SlayerSwapsConfig.class);
 	}
 }

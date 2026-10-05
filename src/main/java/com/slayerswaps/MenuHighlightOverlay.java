@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import java.awt.BasicStroke;
 import java.awt.Dimension;
@@ -16,10 +16,10 @@ import net.runelite.client.ui.overlay.OverlayPosition;
 class MenuHighlightOverlay extends Overlay
 {
 	private final MenuHighlighter highlighter;
-	private final SlayerTeleportSwapConfig config;
+	private final SlayerSwapsConfig config;
 
 	@Inject
-	MenuHighlightOverlay(MenuHighlighter highlighter, SlayerTeleportSwapConfig config)
+	MenuHighlightOverlay(MenuHighlighter highlighter, SlayerSwapsConfig config)
 	{
 		this.highlighter = highlighter;
 		this.config = config;

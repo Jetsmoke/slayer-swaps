@@ -1,4 +1,4 @@
-package com.slayerteleportswap;
+package com.slayerswaps;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
