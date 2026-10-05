@@ -12,6 +12,10 @@ public interface SlayerTeleportSwapConfig extends Config
 	String GROUP = "slayerteleportswap";
 	// Per-task chosen location is stored under this prefix + the normalized task name
 	String LOCATION_KEY_PREFIX = "location_";
+	// Per-task chosen teleport (see Routes.key), or unset for the best one carried
+	String ROUTE_KEY_PREFIX = "route_";
+	// Set to true for tasks the player has switched off in the panel
+	String DISABLED_KEY_PREFIX = "disabled_";
 
 	@ConfigSection(
 		name = "Teleports",
@@ -50,12 +54,12 @@ public interface SlayerTeleportSwapConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "locationPicker",
-		name = "Location picker",
-		description = "Add a 'Slayer location' option to teleport items and fairy rings when your task can be done in more than one place",
+		keyName = "askOnNewTask",
+		name = "Ask on new task",
+		description = "The first time you get a task that can be done in more than one place, open the Slayer Teleports panel to choose. Change it there any time.",
 		position = 2
 	)
-	default boolean locationPicker()
+	default boolean askOnNewTask()
 	{
 		return true;
 	}
@@ -108,6 +112,24 @@ public interface SlayerTeleportSwapConfig extends Config
 		return true;
 	}
 
+	@ConfigItem(keyName = "useItems", name = "Other teleport items", description = "Hilts, talismans, necklaces, capes, scrolls and other teleport items", position = 9, section = teleportsSection)
+	default boolean useItems()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "useSpells", name = "Spells and tablets", description = "Highlight teleport spells in the spellbook and their tablets", position = 10, section = teleportsSection)
+	default boolean useSpells()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "useNetworks", name = "Travel networks", description = "Highlight the destination in spirit tree, glider, quetzal, minecart, canoe, charter and minigame menus", position = 11, section = teleportsSection)
+	default boolean useNetworks()
+	{
+		return true;
+	}
+
 	@ConfigItem(keyName = "useBoat", name = "Teleport to Boat", description = "Highlight the boat to teleport to when your task is on an island your boat can be moored at", position = 8, section = teleportsSection)
 	default boolean useBoat()
 	{
@@ -154,6 +176,12 @@ public interface SlayerTeleportSwapConfig extends Config
 				return useGlory();
 			case BOAT:
 				return useBoat();
+			case ITEM:
+				return useItems();
+			case SPELL:
+				return useSpells();
+			case NETWORK:
+				return useNetworks();
 			default:
 				return false;
 		}

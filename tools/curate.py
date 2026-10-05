@@ -5,6 +5,8 @@ comes from the wiki pages fetched into wiki/ (location "getting there" sections,
 construction/max cape teleport lists, slayer master pages).
 """
 import json, re, collections
+from autoroutes import routes_for
+import catalog
 
 # ---- Teleport route constructors -------------------------------------------------------------
 # type: ring | fairy | portal (construction cape / max cape house portal) | maxcape | item | boat
@@ -17,6 +19,9 @@ def dueling(d): return {'type': 'ring_of_dueling', 'value': d}
 def gloves(d): return {'type': 'karamja_gloves', 'value': d}
 def boat(i): return {'type': 'boat', 'value': i}
 def glory(d): return {'type': 'amulet_of_glory', 'value': d}
+def item(k, v): return {'type': 'item', 'item': k, 'value': v}
+def spell(v): return {'type': 'spell', 'value': v}
+def network(k, v): return {'type': 'network', 'item': k, 'value': v}
 
 W = 'wilderness'
 
@@ -116,7 +121,7 @@ LOCATIONS = {
     'Mistrock': [portal('Aldarin')],
     'Aldarin': [portal('Aldarin')],
     # Sailing: islands reached with Teleport to Boat when your boat with a teleport focus is moored there
-    'Kurask Lair': [boat('Laguna Aurorae')],
+    'Kurask Lair': [boat('Laguna Aurorae'), network('spirit_tree', 'Laguna Aurorae')],
     'Laguna Aurorae': [boat('Laguna Aurorae')],
     'Ynysdail Cavern': [boat('Ynysdail')],
     'Charred Dungeon': [boat('Charred Island')],
@@ -144,6 +149,20 @@ LOCATIONS = {
     'Shellbane Gryphon Cave': [fairy('CJQ'), boat('The Great Conch')],
     'Sophanem Dungeon': [fairy('AKP'), portal('Pollnivneach')],
     'Ghorrock Prison': [boat('Weiss')],
+    # Gaps filled from each place's wiki page (entrances, levers, nearby towns)
+    'Stronghold of Security': [item('skull_sceptre', 'Invoke'), glory('Edgeville'), network('canoe', 'Barbarian Village')],
+    'Sourhog Cave': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
+    'Killerwatt plane': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
+    'Waterbirth Island Dungeon': [spell('Waterbirth Teleport'), item('enchanted_lyre', 'Waterbirth Island')],
+    'Mole Lair': [spell('Falador Teleport'), item('ring_of_wealth', 'Falador')],
+    'River Elid': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
+    'Ruins of Unkah': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
+    'Ruins of Ullek': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
+    'Lumbridge Swamp Caves': [spell('Lumbridge Teleport')],
+    'Scorpion Pit': [glory('Edgeville'), spell('Ardougne Teleport')],
+    'Mage Arena': [glory('Edgeville'), spell('Ardougne Teleport')],
+    'Magic Axe Hut': [glory('Edgeville'), spell('Ardougne Teleport')],
+    "Pirates' Hideout": [glory('Edgeville'), spell('Ardougne Teleport')],
 }
 
 ALIASES = {
@@ -216,7 +235,7 @@ EXTRA_LOCATIONS = {
 
 BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytania': 'Barrows'}
 
-RANK = {'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
+RANK = {'item': 2, 'spell': 2, 'network': 3, 'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
         'maxcape': 2, 'boat': 3}
 
 
@@ -224,8 +243,18 @@ def canon(loc):
     return ALIASES.get(loc, loc)
 
 
+_auto = {}
+
+
 def routes(loc):
-    return LOCATIONS.get(canon(loc), [])
+    loc = canon(loc)
+    if loc not in _auto:
+        merged = list(LOCATIONS.get(loc, []))
+        for r in routes_for(loc) if loc else []:
+            if r not in merged:
+                merged.append(r)
+        _auto[loc] = merged
+    return _auto[loc]
 
 
 def location_rank(loc):
@@ -275,9 +304,16 @@ def build():
     for l in used:
         locations[l] = {'routes': routes(l), 'wilderness': l in WILDERNESS}
     for m in MASTERS:
-        locations[m['location']] = {'routes': m['routes'], 'wilderness': False}
+        merged = list(m['routes'])
+        for r in routes(m['location']):
+            if r not in merged:
+                merged.append(r)
+        m['routes'] = merged
+        locations[m['location']] = {'routes': merged, 'wilderness': False}
 
-    data = {'locations': locations, 'tasks': out_tasks, 'masters': MASTERS}
+    items = {k: {'label': v[0], 'names': v[1], 'options': v[2]} for k, v in catalog.ITEMS.items()}
+    networks = {k: {'label': v[0], 'destinations': v[2]} for k, v in catalog.NETWORKS.items()}
+    data = {'locations': locations, 'tasks': out_tasks, 'masters': MASTERS, 'items': items, 'networks': networks}
     return data
 
 

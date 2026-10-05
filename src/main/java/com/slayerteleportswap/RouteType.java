@@ -18,7 +18,10 @@ public enum RouteType
 	BURNING_AMULET("burning_amulet", "Burning amulet"),
 	RING_OF_DUELING("ring_of_dueling", "Ring of dueling"),
 	AMULET_OF_GLORY("amulet_of_glory", "Amulet of glory"),
-	BOAT("boat", "Teleport to Boat");
+	BOAT("boat", "Teleport to Boat"),
+	ITEM("item", "Teleport item"),
+	SPELL("spell", "Spell or tablet"),
+	NETWORK("network", "Travel network");
 
 	private final String key;
 	private final String displayName;

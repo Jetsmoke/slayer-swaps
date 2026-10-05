@@ -14,14 +14,12 @@ class TeleportItemOverlay extends WidgetItemOverlay
 {
 	private final SlayerTeleportSwapPlugin plugin;
 	private final SlayerTeleportSwapConfig config;
-	private final TeleportItems teleportItems;
 
 	@Inject
-	TeleportItemOverlay(SlayerTeleportSwapPlugin plugin, SlayerTeleportSwapConfig config, TeleportItems teleportItems)
+	TeleportItemOverlay(SlayerTeleportSwapPlugin plugin, SlayerTeleportSwapConfig config)
 	{
 		this.plugin = plugin;
 		this.config = config;
-		this.teleportItems = teleportItems;
 		showOnInventory();
 		showOnEquipment();
 	}
@@ -29,7 +27,7 @@ class TeleportItemOverlay extends WidgetItemOverlay
 	@Override
 	public void renderItemOverlay(Graphics2D graphics, int itemId, WidgetItem widgetItem)
 	{
-		if (!config.highlightItems() || !plugin.isUsefulItem(teleportItems.routeTypes(itemId)))
+		if (!config.highlightItems() || !plugin.shouldHighlight(itemId))
 		{
 			return;
 		}

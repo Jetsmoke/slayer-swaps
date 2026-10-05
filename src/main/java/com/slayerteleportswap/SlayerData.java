@@ -22,6 +22,8 @@ class SlayerData
 	private Map<String, LocationData> locations;
 	private List<TaskData> tasks;
 	private List<MasterData> masters;
+	private Map<String, ItemData> items;
+	private Map<String, NetworkData> networks;
 
 	private transient Map<String, TaskData> taskIndex;
 
@@ -30,6 +32,8 @@ class SlayerData
 	{
 		private String type;
 		private String value;
+		// Catalog key for "item" and "network" routes
+		private String item;
 
 		RouteType routeType()
 		{
@@ -52,6 +56,22 @@ class SlayerData
 		private List<String> masters;
 		private boolean boss;
 		private List<String> locations;
+	}
+
+	@Data
+	static class ItemData
+	{
+		private String label;
+		// Lower-case item name prefixes, so every charge/variant of the item matches
+		private List<String> names;
+		private List<String> options;
+	}
+
+	@Data
+	static class NetworkData
+	{
+		private String label;
+		private List<String> destinations;
 	}
 
 	@Data

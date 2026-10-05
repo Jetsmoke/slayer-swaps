@@ -3,7 +3,11 @@ package com.slayerteleportswap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.inject.Provides;
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,15 +15,20 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
 import javax.inject.Inject;
+import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.Item;
+import net.runelite.api.ItemContainer;
 import net.runelite.api.KeyCode;
 import net.runelite.api.Menu;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
+import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.PostMenuSort;
 import net.runelite.api.events.VarbitChanged;
@@ -27,18 +36,23 @@ import net.runelite.api.events.WidgetClosed;
 import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.DBTableID;
 import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.InventoryID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.client.callback.ClientThread;
+import net.runelite.client.chat.ChatMessageBuilder;
+import net.runelite.client.chat.ChatMessageManager;
+import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.ClientToolbar;
+import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.overlay.OverlayManager;
-import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 
 @Slf4j
@@ -57,6 +71,10 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private static final Set<MenuAction> OBJECT_MENU_TYPES = ImmutableSet.of(
 		MenuAction.GAME_OBJECT_FIRST_OPTION, MenuAction.GAME_OBJECT_SECOND_OPTION, MenuAction.GAME_OBJECT_THIRD_OPTION,
 		MenuAction.GAME_OBJECT_FOURTH_OPTION, MenuAction.GAME_OBJECT_FIFTH_OPTION);
+	// Routes that are used by clicking an item (as opposed to a fairy ring, travel network or spellbook)
+	private static final Set<RouteType> ITEM_ROUTES = ImmutableSet.of(RouteType.RING, RouteType.PORTAL,
+		RouteType.MAXCAPE, RouteType.KARAMJA_GLOVES, RouteType.BURNING_AMULET, RouteType.RING_OF_DUELING,
+		RouteType.AMULET_OF_GLORY, RouteType.BOAT, RouteType.ITEM, RouteType.SPELL);
 
 	private static final String FAIRY_RING_CONFIGURE = "ring-configure";
 
@@ -76,6 +94,12 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private OverlayManager overlayManager;
 
 	@Inject
+	private ClientToolbar clientToolbar;
+
+	@Inject
+	private ChatMessageManager chatMessageManager;
+
+	@Inject
 	private MenuHighlightOverlay menuHighlightOverlay;
 
 	@Inject
@@ -91,17 +115,33 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	private Gson gson;
 
 	private SlayerData data;
+	private SlayerTeleportPanel panel;
+	private NavigationButton navButton;
 
 	// Current task name as the game names it, or null when there is no task
 	private String taskName;
 	private boolean menusDirty;
+	// The route whose item to outline: the first one in order that the player is carrying
+	private SlayerData.Route carriedRoute;
 
 	@Override
 	protected void startUp()
 	{
 		data = SlayerData.load(gson);
+		teleportItems.setData(data);
+		menuHighlighter.setData(data);
 		overlayManager.add(menuHighlightOverlay);
 		overlayManager.add(teleportItemOverlay);
+
+		panel = new SlayerTeleportPanel(data, new PanelChoices());
+		navButton = NavigationButton.builder()
+			.tooltip("Slayer Teleports")
+			.icon(icon())
+			.priority(7)
+			.panel(panel)
+			.build();
+		clientToolbar.addNavigation(navButton);
+
 		clientThread.invokeLater(this::updateTask);
 	}
 
@@ -110,8 +150,11 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	{
 		overlayManager.remove(menuHighlightOverlay);
 		overlayManager.remove(teleportItemOverlay);
+		clientToolbar.removeNavigation(navButton);
 		menuHighlighter.clear();
 		taskName = null;
+		carriedRoute = null;
+		panel = null;
 	}
 
 	@Subscribe
@@ -142,6 +185,25 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		if (event.getGroup().equals(SlayerTeleportSwapConfig.GROUP))
 		{
 			menusDirty = true;
+			clientThread.invokeLater(this::updateCarriedRoute);
+			String key = event.getKey();
+			SlayerTeleportPanel p = panel;
+			if (p != null && !key.startsWith(SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX)
+				&& !key.startsWith(SlayerTeleportSwapConfig.ROUTE_KEY_PREFIX)
+				&& !key.startsWith(SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX))
+			{
+				// Teleport and Wilderness settings change which locations and teleports the panel offers
+				SwingUtilities.invokeLater(p::refresh);
+			}
+		}
+	}
+
+	@Subscribe
+	public void onItemContainerChanged(ItemContainerChanged event)
+	{
+		if (event.getContainerId() == InventoryID.INV || event.getContainerId() == InventoryID.WORN)
+		{
+			updateCarriedRoute();
 		}
 	}
 
@@ -152,24 +214,51 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			return;
 		}
 
-		String name = null;
-		if (client.getVarpValue(VarPlayerID.SLAYER_COUNT) > 0)
-		{
-			name = lookupTaskName(client.getVarpValue(VarPlayerID.SLAYER_TARGET));
-		}
+		int remaining = client.getVarpValue(VarPlayerID.SLAYER_COUNT);
+		String name = remaining > 0 ? lookupTaskName(client.getVarpValue(VarPlayerID.SLAYER_TARGET)) : null;
+		SlayerData.TaskData task = data.findTask(name);
 
 		if (!Objects.equals(name, taskName))
 		{
 			taskName = name;
 			menusDirty = true;
-			if (name != null && data.findTask(name) == null)
+			updateCarriedRoute();
+			if (name != null && task == null)
 			{
 				log.debug("Task {} isn't in the location data", name);
 			}
 			log.debug("Task is now {} ({} left), master {}, location {}, routes {}",
-				taskName, client.getVarpValue(VarPlayerID.SLAYER_COUNT), client.getVarbitValue(VarbitID.SLAYER_MASTER),
-				currentLocation(), currentRoutes());
+				taskName, remaining, client.getVarbitValue(VarbitID.SLAYER_MASTER), currentLocation(), currentRoutes());
+			if (task != null)
+			{
+				askForLocation(task);
+			}
 		}
+
+		SlayerTeleportPanel p = panel;
+		if (p != null)
+		{
+			SwingUtilities.invokeLater(() -> p.setCurrentTask(task, remaining));
+		}
+	}
+
+	/**
+	 * The first time a task with more than one location comes up, open the panel so a location can be chosen.
+	 */
+	private void askForLocation(SlayerData.TaskData task)
+	{
+		if (!config.askOnNewTask() || isDisabled(task) || taskLocations(task, true).size() < 2
+			|| configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName())) != null)
+		{
+			return;
+		}
+
+		String message = new ChatMessageBuilder()
+			.append("Slayer Teleports: choose where to do " + task.getName() + " in the Slayer Teleports panel. Using "
+				+ currentLocation() + " until you do.")
+			.build();
+		chatMessageManager.queue(QueuedMessage.builder().type(ChatMessageType.GAMEMESSAGE).runeLiteFormattedMessage(message).build());
+		SwingUtilities.invokeLater(() -> clientToolbar.openPanel(navButton));
 	}
 
 	private String lookupTaskName(int taskId)
@@ -202,17 +291,12 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
-	 * @return the locations the current task can be done at with at least one enabled teleport, best first
+	 * @param current true for the player's current task, where Krystilia's tasks are limited to the Wilderness
+	 * @return the locations a task can be done at with at least one enabled teleport, best first
 	 */
-	private List<String> taskLocations()
+	private List<String> taskLocations(SlayerData.TaskData task, boolean current)
 	{
-		SlayerData.TaskData task = data.findTask(taskName);
-		if (task == null)
-		{
-			return Collections.emptyList();
-		}
-
-		boolean krystilia = client.getVarbitValue(VarbitID.SLAYER_MASTER) == KRYSTILIA;
+		boolean krystilia = current && client.getVarbitValue(VarbitID.SLAYER_MASTER) == KRYSTILIA;
 		List<String> locations = new ArrayList<>();
 		for (String location : task.getLocations())
 		{
@@ -231,6 +315,16 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		return locations;
 	}
 
+	private String chosenLocation(SlayerData.TaskData task, List<String> locations)
+	{
+		if (locations.isEmpty())
+		{
+			return null;
+		}
+		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName()));
+		return locations.contains(chosen) ? chosen : locations.get(0);
+	}
+
 	/**
 	 * @return where teleports should take the player right now, or null to leave menus alone
 	 */
@@ -242,18 +336,12 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			return master != null ? master.getLocation() : null;
 		}
 
-		List<String> locations = taskLocations();
-		if (locations.isEmpty())
-		{
-			return null;
-		}
-
-		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(taskName));
-		return locations.contains(chosen) ? chosen : locations.get(0);
+		SlayerData.TaskData task = data.findTask(taskName);
+		return task == null || isDisabled(task) ? null : chosenLocation(task, taskLocations(task, true));
 	}
 
 	/**
-	 * @return the enabled teleports to the current location
+	 * @return the enabled teleports to the current location, with the player's chosen teleport first
 	 */
 	List<SlayerData.Route> currentRoutes()
 	{
@@ -264,7 +352,22 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		}
 
 		String location = currentLocation();
-		return location != null ? enabledRoutes(location) : Collections.emptyList();
+		if (location == null)
+		{
+			return Collections.emptyList();
+		}
+
+		List<SlayerData.Route> routes = new ArrayList<>(enabledRoutes(location));
+		String chosen = configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, routeKey(taskName));
+		for (int i = 0; i < routes.size(); i++)
+		{
+			if (Routes.key(routes.get(i)).equals(chosen))
+			{
+				routes.add(0, routes.remove(i));
+				break;
+			}
+		}
+		return routes;
 	}
 
 	private List<SlayerData.Route> enabledRoutes(String location)
@@ -287,27 +390,72 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	}
 
 	/**
-	 * @return true if an item that teleports by these route types reaches the current location
+	 * Finds the first item-based route to the current location that the player is carrying.
 	 */
-	boolean isUsefulItem(Set<RouteType> itemTypes)
+	private void updateCarriedRoute()
 	{
-		if (itemTypes.isEmpty())
-		{
-			return false;
-		}
+		carriedRoute = null;
+		List<Integer> carried = carriedItemIds();
 		for (SlayerData.Route route : currentRoutes())
 		{
-			if (itemTypes.contains(route.routeType()))
+			if (!ITEM_ROUTES.contains(route.routeType()))
 			{
-				return true;
+				continue;
+			}
+			for (int itemId : carried)
+			{
+				if (teleportItems.matches(itemId, route))
+				{
+					carriedRoute = route;
+					return;
+				}
 			}
 		}
-		return false;
+	}
+
+	private List<Integer> carriedItemIds()
+	{
+		List<Integer> ids = new ArrayList<>();
+		for (int containerId : new int[]{InventoryID.INV, InventoryID.WORN})
+		{
+			ItemContainer container = client.getItemContainer(containerId);
+			if (container != null)
+			{
+				for (Item item : container.getItems())
+				{
+					if (item.getId() > 0)
+					{
+						ids.add(item.getId());
+					}
+				}
+			}
+		}
+		return ids;
+	}
+
+	/**
+	 * @return true if this item should be outlined: it's the teleport to use for the current location
+	 */
+	boolean shouldHighlight(int itemId)
+	{
+		SlayerData.Route route = carriedRoute;
+		return route != null && teleportItems.matches(itemId, route);
+	}
+
+	private boolean isDisabled(SlayerData.TaskData task)
+	{
+		return Boolean.parseBoolean(configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP,
+			SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName())));
 	}
 
 	private static String locationKey(String task)
 	{
 		return SlayerTeleportSwapConfig.LOCATION_KEY_PREFIX + SlayerData.normalize(task);
+	}
+
+	private static String routeKey(String task)
+	{
+		return SlayerTeleportSwapConfig.ROUTE_KEY_PREFIX + SlayerData.normalize(task);
 	}
 
 	@Subscribe
@@ -385,15 +533,15 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		for (int i = entries.length - 1; i >= 0; i--)
 		{
 			MenuEntry entry = entries[i];
-			Set<RouteType> itemTypes = teleportItems.routeTypes(itemIdOf(entry));
-			if (itemTypes.isEmpty())
+			int itemId = itemIdOf(entry);
+			if (itemId <= 0)
 			{
 				continue;
 			}
 
 			for (SlayerData.Route route : routes)
 			{
-				if (!itemTypes.contains(route.routeType()))
+				if (route.getValue() == null || !teleportItems.matches(itemId, route))
 				{
 					continue;
 				}
@@ -542,78 +690,18 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			.onClick(menuEntry.onClick());
 	}
 
+	// Development aid: logs every right-click menu so option names can be read from the log
+	// instead of guessed. Debug level, so it's silent in normal clients.
 	@Subscribe
 	public void onMenuOpened(MenuOpened event)
 	{
-		if (config.locationPicker())
-		{
-			addLocationPicker(event.getMenuEntries());
-		}
-
-		if (log.isDebugEnabled())
-		{
-			logMenu(event.getMenuEntries());
-		}
-	}
-
-	/**
-	 * Adds a client-side "Slayer location" submenu under a teleport item's or fairy ring's options, for picking
-	 * where the current task is done. Nothing is sent to the server; choosing just stores the choice in config.
-	 */
-	private void addLocationPicker(MenuEntry[] entries)
-	{
-		if (taskName == null)
+		if (!log.isDebugEnabled())
 		{
 			return;
 		}
 
-		List<String> locations = taskLocations();
-		if (locations.size() < 2)
-		{
-			return;
-		}
-
-		int anchor = -1;
-		for (int i = 0; i < entries.length; i++)
-		{
-			if (!teleportItems.routeTypes(itemIdOf(entries[i])).isEmpty() || isFairyRing(entries[i]))
-			{
-				anchor = i;
-				break;
-			}
-		}
-		if (anchor == -1)
-		{
-			return;
-		}
-
-		String task = taskName;
-		String current = currentLocation();
-		MenuEntry picker = client.getMenu().createMenuEntry(anchor)
-			.setOption("Slayer location")
-			.setTarget(ColorUtil.wrapWithColorTag(task, Color.ORANGE))
-			.setType(MenuAction.RUNELITE);
-		Menu sub = picker.createSubMenu();
-		for (int i = locations.size() - 1; i >= 0; i--)
-		{
-			String location = locations.get(i);
-			sub.createMenuEntry(0)
-				.setOption(location.equals(current) ? ColorUtil.wrapWithColorTag(location, Color.GREEN) : location)
-				.setType(MenuAction.RUNELITE)
-				.onClick(e ->
-				{
-					configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task), location);
-					log.debug("Location for {} set to {}, routes {}", task, location, currentRoutes());
-				});
-		}
-	}
-
-	// Development aid: logs every right-click menu so option names can be read from the log
-	// instead of guessed. Debug level, so it's silent in normal clients.
-	private void logMenu(MenuEntry[] entries)
-	{
 		log.debug("Menu opened (task {}, location {}):", taskName, currentLocation());
-		for (MenuEntry entry : entries)
+		for (MenuEntry entry : event.getMenuEntries())
 		{
 			logEntry("  ", entry);
 			Menu sub = entry.getSubMenu();
@@ -658,9 +746,16 @@ public class SlayerTeleportSwapPlugin extends Plugin
 		{
 			return;
 		}
-		if (WidgetUtil.componentToInterface(w.getId()) == group && w.getText() != null && !w.getText().isEmpty())
+		if (WidgetUtil.componentToInterface(w.getId()) == group)
 		{
-			out.add(Text.removeTags(w.getText()));
+			if (w.getText() != null && !w.getText().isEmpty())
+			{
+				out.add(Text.removeTags(w.getText()));
+			}
+			else if (w.getName() != null && !w.getName().isEmpty())
+			{
+				out.add("[" + Text.removeTags(w.getName()) + "]");
+			}
 		}
 		for (Widget[] children : new Widget[][]{w.getStaticChildren(), w.getDynamicChildren(), w.getNestedChildren()})
 		{
@@ -670,6 +765,96 @@ public class SlayerTeleportSwapPlugin extends Plugin
 				{
 					collectTexts(child, group, out);
 				}
+			}
+		}
+	}
+
+	private static BufferedImage icon()
+	{
+		// A simple map pin, so no image file is needed
+		BufferedImage image = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = image.createGraphics();
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setColor(new Color(0xC0392B));
+		g.fillOval(3, 1, 10, 10);
+		g.fillPolygon(new int[]{4, 12, 8}, new int[]{8, 8, 15}, 3);
+		g.setColor(Color.WHITE);
+		g.setStroke(new BasicStroke(1.5f));
+		g.drawOval(6, 4, 4, 4);
+		g.dispose();
+		return image;
+	}
+
+	/**
+	 * Lets the side panel read and change per-task choices. Panel calls come from the Swing thread.
+	 */
+	private class PanelChoices implements SlayerTeleportPanel.Choices
+	{
+		@Override
+		public String location(SlayerData.TaskData task)
+		{
+			return chosenLocation(task, locations(task));
+		}
+
+		@Override
+		public String routeKey(SlayerData.TaskData task)
+		{
+			return configManager.getConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()));
+		}
+
+		@Override
+		public List<String> locations(SlayerData.TaskData task)
+		{
+			List<String> locations = new ArrayList<>();
+			for (String location : task.getLocations())
+			{
+				SlayerData.LocationData info = data.location(location);
+				if (info != null && !enabledRoutes(location).isEmpty() && (!info.isWilderness() || config.wilderness()))
+				{
+					locations.add(location);
+				}
+			}
+			return locations;
+		}
+
+		@Override
+		public List<SlayerData.Route> routes(String location)
+		{
+			return enabledRoutes(location);
+		}
+
+		@Override
+		public void choose(SlayerData.TaskData task, String location, String routeKey)
+		{
+			configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, locationKey(task.getName()), location);
+			if (routeKey == null)
+			{
+				configManager.unsetConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()));
+			}
+			else
+			{
+				configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, SlayerTeleportSwapPlugin.routeKey(task.getName()), routeKey);
+			}
+			log.debug("{}: location {}, teleport {}", task.getName(), location, routeKey == null ? "best carried" : routeKey);
+		}
+
+		@Override
+		public boolean isEnabled(SlayerData.TaskData task)
+		{
+			return !isDisabled(task);
+		}
+
+		@Override
+		public void setEnabled(SlayerData.TaskData task, boolean enabled)
+		{
+			String key = SlayerTeleportSwapConfig.DISABLED_KEY_PREFIX + SlayerData.normalize(task.getName());
+			if (enabled)
+			{
+				configManager.unsetConfiguration(SlayerTeleportSwapConfig.GROUP, key);
+			}
+			else
+			{
+				configManager.setConfiguration(SlayerTeleportSwapConfig.GROUP, key, true);
 			}
 		}
 	}

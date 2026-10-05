@@ -1,7 +1,6 @@
 package com.slayerteleportswap;
 
 import com.google.common.collect.ImmutableSet;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,7 +10,8 @@ import net.runelite.api.Client;
 import net.runelite.api.gameval.ItemID;
 
 /**
- * Which teleport items serve which route types. Capes come in many variants, so they're matched by name.
+ * Decides which teleport items serve which routes. Most items are matched by name, so every charge count and
+ * variant (eternal glory, trimmed capes, ornament kits) counts as the same item.
  */
 @Singleton
 class TeleportItems
@@ -28,7 +28,8 @@ class TeleportItems
 		ItemID.RING_OF_DUELING_5, ItemID.RING_OF_DUELING_6, ItemID.RING_OF_DUELING_7, ItemID.RING_OF_DUELING_8);
 
 	private final Client client;
-	private final Map<Integer, Set<RouteType>> cache = new HashMap<>();
+	private final Map<Integer, String> names = new HashMap<>();
+	private SlayerData data;
 
 	@Inject
 	TeleportItems(Client client)
@@ -36,58 +37,108 @@ class TeleportItems
 		this.client = client;
 	}
 
+	void setData(SlayerData data)
+	{
+		this.data = data;
+	}
+
+	private String name(int itemId)
+	{
+		return names.computeIfAbsent(itemId, id -> client.getItemDefinition(id).getName().toLowerCase());
+	}
+
 	/**
-	 * @return the route types an item can teleport by; empty if it isn't a supported teleport item
+	 * @return true if this item can be used for the route. Call on the client thread.
 	 */
-	Set<RouteType> routeTypes(int itemId)
+	boolean matches(int itemId, SlayerData.Route route)
+	{
+		RouteType type = route.routeType();
+		if (itemId <= 0 || type == null)
+		{
+			return false;
+		}
+
+		String name = name(itemId);
+		String value = route.getValue() == null ? "" : route.getValue().toLowerCase();
+		switch (type)
+		{
+			case RING:
+				return SLAYER_RINGS.contains(itemId);
+			case KARAMJA_GLOVES:
+				return itemId == ItemID.ATJUN_GLOVES_ELITE;
+			case BURNING_AMULET:
+				return BURNING_AMULETS.contains(itemId);
+			case RING_OF_DUELING:
+				return RINGS_OF_DUELING.contains(itemId);
+			case AMULET_OF_GLORY:
+				// "Amulet of glory(1-6)", "Amulet of glory(t1-t6)" and "Amulet of eternal glory"
+				return name.startsWith("amulet of") && name.contains("glory");
+			case PORTAL:
+				// Construction cape, max cape, or a redirected house tablet like "Rimmington teleport"
+				return isMaxCape(name) || name.startsWith("construct. cape") || name.equals(value + " teleport");
+			case MAXCAPE:
+				return isMaxCape(name);
+			case BOAT:
+				return isMaxCape(name) || name.startsWith("sailing cape") || name.equals("teleport to boat");
+			case SPELL:
+				// The spell's tablet has the same name
+				return name.equals(value);
+			case ITEM:
+				SlayerData.ItemData item = data == null ? null : data.getItems().get(route.getItem());
+				if (item != null)
+				{
+					for (String prefix : item.getNames())
+					{
+						if (name.startsWith(prefix))
+						{
+							return true;
+						}
+					}
+				}
+				return false;
+			default:
+				return false;
+		}
+	}
+
+	/**
+	 * @return true if the item is any teleport item the plugin knows, for placing the location picker
+	 */
+	boolean isTeleportItem(int itemId)
 	{
 		if (itemId <= 0)
 		{
-			return EnumSet.noneOf(RouteType.class);
+			return false;
 		}
-		return cache.computeIfAbsent(itemId, this::lookup);
+		if (SLAYER_RINGS.contains(itemId) || BURNING_AMULETS.contains(itemId) || RINGS_OF_DUELING.contains(itemId)
+			|| itemId == ItemID.ATJUN_GLOVES_ELITE)
+		{
+			return true;
+		}
+		String name = name(itemId);
+		if (isMaxCape(name) || name.startsWith("construct. cape") || name.contains("teleport")
+			|| (name.startsWith("amulet of") && name.contains("glory")))
+		{
+			return true;
+		}
+		if (data != null)
+		{
+			for (SlayerData.ItemData item : data.getItems().values())
+			{
+				for (String prefix : item.getNames())
+				{
+					if (name.startsWith(prefix))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
-	private Set<RouteType> lookup(int itemId)
+	private static boolean isMaxCape(String name)
 	{
-		Set<RouteType> types = EnumSet.noneOf(RouteType.class);
-		if (SLAYER_RINGS.contains(itemId))
-		{
-			types.add(RouteType.RING);
-		}
-		if (itemId == ItemID.ATJUN_GLOVES_ELITE)
-		{
-			types.add(RouteType.KARAMJA_GLOVES);
-		}
-		if (BURNING_AMULETS.contains(itemId))
-		{
-			types.add(RouteType.BURNING_AMULET);
-		}
-		if (RINGS_OF_DUELING.contains(itemId))
-		{
-			types.add(RouteType.RING_OF_DUELING);
-		}
-
-		String name = client.getItemDefinition(itemId).getName().toLowerCase();
-		if (name.contains("max cape"))
-		{
-			types.add(RouteType.MAXCAPE);
-			types.add(RouteType.PORTAL);
-			types.add(RouteType.BOAT);
-		}
-		else if (name.startsWith("construct. cape"))
-		{
-			types.add(RouteType.PORTAL);
-		}
-		else if (name.startsWith("amulet of") && name.contains("glory"))
-		{
-			// "Amulet of glory(1-6)", "Amulet of glory(t1-t6)" and "Amulet of eternal glory"
-			types.add(RouteType.AMULET_OF_GLORY);
-		}
-		else if (name.startsWith("sailing cape"))
-		{
-			types.add(RouteType.BOAT);
-		}
-		return types;
+		return name.contains("max cape");
 	}
 }

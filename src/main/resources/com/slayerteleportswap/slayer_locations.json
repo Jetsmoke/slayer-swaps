@@ -5,6 +5,31 @@
     {
      "type": "ring",
      "value": "Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
     }
    ],
    "wilderness": false
@@ -18,6 +43,23 @@
     {
      "type": "fairy",
      "value": "CKS"
+    },
+    {
+     "type": "spell",
+     "value": "Salve Graveyard Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Kharyrll Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Fenkenstrain's Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -27,6 +69,45 @@
     {
      "type": "fairy",
      "value": "CIS"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Heart"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "Lunch by the Lancalliums"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Northern Tundras"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Kourend Woodland"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Kourend Woodland"
     }
    ],
    "wilderness": false
@@ -54,12 +135,41 @@
     {
      "type": "ring_of_dueling",
      "value": "Ferox Enclave"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Corporeal Beast"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
+    },
+    {
+     "type": "item",
+     "item": "hunter_cape",
+     "value": "Teleport"
     }
    ],
    "wilderness": true
   },
   "Stronghold of Security": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "skull_sceptre",
+     "value": "Invoke"
+    },
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
+     "type": "network",
+     "item": "canoe",
+     "value": "Barbarian Village"
+    }
+   ],
    "wilderness": false
   },
   "Deepfin Mine": {
@@ -71,6 +181,14 @@
     {
      "type": "burning_amulet",
      "value": "Lava Maze"
+    },
+    {
+     "type": "spell",
+     "value": "Cemetery Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Dareeyak Teleport"
     }
    ],
    "wilderness": true
@@ -89,12 +207,47 @@
     {
      "type": "fairy",
      "value": "ALQ"
+    },
+    {
+     "type": "item",
+     "item": "spider_cave_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "hallowed_crystal_shard",
+     "value": "Activate"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
   },
   "God Wars Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "ghommals_hilt",
+     "value": "Trollheim"
+    },
+    {
+     "type": "spell",
+     "value": "Trollheim Teleport"
+    },
+    {
+     "type": "item",
+     "item": "stony_basalt",
+     "value": "Troll Stronghold"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    }
+   ],
    "wilderness": false
   },
   "Wilderness God Wars Dungeon": {
@@ -106,6 +259,19 @@
     {
      "type": "ring_of_dueling",
      "value": "Ferox Enclave"
+    },
+    {
+     "type": "spell",
+     "value": "Cemetery Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Dareeyak Teleport"
+    },
+    {
+     "type": "item",
+     "item": "revenant_cave_teleport",
+     "value": "Teleport"
     }
    ],
    "wilderness": true
@@ -136,6 +302,16 @@
     {
      "type": "portal",
      "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "fremennik_sea_boots",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
     }
    ],
    "wilderness": false
@@ -153,6 +329,11 @@
     {
      "type": "boat",
      "value": "Wyrmscraig"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "Wyrmscraig"
     }
    ],
    "wilderness": false
@@ -162,6 +343,15 @@
     {
      "type": "fairy",
      "value": "CKS"
+    },
+    {
+     "type": "item",
+     "item": "lumberyard_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Salve Graveyard Teleport"
     }
    ],
    "wilderness": false
@@ -180,6 +370,44 @@
     {
      "type": "fairy",
      "value": "CIS"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": null
+    },
+    {
+     "type": "portal",
+     "value": "Hosidius"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": null
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Tithe Farm"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
     }
    ],
    "wilderness": false
@@ -198,6 +426,66 @@
     {
      "type": "portal",
      "value": "Aldarin"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Aldarin"
+    },
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "North Aldarin"
+    }
+   ],
+   "wilderness": false
+  },
+  "Sisterhood Sanctuary": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Abandoned Mine": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Shadow Dungeon": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": null
     }
    ],
    "wilderness": false
@@ -210,18 +498,6 @@
    "routes": [],
    "wilderness": false
   },
-  "Sisterhood Sanctuary": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Abandoned Mine": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Shadow Dungeon": {
-   "routes": [],
-   "wilderness": false
-  },
   "Custodia Mountains": {
    "routes": [],
    "wilderness": false
@@ -231,6 +507,35 @@
     {
      "type": "fairy",
      "value": "DJP"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Battlefield of Khazard"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Khazard"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
     }
    ],
    "wilderness": false
@@ -244,6 +549,50 @@
     {
      "type": "portal",
      "value": "Rimmington"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Rat Pits"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Sarim"
+    }
+   ],
+   "wilderness": false
+  },
+  "Port Piscarilius": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "The Fisher's Flute"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Port Piscarilius"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Heart"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Tithe Farm"
     }
    ],
    "wilderness": false
@@ -253,6 +602,11 @@
     {
      "type": "boat",
      "value": "Corsair Cove"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Corsair Cove"
     }
    ],
    "wilderness": false
@@ -261,15 +615,25 @@
    "routes": [],
    "wilderness": false
   },
-  "Port Piscarilius": {
-   "routes": [],
-   "wilderness": false
-  },
   "Chasm of Fire": {
    "routes": [
     {
      "type": "fairy",
      "value": "DJR"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "History and Hearsay"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
     }
    ],
    "wilderness": false
@@ -279,6 +643,25 @@
     {
      "type": "portal",
      "value": "Taverley"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Burthorpe Games Room"
     }
    ],
    "wilderness": false
@@ -292,6 +675,10 @@
     {
      "type": "fairy",
      "value": "DKR"
+    },
+    {
+     "type": "spell",
+     "value": "Paddewwa Teleport"
     }
    ],
    "wilderness": false
@@ -305,6 +692,40 @@
     {
      "type": "fairy",
      "value": "CKR"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Sarim"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Brimhaven"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Crash Site Cavern": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
     }
    ],
    "wilderness": false
@@ -318,14 +739,20 @@
    ],
    "wilderness": false
   },
-  "Crash Site Cavern": {
-   "routes": [],
-   "wilderness": false
-  },
   "Corsair Cove Dungeon": {
    "routes": [
     {
      "type": "boat",
+     "value": "Corsair Cove"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Feldip Hills"
+    },
+    {
+     "type": "network",
+     "item": "charter",
      "value": "Corsair Cove"
     }
    ],
@@ -352,19 +779,57 @@
     {
      "type": "fairy",
      "value": "DIS"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Rat Pits"
     }
    ],
    "wilderness": false
   },
   "Varrock": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Jolly Boar Inn": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Varrock Teleport"
+    },
+    {
+     "type": "network",
+     "item": "canoe",
+     "value": "Barbarian Village"
+    }
+   ],
    "wilderness": false
   },
   "Black Knights' Fortress (location)": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Mind Altar Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    }
+   ],
+   "wilderness": false
+  },
+  "Jolly Boar Inn": {
    "routes": [],
    "wilderness": false
   },
@@ -373,6 +838,15 @@
     {
      "type": "burning_amulet",
      "value": "Lava Maze"
+    },
+    {
+     "type": "spell",
+     "value": "Ghorrock Teleport"
+    },
+    {
+     "type": "item",
+     "item": "revenant_cave_teleport",
+     "value": "Teleport"
     }
    ],
    "wilderness": true
@@ -382,6 +856,15 @@
     {
      "type": "ring_of_dueling",
      "value": "Ferox Enclave"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Corporeal Beast"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
     }
    ],
    "wilderness": true
@@ -400,16 +883,56 @@
     {
      "type": "fairy",
      "value": "DLS"
+    },
+    {
+     "type": "item",
+     "item": "hallowed_crystal_shard",
+     "value": "Activate"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Darkmeyer"
     }
    ],
    "wilderness": false
   },
   "Meiyerditch": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    }
+   ],
    "wilderness": false
   },
   "Buccaneers' Laboratory": {
    "routes": [],
+   "wilderness": false
+  },
+  "Heroes' Guild": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Taverley"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Burthorpe Games Room"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Warriors' Guild"
+    }
+   ],
    "wilderness": false
   },
   "Isle of Souls Dungeon": {
@@ -417,6 +940,11 @@
     {
      "type": "fairy",
      "value": "BJP"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Soul Wars"
     }
    ],
    "wilderness": false
@@ -430,16 +958,34 @@
    ],
    "wilderness": false
   },
-  "Ogre Enclave": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Heroes' Guild": {
-   "routes": [],
-   "wilderness": false
-  },
   "Ruins of Tapoyauik": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "Twilight Temple"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Salvager Overlook"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Quetzacalli Gorge"
+    }
+   ],
+   "wilderness": false
+  },
+  "Ogre Enclave": {
+   "routes": [
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Lemantolly Undri"
+    }
+   ],
    "wilderness": false
   },
   "Dragon Nest": {
@@ -451,6 +997,11 @@
     {
      "type": "fairy",
      "value": "DKS"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
     }
    ],
    "wilderness": false
@@ -465,11 +1016,27 @@
    "wilderness": false
   },
   "Lumbridge Swamp Caves": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Mos Le'Harmless Cave": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "mos_leharmless_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Mos Le'Harmless"
+    }
+   ],
    "wilderness": false
   },
   "Kraken Cove": {
@@ -477,20 +1044,108 @@
     {
      "type": "fairy",
      "value": "AKQ"
+    },
+    {
+     "type": "item",
+     "item": "western_banner",
+     "value": "Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Yanille Agility Dungeon": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Watchtower Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Nightmare Zone"
+    },
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Castle Wars"
     }
    ],
    "wilderness": false
   },
   "Chaos Druid Tower": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Fishing Guild Teleport"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "West Ardougne Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Slepe": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Yanille Agility Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Darkmeyer"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    }
+   ],
    "wilderness": false
   },
   "Chaos Temple (Wilderness)": {
@@ -507,6 +1162,29 @@
     {
      "type": "fairy",
      "value": "DJP"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "West Ardougne Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Battlefield of Khazard"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
     }
    ],
    "wilderness": false
@@ -516,6 +1194,35 @@
     {
      "type": "fairy",
      "value": "CIR"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Honour"
     }
    ],
    "wilderness": false
@@ -525,6 +1232,57 @@
     {
      "type": "fairy",
      "value": "CJR"
+    },
+    {
+     "type": "spell",
+     "value": "Camelot Teleport"
+    },
+    {
+     "type": "item",
+     "item": "kandarin_headgear",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Catherby Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Catherby"
+    }
+   ],
+   "wilderness": false
+  },
+  "Nightmare Zone": {
+   "routes": [
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Nightmare Zone"
+    },
+    {
+     "type": "spell",
+     "value": "Watchtower Teleport"
+    },
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Tree Gnome Village"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Fishing Trawler"
     }
    ],
    "wilderness": false
@@ -534,6 +1292,26 @@
     {
      "type": "portal",
      "value": "Prifddinas"
+    },
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
     }
    ],
    "wilderness": false
@@ -547,6 +1325,63 @@
     {
      "type": "fairy",
      "value": "AKR"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Glade"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Tithe Farm"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "Lunch by the Lancalliums"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Hosidius"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
+    }
+   ],
+   "wilderness": false
+  },
+  "South Falador Farm": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Sarim"
+    },
+    {
+     "type": "portal",
+     "value": "Rimmington"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Port Sarim"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Rat Pits"
     }
    ],
    "wilderness": false
@@ -565,6 +1400,29 @@
     {
      "type": "fairy",
      "value": "BJP"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Soul Wars"
+    }
+   ],
+   "wilderness": false
+  },
+  "Lumbridge cow field (north)": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Fred's farm": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
     }
    ],
    "wilderness": false
@@ -574,40 +1432,80 @@
     {
      "type": "maxcape",
      "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "crafting_cape",
+     "value": "Teleport"
     }
    ],
-   "wilderness": false
-  },
-  "Lumbridge cow field (north)": {
-   "routes": [],
    "wilderness": false
   },
   "Lumbridge cow field": {
    "routes": [],
    "wilderness": false
   },
-  "Fred's farm": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Nightmare Zone": {
-   "routes": [],
-   "wilderness": false
-  },
-  "South Falador Farm": {
-   "routes": [],
-   "wilderness": false
-  },
   "Fossil Island": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Fossil Island"
+    },
+    {
+     "type": "spell",
+     "value": "Varrock Teleport"
+    },
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Digsite"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Lemanto Andra"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    }
+   ],
    "wilderness": false
   },
   "Waterbirth Island": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Waterbirth Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Waterbirth Island"
+    }
+   ],
    "wilderness": false
   },
   "Crabclaw Isle": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Tithe Farm"
+    }
+   ],
    "wilderness": false
   },
   "Mogre Camp": {
@@ -615,15 +1513,45 @@
    "wilderness": false
   },
   "River Elid": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": "Nardah"
+    },
+    {
+     "type": "fairy",
+     "value": "DLQ"
+    }
+   ],
    "wilderness": false
   },
   "Ruins of Unkah": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": "Nardah"
+    },
+    {
+     "type": "fairy",
+     "value": "DLQ"
+    }
+   ],
    "wilderness": false
   },
   "Ruins of Ullek": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": "Nardah"
+    },
+    {
+     "type": "fairy",
+     "value": "DLQ"
+    }
+   ],
    "wilderness": false
   },
   "Stalker Den": {
@@ -631,6 +1559,21 @@
     {
      "type": "fairy",
      "value": "AIS"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Auburnvale"
+    },
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "Nemus Retreat"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Honour"
     }
    ],
    "wilderness": false
@@ -640,12 +1583,36 @@
     {
      "type": "fairy",
      "value": "ALP"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
+    },
+    {
+     "type": "portal",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
     }
    ],
    "wilderness": false
   },
   "Waterbirth Island Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Waterbirth Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Waterbirth Island"
+    }
+   ],
    "wilderness": false
   },
   "Mourner Tunnels": {
@@ -662,6 +1629,25 @@
     {
      "type": "fairy",
      "value": "DJR"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Lookout"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "History and Hearsay"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
     }
    ],
    "wilderness": false
@@ -671,6 +1657,26 @@
     {
      "type": "fairy",
      "value": "DJR"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Inferno"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "Jewellery of Jubilation"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
     }
    ],
    "wilderness": false
@@ -684,6 +1690,10 @@
     {
      "type": "ring_of_dueling",
      "value": "Ferox Enclave"
+    },
+    {
+     "type": "spell",
+     "value": "Dareeyak Teleport"
     }
    ],
    "wilderness": true
@@ -710,6 +1720,20 @@
     {
      "type": "maxcape",
      "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
     }
    ],
    "wilderness": false
@@ -723,6 +1747,11 @@
     {
      "type": "fairy",
      "value": "DLQ"
+    },
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": null
     }
    ],
    "wilderness": false
@@ -736,35 +1765,153 @@
     {
      "type": "fairy",
      "value": "CLS"
+    },
+    {
+     "type": "spell",
+     "value": "Watchtower Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Nightmare Zone"
+    }
+   ],
+   "wilderness": false
+  },
+  "Falador": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Falador"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "portal",
+     "value": "Taverley"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
     }
    ],
    "wilderness": false
   },
   "Ice Mountain": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "item",
+     "item": "skull_sceptre",
+     "value": "Invoke"
+    },
+    {
+     "type": "item",
+     "item": "chronicle",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "canoe",
+     "value": "Barbarian Village"
+    }
+   ],
    "wilderness": false
   },
   "Mining Guild": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Keldagrim": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Blast Furnace"
+    },
+    {
+     "type": "item",
+     "item": "fremennik_sea_boots",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Dondakan"
+    }
+   ],
    "wilderness": false
   },
   "Dwarven Mine": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Falador": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Black Knights' Base": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
+    }
+   ],
    "wilderness": false
   },
   "White Wolf Mountain": {
+   "routes": [
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    }
+   ],
+   "wilderness": false
+  },
+  "Black Knights' Base": {
    "routes": [],
    "wilderness": false
   },
@@ -778,11 +1925,33 @@
    "wilderness": false
   },
   "Lletya": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Lletya"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Tyras"
+    }
+   ],
    "wilderness": false
   },
   "Iorwerth Camp": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Tyras"
+    },
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Lletya"
+    }
+   ],
    "wilderness": false
   },
   "Mourner Headquarters": {
@@ -794,32 +1963,123 @@
     {
      "type": "fairy",
      "value": "AKR"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Kourend Woodland"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Kourend Woodland"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Tithe Farm"
+    },
+    {
+     "type": "portal",
+     "value": "Hosidius"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Lookout"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Pest Control"
     }
    ],
    "wilderness": false
   },
   "Braindeath Island": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Phasmatys"
+    }
+   ],
    "wilderness": false
   },
   "Waterfall Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
+    }
+   ],
+   "wilderness": false
+  },
+  "Giants' Den": {
+   "routes": [
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Heart"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "History and Hearsay"
+    }
+   ],
    "wilderness": false
   },
   "Crandor and Karamja Dungeon": {
    "routes": [],
    "wilderness": false
   },
-  "Giants' Den": {
-   "routes": [],
-   "wilderness": false
-  },
   "Deep Wilderness Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ice Plateau Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Wyvern Cave": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Fossil Island"
+    }
+   ],
    "wilderness": false
   },
   "Grimstone Dungeon": {
@@ -840,6 +2100,77 @@
    ],
    "wilderness": false
   },
+  "West Ardougne": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "West Ardougne Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Scorpius Shrine": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ourania Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": null
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Battlefield of Khazard"
+    }
+   ],
+   "wilderness": false
+  },
+  "Lair of Tarn Razorlor (dungeon)": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    }
+   ],
+   "wilderness": false
+  },
+  "Haunted Mine": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    }
+   ],
+   "wilderness": false
+  },
   "Varrock Sewers": {
    "routes": [],
    "wilderness": false
@@ -848,23 +2179,7 @@
    "routes": [],
    "wilderness": false
   },
-  "West Ardougne": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Scorpius Shrine": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Lair of Tarn Razorlor (dungeon)": {
-   "routes": [],
-   "wilderness": false
-  },
   "Death Altar": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Haunted Mine": {
    "routes": [],
    "wilderness": false
   },
@@ -873,6 +2188,45 @@
     {
      "type": "fairy",
      "value": "BKR"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Goblin Cave": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
     }
    ],
    "wilderness": false
@@ -889,15 +2243,21 @@
    "routes": [],
    "wilderness": false
   },
-  "Goblin Cave": {
-   "routes": [],
+  "Blighted Volcano": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "wilderness_sword",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Annakarl Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Entrana Dungeon": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Blighted Volcano": {
    "routes": [],
    "wilderness": false
   },
@@ -910,12 +2270,46 @@
     {
      "type": "maxcape",
      "value": "Wilderness Hunter area"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "network",
+     "item": "canoe",
+     "value": "Edgeville"
+    },
+    {
+     "type": "spell",
+     "value": "Varrock Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Grand Exchange"
+    },
+    {
+     "type": "item",
+     "item": "lumberyard_teleport",
+     "value": "Teleport"
     }
    ],
    "wilderness": true
   },
   "Demonic Ruins": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Annakarl Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Graveyard of Shadows": {
@@ -923,6 +2317,10 @@
     {
      "type": "ring_of_dueling",
      "value": "Ferox Enclave"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
     }
    ],
    "wilderness": true
@@ -932,6 +2330,15 @@
     {
      "type": "maxcape",
      "value": "Wilderness Hunter area"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Corporeal Beast"
     }
    ],
    "wilderness": true
@@ -959,11 +2366,28 @@
    "wilderness": false
   },
   "Karamja": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Gandius"
+    }
+   ],
    "wilderness": false
   },
   "Colossal Wyrm Remains": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Colossal Wyrm Remains"
+    }
+   ],
    "wilderness": false
   },
   "Witchaven Shrine Dungeon": {
@@ -971,6 +2395,10 @@
     {
      "type": "fairy",
      "value": "BLR"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
     }
    ],
    "wilderness": false
@@ -980,6 +2408,10 @@
     {
      "type": "fairy",
      "value": "BLR"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
     }
    ],
    "wilderness": false
@@ -989,12 +2421,61 @@
     {
      "type": "fairy",
      "value": "CIQ"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Tree Gnome Village"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    },
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Fishing Trawler"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
     }
    ],
    "wilderness": false
   },
   "Gnome Stronghold": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Tree Gnome Village"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    }
+   ],
    "wilderness": false
   },
   "Asgarnian Ice Dungeon": {
@@ -1006,15 +2487,31 @@
     {
      "type": "portal",
      "value": "Rimmington"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Rat Pits"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Pest Control"
+    }
+   ],
+   "wilderness": false
+  },
+  "Hobgoblin Peninsula": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
     }
    ],
    "wilderness": false
   },
   "Crandor": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Hobgoblin Peninsula": {
    "routes": [],
    "wilderness": false
   },
@@ -1027,15 +2524,52 @@
    "wilderness": false
   },
   "Ralos' Rise": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "Ralos' Rise"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "The Teomat"
+    },
+    {
+     "type": "item",
+     "item": "hunter_cape",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Civitas illa Fortis Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Mons Gratia": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Quetzacalli Gorge"
+    }
+   ],
    "wilderness": false
   },
   "Settlement Ruins": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": null
+    }
+   ],
    "wilderness": false
   },
   "Ice Queen's Lair": {
@@ -1043,11 +2577,36 @@
    "wilderness": false
   },
   "Frozen Waste Plateau": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ghorrock Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ice Plateau Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Mos Le'Harmless": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "mos_leharmless_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Mos Le'Harmless"
+    }
+   ],
    "wilderness": false
   },
   "Kalphite Lair": {
@@ -1068,12 +2627,41 @@
     {
      "type": "amulet_of_glory",
      "value": "Al Kharid"
+    },
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": "Kalphite cave"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Sorceress's Garden"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": null
     }
    ],
    "wilderness": false
   },
   "Killerwatt plane": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Draynor Manor Teleport"
+    },
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
+    }
+   ],
    "wilderness": false
   },
   "Kurask Lair": {
@@ -1081,12 +2669,32 @@
     {
      "type": "boat",
      "value": "Laguna Aurorae"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Laguna Aurorae"
     }
    ],
    "wilderness": false
   },
   "Lava Dragon Isle": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "revenant_cave_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Annakarl Teleport"
+    },
+    {
+     "type": "network",
+     "item": "canoe",
+     "value": "Ferox Enclave"
+    }
+   ],
    "wilderness": true
   },
   "Wizards' Tower": {
@@ -1094,6 +2702,16 @@
     {
      "type": "fairy",
      "value": "DIS"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "Wizards' Tower"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
     }
    ],
    "wilderness": false
@@ -1102,12 +2720,34 @@
    "routes": [],
    "wilderness": false
   },
-  "Neypotzli": {
-   "routes": [],
+  "Tonali Cavern": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "North of Kastori"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Tal Teklan"
+    }
+   ],
    "wilderness": false
   },
-  "Tonali Cavern": {
-   "routes": [],
+  "Neypotzli": {
+   "routes": [
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "Cam Torum"
+    },
+    {
+     "type": "network",
+     "item": "quetzal",
+     "value": "The Teomat"
+    }
+   ],
    "wilderness": false
   },
   "Lizardman Settlement": {
@@ -1115,6 +2755,16 @@
     {
      "type": "fairy",
      "value": "BLS"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -1124,6 +2774,20 @@
     {
      "type": "fairy",
      "value": "CIR"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Molch": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
     }
    ],
    "wilderness": false
@@ -1144,10 +2808,6 @@
    "routes": [],
    "wilderness": false
   },
-  "Molch": {
-   "routes": [],
-   "wilderness": false
-  },
   "Kharidian Desert": {
    "routes": [
     {
@@ -1158,13 +2818,32 @@
    "wilderness": false
   },
   "Magic Axe Hut": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Ferox Enclave": {
    "routes": [
     {
      "type": "ring_of_dueling",
+     "value": "Ferox Enclave"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Clan Wars"
+    },
+    {
+     "type": "network",
+     "item": "canoe",
      "value": "Ferox Enclave"
     }
    ],
@@ -1175,12 +2854,62 @@
     {
      "type": "maxcape",
      "value": "Otto's Grotto"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Barbarian Assault"
+    },
+    {
+     "type": "spell",
+     "value": "Barbarian Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Otto's Grotto"
     }
    ],
    "wilderness": false
   },
   "Lithkren Vault": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Digsite"
+    },
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Fossil Island"
+    },
+    {
+     "type": "item",
+     "item": "digsite_pendant",
+     "value": "Lithkren Dungeon"
+    }
+   ],
    "wilderness": false
   },
   "Mudskipper Point": {
@@ -1205,16 +2934,63 @@
     {
      "type": "fairy",
      "value": "BIS"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Battlefield of Khazard"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Port Khazard"
     }
    ],
    "wilderness": false
   },
   "Moss Giant Island": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Brimhaven"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Brimhaven"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Pirates' Cove": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Moonclan Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "portal",
+     "value": "Rellekka"
+    }
+   ],
    "wilderness": false
   },
   "Glarial's Tomb": {
@@ -1239,6 +3015,85 @@
     {
      "type": "fairy",
      "value": "CIQ"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    },
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Fishing Trawler"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Combat Training Camp": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Chaos Druid Tower Dungeon": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Fishing Guild Teleport"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "West Ardougne Teleport"
     }
    ],
    "wilderness": false
@@ -1252,14 +3107,6 @@
    "wilderness": false
   },
   "Clock Tower Dungeon": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Combat Training Camp": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Chaos Druid Tower Dungeon": {
    "routes": [],
    "wilderness": false
   },
@@ -1281,7 +3128,24 @@
    "wilderness": false
   },
   "Pirates' Hideout": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ghorrock Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ice Plateau Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Forthos Dungeon": {
@@ -1289,6 +3153,26 @@
     {
      "type": "portal",
      "value": "Hosidius"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Glade"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "Lunch by the Lancalliums"
+    },
+    {
+     "type": "network",
+     "item": "minecart",
+     "value": "Lovakengj"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
     }
    ],
    "wilderness": false
@@ -1298,15 +3182,33 @@
     {
      "type": "burning_amulet",
      "value": "Lava Maze"
+    },
+    {
+     "type": "item",
+     "item": "revenant_cave_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
+    }
+   ],
+   "wilderness": true
+  },
+  "Mage Arena": {
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
     }
    ],
    "wilderness": true
   },
   "Rogues' Castle": {
-   "routes": [],
-   "wilderness": true
-  },
-  "Mage Arena": {
    "routes": [],
    "wilderness": true
   },
@@ -1333,7 +3235,26 @@
    "wilderness": false
   },
   "Dwarven mines": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
+    }
+   ],
    "wilderness": false
   },
   "Miscellania and Etceteria Dungeon": {
@@ -1350,6 +3271,64 @@
     {
      "type": "fairy",
      "value": "BIP"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    }
+   ],
+   "wilderness": false
+  },
+  "Temple Trekking": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Kharyrll Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    }
+   ],
+   "wilderness": false
+  },
+  "Sepulchre of Death": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skull_sceptre",
+     "value": "Invoke"
     }
    ],
    "wilderness": false
@@ -1358,19 +3337,39 @@
    "routes": [],
    "wilderness": false
   },
-  "Temple Trekking": {
-   "routes": [],
-   "wilderness": false
-  },
-  "Sepulchre of Death": {
-   "routes": [],
-   "wilderness": false
-  },
   "Legends' Guild": {
    "routes": [
     {
      "type": "fairy",
      "value": "BLR"
+    },
+    {
+     "type": "item",
+     "item": "quest_point_cape",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Ranging Guild"
+    },
+    {
+     "type": "item",
+     "item": "kandarin_headgear",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Camelot Teleport"
     }
    ],
    "wilderness": false
@@ -1393,6 +3392,16 @@
     {
      "type": "fairy",
      "value": "BLP"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Musa Point"
+    },
+    {
+     "type": "network",
+     "item": "charter",
+     "value": "Brimhaven"
     }
    ],
    "wilderness": false
@@ -1402,6 +3411,39 @@
     {
      "type": "fairy",
      "value": "BKR"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
+    },
+    {
+     "type": "spell",
+     "value": "Kharyrll Teleport"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
     }
    ],
    "wilderness": false
@@ -1428,7 +3470,16 @@
    "wilderness": false
   },
   "Sourhog Cave": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Draynor Manor Teleport"
+    },
+    {
+     "type": "amulet_of_glory",
+     "value": "Draynor Village"
+    }
+   ],
    "wilderness": false
   },
   "Ape Atoll": {
@@ -1436,6 +3487,29 @@
     {
      "type": "fairy",
      "value": "CLR"
+    },
+    {
+     "type": "spell",
+     "value": "Ape Atoll Teleport"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ookookolly Undri"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    }
+   ],
+   "wilderness": false
+  },
+  "Lumbridge Castle": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
     }
    ],
    "wilderness": false
@@ -1444,15 +3518,15 @@
    "routes": [],
    "wilderness": false
   },
-  "Lumbridge Castle": {
-   "routes": [],
-   "wilderness": false
-  },
   "Lunar Isle": {
    "routes": [
     {
      "type": "boat",
      "value": "Lunar Isle"
+    },
+    {
+     "type": "spell",
+     "value": "Moonclan Teleport"
     }
    ],
    "wilderness": false
@@ -1470,12 +3544,42 @@
     {
      "type": "fairy",
      "value": "BIP"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Shades of Mort'ton"
     }
    ],
    "wilderness": false
   },
   "Trollheim": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Trollheim Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ghommals_hilt",
+     "value": "Trollheim"
+    },
+    {
+     "type": "item",
+     "item": "stony_basalt",
+     "value": "Troll Stronghold"
+    }
+   ],
    "wilderness": false
   },
   "Death Plateau (location)": {
@@ -1491,16 +3595,48 @@
     {
      "type": "fairy",
      "value": "BLP"
+    },
+    {
+     "type": "item",
+     "item": "ghommals_hilt",
+     "value": "Mor Ul Rek"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": null
     }
    ],
    "wilderness": false
   },
   "Darkmeyer": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Darkmeyer"
+    },
+    {
+     "type": "item",
+     "item": "hallowed_crystal_shard",
+     "value": "Activate"
+    }
+   ],
    "wilderness": false
   },
   "Vampyrium": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": null
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Castle Drakan"
+    }
+   ],
    "wilderness": false
   },
   "Apsul Hunting Ground": {
@@ -1512,7 +3648,13 @@
    "wilderness": false
   },
   "Poison Waste Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Poison Waste"
+    }
+   ],
    "wilderness": false
   },
   "Canifis": {
@@ -1520,6 +3662,10 @@
     {
      "type": "fairy",
      "value": "CKS"
+    },
+    {
+     "type": "spell",
+     "value": "Kharyrll Teleport"
     }
    ],
    "wilderness": false
@@ -1534,7 +3680,26 @@
    "wilderness": false
   },
   "Wizards' Guild": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Watchtower Teleport"
+    },
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Nightmare Zone"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Callisto's Den": {
@@ -1555,12 +3720,32 @@
     {
      "type": "boat",
      "value": "Weiss"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": "Ghorrock Dungeon"
+    },
+    {
+     "type": "item",
+     "item": "icy_basalt",
+     "value": "Weiss"
     }
    ],
    "wilderness": false
   },
   "Mole Lair": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Falador"
+    }
+   ],
    "wilderness": false
   },
   "King Black Dragon's Lair": {
@@ -1573,15 +3758,41 @@
    "wilderness": true
   },
   "The Scar": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": "The Scar"
+    }
+   ],
    "wilderness": false
   },
   "Ghorrock Dungeon": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": "Ghorrock Dungeon"
+    },
+    {
+     "type": "item",
+     "item": "icy_basalt",
+     "value": "Weiss"
+    }
+   ],
    "wilderness": false
   },
   "Scorpion Pit": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "amulet_of_glory",
+     "value": "Edgeville"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    }
+   ],
    "wilderness": true
   },
   "Shellbane Gryphon Cave": {
@@ -1602,6 +3813,11 @@
     {
      "type": "fairy",
      "value": "BLS"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": "The Stranglewood"
     }
    ],
    "wilderness": false
@@ -1615,7 +3831,12 @@
    "wilderness": true
   },
   "Lassar Undercity": {
-   "routes": [],
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Poison Waste": {
@@ -1632,6 +3853,16 @@
     {
      "type": "portal",
      "value": "Taverley"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Burthorpe Games Room"
     }
    ],
    "wilderness": false
@@ -1645,6 +3876,25 @@
     {
      "type": "maxcape",
      "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -1654,6 +3904,31 @@
     {
      "type": "ring",
      "value": "Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Tree Gnome Village"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
     }
    ],
    "wilderness": false
@@ -1667,6 +3942,20 @@
     {
      "type": "fairy",
      "value": "CKR"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": null
+    },
+    {
+     "type": "portal",
+     "value": "Brimhaven"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Gandius"
     }
    ],
    "wilderness": false
@@ -1680,6 +3969,11 @@
     {
      "type": "fairy",
      "value": "DKR"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Soul Wars"
     }
    ],
    "wilderness": false
@@ -1745,8 +4039,8 @@
    "boss": false,
    "locations": [
     "Stronghold Slayer Cave",
-    "Catacombs of Kourend",
     "Stronghold of Security",
+    "Catacombs of Kourend",
     "Deepfin Mine",
     "The Forgotten Cemetery",
     "Wilderness Slayer Cave"
@@ -1873,11 +4167,11 @@
     "Great Kourend",
     "Haunted Woods",
     "Mistrock",
-    "Coal Trucks",
-    "Silvarea",
     "Sisterhood Sanctuary",
     "Abandoned Mine",
     "Shadow Dungeon",
+    "Coal Trucks",
+    "Silvarea",
     "Custodia Mountains"
    ]
   },
@@ -1909,9 +4203,9 @@
    "boss": false,
    "locations": [
     "Port Sarim",
+    "Port Piscarilius",
     "Corsair Cove",
-    "Farmer Fred",
-    "Port Piscarilius"
+    "Farmer Fred"
    ]
   },
   {
@@ -1933,8 +4227,8 @@
     "Edgeville Dungeon",
     "Brimhaven Dungeon",
     "Catacombs of Kourend",
-    "Charred Dungeon",
     "Crash Site Cavern",
+    "Charred Dungeon",
     "Wilderness Slayer Cave"
    ]
   },
@@ -1973,8 +4267,8 @@
     "Draynor Village",
     "Taverley Dungeon",
     "Varrock",
-    "Jolly Boar Inn",
     "Black Knights' Fortress (location)",
+    "Jolly Boar Inn",
     "Lava Maze",
     "Bone Yard"
    ]
@@ -2022,13 +4316,13 @@
    "boss": false,
    "locations": [
     "Taverley Dungeon",
+    "Heroes' Guild",
     "Catacombs of Kourend",
     "Isle of Souls Dungeon",
     "Ungael",
-    "Corsair Cove Dungeon",
-    "Ogre Enclave",
-    "Heroes' Guild",
     "Ruins of Tapoyauik",
+    "Ogre Enclave",
+    "Corsair Cove Dungeon",
     "Dragon Nest"
    ]
   },
@@ -2157,9 +4451,9 @@
    "locations": [
     "Edgeville Dungeon",
     "Taverley Dungeon",
+    "Yanille Agility Dungeon",
     "Chaos Druid Tower",
     "Slepe",
-    "Yanille Agility Dungeon",
     "Chaos Temple (Wilderness)"
    ]
   },
@@ -2192,16 +4486,16 @@
     "Ardougne",
     "Kebos Lowlands",
     "Sinclair Mansion",
+    "Nightmare Zone",
     "Prifddinas",
     "Hosidius",
+    "South Falador Farm",
     "Zanaris",
     "Isle of Souls",
-    "Crafting Guild",
     "Lumbridge cow field (north)",
-    "Lumbridge cow field",
     "Fred's farm",
-    "Nightmare Zone",
-    "South Falador Farm"
+    "Crafting Guild",
+    "Lumbridge cow field"
    ]
   },
   {
@@ -2395,13 +4689,13 @@
    "locations": [
     "Lovakengj",
     "Yanille",
+    "Falador",
     "Ice Mountain",
     "Mining Guild",
     "Keldagrim",
     "Dwarven Mine",
-    "Falador",
-    "Black Knights' Base",
-    "White Wolf Mountain"
+    "White Wolf Mountain",
+    "Black Knights' Base"
    ]
   },
   {
@@ -2488,10 +4782,10 @@
     "Catacombs of Kourend",
     "Isle of Souls Dungeon",
     "Karuulm Slayer Dungeon",
-    "Charred Dungeon",
     "Waterfall Dungeon",
-    "Crandor and Karamja Dungeon",
     "Giants' Den",
+    "Charred Dungeon",
+    "Crandor and Karamja Dungeon",
     "Deep Wilderness Dungeon"
    ]
   },
@@ -2570,16 +4864,16 @@
    "boss": false,
    "locations": [
     "Draynor Manor",
+    "Stronghold of Security",
     "Taverley Dungeon",
     "Catacombs of Kourend",
-    "Varrock Sewers",
-    "Melzar's Maze",
-    "Stronghold of Security",
     "West Ardougne",
     "Scorpius Shrine",
     "Lair of Tarn Razorlor (dungeon)",
-    "Death Altar",
     "Haunted Mine",
+    "Varrock Sewers",
+    "Melzar's Maze",
+    "Death Altar",
     "The Forgotten Cemetery"
    ]
   },
@@ -2610,13 +4904,13 @@
    "boss": false,
    "locations": [
     "Port Sarim",
+    "Stronghold of Security",
+    "Goblin Cave",
+    "God Wars Dungeon",
     "Lumbridge Caves",
     "Goblin Village",
-    "Stronghold of Security",
     "Underground Pass (dungeon)",
-    "Goblin Cave",
-    "Coal Trucks",
-    "God Wars Dungeon"
+    "Coal Trucks"
    ]
   },
   {
@@ -2638,10 +4932,10 @@
     "Catacombs of Kourend",
     "Isle of Souls Dungeon",
     "Karuulm Slayer Dungeon",
-    "Entrana Dungeon",
-    "Ogre Enclave",
     "Blighted Volcano",
     "Sisterhood Sanctuary",
+    "Ogre Enclave",
+    "Entrana Dungeon",
     "Wilderness Slayer Cave",
     "Wilderness",
     "Demonic Ruins",
@@ -2720,9 +5014,9 @@
     "Witchaven Shrine Dungeon",
     "Catacombs of Kourend",
     "Witchaven Dungeon",
-    "Charred Dungeon",
     "God Wars Dungeon",
     "Blighted Volcano",
+    "Charred Dungeon",
     "Buccaneers' Laboratory",
     "Wilderness",
     "Wilderness Slayer Cave"
@@ -2765,12 +5059,12 @@
     "Asgarnian Ice Dungeon",
     "Edgeville Dungeon",
     "Witchaven Dungeon",
-    "Crandor",
     "Hobgoblin Peninsula",
-    "The Dibber",
     "God Wars Dungeon",
-    "Tree Gnome Village dungeon",
-    "Waterbirth Island"
+    "Waterbirth Island",
+    "Crandor",
+    "The Dibber",
+    "Tree Gnome Village dungeon"
    ]
   },
   {
@@ -2801,8 +5095,8 @@
     "Ice Mountain",
     "God Wars Dungeon",
     "Ralos' Rise",
-    "Mons Gratia",
     "Ruins of Tapoyauik",
+    "Mons Gratia",
     "Wilderness God Wars Dungeon"
    ]
   },
@@ -2818,10 +5112,10 @@
    "boss": false,
    "locations": [
     "Asgarnian Ice Dungeon",
-    "White Wolf Mountain",
     "Settlement Ruins",
-    "Ice Queen's Lair",
     "Ruins of Tapoyauik",
+    "White Wolf Mountain",
+    "Ice Queen's Lair",
     "Wilderness Slayer Cave",
     "Frozen Waste Plateau"
    ]
@@ -2839,9 +5133,9 @@
    "boss": false,
    "locations": [
     "Asgarnian Ice Dungeon",
+    "Ruins of Tapoyauik",
     "White Wolf Mountain",
     "Ice Queen's Lair",
-    "Ruins of Tapoyauik",
     "Frozen Waste Plateau"
    ]
   },
@@ -2874,8 +5168,8 @@
    "boss": false,
    "locations": [
     "Fremennik Slayer Dungeon",
-    "Ynysdail Cavern",
     "Ruins of Tapoyauik",
+    "Ynysdail Cavern",
     "Wilderness Slayer Cave"
    ]
   },
@@ -2995,9 +5289,9 @@
    ],
    "boss": false,
    "locations": [
-    "Neypotzli",
     "Ruins of Tapoyauik",
-    "Tonali Cavern"
+    "Tonali Cavern",
+    "Neypotzli"
    ]
   },
   {
@@ -3015,11 +5309,11 @@
    "locations": [
     "Lizardman Settlement",
     "Battlefront",
+    "Molch",
     "Lizardman canyon",
     "Shayziens' Wall",
     "Lizardman Canyon",
-    "Kebos Swamp",
-    "Molch"
+    "Kebos Swamp"
    ]
   },
   {
@@ -3141,9 +5435,9 @@
    "boss": false,
    "locations": [
     "Ardougne Zoo",
-    "Karamja",
     "Mos Le'Harmless",
-    "Crash Site Cavern"
+    "Crash Site Cavern",
+    "Karamja"
    ]
   },
   {
@@ -3158,12 +5452,12 @@
    "boss": false,
    "locations": [
     "Brimhaven Dungeon",
+    "Moss Giant Island",
+    "Pirates' Cove",
     "Catacombs of Kourend",
     "Iorwerth Dungeon",
     "Crandor",
-    "Moss Giant Island",
     "Varrock Sewers",
-    "Pirates' Cove",
     "Glarial's Tomb",
     "Wilderness"
    ]
@@ -3205,14 +5499,14 @@
     "Feldip Hills",
     "Gnome Maze",
     "Yanille",
-    "Gu'Tanoth",
-    "Toban",
     "Chaos Druid Tower",
-    "Clock Tower Dungeon",
-    "Underground Pass (dungeon)",
     "Combat Training Camp",
     "God Wars Dungeon",
     "Chaos Druid Tower Dungeon",
+    "Gu'Tanoth",
+    "Toban",
+    "Clock Tower Dungeon",
+    "Underground Pass (dungeon)",
     "Wilderness God Wars Dungeon"
    ]
   },
@@ -3242,12 +5536,12 @@
    "locations": [
     "Asgarnian Ice Dungeon",
     "Brimhaven",
-    "Cabin Fever",
     "Pirates' Cove",
-    "Port Sarim jail",
     "Port Piscarilius",
-    "Chaos Temple (Wilderness)",
-    "Pirates' Hideout"
+    "Cabin Fever",
+    "Port Sarim jail",
+    "Pirates' Hideout",
+    "Chaos Temple (Wilderness)"
    ]
   },
   {
@@ -3331,9 +5625,9 @@
    "locations": [
     "Fremennik Slayer Dungeon",
     "Dorgesh-Kaan South Dungeon",
-    "Ynysdail Cavern",
     "Lumbridge Swamp Caves",
-    "Tonali Cavern"
+    "Tonali Cavern",
+    "Ynysdail Cavern"
    ]
   },
   {
@@ -3346,8 +5640,8 @@
    ],
    "boss": false,
    "locations": [
-    "Rogues' Castle",
-    "Mage Arena"
+    "Mage Arena",
+    "Rogues' Castle"
    ]
   },
   {
@@ -3378,8 +5672,8 @@
    "locations": [
     "Al Kharid Mine",
     "Ardougne Zoo",
-    "Dwarven mines",
     "Stronghold of Security",
+    "Dwarven mines",
     "Varrock Sewers",
     "Wilderness"
    ]
@@ -3410,9 +5704,9 @@
    "locations": [
     "Mort'ton",
     "Catacombs of Kourend",
-    "Shade Catacombs",
     "Temple Trekking",
-    "Sepulchre of Death"
+    "Sepulchre of Death",
+    "Shade Catacombs"
    ]
   },
   {
@@ -3461,15 +5755,15 @@
     "Edgeville Dungeon",
     "Draynor Sewers",
     "Karamja Volcano",
+    "Stronghold of Security",
     "Taverley Dungeon",
     "Barrows",
+    "Waterfall Dungeon",
+    "Blighted Volcano",
     "Ogre Enclave",
-    "Stronghold of Security",
     "Temple of Ikov (dungeon)",
     "Varrock Sewers",
-    "Waterfall Dungeon",
     "Melzar's Maze",
-    "Blighted Volcano",
     "Ape Atoll Dungeon",
     "Underground Pass (dungeon)",
     "Wilderness Agility Course"
@@ -3516,14 +5810,14 @@
    ],
    "boss": false,
    "locations": [
+    "Stronghold of Security",
     "Ape Atoll",
     "Morytania Spider Cave",
-    "Melzar's Maze",
-    "Sorceress",
     "Lumbridge Castle",
-    "Stronghold of Security",
     "Ogre Enclave",
     "Karamja",
+    "Melzar's Maze",
+    "Sorceress",
     "Underground Pass (dungeon)",
     "Wilderness"
    ]
@@ -3734,8 +6028,8 @@
    ],
    "boss": false,
    "locations": [
-    "Feldip Hills",
     "Stronghold of Security",
+    "Feldip Hills",
     "White Wolf Mountain"
    ]
   },
@@ -3755,8 +6049,8 @@
    "locations": [
     "Karuulm Slayer Dungeon",
     "Wyrmscraig Cavern",
-    "Charred Island Dungeon",
-    "Neypotzli"
+    "Neypotzli",
+    "Charred Island Dungeon"
    ]
   },
   {
@@ -3774,12 +6068,12 @@
    "locations": [
     "Tree Gnome Village (location)",
     "Edgeville Dungeon",
-    "Draynor Sewers",
-    "Entrana Dungeon",
     "Stronghold of Security",
-    "Varrock Sewers",
     "Wizards' Guild",
+    "Draynor Sewers",
     "Lair of Tarn Razorlor (dungeon)",
+    "Entrana Dungeon",
+    "Varrock Sewers",
     "Graveyard of Shadows"
    ]
   },
@@ -4179,6 +6473,16 @@
     {
      "type": "portal",
      "value": "Taverley"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Burthorpe Games Room"
     }
    ],
    "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS)."
@@ -4191,6 +6495,10 @@
     {
      "type": "fairy",
      "value": "CKS"
+    },
+    {
+     "type": "spell",
+     "value": "Kharyrll Teleport"
     }
    ]
   },
@@ -4206,6 +6514,10 @@
     {
      "type": "fairy",
      "value": "DKR"
+    },
+    {
+     "type": "spell",
+     "value": "Paddewwa Teleport"
     }
    ]
   },
@@ -4232,6 +6544,25 @@
     {
      "type": "maxcape",
      "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
+    },
+    {
+     "type": "spell",
+     "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ]
   },
@@ -4243,6 +6574,31 @@
     {
      "type": "ring",
      "value": "Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Gnome Stronghold"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Ta Quir Priw"
+    },
+    {
+     "type": "network",
+     "item": "spirit_tree",
+     "value": "Tree Gnome Village"
+    },
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
     }
    ]
   },
@@ -4258,6 +6614,20 @@
     {
      "type": "fairy",
      "value": "CKR"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": null
+    },
+    {
+     "type": "portal",
+     "value": "Brimhaven"
+    },
+    {
+     "type": "network",
+     "item": "gnome_glider",
+     "value": "Gandius"
     }
    ]
   },
@@ -4273,6 +6643,11 @@
     {
      "type": "fairy",
      "value": "DKR"
+    },
+    {
+     "type": "network",
+     "item": "minigame",
+     "value": "Soul Wars"
     }
    ]
   },
@@ -4288,8 +6663,583 @@
     {
      "type": "boat",
      "value": "Wyrmscraig"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "Wyrmscraig"
     }
    ]
   }
- ]
+ ],
+ "items": {
+  "ghommals_hilt": {
+   "label": "Ghommal's hilt",
+   "names": [
+    "ghommal's hilt"
+   ],
+   "options": [
+    "Trollheim",
+    "Mor Ul Rek"
+   ]
+  },
+  "games_necklace": {
+   "label": "Games necklace",
+   "names": [
+    "games necklace"
+   ],
+   "options": [
+    "Burthorpe",
+    "Barbarian Outpost",
+    "Corporeal Beast",
+    "Tears of Guthix",
+    "Wintertodt Camp"
+   ]
+  },
+  "skills_necklace": {
+   "label": "Skills necklace",
+   "names": [
+    "skills necklace"
+   ],
+   "options": [
+    "Fishing Guild",
+    "Mining Guild",
+    "Crafting Guild",
+    "Cooking Guild",
+    "Woodcutting Guild",
+    "Farming Guild"
+   ]
+  },
+  "combat_bracelet": {
+   "label": "Combat bracelet",
+   "names": [
+    "combat bracelet"
+   ],
+   "options": [
+    "Warriors' Guild",
+    "Champions' Guild",
+    "Monastery",
+    "Ranging Guild"
+   ]
+  },
+  "ring_of_wealth": {
+   "label": "Ring of wealth",
+   "names": [
+    "ring of wealth"
+   ],
+   "options": [
+    "Miscellania",
+    "Grand Exchange",
+    "Falador",
+    "Dondakan"
+   ]
+  },
+  "xerics_talisman": {
+   "label": "Xeric's talisman",
+   "names": [
+    "xeric's talisman"
+   ],
+   "options": [
+    "Xeric's Lookout",
+    "Xeric's Glade",
+    "Xeric's Inferno",
+    "Xeric's Heart",
+    "Xeric's Honour"
+   ]
+  },
+  "kharedsts_memoirs": {
+   "label": "Kharedst's memoirs / Book of the dead",
+   "names": [
+    "kharedst's memoirs",
+    "book of the dead"
+   ],
+   "options": [
+    "Lunch by the Lancalliums",
+    "The Fisher's Flute",
+    "History and Hearsay",
+    "Jewellery of Jubilation",
+    "A Dark Disposition"
+   ]
+  },
+  "drakans_medallion": {
+   "label": "Drakan's medallion",
+   "names": [
+    "drakan's medallion"
+   ],
+   "options": [
+    "Ver Sinhaza",
+    "Darkmeyer",
+    "Slepe",
+    "Castle Drakan"
+   ]
+  },
+  "morytania_legs": {
+   "label": "Morytania legs 3/4",
+   "names": [
+    "morytania legs 3",
+    "morytania legs 4"
+   ],
+   "options": [
+    "Ecto Teleport",
+    "Burgh Teleport"
+   ]
+  },
+  "ardougne_cloak": {
+   "label": "Ardougne cloak",
+   "names": [
+    "ardougne cloak",
+    "ardougne max cape"
+   ],
+   "options": [
+    "Monastery Teleport",
+    "Farm Teleport"
+   ]
+  },
+  "ectophial": {
+   "label": "Ectophial",
+   "names": [
+    "ectophial"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "necklace_of_passage": {
+   "label": "Necklace of passage",
+   "names": [
+    "necklace of passage"
+   ],
+   "options": [
+    "Wizards' Tower",
+    "The Outpost",
+    "Eagles' Eyrie",
+    "Wyrmscraig"
+   ]
+  },
+  "digsite_pendant": {
+   "label": "Digsite pendant",
+   "names": [
+    "digsite pendant"
+   ],
+   "options": [
+    "Digsite",
+    "Fossil Island",
+    "Lithkren Dungeon"
+   ]
+  },
+  "pendant_of_ates": {
+   "label": "Pendant of ates",
+   "names": [
+    "pendant of ates"
+   ],
+   "options": [
+    "The Darkfrost",
+    "Twilight Temple",
+    "Ralos' Rise",
+    "North Aldarin",
+    "North of Kastori",
+    "Nemus Retreat"
+   ]
+  },
+  "radas_blessing": {
+   "label": "Rada's blessing 3/4",
+   "names": [
+    "rada's blessing 3",
+    "rada's blessing 4"
+   ],
+   "options": [
+    "Kourend Woodland",
+    "Mount Karuulm"
+   ]
+  },
+  "fremennik_sea_boots": {
+   "label": "Fremennik sea boots 4",
+   "names": [
+    "fremennik sea boots 4"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "desert_amulet": {
+   "label": "Desert amulet 4",
+   "names": [
+    "desert amulet 4"
+   ],
+   "options": [
+    "Nardah",
+    "Kalphite cave"
+   ]
+  },
+  "royal_seed_pod": {
+   "label": "Royal seed pod",
+   "names": [
+    "royal seed pod"
+   ],
+   "options": [
+    "Commune"
+   ]
+  },
+  "enchanted_lyre": {
+   "label": "Enchanted lyre",
+   "names": [
+    "enchanted lyre"
+   ],
+   "options": [
+    "Rellekka",
+    "Waterbirth Island",
+    "Jatizso",
+    "Neitiznot"
+   ]
+  },
+  "diary_cape": {
+   "label": "Achievement diary cape",
+   "names": [
+    "achievement diary cape"
+   ],
+   "options": []
+  },
+  "ring_of_shadows": {
+   "label": "Ring of shadows",
+   "names": [
+    "ring of shadows"
+   ],
+   "options": [
+    "Ancient Vault",
+    "Ghorrock Dungeon",
+    "The Scar",
+    "Lassar Undercity",
+    "The Stranglewood"
+   ]
+  },
+  "teleport_crystal": {
+   "label": "Teleport crystal",
+   "names": [
+    "teleport crystal",
+    "eternal teleport crystal"
+   ],
+   "options": [
+    "Lletya",
+    "Prifddinas"
+   ]
+  },
+  "karamja_gloves_3": {
+   "label": "Karamja gloves 3/4",
+   "names": [
+    "karamja gloves 3",
+    "karamja gloves 4"
+   ],
+   "options": [
+    "Gem Mine"
+   ]
+  },
+  "kandarin_headgear": {
+   "label": "Kandarin headgear 4",
+   "names": [
+    "kandarin headgear 4"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "western_banner": {
+   "label": "Western banner 3/4",
+   "names": [
+    "western banner 3",
+    "western banner 4"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "wilderness_sword": {
+   "label": "Wilderness sword 4",
+   "names": [
+    "wilderness sword 4"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "camulet": {
+   "label": "Camulet",
+   "names": [
+    "camulet"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "icy_basalt": {
+   "label": "Icy basalt",
+   "names": [
+    "icy basalt"
+   ],
+   "options": [
+    "Weiss"
+   ]
+  },
+  "stony_basalt": {
+   "label": "Stony basalt",
+   "names": [
+    "stony basalt"
+   ],
+   "options": [
+    "Troll Stronghold"
+   ]
+  },
+  "spider_cave_teleport": {
+   "label": "Spider cave teleport",
+   "names": [
+    "spider cave teleport"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "revenant_cave_teleport": {
+   "label": "Revenant cave teleport",
+   "names": [
+    "revenant cave teleport"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "mos_leharmless_teleport": {
+   "label": "Mos le'harmless teleport",
+   "names": [
+    "mos le'harmless teleport"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "mortton_teleport": {
+   "label": "Mort'ton teleport",
+   "names": [
+    "mort'ton teleport"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "lumberyard_teleport": {
+   "label": "Lumberyard teleport",
+   "names": [
+    "lumberyard teleport"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "hallowed_crystal_shard": {
+   "label": "Hallowed crystal shard",
+   "names": [
+    "hallowed crystal shard"
+   ],
+   "options": [
+    "Activate"
+   ]
+  },
+  "quest_point_cape": {
+   "label": "Quest point cape",
+   "names": [
+    "quest point cape"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "chronicle": {
+   "label": "Chronicle",
+   "names": [
+    "chronicle"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "fishing_cape": {
+   "label": "Fishing cape",
+   "names": [
+    "fishing cape"
+   ],
+   "options": [
+    "Fishing Guild",
+    "Otto's Grotto"
+   ]
+  },
+  "farming_cape": {
+   "label": "Farming cape",
+   "names": [
+    "farming cape"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "hunter_cape": {
+   "label": "Hunter cape",
+   "names": [
+    "hunter cape"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "crafting_cape": {
+   "label": "Crafting cape",
+   "names": [
+    "crafting cape"
+   ],
+   "options": [
+    "Teleport"
+   ]
+  },
+  "strength_cape": {
+   "label": "Strength cape",
+   "names": [
+    "strength cape"
+   ],
+   "options": [
+    "Warriors' Guild"
+   ]
+  },
+  "skull_sceptre": {
+   "label": "Skull sceptre",
+   "names": [
+    "skull sceptre"
+   ],
+   "options": [
+    "Invoke"
+   ]
+  }
+ },
+ "networks": {
+  "spirit_tree": {
+   "label": "Spirit tree",
+   "destinations": [
+    "Tree Gnome Village",
+    "Gnome Stronghold",
+    "Battlefield of Khazard",
+    "Grand Exchange",
+    "Feldip Hills",
+    "Prifddinas",
+    "Poison Waste",
+    "Laguna Aurorae",
+    "Etceteria",
+    "Port Sarim",
+    "Brimhaven",
+    "Hosidius",
+    "Farming Guild",
+    "Your house"
+   ]
+  },
+  "gnome_glider": {
+   "label": "Gnome glider",
+   "destinations": [
+    "Ta Quir Priw",
+    "Sindarpos",
+    "Lemanto Andra",
+    "Kar-Hewo",
+    "Lemantolly Undri",
+    "Ookookolly Undri",
+    "Gandius"
+   ]
+  },
+  "quetzal": {
+   "label": "Quetzal",
+   "destinations": [
+    "Aldarin",
+    "Auburnvale",
+    "Civitas illa Fortis",
+    "Hunter Guild",
+    "Quetzacalli Gorge",
+    "Sunset Coast",
+    "Tal Teklan",
+    "The Teomat",
+    "Cam Torum",
+    "Colossal Wyrm Remains",
+    "Fortis Colosseum",
+    "Kastori",
+    "Outer Fortis",
+    "Salvager Overlook",
+    "Primio"
+   ]
+  },
+  "minecart": {
+   "label": "Lovakengj minecart",
+   "destinations": [
+    "Arceuus",
+    "Farming Guild",
+    "Hosidius",
+    "Kingstown",
+    "Kourend Woodland",
+    "Lovakengj",
+    "Mount Quidamortem",
+    "Northern Tundras",
+    "Port Piscarilius",
+    "Shayzien",
+    "Shayziens' Wall"
+   ]
+  },
+  "canoe": {
+   "label": "Canoe",
+   "destinations": [
+    "Lumbridge",
+    "Champions' Guild",
+    "Barbarian Village",
+    "Edgeville",
+    "Ferox Enclave"
+   ]
+  },
+  "minigame": {
+   "label": "Minigame teleport",
+   "destinations": [
+    "Barbarian Assault",
+    "Burthorpe Games Room",
+    "Castle Wars",
+    "Clan Wars",
+    "Fishing Trawler",
+    "Nightmare Zone",
+    "Pest Control",
+    "Rat Pits",
+    "Shades of Mort'ton",
+    "Sorceress's Garden",
+    "Soul Wars",
+    "Tithe Farm",
+    "Guardians of the Rift",
+    "Giants' Foundry",
+    "Mastering Mixology",
+    "Last Man Standing",
+    "Blast Furnace",
+    "Mage Training Arena"
+   ]
+  },
+  "charter": {
+   "label": "Charter ship",
+   "destinations": [
+    "Brimhaven",
+    "Catherby",
+    "Corsair Cove",
+    "Land's End",
+    "Mos Le'Harmless",
+    "Musa Point",
+    "Port Khazard",
+    "Port Phasmatys",
+    "Port Piscarilius",
+    "Port Sarim",
+    "Port Tyras",
+    "Prifddinas",
+    "Aldarin",
+    "Sunset Coast",
+    "Civitas illa Fortis",
+    "The Pandemonium",
+    "Deepfin Point",
+    "Port Roberts",
+    "The Summer Shore"
+   ]
+  }
+ }
 }

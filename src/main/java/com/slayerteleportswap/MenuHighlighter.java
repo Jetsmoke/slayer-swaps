@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetUtil;
@@ -20,10 +20,10 @@ import net.runelite.client.util.Text;
 
 /**
  * Finds the option for the current destination in open teleport menus (max cape, construction cape, fairy ring
- * log, item dialogs, boat teleport). An interface only counts as a teleport menu for a route type if it shows
- * several of that type's known destinations, so a destination name appearing elsewhere isn't highlighted.
+ * log, item dialogs, travel networks, boat teleport) and teleport spells in the spellbook. An interface only counts
+ * as a menu for a route if it shows several of that route's known destinations, so a destination name appearing
+ * elsewhere isn't highlighted.
  */
-@Slf4j
 @Singleton
 class MenuHighlighter
 {
@@ -47,12 +47,18 @@ class MenuHighlighter
 
 	private final Client client;
 
+	private SlayerData data;
 	private List<Widget> highlighted = Collections.emptyList();
 
 	@Inject
 	MenuHighlighter(Client client)
 	{
 		this.client = client;
+	}
+
+	void setData(SlayerData data)
+	{
+		this.data = data;
 	}
 
 	List<Widget> getHighlighted()
@@ -76,7 +82,7 @@ class MenuHighlighter
 			return;
 		}
 
-		// Text widgets of every open interface, grouped by interface
+		// Labelled widgets of every open interface, grouped by interface
 		Map<Integer, List<Widget>> byGroup = new HashMap<>();
 		Widget[] roots = client.getWidgetRoots();
 		if (roots != null)
@@ -93,14 +99,15 @@ class MenuHighlighter
 			for (SlayerData.Route route : routes)
 			{
 				RouteType type = route.routeType();
-				if (type != null && isMenuFor(type, widgets))
+				if (type == null || route.getValue() == null || !isMenuFor(type, route, widgets))
 				{
-					for (Widget w : widgets)
+					continue;
+				}
+				for (Widget w : widgets)
+				{
+					if (matches(type, route.getValue(), w))
 					{
-						if (matches(type, route.getValue(), label(w)))
-						{
-							found.add(w);
-						}
+						found.add(w);
 					}
 				}
 			}
@@ -115,8 +122,7 @@ class MenuHighlighter
 			return;
 		}
 
-		String text = w.getText();
-		if (text != null && !text.isEmpty())
+		if (!isEmpty(w.getText()) || !isEmpty(w.getName()))
 		{
 			byGroup.computeIfAbsent(WidgetUtil.componentToInterface(w.getId()), k -> new ArrayList<>()).add(w);
 		}
@@ -137,36 +143,57 @@ class MenuHighlighter
 		}
 	}
 
-	private static boolean isMenuFor(RouteType type, List<Widget> widgets)
+	private boolean isMenuFor(RouteType type, SlayerData.Route route, List<Widget> widgets)
 	{
-		if (type == RouteType.FAIRY)
+		switch (type)
 		{
-			return widgets.stream().filter(w -> FAIRY_CODE.matcher(label(w).replace(" ", "")).matches()).count() >= 2;
+			case FAIRY:
+				return widgets.stream().filter(w -> FAIRY_CODE.matcher(label(w).replace(" ", "")).matches()).count() >= 2;
+			case BOAT:
+				return widgets.stream().anyMatch(w -> label(w).contains("boat"));
+			case SPELL:
+				// The spellbook: several widgets named after teleport spells
+				return widgets.stream().filter(w -> name(w).endsWith(" teleport")).count() >= 3;
+			case NETWORK:
+				SlayerData.NetworkData network = data == null ? null : data.getNetworks().get(route.getItem());
+				return network != null && countKnown(widgets, lower(network.getDestinations())) >= 2;
+			case ITEM:
+				SlayerData.ItemData item = data == null ? null : data.getItems().get(route.getItem());
+				return item != null && countKnown(widgets, lower(item.getOptions())) >= 2;
+			default:
+				Set<String> family = FAMILIES.get(type);
+				return family != null && countKnown(widgets, family) >= 2;
 		}
-		if (type == RouteType.BOAT)
-		{
-			return widgets.stream().anyMatch(w -> label(w).contains("boat"));
-		}
-
-		Set<String> family = FAMILIES.get(type);
-		if (family == null)
-		{
-			return false;
-		}
-		return widgets.stream().map(MenuHighlighter::label).filter(family::contains).distinct().count() >= 2;
 	}
 
-	private static boolean matches(RouteType type, String value, String label)
+	private static long countKnown(List<Widget> widgets, Set<String> known)
+	{
+		return widgets.stream().map(MenuHighlighter::label).filter(known::contains).distinct().count();
+	}
+
+	private static Set<String> lower(List<String> values)
+	{
+		Set<String> out = new HashSet<>();
+		for (String v : values)
+		{
+			out.add(v.toLowerCase());
+		}
+		return out;
+	}
+
+	private static boolean matches(RouteType type, String value, Widget w)
 	{
 		String target = value.toLowerCase();
 		switch (type)
 		{
 			case FAIRY:
-				return label.replace(" ", "").equals(target);
+				return label(w).replace(" ", "").equals(target);
 			case BOAT:
-				return label.contains(target);
+				return label(w).contains(target);
+			case SPELL:
+				return name(w).equals(target);
 			default:
-				return label.equals(target);
+				return label(w).equals(target);
 		}
 	}
 
@@ -175,7 +202,21 @@ class MenuHighlighter
 	 */
 	static String label(Widget w)
 	{
+		if (isEmpty(w.getText()))
+		{
+			return "";
+		}
 		String text = Text.removeTags(w.getText()).trim().toLowerCase();
 		return KEY_PREFIX.matcher(text).replaceFirst("");
+	}
+
+	private static String name(Widget w)
+	{
+		return isEmpty(w.getName()) ? "" : Text.removeTags(w.getName()).trim().toLowerCase();
+	}
+
+	private static boolean isEmpty(String s)
+	{
+		return s == null || s.isEmpty();
 	}
 }
