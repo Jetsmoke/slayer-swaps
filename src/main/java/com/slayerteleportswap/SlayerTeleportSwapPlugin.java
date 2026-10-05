@@ -19,6 +19,7 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.PostMenuSort;
 import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.DBTableID;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.ItemID;
@@ -31,6 +32,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 
@@ -68,18 +70,26 @@ public class SlayerTeleportSwapPlugin extends Plugin
 	@Inject
 	private SlayerTeleportSwapConfig config;
 
+	@Inject
+	private OverlayManager overlayManager;
+
+	@Inject
+	private FairyRingFavouriteOverlay fairyRingFavouriteOverlay;
+
 	// Current task name, or null when there is no task
 	private String taskName;
 
 	@Override
 	protected void startUp()
 	{
+		overlayManager.add(fairyRingFavouriteOverlay);
 		clientThread.invokeLater(this::updateTask);
 	}
 
 	@Override
 	protected void shutDown()
 	{
+		overlayManager.remove(fairyRingFavouriteOverlay);
 		taskName = null;
 	}
 
@@ -179,6 +189,41 @@ public class SlayerTeleportSwapPlugin extends Plugin
 			}
 		}
 		return locations.get(0);
+	}
+
+	/**
+	 * @return the fairy ring code to highlight in the fairy ring log, or null
+	 */
+	String fairyCodeToHighlight()
+	{
+		if (!config.swapFairyRing() || client.getWidget(InterfaceID.FairyringsLog.FAVES) == null)
+		{
+			return null;
+		}
+
+		Location location = currentLocation();
+		return location != null ? location.getFairyCode() : null;
+	}
+
+	// Development aid: logs the fairy ring favourites so their text format can be checked
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded event)
+	{
+		if (event.getGroupId() != InterfaceID.FAIRYRINGS_LOG || !log.isDebugEnabled())
+		{
+			return;
+		}
+
+		clientThread.invokeLater(() ->
+		{
+			StringBuilder sb = new StringBuilder();
+			for (int id : FairyRingFavouriteOverlay.FAVE_CODES)
+			{
+				Widget w = client.getWidget(id);
+				sb.append(w == null ? "null" : "'" + w.getText() + "'" + (w.isHidden() ? "(hidden)" : "")).append(' ');
+			}
+			log.debug("Fairy ring favourites: {} highlight {}", sb, fairyCodeToHighlight());
+		});
 	}
 
 	private static String locationKey(String task)
