@@ -23,7 +23,6 @@ class SlayerData
 	private List<TaskData> tasks;
 	private List<MasterData> masters;
 	private Map<String, ItemData> items;
-	private Map<String, NetworkData> networks;
 
 	private transient Map<String, TaskData> taskIndex;
 
@@ -34,6 +33,8 @@ class SlayerData
 		private String value;
 		// Catalog key for "item" and "network" routes
 		private String item;
+		// What to do after teleporting, such as pulling a lever
+		private String note;
 
 		RouteType routeType()
 		{
@@ -56,6 +57,8 @@ class SlayerData
 		private List<String> masters;
 		private boolean boss;
 		private List<String> locations;
+		// Konar's areas for this task: area name -> locations in it
+		private Map<String, List<String>> konar;
 	}
 
 	@Data
@@ -65,13 +68,6 @@ class SlayerData
 		// Lower-case item name prefixes, so every charge/variant of the item matches
 		private List<String> names;
 		private List<String> options;
-	}
-
-	@Data
-	static class NetworkData
-	{
-		private String label;
-		private List<String> destinations;
 	}
 
 	@Data

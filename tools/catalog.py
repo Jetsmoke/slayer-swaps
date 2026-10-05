@@ -1,6 +1,6 @@
 """
-Teleport catalog: items, spells and travel networks the plugin can highlight, with their in-game destination
-options (from each item's wiki infobox "options"/"wornoptions" and the network pages). `syn` maps words seen in
+Teleport catalog: items, spells and Wilderness obelisks the plugin can highlight, with their in-game destination
+options (from each item's wiki infobox "options"/"wornoptions"). `syn` maps words seen in
 wiki directions to the option they mean.
 """
 ITEMS = {
@@ -71,7 +71,12 @@ ITEMS = {
     'karamja_gloves_3': ('Karamja gloves 3/4', ['karamja gloves 3', 'karamja gloves 4'], ['Gem Mine'], {'gem mine': 'Gem Mine'}),
     'kandarin_headgear': ('Kandarin headgear 4', ['kandarin headgear 4'], ['Teleport'], {}),
     'western_banner': ('Western banner 3/4', ['western banner 3', 'western banner 4'], ['Teleport'], {}),
-    'wilderness_sword': ('Wilderness sword 4', ['wilderness sword 4'], ['Teleport'], {}),
+    # Hard (3) and elite (4) swords teleport to the Fountain of Rune
+    'wilderness_sword': ('Wilderness sword 3/4', ['wilderness sword 3', 'wilderness sword 4'], ['Teleport'], {}),
+    # Teleports to the dark crab fishing spot by the Silk Chasm
+    'wilderness_crabs_teleport': ('Wilderness crabs teleport', ['wilderness crabs teleport'], ['Break'], {}),
+    'mythical_cape': ('Mythical cape', ['mythical cape'], ['Teleport'], {}),
+    'calcified_moth': ('Calcified moth', ['calcified moth'], ['Crush'], {}),
     'camulet': ('Camulet', ['camulet'], ['Teleport'], {}),
     'icy_basalt': ('Icy basalt', ['icy basalt'], ['Weiss'], {}),
     'stony_basalt': ('Stony basalt', ['stony basalt'], ['Troll Stronghold'], {}),
@@ -103,8 +108,8 @@ ITEM_ALIASES = {
     'radas_blessing': ["rada's blessing"], 'fremennik_sea_boots': ['fremennik sea boots'], 'desert_amulet': ['desert amulet'],
     'royal_seed_pod': ['royal seed pod'], 'enchanted_lyre': ['enchanted lyre'], 'diary_cape': ['achievement diary cape'],
     'ring_of_shadows': ['ring of shadows'], 'teleport_crystal': ['teleport crystal'], 'karamja_gloves_3': ['karamja gloves 3'],
-    'kandarin_headgear': ['kandarin headgear'], 'western_banner': ['western banner'], 'wilderness_sword': ['wilderness sword'],
-    'camulet': ['camulet'], 'icy_basalt': ['icy basalt'], 'stony_basalt': ['stony basalt'],
+    'kandarin_headgear': ['kandarin headgear'], 'western_banner': ['western banner'], 'wilderness_sword': ['wilderness sword'], 'wilderness_crabs_teleport': ['wilderness crabs teleport'],
+    'camulet': ['camulet'], 'mythical_cape': ['mythical cape'], 'calcified_moth': ['calcified moth'], 'icy_basalt': ['icy basalt'], 'stony_basalt': ['stony basalt'],
     'spider_cave_teleport': ['spider cave teleport'], 'revenant_cave_teleport': ['revenant cave teleport'],
     'mos_leharmless_teleport': ["mos le'harmless teleport", "mos le'harmless teleport scroll"],
     'mortton_teleport': ["mort'ton teleport"], 'lumberyard_teleport': ['lumberyard teleport'],
@@ -122,62 +127,5 @@ SPELLS = ['Ardougne Teleport', 'Falador Teleport', 'Varrock Teleport', 'Camelot 
           'Battlefront Teleport', 'Mind Altar Teleport', 'Salve Graveyard Teleport', "Fenkenstrain's Castle Teleport",
           'West Ardougne Teleport', 'Harmony Island Teleport', 'Cemetery Teleport', 'Barrows Teleport']
 
-NETWORKS = {
-    'spirit_tree': ('Spirit tree', ['spirit tree'],
-                    ['Tree Gnome Village', 'Gnome Stronghold', 'Battlefield of Khazard', 'Grand Exchange', 'Feldip Hills',
-                     'Prifddinas', 'Poison Waste', 'Laguna Aurorae', 'Etceteria', 'Port Sarim', 'Brimhaven', 'Hosidius',
-                     'Farming Guild', 'Your house'],
-                    {'tree gnome village': 'Tree Gnome Village', 'gnome stronghold': 'Gnome Stronghold',
-                     'grand tree': 'Gnome Stronghold', 'battlefield': 'Battlefield of Khazard', 'grand exchange': 'Grand Exchange',
-                     'feldip': 'Feldip Hills', 'prifddinas': 'Prifddinas', 'poison waste': 'Poison Waste',
-                     'laguna aurorae': 'Laguna Aurorae', 'etceteria': 'Etceteria', 'port sarim': 'Port Sarim',
-                     'brimhaven': 'Brimhaven', 'hosidius': 'Hosidius', 'farming guild': 'Farming Guild'}),
-    'gnome_glider': ('Gnome glider', ['gnome glider', 'glider'],
-                     ['Ta Quir Priw', 'Sindarpos', 'Lemanto Andra', 'Kar-Hewo', 'Lemantolly Undri', 'Ookookolly Undri', 'Gandius'],
-                     {'grand tree': 'Ta Quir Priw', 'white wolf mountain': 'Sindarpos', 'digsite': 'Lemanto Andra',
-                      'al kharid': 'Kar-Hewo', 'feldip': 'Lemantolly Undri', 'ape atoll': 'Ookookolly Undri', 'karamja': 'Gandius',
-                      'ship yard': 'Gandius', 'shipyard': 'Gandius'}),
-    'quetzal': ('Quetzal', ['quetzal'],
-                ['Aldarin', 'Auburnvale', 'Civitas illa Fortis', 'Hunter Guild', 'Quetzacalli Gorge', 'Sunset Coast', 'Tal Teklan',
-                 'The Teomat', 'Cam Torum', 'Colossal Wyrm Remains', 'Fortis Colosseum', 'Kastori', 'Outer Fortis',
-                 'Salvager Overlook', 'Primio'],
-                {'aldarin': 'Aldarin', 'auburnvale': 'Auburnvale', 'civitas': 'Civitas illa Fortis', 'hunter guild': 'Hunter Guild',
-                 'quetzacalli': 'Quetzacalli Gorge', 'sunset coast': 'Sunset Coast', 'tal teklan': 'Tal Teklan',
-                 'teomat': 'The Teomat', 'cam torum': 'Cam Torum', 'colossal wyrm': 'Colossal Wyrm Remains',
-                 'colosseum': 'Fortis Colosseum', 'kastori': 'Kastori', 'outer fortis': 'Outer Fortis',
-                 'salvager overlook': 'Salvager Overlook'}),
-    'minecart': ('Lovakengj minecart', ['minecart'],
-                 ['Arceuus', 'Farming Guild', 'Hosidius', 'Kingstown', 'Kourend Woodland', 'Lovakengj', 'Mount Quidamortem',
-                  'Northern Tundras', 'Port Piscarilius', 'Shayzien', "Shayziens' Wall"],
-                 {'arceuus': 'Arceuus', 'farming guild': 'Farming Guild', 'hosidius': 'Hosidius', 'kingstown': 'Kingstown',
-                  'kourend woodland': 'Kourend Woodland', 'lovakengj': 'Lovakengj', 'quidamortem': 'Mount Quidamortem',
-                  'wintertodt': 'Northern Tundras', 'piscarilius': 'Port Piscarilius', "shayziens' wall": "Shayziens' Wall",
-                  'shayzien': 'Shayzien'}),
-    'canoe': ('Canoe', ['canoe'],
-              ['Lumbridge', "Champions' Guild", 'Barbarian Village', 'Edgeville', 'Ferox Enclave'],
-              {'lumbridge': 'Lumbridge', "champions' guild": "Champions' Guild", 'barbarian village': 'Barbarian Village',
-               'edgeville': 'Edgeville', 'ferox': 'Ferox Enclave', 'wilderness pond': 'Ferox Enclave'}),
-    'minigame': ('Minigame teleport', ['minigame teleport', 'grouping'],
-                 ['Barbarian Assault', 'Burthorpe Games Room', 'Castle Wars', 'Clan Wars', 'Fishing Trawler', 'Nightmare Zone',
-                  'Pest Control', 'Rat Pits', "Shades of Mort'ton", "Sorceress's Garden", 'Soul Wars', 'Tithe Farm',
-                  'Guardians of the Rift', "Giants' Foundry", 'Mastering Mixology', 'Last Man Standing', 'Blast Furnace',
-                  'Mage Training Arena'],
-                 {'barbarian assault': 'Barbarian Assault', 'games room': 'Burthorpe Games Room', 'castle wars': 'Castle Wars',
-                  'clan wars': 'Clan Wars', 'fishing trawler': 'Fishing Trawler', 'nightmare zone': 'Nightmare Zone',
-                  'pest control': 'Pest Control', 'rat pits': 'Rat Pits', "shades of mort'ton": "Shades of Mort'ton",
-                  "sorceress's garden": "Sorceress's Garden", 'soul wars': 'Soul Wars', 'tithe farm': 'Tithe Farm',
-                  'guardians of the rift': 'Guardians of the Rift', "giants' foundry": "Giants' Foundry",
-                  'mixology': 'Mastering Mixology', 'blast furnace': 'Blast Furnace'}),
-    'charter': ('Charter ship', ['charter ship', 'charter'],
-                ['Brimhaven', 'Catherby', 'Corsair Cove', "Land's End", "Mos Le'Harmless", 'Musa Point', 'Port Khazard',
-                 'Port Phasmatys', 'Port Piscarilius', 'Port Sarim', 'Port Tyras', 'Prifddinas', 'Aldarin', 'Sunset Coast',
-                 'Civitas illa Fortis', 'The Pandemonium', 'Deepfin Point', 'Port Roberts', 'The Summer Shore'],
-                {'brimhaven': 'Brimhaven', 'catherby': 'Catherby', 'corsair cove': 'Corsair Cove', "land's end": "Land's End",
-                 "mos le'harmless": "Mos Le'Harmless", 'musa point': 'Musa Point', 'port khazard': 'Port Khazard',
-                 'port phasmatys': 'Port Phasmatys', 'port piscarilius': 'Port Piscarilius', 'port sarim': 'Port Sarim',
-                 'port tyras': 'Port Tyras', 'prifddinas': 'Prifddinas', 'aldarin': 'Aldarin', 'sunset coast': 'Sunset Coast',
-                 'pandemonium': 'The Pandemonium', 'deepfin point': 'Deepfin Point', 'port roberts': 'Port Roberts',
-                 'summer shore': 'The Summer Shore'}),
-}
 
 PORTAL_TOWNS = ['Rimmington', 'Taverley', 'Pollnivneach', 'Hosidius', 'Aldarin', 'Rellekka', 'Brimhaven', 'Yanille', 'Prifddinas']

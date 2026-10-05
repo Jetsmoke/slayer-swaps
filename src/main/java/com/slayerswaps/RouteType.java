@@ -21,7 +21,7 @@ public enum RouteType
 	BOAT("boat", "Teleport to Boat"),
 	ITEM("item", "Teleport item"),
 	SPELL("spell", "Spell or tablet"),
-	NETWORK("network", "Travel network");
+	OBELISK("obelisk", "Wilderness obelisk");
 
 	private final String key;
 	private final String displayName;

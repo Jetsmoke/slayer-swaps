@@ -7,6 +7,7 @@ construction/max cape teleport lists, slayer master pages).
 import json, re, collections
 from autoroutes import routes_for
 import catalog
+import konar
 
 # ---- Teleport route constructors -------------------------------------------------------------
 # type: ring | fairy | portal (construction cape / max cape house portal) | maxcape | item | boat
@@ -21,7 +22,8 @@ def boat(i): return {'type': 'boat', 'value': i}
 def glory(d): return {'type': 'amulet_of_glory', 'value': d}
 def item(k, v): return {'type': 'item', 'item': k, 'value': v}
 def spell(v): return {'type': 'spell', 'value': v}
-def network(k, v): return {'type': 'network', 'item': k, 'value': v}
+def obelisk(level): return {'type': 'obelisk', 'value': 'Level %d Wilderness' % level}
+def lever(r): return dict(r, note='pull the lever to the Deserted Keep')
 
 W = 'wilderness'
 
@@ -37,7 +39,8 @@ LOCATIONS = {
     # Fairy ring destinations (codes from each location's wiki page / the fairy ring code list)
     'Abyssal Nexus': [fairy('DIP')],
     'Abyssal Area': [fairy('ALR')],
-    'Catacombs of Kourend': [fairy('CIS')],
+    # The wiki's fastest ways to the main entrance; the fairy rings are listed as alternatives (CIS is far off)
+    'Catacombs of Kourend': [item('xerics_talisman', "Xeric's Heart"), spell('Kourend Castle Teleport'), fairy('DJR')],
     'Chasm of Fire': [fairy('DJR')],
     'Karuulm Slayer Dungeon': [fairy('CIR'), maxcape('Farming Guild')],
     'Kraken Cove': [fairy('AKQ')],
@@ -121,7 +124,7 @@ LOCATIONS = {
     'Mistrock': [portal('Aldarin')],
     'Aldarin': [portal('Aldarin')],
     # Sailing: islands reached with Teleport to Boat when your boat with a teleport focus is moored there
-    'Kurask Lair': [boat('Laguna Aurorae'), network('spirit_tree', 'Laguna Aurorae')],
+    'Kurask Lair': [boat('Laguna Aurorae')],
     'Laguna Aurorae': [boat('Laguna Aurorae')],
     'Ynysdail Cavern': [boat('Ynysdail')],
     'Charred Dungeon': [boat('Charred Island')],
@@ -140,7 +143,7 @@ LOCATIONS = {
     'The Forgotten Cemetery': [burning('Lava Maze')],
     'Graveyard of Shadows': [dueling('Ferox Enclave')],
     "Dark Warriors' Fortress": [burning('Bandit Camp'), dueling('Ferox Enclave')],
-    'Ferox Enclave': [dueling('Ferox Enclave')],
+    'Ferox Enclave': [dueling('Ferox Enclave'), obelisk(13)],
     'Bone Yard': [dueling('Ferox Enclave')],
     'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
     'Bone Yard Hunter area': [maxcape('Wilderness Hunter area')],
@@ -150,7 +153,7 @@ LOCATIONS = {
     'Sophanem Dungeon': [fairy('AKP'), portal('Pollnivneach')],
     'Ghorrock Prison': [boat('Weiss')],
     # Gaps filled from each place's wiki page (entrances, levers, nearby towns)
-    'Stronghold of Security': [item('skull_sceptre', 'Invoke'), glory('Edgeville'), network('canoe', 'Barbarian Village')],
+    'Stronghold of Security': [item('skull_sceptre', 'Invoke'), glory('Edgeville')],
     'Sourhog Cave': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
     'Killerwatt plane': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
     'Waterbirth Island Dungeon': [spell('Waterbirth Teleport'), item('enchanted_lyre', 'Waterbirth Island')],
@@ -159,13 +162,11 @@ LOCATIONS = {
     'Ruins of Unkah': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
     'Ruins of Ullek': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
     'Lumbridge Swamp Caves': [spell('Lumbridge Teleport')],
-    'Scorpion Pit': [glory('Edgeville'), spell('Ardougne Teleport')],
-    'Mage Arena': [glory('Edgeville'), spell('Ardougne Teleport')],
-    'Magic Axe Hut': [glory('Edgeville'), spell('Ardougne Teleport')],
-    "Pirates' Hideout": [glory('Edgeville'), spell('Ardougne Teleport')],
 }
 
 ALIASES = {
+    # The Myths' Guild part of the Corsair Cove Dungeon; Konar names it separately
+    "Myths' Guild Dungeon": 'Corsair Cove Dungeon',
     'Slayer tower': 'Slayer Tower', 'Morytania Slayer Tower': 'Slayer Tower',
     'Stronghold Slayer Dungeon': 'Stronghold Slayer Cave',
     'Fremennik Slayer Cave': 'Fremennik Slayer Dungeon',
@@ -186,13 +187,13 @@ WILDERNESS = {
     'Frozen Waste Plateau', 'Bone Yard', 'Bone Yard Hunter area', 'Magic Axe Hut', "Pirates' Hideout",
     "Callisto's Den", 'Scorpion Pit', 'Silk Chasm', "Vet'ion's Rest", 'Deep Wilderness Dungeon', 'Wilderness',
     'Wilderness Agility Course', 'Mage Arena', 'Wilderness Pond', 'Ferox Enclave', 'South-west Wilderness mine',
-    'Wilderness Agility Course Dungeon', 'Giant Pit',
+    'Wilderness Agility Course Dungeon', 'Giant Pit', 'West of the Lava Maze', 'Ruins (west)',
 }
 
 MASTERS = [
     # id is the SLAYER_MASTER varbit value where known (core Slayer plugin: Krystilia 7, Mortimer 10)
     {'key': 'TURAEL', 'name': 'Turael / Spria', 'location': 'Burthorpe',
-     'routes': [item('games_necklace', 'Burthorpe'), network('minigame', 'Burthorpe Games Room'), portal('Taverley')],
+     'routes': [item('games_necklace', 'Burthorpe'), portal('Taverley')],
      'note': 'Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).'},
     {'key': 'MAZCHNA', 'name': 'Mazchna', 'location': 'Canifis', 'routes': [fairy('CKS'), spell('Kharyrll Teleport')]},
     {'key': 'VANNAKA', 'name': 'Vannaka', 'location': 'Edgeville Dungeon',
@@ -234,26 +235,63 @@ PREFERRED_FIRST = {
 # Hand-checked routes that replace the wiki-derived ones for a location, best first. Used where the automatic
 # extraction picked detours (e.g. a house portal on the wrong side of an island) or missed the direct teleport.
 OVERRIDE_ROUTES = {
+    'Catacombs of Kourend': [item('xerics_talisman', "Xeric's Heart"), spell('Kourend Castle Teleport'), fairy('DJR')],
+    'Corsair Cove Dungeon': [item('mythical_cape', 'Teleport'), boat('Corsair Cove')],
+    # Otto's Grotto is just north of the falls (the wiki page's map neighbour)
+    'Waterfall Dungeon': [item('games_necklace', 'Barbarian Outpost'), maxcape("Otto's Grotto"),
+                          item('fishing_cape', "Otto's Grotto")],
     'Ancient Cavern': [maxcape("Otto's Grotto"), item('fishing_cape', "Otto's Grotto"), item('games_necklace', 'Barbarian Outpost')],
     'Asgarnian Ice Dungeon': [fairy('AIQ'), portal('Rimmington')],
     'Brimhaven Dungeon': [portal('Brimhaven'), fairy('CKR')],
     'Draynor Village': [glory('Draynor Village'), fairy('DIS')],
     'Falador': [spell('Falador Teleport'), item('ring_of_wealth', 'Falador')],
     'Fossil Island': [item('digsite_pendant', 'Fossil Island')],
-    'Iorwerth Dungeon': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
-    'Prifddinas': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
-    'Tower of Voices': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas'), network('spirit_tree', 'Prifddinas')],
-    'Karamja': [glory('Karamja'), network('gnome_glider', 'Gandius')],
+    'Iorwerth Dungeon': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas')],
+    'Prifddinas': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas')],
+    'Tower of Voices': [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas')],
+    'Karamja': [glory('Karamja')],
     'Karuulm Slayer Dungeon': [item('radas_blessing', 'Mount Karuulm'), fairy('CIR'), item('skills_necklace', 'Farming Guild')],
     'Lava Dragon Isle': [item('revenant_cave_teleport', 'Teleport'), spell('Annakarl Teleport')],
     'Lighthouse': [fairy('ALP'), item('games_necklace', 'Barbarian Outpost'), portal('Rellekka')],
     'Mor Ul Rek': [fairy('BLP'), item('ghommals_hilt', 'Mor Ul Rek'), glory('Karamja')],
     'Taverley Dungeon': [portal('Taverley'), spell('Falador Teleport')],
     'Varrock': [spell('Varrock Teleport'), item('ring_of_wealth', 'Grand Exchange')],
-    'White Wolf Mountain': [network('gnome_glider', 'Sindarpos')],
     'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
     "Wizards' Tower": [item('necklace_of_passage', "Wizards' Tower"), fairy('DIS'), glory('Draynor Village')],
 }
+
+# Wilderness routes, hand-checked against each place's wiki page and the boss strategy guides' Transportation sections
+OVERRIDE_ROUTES.update({
+    "Callisto's Den": [spell('Annakarl Teleport'), item('wilderness_sword', 'Teleport'), item('games_necklace', 'Corporeal Beast')],
+    'Silk Chasm': [item('wilderness_crabs_teleport', 'Break'), spell('Annakarl Teleport'), obelisk(35)],
+    "Vet'ion's Rest": [item('revenant_cave_teleport', 'Teleport'), spell('Carrallanger Teleport'), obelisk(35)],
+    "Rogues' Castle": [obelisk(50), item('wilderness_sword', 'Teleport'), spell('Annakarl Teleport')],
+    'West of the Lava Maze': [spell('Ghorrock Teleport'), burning('Lava Maze'), obelisk(44)],
+    'Ruins (west)': [spell('Dareeyak Teleport'), burning('Bandit Camp'), spell('Cemetery Teleport')],
+    'Scorpion Pit': [lever(glory('Edgeville')), lever(spell('Ardougne Teleport')), obelisk(50)],
+    'Magic Axe Hut': [lever(glory('Edgeville')), lever(spell('Ardougne Teleport')), obelisk(50)],
+    'Mage Arena': [lever(glory('Edgeville')), lever(spell('Ardougne Teleport'))],
+    "Pirates' Hideout": [lever(glory('Edgeville')), lever(spell('Ardougne Teleport')), spell('Ghorrock Teleport')],
+    'Deep Wilderness Dungeon': [spell('Ice Plateau Teleport'), lever(glory('Edgeville')), obelisk(44)],
+    'Demonic Ruins': [spell('Annakarl Teleport'), obelisk(50)],
+    'Ferox Enclave': [dueling('Ferox Enclave'), obelisk(13)],
+})
+
+# Konar areas no task location covers, from each place's wiki page
+OVERRIDE_ROUTES.update({
+    'Ogre Enclave': [portal('Yanille'), fairy('CIQ'), spell('Watchtower Teleport')],
+    'Lizardman Canyon': [fairy('DJR')],
+    'Death Plateau (location)': [item('games_necklace', 'Burthorpe'), item('combat_bracelet', "Warriors' Guild")],
+    'Neypotzli': [item('calcified_moth', 'Crush')],
+    "Jormungand's Prison": [dict(portal('Rellekka'), note="talk to Haskell on Rellekka's west dock"),
+                            dict(item('enchanted_lyre', 'Rellekka'), note="talk to Haskell on Rellekka's west dock")],
+    "Evil Chicken's Lair": [dict(fairy('BKS'), note='use a raw chicken on the Chicken Shrine in Zanaris')],
+})
+ALIASES['Kebos Swamp'] = 'Molch'  # Konar's swamp area, around Molch and Xeric's Shrine
+
+# Wilderness bosses whose wiki location is just "Wilderness"
+BOSS_LOCATION_BY_NAME = {'Chaos Elemental': "Rogues' Castle", 'Chaos Fanatic': 'West of the Lava Maze',
+                         'Crazy archaeologist': 'Ruins (west)'}
 
 # Locations always kept for a task, beyond the best few (the wiki table misses them, or they're a common choice)
 EXTRA_LOCATIONS = {
@@ -269,7 +307,7 @@ BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytani
 MAX_LOCATIONS = 3
 MAX_ROUTES = 3
 
-RANK = {'item': 2, 'spell': 2, 'network': 3, 'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
+RANK = {'item': 2, 'spell': 2, 'obelisk': 3, 'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
         'maxcape': 2, 'boat': 3}
 
 
@@ -343,12 +381,27 @@ def build():
             aliases = ["Vet'ion", "Calvar'ion"]
         if bn == 'Deranged archaeologist':
             aliases = ['Crazy archaeologist', 'Deranged archaeologist']
+        loc = BOSS_LOCATION_BY_NAME.get(aliases[0], loc)
         out_tasks.append({'name': aliases[0], 'aliases': aliases, 'masters': [], 'boss': True, 'locations': [loc]})
+
+    # Konar names the area with each task; keep her areas' locations that a teleport reaches
+    for name, areas in konar.konar_areas().items():
+        key = name.lower()
+        task = next((t for t in out_tasks if not t['boss'] and (t['name'].lower() in (key, key + 's')
+                     or key in [a.lower() for a in t['aliases']])), None)
+        if task is None:
+            print('  Konar task not found:', name)
+            continue
+        task['konar'] = {area: list(dict.fromkeys(canon(l) for l in links if routes(canon(l))))
+                         for area, links in areas.items()}
 
     used = collections.OrderedDict()
     for t in out_tasks:
         for l in t['locations']:
             used[l] = None
+        for locs in t.get('konar', {}).values():
+            for l in locs:
+                used[l] = None
     for m in MASTERS:
         used[m['location']] = None
 
@@ -360,8 +413,7 @@ def build():
         locations.setdefault(m['location'], {'routes': m['routes'], 'wilderness': False})
 
     items = {k: {'label': v[0], 'names': v[1], 'options': v[2]} for k, v in catalog.ITEMS.items()}
-    networks = {k: {'label': v[0], 'destinations': v[2]} for k, v in catalog.NETWORKS.items()}
-    data = {'locations': locations, 'tasks': out_tasks, 'masters': MASTERS, 'items': items, 'networks': networks}
+    data = {'locations': locations, 'tasks': out_tasks, 'masters': MASTERS, 'items': items}
     return data
 
 

@@ -75,7 +75,8 @@ class TeleportItems
 				return name.startsWith("amulet of") && name.contains("glory");
 			case PORTAL:
 				// Construction cape, max cape, or a redirected house tablet like "Rimmington teleport"
-				return isMaxCape(name) || name.startsWith("construct. cape") || name.equals(value + " teleport");
+				return isMaxCape(name) || name.startsWith("construct. cape") || name.equals(value + " teleport")
+					|| value.equals("home") && name.equals("teleport to house");
 			case MAXCAPE:
 				return isMaxCape(name);
 			case BOAT:

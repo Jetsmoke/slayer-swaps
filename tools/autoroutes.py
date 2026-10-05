@@ -6,7 +6,7 @@ then from the location's own name.
 import re, sys
 sys.path.insert(0, '.')
 from fetch import raw
-from catalog import ITEMS, ITEM_ALIASES, SPELLS, NETWORKS, PORTAL_TOWNS
+from catalog import ITEMS, ITEM_ALIASES, SPELLS, PORTAL_TOWNS
 
 HEADINGS = ['==Transportation==', '==Getting there==', '==Transport==', '==Getting to', '==Travel==', '==Access==',
             '=== Teleports', '==Teleports', '==Location==']
@@ -80,11 +80,6 @@ def routes_for(location):
         for spell in SPELLS:
             if spell.lower() in low:
                 add({'type': 'spell', 'value': spell})
-        for key, (label, aliases, dests, syn) in NETWORKS.items():
-            if any(a in low for a in aliases):
-                dest = pick(syn, dests, line, location)
-                if dest:
-                    add({'type': 'network', 'item': key, 'value': dest})
         if re.search(r'teleport to house|house portal|construction cape|teleport to (?:the )?player', low):
             for town in PORTAL_TOWNS:
                 if town.lower() in low:

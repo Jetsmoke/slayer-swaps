@@ -24,6 +24,60 @@ public class SlayerDataTest
 	}
 
 	@Test
+	public void everySettingIsDeclaredInTheConfig()
+	{
+		// RuneLite only stores defaults for the config interface's own methods; an inherited setting has no value,
+		// and the settings screen fails to open
+		for (java.lang.reflect.Method m : SlayerSwapsConfig.class.getMethods())
+		{
+			if (m.isAnnotationPresent(net.runelite.client.config.ConfigItem.class))
+			{
+				assertEquals(m.getName(), SlayerSwapsConfig.class, m.getDeclaringClass());
+			}
+		}
+	}
+
+	@Test
+	public void simulatedTasksMatchTheData()
+	{
+		// SimulatedTask is generated from the data; regenerate it (tools/gen_simulated_tasks.py) when the data changes
+		for (SimulatedTask sim : SimulatedTask.values())
+		{
+			if (sim.getTask() != null)
+			{
+				assertNotNull(sim.name(), data.findTask(sim.getTask()));
+			}
+		}
+		assertEquals(data.getTasks().size() + 2, SimulatedTask.values().length);
+		for (KonarTestTask konar : KonarTestTask.values())
+		{
+			if (konar.getTask() != null)
+			{
+				SlayerData.TaskData task = data.findTask(konar.getTask());
+				assertTrue(konar.name(), task != null && task.getKonar().containsKey(konar.getArea()));
+			}
+		}
+	}
+
+	@Test
+	public void konarAreasAreKnownLocations()
+	{
+		for (SlayerData.TaskData task : data.getTasks())
+		{
+			if (task.getKonar() != null)
+			{
+				for (java.util.List<String> locations : task.getKonar().values())
+				{
+					for (String location : locations)
+					{
+						assertNotNull("Konar " + task.getName() + " -> " + location, data.location(location));
+					}
+				}
+			}
+		}
+	}
+
+	@Test
 	public void everyRouteTypeAndLocationIsKnown()
 	{
 		for (SlayerData.TaskData task : data.getTasks())
