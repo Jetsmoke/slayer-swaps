@@ -88,6 +88,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
   Neypotzli, Colossal Wyrm Remains) are no longer offered; Warped creatures no longer has a teleport.
 
 ### Fixed
+- Locations listed only in the OSRS Wiki's Location Comparison tables were missing: Catacombs of Kourend for Jellies
+  (warped jellies) and Black dragons, King Black Dragon's Lair for Black dragons (Wilderness), Uzer Mastaba for
+  Scabarites, Stalker Den for Zygomites, Taverley Dungeon for Dwarves and Keldagrim for Trolls.
 - Catacombs of Kourend went by fairy ring CIS first, which is far from the entrance. It now uses Xeric's talisman
   (Xeric's Heart) or Kourend Castle Teleport first, as the wiki recommends, then fairy ring DJR.
 - Teleport spells could be outlined in the bank, on a tablet of the same name, even when it was scrolled out of

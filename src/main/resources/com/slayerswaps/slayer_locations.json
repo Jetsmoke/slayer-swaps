@@ -412,6 +412,15 @@
    ],
    "wilderness": false
   },
+  "King Black Dragon's Lair": {
+   "routes": [
+    {
+     "type": "burning_amulet",
+     "value": "Lava Maze"
+    }
+   ],
+   "wilderness": true
+  },
   "Draynor Village": {
    "routes": [
     {
@@ -1741,6 +1750,21 @@
    ],
    "wilderness": false
   },
+  "Uzer Mastaba": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "desert_amulet",
+     "value": "Nardah"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_shadows",
+     "value": "Ancient Vault"
+    }
+   ],
+   "wilderness": false
+  },
   "Al Kharid Mine": {
    "routes": [
     {
@@ -1933,20 +1957,6 @@
    ],
    "wilderness": false
   },
-  "Troll Stronghold (location)": {
-   "routes": [
-    {
-     "type": "spell",
-     "value": "Trollheim Teleport"
-    },
-    {
-     "type": "item",
-     "item": "stony_basalt",
-     "value": "Troll Stronghold"
-    }
-   ],
-   "wilderness": false
-  },
   "Keldagrim": {
    "routes": [
     {
@@ -1963,6 +1973,20 @@
      "type": "item",
      "item": "ring_of_wealth",
      "value": "Dondakan"
+    }
+   ],
+   "wilderness": false
+  },
+  "Troll Stronghold (location)": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Trollheim Teleport"
+    },
+    {
+     "type": "item",
+     "item": "stony_basalt",
+     "value": "Troll Stronghold"
     }
    ],
    "wilderness": false
@@ -2231,15 +2255,6 @@
     }
    ],
    "wilderness": false
-  },
-  "King Black Dragon's Lair": {
-   "routes": [
-    {
-     "type": "burning_amulet",
-     "value": "Lava Maze"
-    }
-   ],
-   "wilderness": true
   },
   "The Scar": {
    "routes": [
@@ -2755,6 +2770,8 @@
     "Taverley Dungeon",
     "Evil Chicken's Lair",
     "Corsair Cove Dungeon",
+    "Catacombs of Kourend",
+    "King Black Dragon's Lair",
     "Wilderness Slayer Cave"
    ],
    "konar": {
@@ -3262,7 +3279,8 @@
    "locations": [
     "Lovakengj",
     "Yanille",
-    "Ice Mountain"
+    "Ice Mountain",
+    "Taverley Dungeon"
    ]
   },
   {
@@ -3755,6 +3773,7 @@
     "Fremennik Slayer Dungeon",
     "Ruins of Tapoyauik",
     "Ynysdail Cavern",
+    "Catacombs of Kourend",
     "Wilderness Slayer Cave"
    ],
    "konar": {
@@ -4296,7 +4315,8 @@
    ],
    "boss": false,
    "locations": [
-    "Sophanem Dungeon"
+    "Sophanem Dungeon",
+    "Uzer Mastaba"
    ]
   },
   {
@@ -4514,7 +4534,8 @@
    "boss": false,
    "locations": [
     "Trollheim",
-    "Death Plateau (location)"
+    "Death Plateau (location)",
+    "Keldagrim"
    ],
    "konar": {
     "Troll Stronghold": [
@@ -4772,7 +4793,8 @@
    "boss": false,
    "locations": [
     "Zanaris",
-    "Fossil Island"
+    "Fossil Island",
+    "Stalker Den"
    ],
    "konar": {
     "Fossil Island": [

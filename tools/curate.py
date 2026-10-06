@@ -298,7 +298,13 @@ EXTRA_LOCATIONS = {
     'Abyssal demons': ['Abyssal Nexus'],  # Abyssal Sire counts for an abyssal demon task
     'Smoke devils': [],
     'Gryphons': ['Gryphons (dungeon)'],
-    'Scabarites': ['Sophanem Dungeon'],
+    'Jellies': ['Catacombs of Kourend'],  # warped jellies; only in the wiki's Location Comparison table
+    # Also only in the wiki's Location Comparison tables
+    'Black dragons': ['Catacombs of Kourend', "King Black Dragon's Lair"],
+    'Scabarites': ['Sophanem Dungeon', 'Uzer Mastaba'],
+    'Zygomites': ['Stalker Den'],
+    'Dwarves': ['Taverley Dungeon'],
+    'Trolls': ['Keldagrim'],
 }
 
 BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytania': 'Barrows'}
@@ -362,7 +368,7 @@ def build():
             # Keep the best few normal and Wilderness locations; drop places no supported teleport reaches
             pinned = [canon(l) for l in EXTRA_LOCATIONS.get(name, []) if routes(l)]
             normal = [l for l in routed if l not in WILDERNESS and l not in pinned][:MAX_LOCATIONS]
-            locs = normal + pinned + [l for l in routed if l in WILDERNESS][:MAX_LOCATIONS]
+            locs = list(dict.fromkeys(normal + pinned + [l for l in routed if l in WILDERNESS][:MAX_LOCATIONS]))
         aliases = list(dict.fromkeys([name, t['page'].split('/')[-1]] + [m for m in t['monsters'] if m not in LOCATIONS]))
         out_tasks.append({'name': name, 'aliases': aliases, 'masters': t['masters'], 'boss': False,
                           'locations': locs})
