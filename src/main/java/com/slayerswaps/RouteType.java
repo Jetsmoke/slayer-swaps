@@ -21,7 +21,9 @@ public enum RouteType
 	BOAT("boat", "Teleport to Boat"),
 	ITEM("item", "Teleport item"),
 	SPELL("spell", "Spell or tablet"),
-	OBELISK("obelisk", "Wilderness obelisk");
+	OBELISK("obelisk", "Wilderness obelisk"),
+	// Not a teleport of its own: the Varlamore quetzal ride some teleports are followed by
+	QUETZAL("quetzal", "Quetzal");
 
 	private final String key;
 	private final String displayName;

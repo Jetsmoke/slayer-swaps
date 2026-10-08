@@ -37,7 +37,7 @@ class MenuHighlighter
 		"hosidius", "aldarin", "rellekka", "brimhaven", "yanille", "prifddinas");
 	private static final Set<String> MAXCAPE = ImmutableSet.<String>builder().addAll(PORTALS)
 		.add("warrior's guild", "fishing guild", "crafting guild", "farming guild", "otto's grotto",
-			"feldip hunter area", "wilderness hunter area", "hunter guild", "the pandemonium", "boat", "last boat")
+			"feldip hills", "black chinchompas", "hunter guild", "the pandemonium", "boat", "last boat")
 		.build();
 	private static final Map<RouteType, Set<String>> FAMILIES = ImmutableMap.<RouteType, Set<String>>builder()
 		.put(RouteType.PORTAL, PORTALS)
@@ -45,6 +45,10 @@ class MenuHighlighter
 		.put(RouteType.BURNING_AMULET, ImmutableSet.of("chaos temple", "bandit camp", "lava maze"))
 		.put(RouteType.RING_OF_DUELING, ImmutableSet.of("emir's arena", "castle wars", "ferox enclave", "fortis colosseum"))
 		.put(RouteType.KARAMJA_GLOVES, ImmutableSet.of("gem mine", "slayer master"))
+		// Quetzal Transport System landing sites, from the wiki
+		.put(RouteType.QUETZAL, ImmutableSet.of("aldarin", "auburnvale", "civitas illa fortis", "hunter guild",
+			"quetzacalli gorge", "sunset coast", "tal teklan", "the teomat", "cam torum", "colossal wyrm remains",
+			"fortis colosseum", "kastori", "outer fortis", "salvager overlook"))
 		.put(RouteType.AMULET_OF_GLORY, ImmutableSet.of("edgeville", "karamja", "draynor village", "al kharid"))
 		// From the wiki's "Select Obelisk destination" interface image ("1: Level 13 Wilderness" and so on)
 		.put(RouteType.OBELISK, ImmutableSet.of("level 13 wilderness", "level 19 wilderness", "level 27 wilderness",
@@ -68,6 +72,17 @@ class MenuHighlighter
 		"warriors' guild", "champions' guild", "monastery", "ranging guild", "edgeville", "karamja", "draynor village",
 		"al kharid", "miscellania", "grand exchange", "falador park", "dondakan");
 
+	// The quetzal map's destinations are pictures: each one's model in the map's icons, as Quest Helper finds them
+	private static final Map<String, Integer> QUETZAL_MAP_MODELS = ImmutableMap.<String, Integer>builder()
+		.put("civitas illa fortis", 51208)
+		.put("the teomat", 51205)
+		.put("sunset coast", 51187)
+		.put("hunter guild", 51185)
+		.put("aldarin", 54547)
+		.put("quetzacalli gorge", 54539)
+		.put("tal teklan", 56665)
+		.build();
+
 	private final Client client;
 
 	private static final Pattern KEYED_OPTION = Pattern.compile("^([0-9A-Za-z])\\s*[:.]\\s+(.+)$");
@@ -78,6 +93,8 @@ class MenuHighlighter
 	private Map<String, String> nexusKeys = Collections.emptyMap();
 	// The same for the house jewellery box's teleport menu
 	private Map<String, String> jewelleryKeys = Collections.emptyMap();
+	// The same for the Wilderness obelisk's destination menu
+	private Map<String, String> obeliskKeys = Collections.emptyMap();
 
 	@Inject
 	MenuHighlighter(Client client)
@@ -103,6 +120,11 @@ class MenuHighlighter
 	Map<String, String> getJewelleryKeys()
 	{
 		return jewelleryKeys;
+	}
+
+	Map<String, String> getObeliskKeys()
+	{
+		return obeliskKeys;
 	}
 
 	void clear()
@@ -144,9 +166,26 @@ class MenuHighlighter
 				Map<String, String> keys = keys(widgets);
 				jewelleryKeys = keys.isEmpty() ? jewelleryKeys : keys;
 			}
+			else if (countKnown(widgets, FAMILIES.get(RouteType.OBELISK)) >= 2)
+			{
+				Map<String, String> keys = keys(widgets);
+				obeliskKeys = keys.isEmpty() ? obeliskKeys : keys;
+			}
 		}
 
 		List<Widget> found = new ArrayList<>();
+		for (SlayerData.Route route : routes)
+		{
+			if (route.routeType() == RouteType.QUETZAL && route.getValue() != null)
+			{
+				Integer model = QUETZAL_MAP_MODELS.get(route.getValue().toLowerCase());
+				Widget icons = client.getWidget(InterfaceID.QuetzalMenu.ICONS);
+				if (model != null && icons != null && !icons.isHidden())
+				{
+					quetzalIcons(icons, model, found);
+				}
+			}
+		}
 		for (Map.Entry<Integer, List<Widget>> group : byGroup.entrySet())
 		{
 			List<Widget> widgets = group.getValue();
@@ -171,25 +210,58 @@ class MenuHighlighter
 		highlighted = found;
 	}
 
+	private static void quetzalIcons(Widget parent, int model, List<Widget> found)
+	{
+		for (Widget[] children : new Widget[][]{parent.getChildren(), parent.getDynamicChildren(), parent.getStaticChildren()})
+		{
+			if (children == null)
+			{
+				continue;
+			}
+			for (Widget w : children)
+			{
+				if (w != null && !w.isHidden() && w.getModelId() == model && onScreen(w))
+				{
+					found.add(w);
+				}
+			}
+		}
+	}
+
 	/**
 	 * @return false for widgets scrolled out of their list, which are still there but clipped out of sight
 	 */
 	private static boolean onScreen(Widget w)
 	{
+		return visibleBounds(w, 0) != null;
+	}
+
+	/**
+	 * @return the part of a widget (grown by a margin) its lists and panels show, or null when it's scrolled out of
+	 * sight; a widget half scrolled out of a list is cut off at the list's edge
+	 */
+	static Rectangle visibleBounds(Widget w, int margin)
+	{
 		Rectangle bounds = w.getBounds();
 		if (bounds == null || bounds.isEmpty())
 		{
-			return false;
+			return null;
 		}
+		Rectangle visible = new Rectangle(bounds.x - margin, bounds.y - margin, bounds.width + 2 * margin,
+			bounds.height + 2 * margin);
 		for (Widget parent = w.getParent(); parent != null; parent = parent.getParent())
 		{
-			Rectangle visible = parent.getBounds();
-			if (visible != null && !visible.isEmpty() && !visible.intersects(bounds))
+			Rectangle area = parent.getBounds();
+			if (area != null && !area.isEmpty())
 			{
-				return false;
+				visible = visible.intersection(area);
+				if (visible.isEmpty())
+				{
+					return null;
+				}
 			}
 		}
-		return true;
+		return visible;
 	}
 
 	private static void collect(Widget w, Map<Integer, List<Widget>> byGroup)
@@ -259,7 +331,9 @@ class MenuHighlighter
 
 	private static boolean isNexus(List<Widget> widgets)
 	{
-		return countKnown(widgets, NEXUS) >= 2;
+		// The jewellery box's menu shares a few destinations (Barbarian Outpost, Grand Exchange) with the nexus
+		long nexus = countKnown(widgets, NEXUS);
+		return nexus >= 2 && nexus > countKnown(widgets, JEWELLERY);
 	}
 
 	private static long countKnown(List<Widget> widgets, Set<String> known)

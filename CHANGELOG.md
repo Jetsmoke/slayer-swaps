@@ -5,6 +5,27 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-08
+
+### Added
+- Plugin icon.
+- Minimap arrow, world map marker and outlines on your task's monsters, each with a setting.
+- Quetzal rides where a location needs one (Ralos' Rise).
+- More locations and teleports for each task, including the achievement diary cape, plus TzTok-Jad and TzKal-Zuk tasks.
+- Black masks and enchanted/eternal gems work like the slayer helmet.
+- Portal chamber portals for spell teleports, and a "Portal nexus" setting.
+
+### Changed
+- The slayer helmet always shows Master, Location and Teleport, and asks for your master and teleport the first time.
+- Simpler labels and shorter names throughout.
+- Teleport guidance switches to walking once you're close.
+
+### Removed
+- The Testing settings.
+
+### Fixed
+- Various bugs with teleport swaps, hotkeys and highlights, and guidance that kept sending you back home after arriving.
+
 ## [1.0.2] - 2026-10-05
 
 ### Added
@@ -119,7 +140,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
   helmet" (on by default).
 - Locations and teleports for every slayer task and boss task, from the OSRS Wiki.
 
-[Unreleased]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Jetsmoke/slayer-swaps/compare/666ffcc...v1.0.2
 [1.0.1]: https://github.com/Jetsmoke/slayer-swaps/compare/c6e1cc3...666ffcc
 [1.0.0]: https://github.com/Jetsmoke/slayer-swaps/tree/c6e1cc3

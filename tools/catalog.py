@@ -61,7 +61,11 @@ ITEMS = {
     'royal_seed_pod': ('Royal seed pod', ['royal seed pod'], ['Commune'], {}),
     'enchanted_lyre': ('Enchanted lyre', ['enchanted lyre'], ['Rellekka', 'Waterbirth Island', 'Jatizso', 'Neitiznot'],
                        {'rellekka': 'Rellekka', 'waterbirth': 'Waterbirth Island', 'jatizso': 'Jatizso', 'neitiznot': 'Neitiznot'}),
-    'diary_cape': ('Achievement diary cape', ['achievement diary cape'], [], {}),
+    # Its Teleport menu lists the diary masters (keys 1-9, A-G on the wiki); each stands at a useful spot
+    'diary_cape': ('Achievement diary cape', ['achievement diary cape'],
+                   ['Two-pints', 'Jarr', 'Sir Rebral', 'Thorodin', 'Flax keeper', 'Pirate Jackie the Fruit',
+                    'Kaleb Paramaya', 'Jungle forester', 'TzHaar-Mej', 'Elise', 'Hatius Cosaintus', 'Le-sabrè', 'Toby',
+                    'Lesser Fanatic', 'Elder Gnome child', "Twiggy O'Korn"], {}),
     'ring_of_shadows': ('Ring of shadows', ['ring of shadows'],
                         ['Ancient Vault', 'Ghorrock Dungeon', 'The Scar', 'Lassar Undercity', 'The Stranglewood'],
                         {'ancient vault': 'Ancient Vault', 'ghorrock': 'Ghorrock Dungeon', 'the scar': 'The Scar',

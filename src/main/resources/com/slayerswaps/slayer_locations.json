@@ -15,9 +15,19 @@
      "type": "item",
      "item": "royal_seed_pod",
      "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elder Gnome child"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2428,
+    "y": 3425,
+    "plane": 0
+   }
   },
   "Slayer Tower": {
    "routes": [
@@ -32,6 +42,21 @@
     {
      "type": "spell",
      "value": "Salve Graveyard Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Le-sabrè"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
     }
    ],
    "wilderness": false
@@ -48,11 +73,21 @@
      "value": "Kourend Castle Teleport"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
+    },
+    {
      "type": "fairy",
      "value": "DJR"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1639,
+    "y": 3674,
+    "plane": 0
+   }
   },
   "Abyssal Area": {
    "routes": [
@@ -86,15 +121,35 @@
     {
      "type": "spell",
      "value": "Carrallanger Teleport"
+    },
+    {
+     "type": "item",
+     "item": "wilderness_crabs_teleport",
+     "value": "Break"
+    },
+    {
+     "type": "item",
+     "item": "hunter_cape",
+     "value": "Teleport"
     }
    ],
-   "wilderness": true
+   "wilderness": true,
+   "entrance": {
+    "x": 3260,
+    "y": 3664,
+    "plane": 0
+   }
   },
   "Stronghold of Security": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Edgeville"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic"
     },
     {
      "type": "item",
@@ -113,10 +168,6 @@
     {
      "type": "spell",
      "value": "Cemetery Teleport"
-    },
-    {
-     "type": "spell",
-     "value": "Dareeyak Teleport"
     }
    ],
    "wilderness": true
@@ -128,7 +179,12 @@
      "value": "Ynysdail"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2218,
+    "y": 3477,
+    "plane": 0
+   }
   },
   "Morytania Spider Cave": {
    "routes": [
@@ -145,9 +201,24 @@
      "type": "item",
      "item": "hallowed_crystal_shard",
      "value": "Activate"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3657,
+    "y": 3407,
+    "plane": 0
+   }
   },
   "God Wars Dungeon": {
    "routes": [
@@ -164,9 +235,19 @@
      "type": "item",
      "item": "stony_basalt",
      "value": "Troll Stronghold"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2918,
+    "y": 3745,
+    "plane": 0
+   }
   },
   "Wilderness God Wars Dungeon": {
    "routes": [
@@ -181,9 +262,19 @@
     {
      "type": "spell",
      "value": "Cemetery Teleport"
+    },
+    {
+     "type": "item",
+     "item": "revenant_cave_teleport",
+     "value": "Teleport"
     }
    ],
-   "wilderness": true
+   "wilderness": true,
+   "entrance": {
+    "x": 3016,
+    "y": 3739,
+    "plane": 0
+   }
   },
   "Bandit Camp (Wilderness)": {
    "routes": [
@@ -207,9 +298,29 @@
     {
      "type": "portal",
      "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
+    },
+    {
+     "type": "item",
+     "item": "fremennik_sea_boots",
+     "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2797,
+    "y": 3616,
+    "plane": 0
+   }
   },
   "Jormungand's Prison": {
    "routes": [
@@ -223,9 +334,20 @@
      "item": "enchanted_lyre",
      "value": "Rellekka",
      "note": "talk to Haskell on Rellekka's west dock"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin",
+     "note": "talk to Haskell on Rellekka's west dock"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2621,
+    "y": 3691,
+    "plane": 0
+   }
   },
   "Wyrmscraig Cavern": {
    "routes": [
@@ -263,6 +385,124 @@
    ],
    "wilderness": false
   },
+  "Morytania": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "BKR"
+    }
+   ],
+   "wilderness": false
+  },
+  "Great Kourend": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "CIS"
+    },
+    {
+     "type": "portal",
+     "value": "Hosidius"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Heart"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Haunted Woods": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "ALQ"
+    }
+   ],
+   "wilderness": false
+  },
+  "Mistrock": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Aldarin"
+    },
+    {
+     "type": "item",
+     "item": "pendant_of_ates",
+     "value": "North Aldarin"
+    }
+   ],
+   "wilderness": false
+  },
+  "Sisterhood Sanctuary": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Abandoned Mine": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3445,
+    "y": 3236,
+    "plane": 0
+   }
+  },
   "East Ardougne": {
    "routes": [
     {
@@ -275,8 +515,27 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    },
+    {
+     "type": "item",
      "item": "ardougne_cloak",
      "value": "Farm Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Fishing Guild"
     }
    ],
    "wilderness": false
@@ -323,6 +582,11 @@
     {
      "type": "spell",
      "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
     }
    ],
    "wilderness": false
@@ -341,9 +605,28 @@
     {
      "type": "spell",
      "value": "Battlefront Teleport"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1435,
+    "y": 3668,
+    "plane": 0
+   }
   },
   "Taverley Dungeon": {
    "routes": [
@@ -354,15 +637,30 @@
     {
      "type": "spell",
      "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2884,
+    "y": 3398,
+    "plane": 0
+   }
   },
   "Edgeville Dungeon": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Edgeville"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic"
     },
     {
      "type": "fairy",
@@ -373,7 +671,12 @@
      "value": "Paddewwa Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3097,
+    "y": 3469,
+    "plane": 0
+   }
   },
   "Brimhaven Dungeon": {
    "routes": [
@@ -382,11 +685,55 @@
      "value": "Brimhaven"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Pirate Jackie the Fruit"
+    },
+    {
      "type": "fairy",
      "value": "CKR"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2744,
+    "y": 3155,
+    "plane": 0
+   }
+  },
+  "Crash Site Cavern": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elder Gnome child"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2436,
+    "y": 3520,
+    "plane": 0
+   }
+  },
+  "Charred Dungeon": {
+   "routes": [
+    {
+     "type": "boat",
+     "value": "Charred Island"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2637,
+    "y": 2416,
+    "plane": 0
+   }
   },
   "Evil Chicken's Lair": {
    "routes": [
@@ -410,7 +757,12 @@
      "value": "Corsair Cove"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2523,
+    "y": 2861,
+    "plane": 0
+   }
   },
   "King Black Dragon's Lair": {
    "routes": [
@@ -428,6 +780,11 @@
      "value": "Draynor Village"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
+    },
+    {
      "type": "fairy",
      "value": "DIS"
     }
@@ -442,8 +799,37 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Toby"
+    },
+    {
+     "type": "item",
      "item": "ring_of_wealth",
      "value": "Grand Exchange"
+    }
+   ],
+   "wilderness": false
+  },
+  "Black Knights' Fortress (location)": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Mind Altar Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Burthorpe"
     }
    ],
    "wilderness": false
@@ -517,6 +903,16 @@
    ],
    "wilderness": false
   },
+  "Meiyerditch": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    }
+   ],
+   "wilderness": false
+  },
   "Ogre Enclave": {
    "routes": [
     {
@@ -549,15 +945,53 @@
      "type": "item",
      "item": "combat_bracelet",
      "value": "Warriors' Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Warrior's Guild"
+    },
+    {
+     "type": "item",
+     "item": "strength_cape",
+     "value": "Warriors' Guild"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2893,
+    "y": 3510,
+    "plane": 0
+   }
   },
   "Isle of Souls Dungeon": {
    "routes": [
     {
      "type": "fairy",
      "value": "BJP"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2309,
+    "y": 2919,
+    "plane": 0
+   }
+  },
+  "Ungael": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
     }
    ],
    "wilderness": false
@@ -570,7 +1004,12 @@
      "value": "Twilight Temple"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1693,
+    "y": 3232,
+    "plane": 0
+   }
   },
   "Brine Rat Cavern": {
    "routes": [
@@ -582,9 +1021,23 @@
      "type": "item",
      "item": "enchanted_lyre",
      "value": "Rellekka"
+    },
+    {
+     "type": "portal",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2740,
+    "y": 3736,
+    "plane": 0
+   }
   },
   "Dorgesh-Kaan South Dungeon": {
    "routes": [
@@ -600,9 +1053,19 @@
     {
      "type": "spell",
      "value": "Lumbridge Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Hatius Cosaintus"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3169,
+    "y": 3172,
+    "plane": 0
+   }
   },
   "Mos Le'Harmless Cave": {
    "routes": [
@@ -612,7 +1075,12 @@
      "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3748,
+    "y": 2974,
+    "plane": 0
+   }
   },
   "Kraken Cove": {
    "routes": [
@@ -626,7 +1094,12 @@
      "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2278,
+    "y": 3611,
+    "plane": 0
+   }
   },
   "Yanille Agility Dungeon": {
    "routes": [
@@ -637,6 +1110,69 @@
     {
      "type": "spell",
      "value": "Watchtower Teleport"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2570,
+    "y": 3123,
+    "plane": 0
+   }
+  },
+  "Chaos Druid Tower": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Fishing Guild Teleport"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    }
+   ],
+   "wilderness": false
+  },
+  "Slepe": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Slepe"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
     }
    ],
    "wilderness": false
@@ -661,8 +1197,14 @@
      "value": "Ardougne Teleport"
     },
     {
-     "type": "spell",
-     "value": "West Ardougne Teleport"
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
     }
    ],
    "wilderness": false
@@ -681,6 +1223,25 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Mount Karuulm"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Honour"
     }
    ],
    "wilderness": false
@@ -697,8 +1258,109 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Flax keeper"
+    },
+    {
+     "type": "item",
      "item": "kandarin_headgear",
      "value": "Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Nightmare Zone": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Yanille"
+    },
+    {
+     "type": "spell",
+     "value": "Watchtower Teleport"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Prifddinas": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Prifddinas"
+    },
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Prifddinas"
+    }
+   ],
+   "wilderness": false
+  },
+  "Hosidius": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Hosidius"
+    },
+    {
+     "type": "fairy",
+     "value": "AKR"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Glade"
+    },
+    {
+     "type": "item",
+     "item": "kharedsts_memoirs",
+     "value": "Lunch by the Lancalliums"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
+    }
+   ],
+   "wilderness": false
+  },
+  "South Falador Farm": {
+   "routes": [
+    {
+     "type": "portal",
+     "value": "Rimmington"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    }
+   ],
+   "wilderness": false
+  },
+  "Zanaris": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "BKS"
     }
    ],
    "wilderness": false
@@ -712,12 +1374,73 @@
    ],
    "wilderness": false
   },
+  "Lumbridge cow field (north)": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Hatius Cosaintus"
+    }
+   ],
+   "wilderness": false
+  },
+  "Fred's farm": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Hatius Cosaintus"
+    }
+   ],
+   "wilderness": false
+  },
+  "Crafting Guild": {
+   "routes": [
+    {
+     "type": "maxcape",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "crafting_cape",
+     "value": "Teleport"
+    }
+   ],
+   "wilderness": false
+  },
   "Fossil Island": {
    "routes": [
     {
      "type": "item",
      "item": "digsite_pendant",
      "value": "Fossil Island"
+    }
+   ],
+   "wilderness": false
+  },
+  "Waterbirth Island": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Waterbirth Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Waterbirth Island"
     }
    ],
    "wilderness": false
@@ -781,7 +1504,12 @@
      "value": "Xeric's Honour"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1325,
+    "y": 3364,
+    "plane": 0
+   }
   },
   "Lighthouse": {
    "routes": [
@@ -795,25 +1523,30 @@
      "value": "Barbarian Outpost"
     },
     {
+     "type": "spell",
+     "value": "Barbarian Teleport"
+    },
+    {
      "type": "portal",
      "value": "Rellekka"
-    }
-   ],
-   "wilderness": false
-  },
-  "Waterbirth Island": {
-   "routes": [
-    {
-     "type": "spell",
-     "value": "Waterbirth Teleport"
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Waterbirth Island"
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2509,
+    "y": 3641,
+    "plane": 0
+   }
   },
   "Waterbirth Island Dungeon": {
    "routes": [
@@ -827,7 +1560,12 @@
      "value": "Waterbirth Island"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2525,
+    "y": 3743,
+    "plane": 0
+   }
   },
   "Mourner Tunnels": {
    "routes": [
@@ -836,7 +1574,12 @@
      "value": "Dark Beasts"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2542,
+    "y": 3327,
+    "plane": 0
+   }
   },
   "Shayzien": {
    "routes": [
@@ -853,6 +1596,20 @@
      "type": "item",
      "item": "kharedsts_memoirs",
      "value": "History and Hearsay"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
     }
    ],
    "wilderness": false
@@ -872,6 +1629,11 @@
      "type": "item",
      "item": "kharedsts_memoirs",
      "value": "Jewellery of Jubilation"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Wintertodt Camp"
     }
    ],
    "wilderness": false
@@ -917,9 +1679,23 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1311,
+    "y": 3807,
+    "plane": 0
+   }
   },
   "Smoke Dungeon": {
    "routes": [
@@ -930,6 +1706,40 @@
     {
      "type": "fairy",
      "value": "DLQ"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3310,
+    "y": 2962,
+    "plane": 0
+   }
+  },
+  "Keldagrim": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "fremennik_sea_boots",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "portal",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Dondakan"
     }
    ],
    "wilderness": false
@@ -966,20 +1776,78 @@
      "type": "item",
      "item": "skull_sceptre",
      "value": "Invoke"
+    },
+    {
+     "type": "item",
+     "item": "chronicle",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
   },
-  "Prifddinas": {
+  "Mining Guild": {
    "routes": [
     {
-     "type": "portal",
-     "value": "Prifddinas"
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
     },
     {
      "type": "item",
-     "item": "teleport_crystal",
-     "value": "Prifddinas"
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    }
+   ],
+   "wilderness": false
+  },
+  "Dwarven Mine": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3018,
+    "y": 3450,
+    "plane": 0
+   }
+  },
+  "Falador": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Falador Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    },
+    {
+     "type": "item",
+     "item": "ring_of_wealth",
+     "value": "Falador"
     }
    ],
    "wilderness": false
@@ -998,6 +1866,26 @@
    ],
    "wilderness": false
   },
+  "Lletya": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Lletya"
+    }
+   ],
+   "wilderness": false
+  },
+  "Iorwerth Camp": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "teleport_crystal",
+     "value": "Lletya"
+    }
+   ],
+   "wilderness": false
+  },
   "Woodcutting Guild": {
    "routes": [
     {
@@ -1012,9 +1900,33 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Woodcutting Guild"
+    },
+    {
+     "type": "item",
+     "item": "radas_blessing",
+     "value": "Kourend Woodland"
+    },
+    {
+     "type": "item",
+     "item": "xerics_talisman",
+     "value": "Xeric's Lookout"
+    },
+    {
+     "type": "spell",
+     "value": "Kourend Castle Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1565,
+    "y": 3499,
+    "plane": 0
+   }
   },
   "Braindeath Island": {
    "routes": [
@@ -1022,27 +1934,47 @@
      "type": "item",
      "item": "ectophial",
      "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3679,
+    "y": 3537,
+    "plane": 0
+   }
   },
-  "Deep Wilderness Dungeon": {
+  "Waterfall Dungeon": {
    "routes": [
     {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
+    },
+    {
      "type": "spell",
-     "value": "Ice Plateau Teleport"
+     "value": "Barbarian Teleport"
     },
     {
-     "type": "amulet_of_glory",
-     "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "type": "maxcape",
+     "value": "Otto's Grotto"
     },
     {
-     "type": "obelisk",
-     "value": "Level 44 Wilderness"
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Otto's Grotto"
     }
    ],
-   "wilderness": true
+   "wilderness": false,
+   "entrance": {
+    "x": 2512,
+    "y": 3464,
+    "plane": 0
+   }
   },
   "Giants' Den": {
    "routes": [
@@ -1057,30 +1989,50 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Elise"
+    },
+    {
+     "type": "item",
      "item": "kharedsts_memoirs",
      "value": "History and Hearsay"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1420,
+    "y": 3588,
+    "plane": 0
+   }
   },
-  "Waterfall Dungeon": {
+  "Deep Wilderness Dungeon": {
    "routes": [
     {
-     "type": "item",
-     "item": "games_necklace",
-     "value": "Barbarian Outpost"
+     "type": "spell",
+     "value": "Ice Plateau Teleport"
     },
     {
-     "type": "maxcape",
-     "value": "Otto's Grotto"
+     "type": "amulet_of_glory",
+     "value": "Edgeville",
+     "note": "pull the lever to the Deserted Keep"
     },
     {
      "type": "item",
-     "item": "fishing_cape",
-     "value": "Otto's Grotto"
+     "item": "diary_cape",
+     "value": "Lesser Fanatic",
+     "note": "pull the lever to the Deserted Keep"
+    },
+    {
+     "type": "obelisk",
+     "value": "Level 44 Wilderness"
     }
    ],
-   "wilderness": false
+   "wilderness": true,
+   "entrance": {
+    "x": 3045,
+    "y": 3925,
+    "plane": 0
+   }
   },
   "Wyvern Cave": {
    "routes": [
@@ -1090,7 +2042,12 @@
      "value": "Fossil Island"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3678,
+    "y": 3854,
+    "plane": 0
+   }
   },
   "Grimstone Dungeon": {
    "routes": [
@@ -1099,13 +2056,75 @@
      "value": "DLP"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2912,
+    "y": 4066,
+    "plane": 0
+   }
   },
   "Draynor Manor": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Draynor Village"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
+    }
+   ],
+   "wilderness": false
+  },
+  "West Ardougne": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    }
+   ],
+   "wilderness": false
+  },
+  "Scorpius Shrine": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Ourania Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Lair of Tarn Razorlor (dungeon)": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    }
+   ],
+   "wilderness": false
+  },
+  "Haunted Mine": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
     }
    ],
    "wilderness": false
@@ -1124,6 +2143,11 @@
     {
      "type": "spell",
      "value": "Barrows Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
     }
    ],
    "wilderness": false
@@ -1136,9 +2160,41 @@
      "value": "Fishing Guild"
     },
     {
+     "type": "maxcape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Fishing Guild Teleport"
+    },
+    {
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Farm Teleport"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2622,
+    "y": 3393,
+    "plane": 0
+   }
+  },
+  "Blighted Volcano": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "wilderness_sword",
+     "value": "Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Annakarl Teleport"
     }
    ],
    "wilderness": false
@@ -1151,7 +2207,7 @@
     },
     {
      "type": "maxcape",
-     "value": "Wilderness Hunter area"
+     "value": "Black chinchompas"
     }
    ],
    "wilderness": true
@@ -1182,6 +2238,24 @@
    ],
    "wilderness": true
   },
+  "Bone Yard Hunter area": {
+   "routes": [
+    {
+     "type": "maxcape",
+     "value": "Black chinchompas"
+    },
+    {
+     "type": "spell",
+     "value": "Carrallanger Teleport"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Corporeal Beast"
+    }
+   ],
+   "wilderness": true
+  },
   "Gryphons (dungeon)": {
    "routes": [
     {
@@ -1193,7 +2267,12 @@
      "value": "The Great Conch"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3120,
+    "y": 2489,
+    "plane": 0
+   }
   },
   "Karamja": {
    "routes": [
@@ -1213,6 +2292,24 @@
    ],
    "wilderness": false
   },
+  "Witchaven Shrine Dungeon": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "BLR"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    }
+   ],
+   "wilderness": false
+  },
   "Witchaven Dungeon": {
    "routes": [
     {
@@ -1222,9 +2319,19 @@
     {
      "type": "spell",
      "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2696,
+    "y": 3283,
+    "plane": 0
+   }
   },
   "Tree Gnome Village (location)": {
    "routes": [
@@ -1240,6 +2347,35 @@
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Monastery Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    }
+   ],
+   "wilderness": false
+  },
+  "Gnome Stronghold": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "royal_seed_pod",
+     "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elder Gnome child"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
     }
    ],
    "wilderness": false
@@ -1255,6 +2391,30 @@
      "value": "Rimmington"
     }
    ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3008,
+    "y": 3150,
+    "plane": 0
+   }
+  },
+  "Hobgoblin Peninsula": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Crafting Guild"
+    },
+    {
+     "type": "item",
+     "item": "crafting_cape",
+     "value": "Teleport"
+    }
+   ],
    "wilderness": false
   },
   "Ralos' Rise": {
@@ -1265,13 +2425,23 @@
      "value": "Ralos' Rise"
     },
     {
-     "type": "item",
-     "item": "hunter_cape",
-     "value": "Teleport"
+     "type": "spell",
+     "value": "Civitas illa Fortis Teleport",
+     "note": "take the quetzal",
+     "quetzal": "The Teomat"
     },
     {
-     "type": "spell",
-     "value": "Civitas illa Fortis Teleport"
+     "type": "maxcape",
+     "value": "Hunter Guild",
+     "note": "take the quetzal",
+     "quetzal": "The Teomat"
+    },
+    {
+     "type": "item",
+     "item": "hunter_cape",
+     "value": "Teleport",
+     "note": "take the quetzal",
+     "quetzal": "The Teomat"
     }
    ],
    "wilderness": false
@@ -1291,10 +2461,6 @@
     {
      "type": "spell",
      "value": "Ghorrock Teleport"
-    },
-    {
-     "type": "spell",
-     "value": "Ice Plateau Teleport"
     }
    ],
    "wilderness": true
@@ -1310,6 +2476,11 @@
      "type": "item",
      "item": "ectophial",
      "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Ecto Teleport"
     }
    ],
    "wilderness": false
@@ -1339,13 +2510,23 @@
      "value": "Kalphite cave"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3320,
+    "y": 3122,
+    "plane": 0
+   }
   },
   "Killerwatt plane": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Draynor Village"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
     },
     {
      "type": "spell",
@@ -1361,7 +2542,12 @@
      "value": "Laguna Aurorae"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1191,
+    "y": 2786,
+    "plane": 0
+   }
   },
   "Lava Dragon Isle": {
    "routes": [
@@ -1391,6 +2577,11 @@
     {
      "type": "amulet_of_glory",
      "value": "Draynor Village"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
     }
    ],
    "wilderness": false
@@ -1413,7 +2604,12 @@
      "value": "North of Kastori"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1309,
+    "y": 3104,
+    "plane": 0
+   }
   },
   "Crypt of Tonali": {
    "routes": [
@@ -1434,6 +2630,10 @@
     {
      "type": "item",
      "item": "skills_necklace",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
      "value": "Farming Guild"
     },
     {
@@ -1472,6 +2672,15 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -1490,6 +2699,12 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
+     "note": "pull the lever to the Deserted Keep"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic",
      "note": "pull the lever to the Deserted Keep"
     },
     {
@@ -1517,22 +2732,40 @@
    ],
    "wilderness": true
   },
+  "Ancient Cavern": {
+   "routes": [
+    {
+     "type": "maxcape",
+     "value": "Otto's Grotto"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Otto's Grotto"
+    },
+    {
+     "type": "item",
+     "item": "games_necklace",
+     "value": "Barbarian Outpost"
+    },
+    {
+     "type": "spell",
+     "value": "Barbarian Teleport"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2511,
+    "y": 3508,
+    "plane": 0
+   }
+  },
   "Lithkren Vault": {
    "routes": [
     {
      "type": "item",
      "item": "digsite_pendant",
      "value": "Digsite"
-    },
-    {
-     "type": "item",
-     "item": "digsite_pendant",
-     "value": "Fossil Island"
-    },
-    {
-     "type": "item",
-     "item": "digsite_pendant",
-     "value": "Lithkren Dungeon"
     }
    ],
    "wilderness": false
@@ -1562,6 +2795,11 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    },
+    {
+     "type": "item",
      "item": "ardougne_cloak",
      "value": "Monastery Teleport"
     }
@@ -1573,6 +2811,11 @@
     {
      "type": "portal",
      "value": "Brimhaven"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Pirate Jackie the Fruit"
     },
     {
      "type": "spell",
@@ -1588,13 +2831,22 @@
      "value": "Rellekka"
     },
     {
+     "type": "item",
+     "item": "enchanted_lyre",
+     "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
+    },
+    {
      "type": "spell",
      "value": "Moonclan Teleport"
     },
     {
-     "type": "item",
-     "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "type": "boat",
+     "value": "Lunar Isle"
     }
    ],
    "wilderness": false
@@ -1607,7 +2859,7 @@
     },
     {
      "type": "maxcape",
-     "value": "Feldip Hunter area"
+     "value": "Feldip Hills"
     }
    ],
    "wilderness": false
@@ -1626,24 +2878,91 @@
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Monastery Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
     }
    ],
    "wilderness": false
   },
-  "Zanaris": {
+  "Combat Training Camp": {
    "routes": [
     {
-     "type": "fairy",
-     "value": "BKS"
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
     }
    ],
    "wilderness": false
+  },
+  "Chaos Druid Tower Dungeon": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "item",
+     "item": "fishing_cape",
+     "value": "Fishing Guild"
+    },
+    {
+     "type": "spell",
+     "value": "Fishing Guild Teleport"
+    },
+    {
+     "type": "item",
+     "item": "necklace_of_passage",
+     "value": "The Outpost"
+    },
+    {
+     "type": "item",
+     "item": "ardougne_cloak",
+     "value": "Farm Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 2563,
+    "y": 3356,
+    "plane": 0
+   }
   },
   "Brimhaven": {
    "routes": [
     {
      "type": "portal",
      "value": "Brimhaven"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Pirate Jackie the Fruit"
     }
    ],
    "wilderness": false
@@ -1656,13 +2975,15 @@
      "note": "pull the lever to the Deserted Keep"
     },
     {
-     "type": "spell",
-     "value": "Ardougne Teleport",
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic",
      "note": "pull the lever to the Deserted Keep"
     },
     {
      "type": "spell",
-     "value": "Ghorrock Teleport"
+     "value": "Ardougne Teleport",
+     "note": "pull the lever to the Deserted Keep"
     }
    ],
    "wilderness": true
@@ -1682,9 +3003,19 @@
      "type": "item",
      "item": "kharedsts_memoirs",
      "value": "Lunch by the Lancalliums"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Woodcutting Guild"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 1702,
+    "y": 3574,
+    "plane": 0
+   }
   },
   "Revenant Caves": {
    "routes": [
@@ -1709,6 +3040,12 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
+     "note": "pull the lever to the Deserted Keep"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic",
      "note": "pull the lever to the Deserted Keep"
     },
     {
@@ -1763,13 +3100,42 @@
      "value": "Ancient Vault"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3490,
+    "y": 3021,
+    "plane": 0
+   }
   },
   "Al Kharid Mine": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Al Kharid"
+    }
+   ],
+   "wilderness": false
+  },
+  "Dwarven mines": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Monastery"
+    },
+    {
+     "type": "spell",
+     "value": "Lassar Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    },
+    {
+     "type": "item",
+     "item": "skills_necklace",
+     "value": "Mining Guild"
     }
    ],
    "wilderness": false
@@ -1781,7 +3147,12 @@
      "value": "CIP"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2509,
+    "y": 3846,
+    "plane": 0
+   }
   },
   "Mort'ton": {
    "routes": [
@@ -1812,6 +3183,31 @@
     {
      "type": "spell",
      "value": "Barrows Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Le-sabrè"
+    },
+    {
+     "type": "item",
+     "item": "ectophial",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    }
+   ],
+   "wilderness": false
+  },
+  "Sepulchre of Death": {
+   "routes": [
+    {
+     "type": "item",
+     "item": "skull_sceptre",
+     "value": "Invoke"
     }
    ],
    "wilderness": false
@@ -1831,18 +3227,52 @@
      "type": "item",
      "item": "ardougne_cloak",
      "value": "Farm Teleport"
+    },
+    {
+     "type": "spell",
+     "value": "Ardougne Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Two-pints"
+    },
+    {
+     "type": "item",
+     "item": "combat_bracelet",
+     "value": "Ranging Guild"
+    },
+    {
+     "type": "item",
+     "item": "kandarin_headgear",
+     "value": "Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2721,
+    "y": 3387,
+    "plane": 0
+   }
   },
   "Draynor Sewers": {
    "routes": [
     {
      "type": "amulet_of_glory",
      "value": "Draynor Village"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3084,
+    "y": 3272,
+    "plane": 0
+   }
   },
   "Karamja Volcano": {
    "routes": [
@@ -1857,6 +3287,44 @@
    ],
    "wilderness": false
   },
+  "Barrows": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "BKR"
+    },
+    {
+     "type": "spell",
+     "value": "Barrows Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
+    },
+    {
+     "type": "item",
+     "item": "morytania_legs",
+     "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Le-sabrè"
+    },
+    {
+     "type": "item",
+     "item": "drakans_medallion",
+     "value": "Ver Sinhaza"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3567,
+    "y": 3291,
+    "plane": 0
+   }
+  },
   "Smoke Devil Dungeon": {
    "routes": [
     {
@@ -1864,7 +3332,12 @@
      "value": "BKP"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2412,
+    "y": 3061,
+    "plane": 0
+   }
   },
   "Sourhog Cave": {
    "routes": [
@@ -1873,11 +3346,21 @@
      "value": "Draynor Village"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Twiggy O'Korn"
+    },
+    {
      "type": "spell",
      "value": "Draynor Manor Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3150,
+    "y": 3347,
+    "plane": 0
+   }
   },
   "Ape Atoll": {
    "routes": [
@@ -1891,6 +3374,25 @@
     }
    ],
    "wilderness": false
+  },
+  "Lumbridge Castle": {
+   "routes": [
+    {
+     "type": "spell",
+     "value": "Lumbridge Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Hatius Cosaintus"
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3204,
+    "y": 3237,
+    "plane": 0
+   }
   },
   "Lunar Isle": {
    "routes": [
@@ -1919,6 +3421,11 @@
      "type": "item",
      "item": "morytania_legs",
      "value": "Burgh Teleport"
+    },
+    {
+     "type": "item",
+     "item": "mortton_teleport",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -1953,26 +3460,15 @@
      "type": "item",
      "item": "combat_bracelet",
      "value": "Warriors' Guild"
-    }
-   ],
-   "wilderness": false
-  },
-  "Keldagrim": {
-   "routes": [
+    },
     {
-     "type": "item",
-     "item": "fremennik_sea_boots",
-     "value": "Teleport"
+     "type": "maxcape",
+     "value": "Warrior's Guild"
     },
     {
      "type": "item",
-     "item": "enchanted_lyre",
-     "value": "Rellekka"
-    },
-    {
-     "type": "item",
-     "item": "ring_of_wealth",
-     "value": "Dondakan"
+     "item": "strength_cape",
+     "value": "Warriors' Guild"
     }
    ],
    "wilderness": false
@@ -1985,11 +3481,21 @@
     },
     {
      "type": "item",
+     "item": "ghommals_hilt",
+     "value": "Trollheim"
+    },
+    {
+     "type": "item",
      "item": "stony_basalt",
      "value": "Troll Stronghold"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2836,
+    "y": 3680,
+    "plane": 0
+   }
   },
   "Fremennik Isles": {
    "routes": [
@@ -1999,9 +3505,13 @@
      "value": "Neitiznot"
     },
     {
-     "type": "item",
-     "item": "enchanted_lyre",
+     "type": "portal",
      "value": "Rellekka"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Thorodin"
     }
    ],
    "wilderness": false
@@ -2018,30 +3528,21 @@
      "value": "Mor Ul Rek"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "TzHaar-Mej"
+    },
+    {
      "type": "amulet_of_glory",
      "value": "Karamja"
     }
    ],
-   "wilderness": false
-  },
-  "Haunted Woods": {
-   "routes": [
-    {
-     "type": "fairy",
-     "value": "ALQ"
-    }
-   ],
-   "wilderness": false
-  },
-  "Meiyerditch": {
-   "routes": [
-    {
-     "type": "item",
-     "item": "drakans_medallion",
-     "value": "Ver Sinhaza"
-    }
-   ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2856,
+    "y": 3168,
+    "plane": 0
+   }
   },
   "Darkmeyer": {
    "routes": [
@@ -2054,26 +3555,6 @@
      "type": "item",
      "item": "hallowed_crystal_shard",
      "value": "Activate"
-    }
-   ],
-   "wilderness": false
-  },
-  "Slepe": {
-   "routes": [
-    {
-     "type": "item",
-     "item": "drakans_medallion",
-     "value": "Slepe"
-    },
-    {
-     "type": "item",
-     "item": "drakans_medallion",
-     "value": "Ver Sinhaza"
-    },
-    {
-     "type": "item",
-     "item": "ectophial",
-     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -2092,25 +3573,6 @@
    "routes": [],
    "wilderness": false
   },
-  "Ancient Cavern": {
-   "routes": [
-    {
-     "type": "maxcape",
-     "value": "Otto's Grotto"
-    },
-    {
-     "type": "item",
-     "item": "fishing_cape",
-     "value": "Otto's Grotto"
-    },
-    {
-     "type": "item",
-     "item": "games_necklace",
-     "value": "Barbarian Outpost"
-    }
-   ],
-   "wilderness": false
-  },
   "Canifis": {
    "routes": [
     {
@@ -2120,11 +3582,16 @@
     {
      "type": "spell",
      "value": "Kharyrll Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Le-sabrè"
     }
    ],
    "wilderness": false
   },
-  "Charred Dungeon": {
+  "Charred Island Dungeon": {
    "routes": [
     {
      "type": "boat",
@@ -2143,23 +3610,28 @@
    ],
    "wilderness": false
   },
-  "Barrows": {
+  "Wizards' Guild": {
    "routes": [
     {
-     "type": "fairy",
-     "value": "BKR"
+     "type": "portal",
+     "value": "Yanille"
     },
     {
      "type": "spell",
-     "value": "Barrows Teleport"
+     "value": "Watchtower Teleport"
     },
     {
      "type": "item",
-     "item": "mortton_teleport",
-     "value": "Teleport"
+     "item": "ardougne_cloak",
+     "value": "Monastery Teleport"
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2589,
+    "y": 3094,
+    "plane": 0
+   }
   },
   "Callisto's Den": {
    "routes": [
@@ -2215,10 +3687,6 @@
     {
      "type": "burning_amulet",
      "value": "Bandit Camp"
-    },
-    {
-     "type": "spell",
-     "value": "Cemetery Teleport"
     }
    ],
    "wilderness": true
@@ -2250,6 +3718,11 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Sir Rebral"
+    },
+    {
+     "type": "item",
      "item": "ring_of_wealth",
      "value": "Falador"
     }
@@ -2277,6 +3750,10 @@
      "type": "item",
      "item": "icy_basalt",
      "value": "Weiss"
+    },
+    {
+     "type": "boat",
+     "value": "Weiss"
     }
    ],
    "wilderness": false
@@ -2289,6 +3766,12 @@
      "note": "pull the lever to the Deserted Keep"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic",
+     "note": "pull the lever to the Deserted Keep"
+    },
+    {
      "type": "spell",
      "value": "Ardougne Teleport",
      "note": "pull the lever to the Deserted Keep"
@@ -2298,7 +3781,12 @@
      "value": "Level 50 Wilderness"
     }
    ],
-   "wilderness": true
+   "wilderness": true,
+   "entrance": {
+    "x": 3240,
+    "y": 3944,
+    "plane": 0
+   }
   },
   "Shellbane Gryphon Cave": {
    "routes": [
@@ -2363,15 +3851,6 @@
    ],
    "wilderness": true
   },
-  "Ungael": {
-   "routes": [
-    {
-     "type": "portal",
-     "value": "Rellekka"
-    }
-   ],
-   "wilderness": false
-  },
   "Lassar Undercity": {
    "routes": [
     {
@@ -2415,6 +3894,15 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
    ],
    "wilderness": false
@@ -2425,6 +3913,11 @@
      "type": "item",
      "item": "royal_seed_pod",
      "value": "Commune"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Elder Gnome child"
     },
     {
      "type": "item",
@@ -2439,6 +3932,11 @@
     {
      "type": "portal",
      "value": "Brimhaven"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Pirate Jackie the Fruit"
     }
    ],
    "wilderness": false
@@ -2448,6 +3946,11 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic"
     },
     {
      "type": "fairy",
@@ -2488,7 +3991,30 @@
     "Stronghold Slayer Cave": [
      "Stronghold Slayer Cave"
     ]
-   }
+   },
+   "spots": {
+    "Stronghold Slayer Cave": {
+     "x": 2456,
+     "y": 9780,
+     "plane": 0
+    },
+    "Slayer Tower": {
+     "x": 3427,
+     "y": 3545,
+     "plane": 1
+    },
+    "Catacombs of Kourend": {
+     "x": 1619,
+     "y": 10008,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Aberrant spectre",
+    "Abhorrent spectre",
+    "Deviant spectre",
+    "Repugnant spectre"
+   ]
   },
   {
    "name": "Abyssal demons",
@@ -2523,7 +4049,39 @@
     "Slayer Tower": [
      "Slayer Tower"
     ]
-   }
+   },
+   "spots": {
+    "Slayer Tower": {
+     "x": 3437,
+     "y": 9965,
+     "plane": 0
+    },
+    "Abyssal Area": {
+     "x": 3036,
+     "y": 4892,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1674,
+     "y": 10086,
+     "plane": 0
+    },
+    "Abyssal Nexus": {
+     "x": 3039,
+     "y": 4823,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3341,
+     "y": 10162,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Abyssal demon",
+    "Greater abyssal demon",
+    "Abyssal Sire"
+   ]
   },
   {
    "name": "Ankou",
@@ -2555,7 +4113,38 @@
     "Catacombs of Kourend": [
      "Catacombs of Kourend"
     ]
-   }
+   },
+   "spots": {
+    "Stronghold Slayer Cave": {
+     "x": 2475,
+     "y": 9801,
+     "plane": 0
+    },
+    "Stronghold of Security": {
+     "x": 1974,
+     "y": 4939,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1642,
+     "y": 9995,
+     "plane": 0
+    },
+    "The Forgotten Cemetery": {
+     "x": 2976,
+     "y": 3752,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3359,
+     "y": 10076,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Ankou",
+    "Dark Ankou"
+   ]
   },
   {
    "name": "Aquanites",
@@ -2571,7 +4160,14 @@
    "boss": false,
    "locations": [
     "Ynysdail Cavern"
-   ]
+   ],
+   "spots": {
+    "Ynysdail Cavern": {
+     "x": 2218,
+     "y": 3477,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Araxytes",
@@ -2588,6 +4184,18 @@
    "boss": false,
    "locations": [
     "Morytania Spider Cave"
+   ],
+   "spots": {
+    "Morytania Spider Cave": {
+     "x": 3681,
+     "y": 9836,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Araxyte",
+    "Dreadborn Araxyte",
+    "Araxxor"
    ]
   },
   {
@@ -2611,7 +4219,26 @@
     "God Wars Dungeon": [
      "God Wars Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2855,
+     "y": 5283,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2945,
+     "y": 10115,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Aviansie",
+    "Kree'arra",
+    "Flight Kilisa",
+    "Wingman Skree",
+    "Flockleader Geerin"
+   ]
   },
   {
    "name": "Bandits",
@@ -2625,6 +4252,25 @@
    "locations": [
     "Bandit Camp (Wilderness)",
     "Wilderness Slayer Cave"
+   ],
+   "spots": {
+    "Bandit Camp (Wilderness)": {
+     "x": 3036,
+     "y": 3695,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3430,
+     "y": 10070,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Bandit",
+    "Guard Bandit",
+    "Speedy Keith",
+    "Donny the lad",
+    "Black Heather"
    ]
   },
   {
@@ -2642,6 +4288,24 @@
    "locations": [
     "Slayer Tower",
     "Catacombs of Kourend"
+   ],
+   "spots": {
+    "Slayer Tower": {
+     "x": 3439,
+     "y": 3549,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1616,
+     "y": 9994,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Banshee",
+    "Screaming banshee",
+    "Twisted Banshee",
+    "Screaming twisted banshee"
    ]
   },
   {
@@ -2669,7 +4333,25 @@
     "Jormungand's Prison": [
      "Jormungand's Prison"
     ]
-   }
+   },
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2742,
+     "y": 10008,
+     "plane": 0
+    },
+    "Jormungand's Prison": {
+     "x": 2454,
+     "y": 10390,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Basilisk",
+    "Monstrous basilisk",
+    "Basilisk Knight",
+    "Basilisk Sentinel"
+   ]
   },
   {
    "name": "Bats",
@@ -2685,7 +4367,61 @@
    "locations": [
     "Slayer Tower",
     "Wyrmscraig Cavern",
-    "Paterdomus"
+    "Paterdomus",
+    "Morytania",
+    "Great Kourend",
+    "Haunted Woods",
+    "Mistrock",
+    "Sisterhood Sanctuary",
+    "Abandoned Mine"
+   ],
+   "spots": {
+    "Slayer Tower": {
+     "x": 3429,
+     "y": 3525,
+     "plane": 0
+    },
+    "Wyrmscraig Cavern": {
+     "x": 2619,
+     "y": 8597,
+     "plane": 0
+    },
+    "Great Kourend": {
+     "x": 1615,
+     "y": 3810,
+     "plane": 0
+    },
+    "Haunted Woods": {
+     "x": 3607,
+     "y": 3486,
+     "plane": 0
+    },
+    "Mistrock": {
+     "x": 1335,
+     "y": 2890,
+     "plane": 0
+    },
+    "Sisterhood Sanctuary": {
+     "x": 3728,
+     "y": 9759,
+     "plane": 1
+    },
+    "Abandoned Mine": {
+     "x": 3411,
+     "y": 9630,
+     "plane": 0
+    },
+    "Paterdomus": {
+     "x": 3416,
+     "y": 3487,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Bat",
+    "Giant bat",
+    "Albino bat",
+    "Death wing"
    ]
   },
   {
@@ -2702,6 +4438,22 @@
    "boss": false,
    "locations": [
     "East Ardougne"
+   ],
+   "spots": {
+    "East Ardougne": {
+     "x": 2624,
+     "y": 3300,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Bear Cub",
+    "Black bear",
+    "Callisto",
+    "Artio",
+    "Grizzly bear",
+    "Grizzly bear cub",
+    "Grizzly bear (Escape Caves)"
    ]
   },
   {
@@ -2718,6 +4470,39 @@
     "Port Sarim",
     "Corsair Cove",
     "Port Piscarilius"
+   ],
+   "spots": {
+    "Port Sarim": {
+     "x": 3029,
+     "y": 3203,
+     "plane": 0
+    },
+    "Corsair Cove": {
+     "x": 2574,
+     "y": 2857,
+     "plane": 0
+    },
+    "Port Piscarilius": {
+     "x": 1807,
+     "y": 3690,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Duck",
+    "Chicken",
+    "Undead chicken",
+    "Rooster",
+    "Seagull",
+    "Penguin (monster)",
+    "Entrana firebird",
+    "Bird",
+    "Chompy bird",
+    "Terrorbird",
+    "Vulture",
+    "Oomlie bird",
+    "Mounted terrorbird",
+    "Baby Roc"
    ]
   },
   {
@@ -2737,6 +4522,10 @@
     "Chasm of Fire",
     "Taverley Dungeon",
     "Edgeville Dungeon",
+    "Brimhaven Dungeon",
+    "Catacombs of Kourend",
+    "Crash Site Cavern",
+    "Charred Dungeon",
     "Wilderness Slayer Cave"
    ],
    "konar": {
@@ -2752,7 +4541,57 @@
     "Brimhaven Dungeon": [
      "Brimhaven Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Chasm of Fire": {
+     "x": 1376,
+     "y": 9885,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2851,
+     "y": 9783,
+     "plane": 0
+    },
+    "Edgeville Dungeon": {
+     "x": 3088,
+     "y": 9958,
+     "plane": 0
+    },
+    "Brimhaven Dungeon": {
+     "x": 2706,
+     "y": 9482,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1720,
+     "y": 10083,
+     "plane": 0
+    },
+    "Crash Site Cavern": {
+     "x": 2102,
+     "y": 5659,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2696,
+     "y": 8888,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3360,
+     "y": 10118,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Black demon",
+    "Demonic gorilla",
+    "Balfrug Kreeyath",
+    "Skotizo",
+    "Porazdir",
+    "Kolodion"
+   ]
   },
   {
    "name": "Black dragons",
@@ -2770,6 +4609,7 @@
     "Taverley Dungeon",
     "Evil Chicken's Lair",
     "Corsair Cove Dungeon",
+    "Charred Dungeon",
     "Catacombs of Kourend",
     "King Black Dragon's Lair",
     "Wilderness Slayer Cave"
@@ -2787,7 +4627,45 @@
     "Taverley Dungeon": [
      "Taverley Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Taverley Dungeon": {
+     "x": 2790,
+     "y": 9632,
+     "plane": 0
+    },
+    "Evil Chicken's Lair": {
+     "x": 2454,
+     "y": 4370,
+     "plane": 0
+    },
+    "Corsair Cove Dungeon": {
+     "x": 1944,
+     "y": 8969,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2649,
+     "y": 8858,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1614,
+     "y": 10094,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3361,
+     "y": 10157,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Baby black dragon",
+    "Black dragon",
+    "King Black Dragon",
+    "Brutal black dragon"
+   ]
   },
   {
    "name": "Black Knight",
@@ -2802,9 +4680,42 @@
     "Draynor Village",
     "Taverley Dungeon",
     "Varrock",
+    "Black Knights' Fortress (location)",
     "Lava Maze",
     "Bone Yard"
-   ]
+   ],
+   "spots": {
+    "Draynor Village": {
+     "x": 3101,
+     "y": 3220,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2906,
+     "y": 9694,
+     "plane": 0
+    },
+    "Varrock": {
+     "x": 3230,
+     "y": 3516,
+     "plane": 0
+    },
+    "Black Knights' Fortress (location)": {
+     "x": 3028,
+     "y": 3513,
+     "plane": 0
+    },
+    "Lava Maze": {
+     "x": 3042,
+     "y": 3852,
+     "plane": 0
+    },
+    "Bone Yard": {
+     "x": 3311,
+     "y": 3769,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Bloodvelds",
@@ -2826,6 +4737,10 @@
     "Slayer Tower",
     "Stronghold Slayer Cave",
     "Catacombs of Kourend",
+    "Iorwerth Dungeon",
+    "Meiyerditch Laboratories",
+    "God Wars Dungeon",
+    "Meiyerditch",
     "Wilderness God Wars Dungeon"
    ],
    "konar": {
@@ -2847,7 +4762,56 @@
     "Stronghold Slayer Dungeon": [
      "Stronghold Slayer Cave"
     ]
-   }
+   },
+   "spots": {
+    "Slayer Tower": {
+     "x": 3417,
+     "y": 3565,
+     "plane": 1
+    },
+    "Stronghold Slayer Cave": {
+     "x": 2459,
+     "y": 9822,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1676,
+     "y": 10032,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3243,
+     "y": 12427,
+     "plane": 0
+    },
+    "Meiyerditch Laboratories": {
+     "x": 3574,
+     "y": 9741,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2886,
+     "y": 5350,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2956,
+     "y": 10099,
+     "plane": 0
+    },
+    "Meiyerditch": {
+     "x": 3615,
+     "y": 3250,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Bloodveld",
+    "Insatiable Bloodveld",
+    "Mutated Bloodveld",
+    "Insatiable mutated Bloodveld",
+    "Reanimated bloodveld"
+   ]
   },
   {
    "name": "Blue dragons",
@@ -2865,7 +4829,12 @@
    "locations": [
     "Taverley Dungeon",
     "Ogre Enclave",
-    "Heroes' Guild"
+    "Heroes' Guild",
+    "Catacombs of Kourend",
+    "Isle of Souls Dungeon",
+    "Ungael",
+    "Corsair Cove Dungeon",
+    "Ruins of Tapoyauik"
    ],
    "konar": {
     "Catacombs of Kourend": [
@@ -2886,7 +4855,55 @@
     "Taverley Dungeon": [
      "Taverley Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Taverley Dungeon": {
+     "x": 2906,
+     "y": 9792,
+     "plane": 0
+    },
+    "Ogre Enclave": {
+     "x": 2591,
+     "y": 9444,
+     "plane": 0
+    },
+    "Heroes' Guild": {
+     "x": 2908,
+     "y": 9905,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1631,
+     "y": 10074,
+     "plane": 0
+    },
+    "Isle of Souls Dungeon": {
+     "x": 2126,
+     "y": 9303,
+     "plane": 0
+    },
+    "Ungael": {
+     "x": 2269,
+     "y": 4062,
+     "plane": 0
+    },
+    "Corsair Cove Dungeon": {
+     "x": 1926,
+     "y": 8982,
+     "plane": 1
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1610,
+     "y": 9610,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Baby blue dragon",
+    "Blue dragon",
+    "Brutal blue dragon",
+    "Vorkath"
+   ]
   },
   {
    "name": "Brine rat",
@@ -2907,6 +4924,13 @@
     "Brine Rat Cavern": [
      "Brine Rat Cavern"
     ]
+   },
+   "spots": {
+    "Brine Rat Cavern": {
+     "x": 2707,
+     "y": 10133,
+     "plane": 0
+    }
    }
   },
   {
@@ -2920,7 +4944,14 @@
    "boss": false,
    "locations": [
     "Stronghold of Security"
-   ]
+   ],
+   "spots": {
+    "Stronghold of Security": {
+     "x": 1958,
+     "y": 5035,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Cave bug",
@@ -2936,7 +4967,19 @@
    "locations": [
     "Dorgesh-Kaan South Dungeon",
     "Lumbridge Swamp Caves"
-   ]
+   ],
+   "spots": {
+    "Dorgesh-Kaan South Dungeon": {
+     "x": 2716,
+     "y": 5224,
+     "plane": 0
+    },
+    "Lumbridge Swamp Caves": {
+     "x": 3184,
+     "y": 9571,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Cave crawlers",
@@ -2953,7 +4996,34 @@
    "locations": [
     "Fremennik Slayer Dungeon",
     "Dorgesh-Kaan South Dungeon",
-    "Lumbridge Swamp Caves"
+    "Lumbridge Swamp Caves",
+    "Ruins of Tapoyauik"
+   ],
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2786,
+     "y": 9995,
+     "plane": 0
+    },
+    "Dorgesh-Kaan South Dungeon": {
+     "x": 2711,
+     "y": 5214,
+     "plane": 0
+    },
+    "Lumbridge Swamp Caves": {
+     "x": 3189,
+     "y": 9574,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1672,
+     "y": 9612,
+     "plane": 2
+    }
+   },
+   "monsters": [
+    "Cave crawler",
+    "Chasm Crawler"
    ]
   },
   {
@@ -2970,6 +5040,17 @@
    "boss": false,
    "locations": [
     "Mos Le'Harmless Cave"
+   ],
+   "spots": {
+    "Mos Le'Harmless Cave": {
+     "x": 3764,
+     "y": 9433,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Cave horror",
+    "Cave abomination"
    ]
   },
   {
@@ -2986,7 +5067,19 @@
    "locations": [
     "Dorgesh-Kaan South Dungeon",
     "Lumbridge Swamp Caves"
-   ]
+   ],
+   "spots": {
+    "Dorgesh-Kaan South Dungeon": {
+     "x": 2700,
+     "y": 5235,
+     "plane": 0
+    },
+    "Lumbridge Swamp Caves": {
+     "x": 3178,
+     "y": 9557,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Cave kraken",
@@ -3008,7 +5101,18 @@
     "Kraken Cove": [
      "Kraken Cove"
     ]
-   }
+   },
+   "spots": {
+    "Kraken Cove": {
+     "x": 2267,
+     "y": 10010,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Cave kraken",
+    "Kraken"
+   ]
   },
   {
    "name": "Chaos druid",
@@ -3023,8 +5127,42 @@
     "Edgeville Dungeon",
     "Taverley Dungeon",
     "Yanille Agility Dungeon",
+    "Chaos Druid Tower",
+    "Slepe",
     "Chaos Temple (Wilderness)"
-   ]
+   ],
+   "spots": {
+    "Edgeville Dungeon": {
+     "x": 3110,
+     "y": 9936,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2934,
+     "y": 9848,
+     "plane": 0
+    },
+    "Yanille Agility Dungeon": {
+     "x": 2614,
+     "y": 9487,
+     "plane": 0
+    },
+    "Chaos Druid Tower": {
+     "x": 2562,
+     "y": 3356,
+     "plane": 0
+    },
+    "Slepe": {
+     "x": 3739,
+     "y": 3317,
+     "plane": 3
+    },
+    "Chaos Temple (Wilderness)": {
+     "x": 3240,
+     "y": 3608,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Cockatrice",
@@ -3039,7 +5177,14 @@
    "boss": false,
    "locations": [
     "Fremennik Slayer Dungeon"
-   ]
+   ],
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2791,
+     "y": 10035,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Cows",
@@ -3054,7 +5199,85 @@
    "locations": [
     "Ardougne",
     "Kebos Lowlands",
-    "Sinclair Mansion"
+    "Sinclair Mansion",
+    "Nightmare Zone",
+    "Prifddinas",
+    "Hosidius",
+    "South Falador Farm",
+    "Zanaris",
+    "Isle of Souls",
+    "Lumbridge cow field (north)",
+    "Fred's farm",
+    "Crafting Guild"
+   ],
+   "spots": {
+    "Ardougne": {
+     "x": 2664,
+     "y": 3346,
+     "plane": 0
+    },
+    "Kebos Lowlands": {
+     "x": 1284,
+     "y": 3702,
+     "plane": 0
+    },
+    "Sinclair Mansion": {
+     "x": 2733,
+     "y": 3561,
+     "plane": 0
+    },
+    "Nightmare Zone": {
+     "x": 2585,
+     "y": 3118,
+     "plane": 0
+    },
+    "Prifddinas": {
+     "x": 2192,
+     "y": 3418,
+     "plane": 0
+    },
+    "Hosidius": {
+     "x": 1755,
+     "y": 3638,
+     "plane": 0
+    },
+    "South Falador Farm": {
+     "x": 3030,
+     "y": 3307,
+     "plane": 0
+    },
+    "Zanaris": {
+     "x": 2439,
+     "y": 4448,
+     "plane": 0
+    },
+    "Isle of Souls": {
+     "x": 2150,
+     "y": 2803,
+     "plane": 0
+    },
+    "Lumbridge cow field (north)": {
+     "x": 3177,
+     "y": 3329,
+     "plane": 0
+    },
+    "Fred's farm": {
+     "x": 3202,
+     "y": 3291,
+     "plane": 0
+    },
+    "Crafting Guild": {
+     "x": 2924,
+     "y": 3279,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Cow",
+    "Cow calf",
+    "Brutus",
+    "Buffalo",
+    "Undead cow"
    ]
   },
   {
@@ -3071,7 +5294,40 @@
    "locations": [
     "Isle of Souls",
     "Fossil Island",
-    "Ruins of Tapoyauik"
+    "Ruins of Tapoyauik",
+    "Waterbirth Island"
+   ],
+   "spots": {
+    "Isle of Souls": {
+     "x": 2281,
+     "y": 2792,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1717,
+     "y": 9610,
+     "plane": 1
+    },
+    "Waterbirth Island": {
+     "x": 2529,
+     "y": 3754,
+     "plane": 0
+    },
+    "Fossil Island": {
+     "x": 3730,
+     "y": 3807,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Crab",
+    "Ammonite Crab",
+    "Frost Crab",
+    "King Sand Crab",
+    "Rock Crab",
+    "Giant Rock Crab",
+    "Sand Crab",
+    "Swamp Crab"
    ]
   },
   {
@@ -3089,7 +5345,19 @@
    "locations": [
     "Slayer Tower",
     "Meiyerditch Laboratories"
-   ]
+   ],
+   "spots": {
+    "Slayer Tower": {
+     "x": 3421,
+     "y": 3565,
+     "plane": 0
+    },
+    "Meiyerditch Laboratories": {
+     "x": 3616,
+     "y": 9757,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Crocodile",
@@ -3104,7 +5372,24 @@
     "River Elid",
     "Ruins of Unkah",
     "Ruins of Ullek"
-   ]
+   ],
+   "spots": {
+    "River Elid": {
+     "x": 3270,
+     "y": 2875,
+     "plane": 0
+    },
+    "Ruins of Unkah": {
+     "x": 3193,
+     "y": 2821,
+     "plane": 0
+    },
+    "Ruins of Ullek": {
+     "x": 3419,
+     "y": 2774,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Custodian stalkers",
@@ -3120,6 +5405,18 @@
    "boss": false,
    "locations": [
     "Stalker Den"
+   ],
+   "spots": {
+    "Stalker Den": {
+     "x": 1266,
+     "y": 9770,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Juvenile custodian stalker",
+    "Mature custodian stalker",
+    "Elder custodian stalker"
    ]
   },
   {
@@ -3138,7 +5435,8 @@
    "locations": [
     "Lighthouse",
     "Catacombs of Kourend",
-    "Jormungand's Prison"
+    "Jormungand's Prison",
+    "Waterbirth Island Dungeon"
    ],
    "konar": {
     "Catacombs of Kourend": [
@@ -3154,7 +5452,43 @@
     "Jormungand's Prison": [
      "Jormungand's Prison"
     ]
-   }
+   },
+   "spots": {
+    "Lighthouse": {
+     "x": 2521,
+     "y": 10023,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1663,
+     "y": 9999,
+     "plane": 0
+    },
+    "Jormungand's Prison": {
+     "x": 2433,
+     "y": 10433,
+     "plane": 0
+    },
+    "Waterbirth Island Dungeon": {
+     "x": 2502,
+     "y": 10128,
+     "plane": 0
+    },
+    "Waterbirth Island": {
+     "x": 2525,
+     "y": 3743,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Dagannoth",
+    "Dagannoth (Waterbirth Island)",
+    "Dagannoth spawn",
+    "Dagannoth fledgeling",
+    "Dagannoth Prime",
+    "Reanimated Dagannoth",
+    "Dagannoth mother (Nightmare Zone)"
+   ]
   },
   {
    "name": "Dark beasts",
@@ -3180,6 +5514,18 @@
     "Iorwerth Dungeon": [
      "Iorwerth Dungeon"
     ]
+   },
+   "spots": {
+    "Mourner Tunnels": {
+     "x": 1999,
+     "y": 4659,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3221,
+     "y": 12396,
+     "plane": 0
+    }
    }
   },
   {
@@ -3195,7 +5541,24 @@
     "Shayzien",
     "Lovakengj",
     "Dark Warriors' Fortress"
-   ]
+   ],
+   "spots": {
+    "Shayzien": {
+     "x": 1479,
+     "y": 3532,
+     "plane": 0
+    },
+    "Lovakengj": {
+     "x": 1593,
+     "y": 3758,
+     "plane": 0
+    },
+    "Dark Warriors' Fortress": {
+     "x": 3030,
+     "y": 3632,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Dogs",
@@ -3212,6 +5575,31 @@
     "Ardougne",
     "McGrubor's Wood",
     "Brimhaven Dungeon"
+   ],
+   "spots": {
+    "McGrubor's Wood": {
+     "x": 2652,
+     "y": 3488,
+     "plane": 0
+    },
+    "Brimhaven Dungeon": {
+     "x": 2669,
+     "y": 9515,
+     "plane": 0
+    },
+    "Ardougne": {
+     "x": 2570,
+     "y": 3300,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Jackal",
+    "Temple guardian",
+    "Guard dog",
+    "Wild dog",
+    "Shadow hound",
+    "Reanimated dog"
    ]
   },
   {
@@ -3234,6 +5622,13 @@
     "Karuulm Slayer Dungeon": [
      "Karuulm Slayer Dungeon"
     ]
+   },
+   "spots": {
+    "Karuulm Slayer Dungeon": {
+     "x": 1311,
+     "y": 3807,
+     "plane": 0
+    }
    }
   },
   {
@@ -3264,7 +5659,28 @@
     "Smoke Dungeon": [
      "Smoke Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Smoke Dungeon": {
+     "x": 3220,
+     "y": 9373,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1713,
+     "y": 10019,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3439,
+     "y": 10123,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Dust devil",
+    "Choke devil"
+   ]
   },
   {
    "name": "Dwarves",
@@ -3277,10 +5693,64 @@
    ],
    "boss": false,
    "locations": [
+    "Keldagrim",
     "Lovakengj",
     "Yanille",
     "Ice Mountain",
+    "Mining Guild",
+    "Dwarven Mine",
+    "Falador",
     "Taverley Dungeon"
+   ],
+   "spots": {
+    "Keldagrim": {
+     "x": 2854,
+     "y": 10164,
+     "plane": 0
+    },
+    "Lovakengj": {
+     "x": 1512,
+     "y": 3785,
+     "plane": 0
+    },
+    "Yanille": {
+     "x": 2602,
+     "y": 3059,
+     "plane": 0
+    },
+    "Ice Mountain": {
+     "x": 3016,
+     "y": 3447,
+     "plane": 0
+    },
+    "Mining Guild": {
+     "x": 3019,
+     "y": 3337,
+     "plane": 0
+    },
+    "Dwarven Mine": {
+     "x": 3017,
+     "y": 9821,
+     "plane": 0
+    },
+    "Falador": {
+     "x": 3013,
+     "y": 3344,
+     "plane": 1
+    },
+    "Taverley Dungeon": {
+     "x": 2926,
+     "y": 9765,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Dwarf",
+    "Guard (dwarf)",
+    "Black Guard",
+    "Dwarf gang member",
+    "Chaos dwarf",
+    "Black Guard Berserker"
    ]
   },
   {
@@ -3295,6 +5765,16 @@
    "boss": false,
    "locations": [
     "Edgeville Dungeon"
+   ],
+   "spots": {
+    "Edgeville Dungeon": {
+     "x": 3121,
+     "y": 9989,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Earth warrior"
    ]
   },
   {
@@ -3312,7 +5792,45 @@
    "locations": [
     "Prifddinas",
     "Iorwerth Dungeon",
-    "Tower of Voices"
+    "Tower of Voices",
+    "Lletya",
+    "Iorwerth Camp"
+   ],
+   "spots": {
+    "Prifddinas": {
+     "x": 3266,
+     "y": 6082,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3183,
+     "y": 12406,
+     "plane": 0
+    },
+    "Lletya": {
+     "x": 2329,
+     "y": 3173,
+     "plane": 0
+    },
+    "Iorwerth Camp": {
+     "x": 2199,
+     "y": 3252,
+     "plane": 0
+    },
+    "Tower of Voices": {
+     "x": 3263,
+     "y": 6083,
+     "plane": 2
+    }
+   },
+   "monsters": [
+    "Iorwerth Archer",
+    "Elf Archer",
+    "Iorwerth Warrior",
+    "Elf Warrior",
+    "Mourner",
+    "Guard (Prifddinas)",
+    "Reanimated elf"
    ]
   },
   {
@@ -3327,7 +5845,19 @@
    "locations": [
     "Woodcutting Guild",
     "Chaos Temple (Wilderness)"
-   ]
+   ],
+   "spots": {
+    "Woodcutting Guild": {
+     "x": 1571,
+     "y": 9886,
+     "plane": 0
+    },
+    "Chaos Temple (Wilderness)": {
+     "x": 3227,
+     "y": 3670,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Fever spider",
@@ -3341,7 +5871,14 @@
    "boss": false,
    "locations": [
     "Braindeath Island"
-   ]
+   ],
+   "spots": {
+    "Braindeath Island": {
+     "x": 2148,
+     "y": 5098,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Fire giants",
@@ -3361,6 +5898,12 @@
     "Stronghold Slayer Cave",
     "Brimhaven Dungeon",
     "Smoke Dungeon",
+    "Catacombs of Kourend",
+    "Isle of Souls Dungeon",
+    "Karuulm Slayer Dungeon",
+    "Waterfall Dungeon",
+    "Giants' Den",
+    "Charred Dungeon",
     "Deep Wilderness Dungeon"
    ],
    "konar": {
@@ -3385,6 +5928,58 @@
     "Waterfall Dungeon": [
      "Waterfall Dungeon"
     ]
+   },
+   "spots": {
+    "Stronghold Slayer Cave": {
+     "x": 2400,
+     "y": 9777,
+     "plane": 0
+    },
+    "Brimhaven Dungeon": {
+     "x": 2640,
+     "y": 9551,
+     "plane": 1
+    },
+    "Smoke Dungeon": {
+     "x": 3252,
+     "y": 9369,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1629,
+     "y": 10056,
+     "plane": 0
+    },
+    "Isle of Souls Dungeon": {
+     "x": 2119,
+     "y": 9326,
+     "plane": 0
+    },
+    "Karuulm Slayer Dungeon": {
+     "x": 1133,
+     "y": 10273,
+     "plane": 0
+    },
+    "Waterfall Dungeon": {
+     "x": 2575,
+     "y": 9890,
+     "plane": 0
+    },
+    "Giants' Den": {
+     "x": 1456,
+     "y": 9902,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2636,
+     "y": 8886,
+     "plane": 0
+    },
+    "Deep Wilderness Dungeon": {
+     "x": 3049,
+     "y": 10341,
+     "plane": 0
+    }
    }
   },
   {
@@ -3398,7 +5993,14 @@
    "boss": false,
    "locations": [
     "Stronghold of Security"
-   ]
+   ],
+   "spots": {
+    "Stronghold of Security": {
+     "x": 1914,
+     "y": 5108,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Fossil Island Wyverns",
@@ -3420,7 +6022,20 @@
     "Wyvern Cave": [
      "Wyvern Cave"
     ]
-   }
+   },
+   "spots": {
+    "Wyvern Cave": {
+     "x": 3612,
+     "y": 10246,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Spitting Wyvern",
+    "Taloned Wyvern",
+    "Long-tailed Wyvern",
+    "Ancient Wyvern"
+   ]
   },
   {
    "name": "Frost dragon",
@@ -3434,7 +6049,14 @@
    "boss": false,
    "locations": [
     "Grimstone Dungeon"
-   ]
+   ],
+   "spots": {
+    "Grimstone Dungeon": {
+     "x": 2881,
+     "y": 10462,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Gargoyles",
@@ -3457,7 +6079,20 @@
     "Slayer Tower": [
      "Slayer Tower"
     ]
-   }
+   },
+   "spots": {
+    "Slayer Tower": {
+     "x": 3435,
+     "y": 9936,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Gargoyle",
+    "Marble gargoyle",
+    "Dawn",
+    "Dusk"
+   ]
   },
   {
    "name": "Ghosts",
@@ -3474,7 +6109,61 @@
     "Draynor Manor",
     "Stronghold of Security",
     "Taverley Dungeon",
+    "Catacombs of Kourend",
+    "West Ardougne",
+    "Scorpius Shrine",
+    "Lair of Tarn Razorlor (dungeon)",
+    "Haunted Mine",
     "The Forgotten Cemetery"
+   ],
+   "spots": {
+    "Draynor Manor": {
+     "x": 3101,
+     "y": 3356,
+     "plane": 1
+    },
+    "Stronghold of Security": {
+     "x": 1970,
+     "y": 4938,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2910,
+     "y": 9843,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1687,
+     "y": 10061,
+     "plane": 0
+    },
+    "West Ardougne": {
+     "x": 2501,
+     "y": 3291,
+     "plane": 0
+    },
+    "The Forgotten Cemetery": {
+     "x": 2976,
+     "y": 3755,
+     "plane": 0
+    },
+    "Scorpius Shrine": {
+     "x": 2464,
+     "y": 3228,
+     "plane": 0
+    },
+    "Haunted Mine": {
+     "x": 3440,
+     "y": 3232,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Ghost",
+    "Revenants",
+    "Forgotten Soul",
+    "Tortured soul",
+    "Death wing"
    ]
   },
   {
@@ -3490,7 +6179,19 @@
    "locations": [
     "Slayer Tower",
     "Mort Myre Swamp"
-   ]
+   ],
+   "spots": {
+    "Slayer Tower": {
+     "x": 3416,
+     "y": 3513,
+     "plane": 0
+    },
+    "Mort Myre Swamp": {
+     "x": 3429,
+     "y": 3463,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Goblins",
@@ -3505,7 +6206,33 @@
    "locations": [
     "Port Sarim",
     "Stronghold of Security",
-    "Goblin Cave"
+    "Goblin Cave",
+    "God Wars Dungeon"
+   ],
+   "spots": {
+    "Port Sarim": {
+     "x": 3000,
+     "y": 3207,
+     "plane": 0
+    },
+    "Goblin Cave": {
+     "x": 2584,
+     "y": 9835,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2866,
+     "y": 5358,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Goblin",
+    "Goblin (Vault of War)",
+    "Cave goblin (monster)",
+    "Cave goblin miner",
+    "Cave goblin guard",
+    "Sergeant Strongstack"
    ]
   },
   {
@@ -3525,6 +6252,11 @@
     "Chasm of Fire",
     "Brimhaven Dungeon",
     "Ogre Enclave",
+    "Catacombs of Kourend",
+    "Isle of Souls Dungeon",
+    "Karuulm Slayer Dungeon",
+    "Blighted Volcano",
+    "Sisterhood Sanctuary",
     "Wilderness Slayer Cave",
     "Wilderness",
     "Demonic Ruins"
@@ -3545,7 +6277,71 @@
     "Brimhaven Dungeon": [
      "Brimhaven Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Chasm of Fire": {
+     "x": 1377,
+     "y": 9988,
+     "plane": 0
+    },
+    "Brimhaven Dungeon": {
+     "x": 2635,
+     "y": 9491,
+     "plane": 1
+    },
+    "Ogre Enclave": {
+     "x": 2615,
+     "y": 9424,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1691,
+     "y": 10096,
+     "plane": 0
+    },
+    "Isle of Souls Dungeon": {
+     "x": 2165,
+     "y": 9330,
+     "plane": 0
+    },
+    "Karuulm Slayer Dungeon": {
+     "x": 1127,
+     "y": 10164,
+     "plane": 0
+    },
+    "Sisterhood Sanctuary": {
+     "x": 3807,
+     "y": 9827,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3427,
+     "y": 10149,
+     "plane": 0
+    },
+    "Wilderness": {
+     "x": 3291,
+     "y": 3883,
+     "plane": 0
+    },
+    "Blighted Volcano": {
+     "x": 3365,
+     "y": 3935,
+     "plane": 0
+    },
+    "Demonic Ruins": {
+     "x": 3289,
+     "y": 3885,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Greater Demon",
+    "Skotizo",
+    "Tormented Demon",
+    "Tstanon Karlak",
+    "K'ril Tsutsaroth"
+   ]
   },
   {
    "name": "Green dragons",
@@ -3560,7 +6356,44 @@
     "Corsair Cove Dungeon",
     "Dark Warriors' Fortress",
     "Graveyard of Shadows",
-    "Lava Maze"
+    "Lava Maze",
+    "Wilderness Slayer Cave",
+    "Bone Yard Hunter area"
+   ],
+   "spots": {
+    "Corsair Cove Dungeon": {
+     "x": 1941,
+     "y": 8993,
+     "plane": 0
+    },
+    "Dark Warriors' Fortress": {
+     "x": 2977,
+     "y": 3618,
+     "plane": 0
+    },
+    "Graveyard of Shadows": {
+     "x": 3144,
+     "y": 3707,
+     "plane": 0
+    },
+    "Lava Maze": {
+     "x": 3098,
+     "y": 3812,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3406,
+     "y": 10093,
+     "plane": 0
+    },
+    "Bone Yard Hunter area": {
+     "x": 3338,
+     "y": 3693,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Green dragon"
    ]
   },
   {
@@ -3579,6 +6412,18 @@
    "boss": false,
    "locations": [
     "Gryphons (dungeon)"
+   ],
+   "spots": {
+    "Gryphons (dungeon)": {
+     "x": 3166,
+     "y": 8865,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Gryphon",
+    "Dire gryphon",
+    "Shellbane Gryphon"
    ]
   },
   {
@@ -3593,7 +6438,19 @@
    "locations": [
     "Karamja",
     "Tai Bwo Wannai"
-   ]
+   ],
+   "spots": {
+    "Tai Bwo Wannai": {
+     "x": 2872,
+     "y": 3112,
+     "plane": 0
+    },
+    "Karamja": {
+     "x": 2843,
+     "y": 3070,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Hellhounds",
@@ -3613,6 +6470,12 @@
     "Stronghold Slayer Cave",
     "Taverley Dungeon",
     "Karuulm Slayer Dungeon",
+    "Witchaven Shrine Dungeon",
+    "Catacombs of Kourend",
+    "Witchaven Dungeon",
+    "God Wars Dungeon",
+    "Blighted Volcano",
+    "Charred Dungeon",
     "Wilderness",
     "Wilderness Slayer Cave"
    ],
@@ -3632,7 +6495,72 @@
     "Witchaven Dungeon": [
      "Witchaven Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Stronghold Slayer Cave": {
+     "x": 2426,
+     "y": 9784,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2864,
+     "y": 9837,
+     "plane": 0
+    },
+    "Karuulm Slayer Dungeon": {
+     "x": 1196,
+     "y": 10262,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1645,
+     "y": 10063,
+     "plane": 0
+    },
+    "Witchaven Dungeon": {
+     "x": 2740,
+     "y": 9688,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2889,
+     "y": 5329,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2630,
+     "y": 8861,
+     "plane": 0
+    },
+    "Wilderness": {
+     "x": 3178,
+     "y": 3930,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3443,
+     "y": 10085,
+     "plane": 0
+    },
+    "Witchaven Shrine Dungeon": {
+     "x": 2696,
+     "y": 3283,
+     "plane": 0
+    },
+    "Blighted Volcano": {
+     "x": 3365,
+     "y": 3935,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Hellhound",
+    "Skeleton Hellhound (Vet'ion)",
+    "Greater Skeleton Hellhound (Vet'ion)",
+    "Skeleton Hellhound (Calvar'ion)",
+    "Greater Skeleton Hellhound (Calvar'ion)",
+    "Cerberus"
+   ]
   },
   {
    "name": "Hill Giants",
@@ -3650,9 +6578,57 @@
     "Edgeville Dungeon",
     "Taverley Dungeon",
     "Tree Gnome Village (location)",
+    "Catacombs of Kourend",
+    "Gnome Stronghold",
     "Deep Wilderness Dungeon",
     "Lava Maze",
     "Wilderness"
+   ],
+   "spots": {
+    "Edgeville Dungeon": {
+     "x": 3111,
+     "y": 9835,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2907,
+     "y": 9735,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1650,
+     "y": 10036,
+     "plane": 0
+    },
+    "Deep Wilderness Dungeon": {
+     "x": 3045,
+     "y": 10313,
+     "plane": 0
+    },
+    "Lava Maze": {
+     "x": 3107,
+     "y": 3854,
+     "plane": 0
+    },
+    "Tree Gnome Village (location)": {
+     "x": 2520,
+     "y": 3167,
+     "plane": 0
+    },
+    "Gnome Stronghold": {
+     "x": 2440,
+     "y": 3460,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Hill Giant",
+    "Hill Giant (Giants' Plateau)",
+    "Hill Giant (Dark)",
+    "Cyclops",
+    "Cyclops (God Wars Dungeon)",
+    "Obor",
+    "Reanimated giant"
    ]
   },
   {
@@ -3668,7 +6644,45 @@
    "locations": [
     "Asgarnian Ice Dungeon",
     "Edgeville Dungeon",
-    "Witchaven Dungeon"
+    "Witchaven Dungeon",
+    "Hobgoblin Peninsula",
+    "God Wars Dungeon",
+    "Waterbirth Island"
+   ],
+   "spots": {
+    "Asgarnian Ice Dungeon": {
+     "x": 3011,
+     "y": 9591,
+     "plane": 0
+    },
+    "Edgeville Dungeon": {
+     "x": 3123,
+     "y": 9875,
+     "plane": 0
+    },
+    "Witchaven Dungeon": {
+     "x": 2696,
+     "y": 9688,
+     "plane": 0
+    },
+    "Hobgoblin Peninsula": {
+     "x": 2909,
+     "y": 3283,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2870,
+     "y": 5318,
+     "plane": 0
+    },
+    "Waterbirth Island": {
+     "x": 2514,
+     "y": 3734,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Hobgoblin"
    ]
   },
   {
@@ -3688,7 +6702,19 @@
     "Karuulm Slayer Dungeon": [
      "Karuulm Slayer Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Karuulm Slayer Dungeon": {
+     "x": 1310,
+     "y": 10253,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Hydra",
+    "Colossal Hydra",
+    "Alchemical Hydra"
+   ]
   },
   {
    "name": "Icefiend",
@@ -3704,8 +6730,36 @@
     "Ice Mountain",
     "God Wars Dungeon",
     "Ralos' Rise",
+    "Ruins of Tapoyauik",
     "Wilderness God Wars Dungeon"
-   ]
+   ],
+   "spots": {
+    "Ice Mountain": {
+     "x": 3004,
+     "y": 3476,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2887,
+     "y": 5304,
+     "plane": 0
+    },
+    "Ralos' Rise": {
+     "x": 1448,
+     "y": 3208,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1690,
+     "y": 9640,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2960,
+     "y": 10089,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Ice giants",
@@ -3723,6 +6777,37 @@
     "Ruins of Tapoyauik",
     "Wilderness Slayer Cave",
     "Frozen Waste Plateau"
+   ],
+   "spots": {
+    "Asgarnian Ice Dungeon": {
+     "x": 2965,
+     "y": 9568,
+     "plane": 0
+    },
+    "Settlement Ruins": {
+     "x": 1554,
+     "y": 3887,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1595,
+     "y": 9651,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3343,
+     "y": 10055,
+     "plane": 0
+    },
+    "Frozen Waste Plateau": {
+     "x": 2953,
+     "y": 3902,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Ice giant",
+    "Eldric the Ice King"
    ]
   },
   {
@@ -3740,7 +6825,24 @@
     "Asgarnian Ice Dungeon",
     "Ruins of Tapoyauik",
     "Frozen Waste Plateau"
-   ]
+   ],
+   "spots": {
+    "Asgarnian Ice Dungeon": {
+     "x": 3056,
+     "y": 9581,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1714,
+     "y": 9641,
+     "plane": 1
+    },
+    "Frozen Waste Plateau": {
+     "x": 2954,
+     "y": 3900,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Infernal Mage",
@@ -3754,7 +6856,14 @@
    "boss": false,
    "locations": [
     "Slayer Tower"
-   ]
+   ],
+   "spots": {
+    "Slayer Tower": {
+     "x": 3439,
+     "y": 3569,
+     "plane": 1
+    }
+   }
   },
   {
    "name": "Jellies",
@@ -3786,7 +6895,42 @@
     "Ruins of Tapoyauik": [
      "Ruins of Tapoyauik"
     ]
-   }
+   },
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2703,
+     "y": 10027,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1654,
+     "y": 9652,
+     "plane": 0
+    },
+    "Ynysdail Cavern": {
+     "x": 2262,
+     "y": 9878,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1702,
+     "y": 10022,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3430,
+     "y": 10104,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Jelly",
+    "Vitreous Jelly",
+    "Warped jelly",
+    "Vitreous Warped Jelly",
+    "Chilled jelly",
+    "Vitreous Chilled Jelly"
+   ]
   },
   {
    "name": "Jungle horror",
@@ -3800,7 +6944,14 @@
    "boss": false,
    "locations": [
     "Mos Le'Harmless"
-   ]
+   ],
+   "spots": {
+    "Mos Le'Harmless": {
+     "x": 3733,
+     "y": 3021,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Kalphites",
@@ -3829,7 +6980,25 @@
     "Kalphite Cave": [
      "Kalphite Cave"
     ]
-   }
+   },
+   "spots": {
+    "Kalphite Lair": {
+     "x": 3205,
+     "y": 9493,
+     "plane": 0
+    },
+    "Kalphite Cave": {
+     "x": 3373,
+     "y": 9506,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Kalphite Worker",
+    "Kalphite Soldier",
+    "Kalphite Guardian",
+    "Kalphite Queen"
+   ]
   },
   {
    "name": "Killerwatt",
@@ -3842,7 +7011,14 @@
    "boss": false,
    "locations": [
     "Killerwatt plane"
-   ]
+   ],
+   "spots": {
+    "Killerwatt plane": {
+     "x": 2656,
+     "y": 5211,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Kurasks",
@@ -3871,7 +7047,28 @@
     "Iorwerth Dungeon": [
      "Iorwerth Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2700,
+     "y": 9973,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3226,
+     "y": 12370,
+     "plane": 0
+    },
+    "Kurask Lair": {
+     "x": 1181,
+     "y": 9195,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Kurask",
+    "King kurask"
+   ]
   },
   {
    "name": "Lava dragon",
@@ -3884,7 +7081,14 @@
    "boss": false,
    "locations": [
     "Lava Dragon Isle"
-   ]
+   ],
+   "spots": {
+    "Lava Dragon Isle": {
+     "x": 3208,
+     "y": 3824,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Lesser demons",
@@ -3904,6 +7108,37 @@
     "Chasm of Fire",
     "Lava Maze",
     "Demonic Ruins"
+   ],
+   "spots": {
+    "Wizards' Tower": {
+     "x": 3110,
+     "y": 3157,
+     "plane": 2
+    },
+    "Catacombs of Kourend": {
+     "x": 1714,
+     "y": 10066,
+     "plane": 0
+    },
+    "Chasm of Fire": {
+     "x": 1376,
+     "y": 10079,
+     "plane": 0
+    },
+    "Lava Maze": {
+     "x": 3092,
+     "y": 3865,
+     "plane": 0
+    },
+    "Demonic Ruins": {
+     "x": 3317,
+     "y": 3850,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Lesser demon",
+    "Zakl'n Gritch"
    ]
   },
   {
@@ -3931,7 +7166,35 @@
     "Crypt of Tonali": [
      "Crypt of Tonali"
     ]
-   }
+   },
+   "spots": {
+    "Neypotzli": {
+     "x": 1358,
+     "y": 9561,
+     "plane": 0
+    },
+    "Ruins of Tapoyauik": {
+     "x": 1634,
+     "y": 9631,
+     "plane": 0
+    },
+    "Tonali Cavern": {
+     "x": 1309,
+     "y": 9430,
+     "plane": 1
+    },
+    "Crypt of Tonali": {
+     "x": 1309,
+     "y": 3104,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Sulphur Nagua",
+    "Frost Nagua",
+    "Amoxliatl",
+    "Earthen Nagua"
+   ]
   },
   {
    "name": "Lizardmen",
@@ -3948,7 +7211,8 @@
    "locations": [
     "Lizardman Settlement",
     "Lizardman Canyon",
-    "Battlefront"
+    "Battlefront",
+    "Molch"
    ],
    "konar": {
     "Battlefront": [
@@ -3966,7 +7230,34 @@
     "Molch": [
      "Molch"
     ]
-   }
+   },
+   "spots": {
+    "Lizardman Settlement": {
+     "x": 1319,
+     "y": 3553,
+     "plane": 0
+    },
+    "Lizardman Canyon": {
+     "x": 1501,
+     "y": 3702,
+     "plane": 0
+    },
+    "Battlefront": {
+     "x": 1360,
+     "y": 3708,
+     "plane": 0
+    },
+    "Molch": {
+     "x": 1311,
+     "y": 3665,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Lizardman",
+    "Lizardman brute",
+    "Lizardman shaman"
+   ]
   },
   {
    "name": "Lizards",
@@ -3983,6 +7274,30 @@
     "Kharidian Desert",
     "Karuulm Slayer Dungeon",
     "Neypotzli"
+   ],
+   "spots": {
+    "Kharidian Desert": {
+     "x": 3404,
+     "y": 3061,
+     "plane": 0
+    },
+    "Karuulm Slayer Dungeon": {
+     "x": 1182,
+     "y": 10142,
+     "plane": 0
+    },
+    "Neypotzli": {
+     "x": 1496,
+     "y": 9714,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Small Lizard",
+    "Desert Lizard",
+    "Lizard",
+    "Sulphur Lizard",
+    "Grimy Lizard"
    ]
   },
   {
@@ -3998,7 +7313,24 @@
     "Taverley Dungeon",
     "Catacombs of Kourend",
     "Magic Axe Hut"
-   ]
+   ],
+   "spots": {
+    "Taverley Dungeon": {
+     "x": 2957,
+     "y": 9787,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1645,
+     "y": 10025,
+     "plane": 0
+    },
+    "Magic Axe Hut": {
+     "x": 3191,
+     "y": 3960,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Mammoth",
@@ -4011,7 +7343,14 @@
    "boss": false,
    "locations": [
     "Ferox Enclave"
-   ]
+   ],
+   "spots": {
+    "Ferox Enclave": {
+     "x": 3168,
+     "y": 3593,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Metal dragons",
@@ -4027,7 +7366,9 @@
    "locations": [
     "Brimhaven Dungeon",
     "Catacombs of Kourend",
-    "Isle of Souls Dungeon"
+    "Isle of Souls Dungeon",
+    "Ancient Cavern",
+    "Lithkren Vault"
    ],
    "konar": {
     "Brimhaven Dungeon": [
@@ -4042,7 +7383,42 @@
     "Lithkren Vault": [
      "Lithkren Vault"
     ]
-   }
+   },
+   "spots": {
+    "Brimhaven Dungeon": {
+     "x": 2704,
+     "y": 9447,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1650,
+     "y": 10086,
+     "plane": 0
+    },
+    "Isle of Souls Dungeon": {
+     "x": 2153,
+     "y": 9293,
+     "plane": 0
+    },
+    "Ancient Cavern": {
+     "x": 1831,
+     "y": 5402,
+     "plane": 0
+    },
+    "Lithkren Vault": {
+     "x": 1565,
+     "y": 5072,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Bronze dragon",
+    "Iron dragon",
+    "Steel dragon",
+    "Mithril dragon",
+    "Adamant dragon",
+    "Rune dragon"
+   ]
   },
   {
    "name": "Minotaur",
@@ -4056,13 +7432,19 @@
    "boss": false,
    "locations": [
     "Stronghold of Security"
-   ]
+   ],
+   "spots": {
+    "Stronghold of Security": {
+     "x": 1893,
+     "y": 5216,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Mogres",
    "aliases": [
-    "Mogres",
-    "Ogres"
+    "Mogres"
    ],
    "masters": [
     "Mazchna",
@@ -4071,6 +7453,22 @@
    "boss": false,
    "locations": [
     "Mudskipper Point"
+   ],
+   "spots": {
+    "Mudskipper Point": {
+     "x": 2996,
+     "y": 3113,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Mogre (sea)",
+    "Mogre",
+    "Ogre",
+    "Ogress Shaman",
+    "Ogress Warrior",
+    "Skogre",
+    "Zogre"
    ]
   },
   {
@@ -4084,6 +7482,16 @@
    "boss": false,
    "locations": [
     "Dorgesh-Kaan South Dungeon"
+   ],
+   "spots": {
+    "Dorgesh-Kaan South Dungeon": {
+     "x": 2728,
+     "y": 5214,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Molanisk"
    ]
   },
   {
@@ -4099,7 +7507,39 @@
    "locations": [
     "Karamja",
     "Ardougne Zoo",
-    "Mos Le'Harmless"
+    "Mos Le'Harmless",
+    "Crash Site Cavern"
+   ],
+   "spots": {
+    "Karamja": {
+     "x": 2878,
+     "y": 3151,
+     "plane": 0
+    },
+    "Ardougne Zoo": {
+     "x": 2602,
+     "y": 3279,
+     "plane": 0
+    },
+    "Mos Le'Harmless": {
+     "x": 3740,
+     "y": 3024,
+     "plane": 0
+    },
+    "Crash Site Cavern": {
+     "x": 2111,
+     "y": 5658,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Monkey (monster)",
+    "Monkey Archer",
+    "Monkey Guard",
+    "Monkey Zombie",
+    "Maniacal monkey",
+    "Tortured gorilla",
+    "Demonic gorilla"
    ]
   },
   {
@@ -4116,7 +7556,41 @@
     "Brimhaven Dungeon",
     "Moss Giant Island",
     "Pirates' Cove",
+    "Catacombs of Kourend",
+    "Iorwerth Dungeon",
     "Wilderness"
+   ],
+   "spots": {
+    "Brimhaven Dungeon": {
+     "x": 2649,
+     "y": 9546,
+     "plane": 0
+    },
+    "Moss Giant Island": {
+     "x": 2695,
+     "y": 3212,
+     "plane": 0
+    },
+    "Pirates' Cove": {
+     "x": 2201,
+     "y": 3813,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1687,
+     "y": 10033,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3252,
+     "y": 12464,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Moss giant",
+    "Moss Giant (Iorwerth Dungeon)",
+    "Bryophyta"
    ]
   },
   {
@@ -4138,6 +7612,7 @@
     "Slayer Tower",
     "Catacombs of Kourend",
     "Iorwerth Dungeon",
+    "Charred Dungeon",
     "Wilderness Slayer Cave"
    ],
    "konar": {
@@ -4150,7 +7625,39 @@
     "Slayer Tower": [
      "Slayer Tower"
     ]
-   }
+   },
+   "spots": {
+    "Slayer Tower": {
+     "x": 3417,
+     "y": 9960,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1700,
+     "y": 10081,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3224,
+     "y": 12440,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2708,
+     "y": 8878,
+     "plane": 0
+    },
+    "Wilderness Slayer Cave": {
+     "x": 3335,
+     "y": 10104,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Nechryael",
+    "Greater Nechryael",
+    "Nechryarch"
+   ]
   },
   {
    "name": "Ogres",
@@ -4165,7 +7672,68 @@
     "Witchaven Dungeon",
     "Feldip Hills",
     "Gnome Maze",
+    "Yanille",
+    "Chaos Druid Tower",
+    "Combat Training Camp",
+    "God Wars Dungeon",
+    "Chaos Druid Tower Dungeon",
     "Wilderness God Wars Dungeon"
+   ],
+   "spots": {
+    "Witchaven Dungeon": {
+     "x": 2721,
+     "y": 9704,
+     "plane": 0
+    },
+    "Feldip Hills": {
+     "x": 2551,
+     "y": 2978,
+     "plane": 0
+    },
+    "Gnome Maze": {
+     "x": 2554,
+     "y": 3192,
+     "plane": 0
+    },
+    "Yanille": {
+     "x": 2504,
+     "y": 3093,
+     "plane": 0
+    },
+    "Combat Training Camp": {
+     "x": 2527,
+     "y": 3374,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2877,
+     "y": 5313,
+     "plane": 0
+    },
+    "Chaos Druid Tower Dungeon": {
+     "x": 2585,
+     "y": 9738,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2974,
+     "y": 10096,
+     "plane": 0
+    },
+    "Chaos Druid Tower": {
+     "x": 2563,
+     "y": 3356,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Mogre (sea)",
+    "Mogre",
+    "Ogre",
+    "Ogress Shaman",
+    "Ogress Warrior",
+    "Skogre",
+    "Zogre"
    ]
   },
   {
@@ -4179,7 +7747,14 @@
    "boss": false,
    "locations": [
     "Zanaris"
-   ]
+   ],
+   "spots": {
+    "Zanaris": {
+     "x": 2384,
+     "y": 4423,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Pirates",
@@ -4195,8 +7770,45 @@
     "Asgarnian Ice Dungeon",
     "Brimhaven",
     "Pirates' Cove",
+    "Port Piscarilius",
     "Pirates' Hideout",
     "Chaos Temple (Wilderness)"
+   ],
+   "spots": {
+    "Asgarnian Ice Dungeon": {
+     "x": 2995,
+     "y": 9576,
+     "plane": 0
+    },
+    "Brimhaven": {
+     "x": 2795,
+     "y": 3175,
+     "plane": 0
+    },
+    "Pirates' Cove": {
+     "x": 2199,
+     "y": 3810,
+     "plane": 0
+    },
+    "Port Piscarilius": {
+     "x": 1806,
+     "y": 3738,
+     "plane": 0
+    },
+    "Pirates' Hideout": {
+     "x": 3041,
+     "y": 3954,
+     "plane": 0
+    },
+    "Chaos Temple (Wilderness)": {
+     "x": 3239,
+     "y": 3607,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Pirate",
+    "Zombie pirate"
    ]
   },
   {
@@ -4214,7 +7826,47 @@
     "Fremennik Slayer Dungeon",
     "Smoke Dungeon",
     "Isle of Souls",
+    "God Wars Dungeon",
+    "Sisterhood Sanctuary",
     "Wilderness God Wars Dungeon"
+   ],
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2761,
+     "y": 10004,
+     "plane": 0
+    },
+    "Smoke Dungeon": {
+     "x": 3277,
+     "y": 9379,
+     "plane": 0
+    },
+    "Isle of Souls": {
+     "x": 2255,
+     "y": 2961,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2864,
+     "y": 5294,
+     "plane": 0
+    },
+    "Sisterhood Sanctuary": {
+     "x": 3873,
+     "y": 9766,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2960,
+     "y": 10092,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Pyrefiend",
+    "Flaming pyrelord",
+    "Pyrelord",
+    "Infernal pyrelord"
    ]
   },
   {
@@ -4229,6 +7881,25 @@
    "boss": false,
    "locations": [
     "Brine Rat Cavern"
+   ],
+   "spots": {
+    "Brine Rat Cavern": {
+     "x": 2707,
+     "y": 10133,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Rat",
+    "Giant rat",
+    "Zombie rat",
+    "Brine rat",
+    "Hell-rat behemoth",
+    "Dungeon rat",
+    "Crypt rat",
+    "Giant crypt rat",
+    "Scurrius",
+    "Giant rat (Scurrius)"
    ]
   },
   {
@@ -4245,7 +7916,9 @@
    "locations": [
     "Brimhaven Dungeon",
     "Catacombs of Kourend",
-    "Forthos Dungeon"
+    "Forthos Dungeon",
+    "Corsair Cove Dungeon",
+    "Charred Dungeon"
    ],
    "konar": {
     "Brimhaven Dungeon": [
@@ -4260,7 +7933,39 @@
     "Myths' Guild Dungeon": [
      "Corsair Cove Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Brimhaven Dungeon": {
+     "x": 2710,
+     "y": 9522,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1616,
+     "y": 10076,
+     "plane": 0
+    },
+    "Forthos Dungeon": {
+     "x": 1821,
+     "y": 9933,
+     "plane": 0
+    },
+    "Corsair Cove Dungeon": {
+     "x": 1910,
+     "y": 8998,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2668,
+     "y": 8864,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Red Dragon",
+    "Baby red dragon",
+    "Brutal red dragon"
+   ]
   },
   {
    "name": "Revenant",
@@ -4273,7 +7978,8 @@
    "boss": false,
    "locations": [
     "Revenant Caves"
-   ]
+   ],
+   "spots": {}
   },
   {
    "name": "Rockslug",
@@ -4288,8 +7994,37 @@
    "locations": [
     "Fremennik Slayer Dungeon",
     "Dorgesh-Kaan South Dungeon",
-    "Lumbridge Swamp Caves"
-   ]
+    "Lumbridge Swamp Caves",
+    "Tonali Cavern",
+    "Ynysdail Cavern"
+   ],
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2800,
+     "y": 10017,
+     "plane": 0
+    },
+    "Dorgesh-Kaan South Dungeon": {
+     "x": 2729,
+     "y": 5223,
+     "plane": 0
+    },
+    "Lumbridge Swamp Caves": {
+     "x": 3225,
+     "y": 9577,
+     "plane": 0
+    },
+    "Tonali Cavern": {
+     "x": 1322,
+     "y": 9379,
+     "plane": 1
+    },
+    "Ynysdail Cavern": {
+     "x": 2263,
+     "y": 9904,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Rogue",
@@ -4303,7 +8038,19 @@
    "locations": [
     "Mage Arena",
     "Rogues' Castle"
-   ]
+   ],
+   "spots": {
+    "Mage Arena": {
+     "x": 3077,
+     "y": 3912,
+     "plane": 0
+    },
+    "Rogues' Castle": {
+     "x": 3285,
+     "y": 3933,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Scabarites",
@@ -4317,6 +8064,25 @@
    "locations": [
     "Sophanem Dungeon",
     "Uzer Mastaba"
+   ],
+   "spots": {
+    "Sophanem Dungeon": {
+     "x": 2398,
+     "y": 4254,
+     "plane": 0
+    },
+    "Uzer Mastaba": {
+     "x": 3875,
+     "y": 4688,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Scarab Mage",
+    "Locust rider",
+    "Scarab swarm",
+    "Small scarab",
+    "Giant Scarab"
    ]
   },
   {
@@ -4335,7 +8101,44 @@
     "Al Kharid Mine",
     "Ardougne Zoo",
     "Stronghold of Security",
+    "Dwarven mines",
     "Wilderness"
+   ],
+   "spots": {
+    "Ardougne Zoo": {
+     "x": 2603,
+     "y": 3268,
+     "plane": 0
+    },
+    "Wilderness": {
+     "x": 3044,
+     "y": 3570,
+     "plane": 0
+    },
+    "Al Kharid Mine": {
+     "x": 3298,
+     "y": 3293,
+     "plane": 0
+    },
+    "Dwarven mines": {
+     "x": 3018,
+     "y": 3450,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Scorpion",
+    "Grave scorpion",
+    "Scorpia's offspring (monster",
+    "Poison scorpion",
+    "Pit Scorpion",
+    "King Scorpion",
+    "Giant lobster (Ghosts Ahoy)",
+    "Giant lobster",
+    "Scorpia's guardian",
+    "Lobstrosity",
+    "Scorpia",
+    "Reanimated scorpion"
    ]
   },
   {
@@ -4349,6 +8152,17 @@
    "boss": false,
    "locations": [
     "Miscellania and Etceteria Dungeon"
+   ],
+   "spots": {
+    "Miscellania and Etceteria Dungeon": {
+     "x": 2595,
+     "y": 10275,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Sea snake hatchling",
+    "Sea snake young"
    ]
   },
   {
@@ -4364,7 +8178,39 @@
    "locations": [
     "Mort'ton",
     "Catacombs of Kourend",
-    "Temple Trekking"
+    "Temple Trekking",
+    "Sepulchre of Death"
+   ],
+   "spots": {
+    "Mort'ton": {
+     "x": 3492,
+     "y": 3293,
+     "plane": 0
+    },
+    "Catacombs of Kourend": {
+     "x": 1606,
+     "y": 10032,
+     "plane": 0
+    },
+    "Sepulchre of Death": {
+     "x": 2008,
+     "y": 4926,
+     "plane": 0
+    },
+    "Temple Trekking": {
+     "x": 3480,
+     "y": 3240,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Shade",
+    "Loar Shade",
+    "Phrin Shade",
+    "Riyl Shade",
+    "Asyn Shade",
+    "Fiyr Shade",
+    "Urium Shade"
    ]
   },
   {
@@ -4379,7 +8225,14 @@
    "boss": false,
    "locations": [
     "Legends' Guild"
-   ]
+   ],
+   "spots": {
+    "Legends' Guild": {
+     "x": 2703,
+     "y": 9770,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Skeletal Wyvern",
@@ -4400,6 +8253,13 @@
     "Asgarnian Ice Dungeon": [
      "Asgarnian Ice Dungeon"
     ]
+   },
+   "spots": {
+    "Asgarnian Ice Dungeon": {
+     "x": 3066,
+     "y": 9560,
+     "plane": 0
+    }
    }
   },
   {
@@ -4417,7 +8277,69 @@
    "locations": [
     "Edgeville Dungeon",
     "Draynor Sewers",
-    "Karamja Volcano"
+    "Karamja Volcano",
+    "Ogre Enclave",
+    "Stronghold of Security",
+    "Taverley Dungeon",
+    "Barrows",
+    "Waterfall Dungeon",
+    "Blighted Volcano"
+   ],
+   "spots": {
+    "Edgeville Dungeon": {
+     "x": 3113,
+     "y": 9908,
+     "plane": 0
+    },
+    "Draynor Sewers": {
+     "x": 3112,
+     "y": 9672,
+     "plane": 0
+    },
+    "Ogre Enclave": {
+     "x": 2579,
+     "y": 9437,
+     "plane": 0
+    },
+    "Taverley Dungeon": {
+     "x": 2886,
+     "y": 9821,
+     "plane": 0
+    },
+    "Barrows": {
+     "x": 3552,
+     "y": 9711,
+     "plane": 0
+    },
+    "Waterfall Dungeon": {
+     "x": 2588,
+     "y": 9883,
+     "plane": 0
+    },
+    "Karamja Volcano": {
+     "x": 2845,
+     "y": 3174,
+     "plane": 0
+    },
+    "Blighted Volcano": {
+     "x": 3365,
+     "y": 3935,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Skeleton",
+    "Skeleton (Tarn's Lair)",
+    "Skeleton (mage)",
+    "Skeleton (Barrows)",
+    "Skeleton (Shayzien Crypts)",
+    "Skeleton (Melzar's Maze)",
+    "Skeleton (Ape Atoll)",
+    "Skeleton (Draynor Manor)",
+    "Skogre",
+    "Skeleton Mage",
+    "Calvar'ion",
+    "Vet'ion"
    ]
   },
   {
@@ -4439,7 +8361,19 @@
     "Smoke Devil Dungeon": [
      "Smoke Devil Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Smoke Devil Dungeon": {
+     "x": 2396,
+     "y": 9445,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Smoke devil",
+    "Nuclear smoke devil",
+    "Thermonuclear smoke devil"
+   ]
   },
   {
    "name": "Sourhog",
@@ -4452,7 +8386,14 @@
    "boss": false,
    "locations": [
     "Sourhog Cave"
-   ]
+   ],
+   "spots": {
+    "Sourhog Cave": {
+     "x": 3167,
+     "y": 9685,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Spiders",
@@ -4469,7 +8410,71 @@
     "Stronghold of Security",
     "Ape Atoll",
     "Ogre Enclave",
+    "Karamja",
+    "Morytania Spider Cave",
+    "Lumbridge Castle",
     "Wilderness"
+   ],
+   "spots": {
+    "Stronghold of Security": {
+     "x": 1958,
+     "y": 5015,
+     "plane": 0
+    },
+    "Ape Atoll": {
+     "x": 2777,
+     "y": 2780,
+     "plane": 0
+    },
+    "Ogre Enclave": {
+     "x": 2602,
+     "y": 9442,
+     "plane": 0
+    },
+    "Karamja": {
+     "x": 2885,
+     "y": 3046,
+     "plane": 0
+    },
+    "Morytania Spider Cave": {
+     "x": 3681,
+     "y": 9835,
+     "plane": 0
+    },
+    "Lumbridge Castle": {
+     "x": 3213,
+     "y": 9619,
+     "plane": 0
+    },
+    "Wilderness": {
+     "x": 3169,
+     "y": 3885,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Spider",
+    "Spider (Ape Atoll)",
+    "Spider (Ungael)",
+    "Araxyte",
+    "Araxxor",
+    "Blessed spider",
+    "Crypt spider",
+    "Deadly red spider",
+    "Dreadborn Araxyte",
+    "Fever spider",
+    "Giant crypt spider",
+    "Giant spider",
+    "Ice spider",
+    "Jungle spider",
+    "Poison spider",
+    "Poison spider (Escape Caves)",
+    "Shadow spider",
+    "Sarachnis",
+    "Spawn of Sarachnis",
+    "Spindel",
+    "Temple Spider",
+    "Venenatis"
    ]
   },
   {
@@ -4489,6 +8494,23 @@
    "locations": [
     "God Wars Dungeon",
     "Wilderness God Wars Dungeon"
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2884,
+     "y": 5317,
+     "plane": 2
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 3037,
+     "y": 10136,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Spiritual ranger",
+    "Spiritual warrior",
+    "Spiritual mage"
    ]
   },
   {
@@ -4504,7 +8526,14 @@
    "boss": false,
    "locations": [
     "Lunar Isle"
-   ]
+   ],
+   "spots": {
+    "Lunar Isle": {
+     "x": 2121,
+     "y": 3936,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Terror dog",
@@ -4517,7 +8546,14 @@
    "boss": false,
    "locations": [
     "Tarn's Lair"
-   ]
+   ],
+   "spots": {
+    "Tarn's Lair": {
+     "x": 3180,
+     "y": 4616,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Trolls",
@@ -4553,7 +8589,61 @@
     "Wyrmscraig Cavern": [
      "Wyrmscraig Cavern"
     ]
-   }
+   },
+   "spots": {
+    "Trollheim": {
+     "x": 2893,
+     "y": 3698,
+     "plane": 0
+    },
+    "Death Plateau (location)": {
+     "x": 2867,
+     "y": 3595,
+     "plane": 0
+    },
+    "Keldagrim": {
+     "x": 2837,
+     "y": 10094,
+     "plane": 0
+    },
+    "Troll Stronghold (location)": {
+     "x": 2894,
+     "y": 10116,
+     "plane": 0
+    },
+    "Fremennik Isles": {
+     "x": 2361,
+     "y": 3865,
+     "plane": 0
+    },
+    "Wyrmscraig Cavern": {
+     "x": 2587,
+     "y": 8590,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "River troll",
+    "Thrower Troll",
+    "Thrower troll (Trollheim)",
+    "Mountain troll",
+    "Troll spectator",
+    "Twig",
+    "Berry",
+    "Ice troll runt",
+    "Ice troll male",
+    "Ice troll female",
+    "Pee Hat",
+    "Kraka",
+    "Dad",
+    "Ice troll grunt",
+    "Stick",
+    "Rock (Troll)",
+    "Troll general",
+    "Arrg",
+    "Ice troll",
+    "Ice Troll King"
+   ]
   },
   {
    "name": "Turoth",
@@ -4575,7 +8665,18 @@
     "Fremennik Slayer Dungeon": [
      "Fremennik Slayer Dungeon"
     ]
-   }
+   },
+   "spots": {
+    "Fremennik Slayer Dungeon": {
+     "x": 2723,
+     "y": 10007,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Turoth",
+    "Spiked Turoth"
+   ]
   },
   {
    "name": "TzHaar",
@@ -4590,6 +8691,21 @@
    "boss": false,
    "locations": [
     "Mor Ul Rek"
+   ],
+   "spots": {
+    "Mor Ul Rek": {
+     "x": 2495,
+     "y": 5121,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "TzHaar-Hur",
+    "TzHaar-Mej (monster)",
+    "TzHaar-Xil",
+    "TzHaar-Ket",
+    "TzTok-Jad",
+    "TzKal-Zuk"
    ]
   },
   {
@@ -4603,6 +8719,8 @@
     "Haunted Woods",
     "God Wars Dungeon",
     "Meiyerditch",
+    "Darkmeyer",
+    "Vampyrium",
     "Wilderness God Wars Dungeon"
    ],
    "konar": {
@@ -4618,7 +8736,52 @@
     "Vampyrium": [
      "Vampyrium"
     ]
-   }
+   },
+   "spots": {
+    "Haunted Woods": {
+     "x": 3614,
+     "y": 3477,
+     "plane": 0
+    },
+    "God Wars Dungeon": {
+     "x": 2880,
+     "y": 5318,
+     "plane": 0
+    },
+    "Meiyerditch": {
+     "x": 3624,
+     "y": 3217,
+     "plane": 0
+    },
+    "Darkmeyer": {
+     "x": 3627,
+     "y": 3359,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2956,
+     "y": 10099,
+     "plane": 0
+    },
+    "Slepe": {
+     "x": 3733,
+     "y": 3372,
+     "plane": 0
+    },
+    "Vampyrium": {
+     "x": 2603,
+     "y": 7808,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Feral Vampyre",
+    "Vampyre Juvenile",
+    "Vampyre Juvinate",
+    "Vyrewatch",
+    "Vyrewatch Sentinel",
+    "Venator"
+   ]
   },
   {
    "name": "Venators",
@@ -4631,6 +8794,16 @@
    "boss": false,
    "locations": [
     "Vampyrium"
+   ],
+   "spots": {
+    "Vampyrium": {
+     "x": 2603,
+     "y": 7808,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Venator"
    ]
   },
   {
@@ -4645,7 +8818,14 @@
    "boss": false,
    "locations": [
     "Lumbridge Swamp Caves"
-   ]
+   ],
+   "spots": {
+    "Lumbridge Swamp Caves": {
+     "x": 3169,
+     "y": 3172,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Warped creatures",
@@ -4666,7 +8846,20 @@
    ],
    "konar": {
     "Poison Waste Dungeon": []
-   }
+   },
+   "spots": {
+    "Poison Waste Dungeon": {
+     "x": 1498,
+     "y": 4262,
+     "plane": 1
+    }
+   },
+   "monsters": [
+    "Warped Tortoise",
+    "Warped Terrorbird",
+    "Mutated Tortoise",
+    "Mutated Terrorbird"
+   ]
   },
   {
    "name": "Waterfiends",
@@ -4693,7 +8886,27 @@
     "Kraken Cove": [
      "Kraken Cove"
     ]
-   }
+   },
+   "spots": {
+    "Kraken Cove": {
+     "x": 2259,
+     "y": 9989,
+     "plane": 0
+    },
+    "Iorwerth Dungeon": {
+     "x": 3178,
+     "y": 12454,
+     "plane": 0
+    },
+    "Ancient Cavern": {
+     "x": 1749,
+     "y": 5355,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Waterfiend"
+   ]
   },
   {
    "name": "Werewolves",
@@ -4709,7 +8922,24 @@
     "Canifis",
     "God Wars Dungeon",
     "Wilderness God Wars Dungeon"
-   ]
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2896,
+     "y": 5335,
+     "plane": 0
+    },
+    "Wilderness God Wars Dungeon": {
+     "x": 2967,
+     "y": 10099,
+     "plane": 0
+    },
+    "Canifis": {
+     "x": 3493,
+     "y": 3488,
+     "plane": 0
+    }
+   }
   },
   {
    "name": "Wolves",
@@ -4725,6 +8955,27 @@
    "locations": [
     "Stronghold of Security",
     "Feldip Hills"
+   ],
+   "spots": {
+    "Stronghold of Security": {
+     "x": 1889,
+     "y": 5218,
+     "plane": 0
+    },
+    "Feldip Hills": {
+     "x": 2501,
+     "y": 2959,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Wolves",
+    "Big Wolf",
+    "Desert Wolf",
+    "Dire Wolf",
+    "Ice wolf",
+    "Jungle wolf",
+    "White wolves"
    ]
   },
   {
@@ -4743,7 +8994,8 @@
    "locations": [
     "Karuulm Slayer Dungeon",
     "Wyrmscraig Cavern",
-    "Neypotzli"
+    "Neypotzli",
+    "Charred Island Dungeon"
    ],
    "konar": {
     "Karuulm Slayer Dungeon": [
@@ -4758,7 +9010,46 @@
     "Wyrmscraig": [
      "Wyrmscraig"
     ]
-   }
+   },
+   "spots": {
+    "Karuulm Slayer Dungeon": {
+     "x": 1266,
+     "y": 10180,
+     "plane": 0
+    },
+    "Wyrmscraig Cavern": {
+     "x": 2607,
+     "y": 8617,
+     "plane": 0
+    },
+    "Neypotzli": {
+     "x": 1366,
+     "y": 9701,
+     "plane": 0
+    },
+    "Charred Dungeon": {
+     "x": 2725,
+     "y": 8875,
+     "plane": 0
+    },
+    "Wyrmscraig": {
+     "x": 2602,
+     "y": 2202,
+     "plane": 0
+    },
+    "Charred Island Dungeon": {
+     "x": 2637,
+     "y": 2416,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Wyrm",
+    "Shadow Wyrm",
+    "Wyrmling",
+    "Lava Strykewyrm",
+    "Magma strykewyrm"
+   ]
   },
   {
    "name": "Zombies",
@@ -4776,7 +9067,56 @@
     "Tree Gnome Village (location)",
     "Edgeville Dungeon",
     "Stronghold of Security",
+    "Wizards' Guild",
+    "Draynor Sewers",
+    "Lair of Tarn Razorlor (dungeon)",
     "Graveyard of Shadows"
+   ],
+   "spots": {
+    "Edgeville Dungeon": {
+     "x": 3147,
+     "y": 9892,
+     "plane": 0
+    },
+    "Wizards' Guild": {
+     "x": 2590,
+     "y": 9492,
+     "plane": 0
+    },
+    "Draynor Sewers": {
+     "x": 3119,
+     "y": 9662,
+     "plane": 0
+    },
+    "Tree Gnome Village (location)": {
+     "x": 2520,
+     "y": 3167,
+     "plane": 0
+    },
+    "Graveyard of Shadows": {
+     "x": 3164,
+     "y": 3672,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Monkey Zombie",
+    "Undead chicken",
+    "Undead cow",
+    "Undead Druid",
+    "Undead Lumberjack",
+    "Undead one",
+    "Undead Zealot",
+    "Vorkath",
+    "Zombie",
+    "Zombie pirate",
+    "Zombie pirate (Braindeath Island)",
+    "Zombie rat",
+    "Zombie swab",
+    "Zogre",
+    "Armoured zombie (Zemouregal's Base)",
+    "Armoured zombie (Zemouregal's Fort)",
+    "Sorebones"
    ]
   },
   {
@@ -4803,7 +9143,28 @@
     "Zanaris": [
      "Zanaris"
     ]
-   }
+   },
+   "spots": {
+    "Zanaris": {
+     "x": 2417,
+     "y": 4422,
+     "plane": 0
+    },
+    "Fossil Island": {
+     "x": 3689,
+     "y": 3853,
+     "plane": 0
+    },
+    "Stalker Den": {
+     "x": 1311,
+     "y": 9785,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Zygomite",
+    "Ancient Zygomite"
+   ]
   },
   {
    "name": "Abyssal Sire",
@@ -4814,6 +9175,16 @@
    "boss": true,
    "locations": [
     "Abyssal Nexus"
+   ],
+   "spots": {
+    "Abyssal Nexus": {
+     "x": 3039,
+     "y": 4823,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Abyssal Sire"
    ]
   },
   {
@@ -4825,6 +9196,16 @@
    "boss": true,
    "locations": [
     "Karuulm Slayer Dungeon"
+   ],
+   "spots": {
+    "Karuulm Slayer Dungeon": {
+     "x": 1364,
+     "y": 10265,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Alchemical Hydra"
    ]
   },
   {
@@ -4836,6 +9217,16 @@
    "boss": true,
    "locations": [
     "Morytania Spider Cave"
+   ],
+   "spots": {
+    "Morytania Spider Cave": {
+     "x": 3630,
+     "y": 9813,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Araxxor"
    ]
   },
   {
@@ -4849,6 +9240,16 @@
    "boss": true,
    "locations": [
     "Barrows"
+   ],
+   "spots": {
+    "Barrows": {
+     "x": 3567,
+     "y": 3291,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Barrows"
    ]
   },
   {
@@ -4861,6 +9262,16 @@
    "boss": true,
    "locations": [
     "Callisto's Den"
+   ],
+   "spots": {
+    "Callisto's Den": {
+     "x": 3291,
+     "y": 3849,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Callisto"
    ]
   },
   {
@@ -4872,6 +9283,16 @@
    "boss": true,
    "locations": [
     "Cerberus' Lair"
+   ],
+   "spots": {
+    "Cerberus' Lair": {
+     "x": 1302,
+     "y": 1250,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Cerberus"
    ]
   },
   {
@@ -4883,6 +9304,16 @@
    "boss": true,
    "locations": [
     "Rogues' Castle"
+   ],
+   "spots": {
+    "Rogues' Castle": {
+     "x": 3261,
+     "y": 3927,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Chaos Elemental"
    ]
   },
   {
@@ -4894,6 +9325,10 @@
    "boss": true,
    "locations": [
     "West of the Lava Maze"
+   ],
+   "spots": {},
+   "monsters": [
+    "Chaos Fanatic"
    ]
   },
   {
@@ -4905,6 +9340,16 @@
    "boss": true,
    "locations": [
     "God Wars Dungeon"
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2897,
+     "y": 5269,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Commander Zilyana"
    ]
   },
   {
@@ -4917,6 +9362,16 @@
    "boss": true,
    "locations": [
     "Ruins (west)"
+   ],
+   "spots": {
+    "Ruins (west)": {
+     "x": 2977,
+     "y": 3702,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Crazy archaeologist"
    ]
   },
   {
@@ -4928,6 +9383,16 @@
    "boss": true,
    "locations": [
     "Waterbirth Island Dungeon"
+   ],
+   "spots": {
+    "Waterbirth Island Dungeon": {
+     "x": 2525,
+     "y": 3743,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Dagannoth Kings"
    ]
   },
   {
@@ -4939,6 +9404,16 @@
    "boss": true,
    "locations": [
     "Ghorrock Prison"
+   ],
+   "spots": {
+    "Ghorrock Prison": {
+     "x": 3039,
+     "y": 6454,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Duke Sucellus"
    ]
   },
   {
@@ -4950,6 +9425,16 @@
    "boss": true,
    "locations": [
     "God Wars Dungeon"
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2872,
+     "y": 5358,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "General Graardor"
    ]
   },
   {
@@ -4961,6 +9446,16 @@
    "boss": true,
    "locations": [
     "Mole Lair"
+   ],
+   "spots": {
+    "Mole Lair": {
+     "x": 1760,
+     "y": 5191,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Giant Mole"
    ]
   },
   {
@@ -4972,6 +9467,10 @@
    "boss": true,
    "locations": [
     "Slayer Tower"
+   ],
+   "spots": {},
+   "monsters": [
+    "Grotesque Guardians"
    ]
   },
   {
@@ -4983,6 +9482,16 @@
    "boss": true,
    "locations": [
     "God Wars Dungeon"
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2925,
+     "y": 5322,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "K'ril Tsutsaroth"
    ]
   },
   {
@@ -4994,6 +9503,16 @@
    "boss": true,
    "locations": [
     "Kalphite Lair"
+   ],
+   "spots": {
+    "Kalphite Lair": {
+     "x": 3186,
+     "y": 9424,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Kalphite Queen"
    ]
   },
   {
@@ -5005,6 +9524,10 @@
    "boss": true,
    "locations": [
     "King Black Dragon's Lair"
+   ],
+   "spots": {},
+   "monsters": [
+    "King Black Dragon"
    ]
   },
   {
@@ -5016,6 +9539,16 @@
    "boss": true,
    "locations": [
     "Kraken Cove"
+   ],
+   "spots": {
+    "Kraken Cove": {
+     "x": 2278,
+     "y": 10034,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Kraken"
    ]
   },
   {
@@ -5027,6 +9560,16 @@
    "boss": true,
    "locations": [
     "God Wars Dungeon"
+   ],
+   "spots": {
+    "God Wars Dungeon": {
+     "x": 2832,
+     "y": 5302,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Kree'arra"
    ]
   },
   {
@@ -5038,6 +9581,16 @@
    "boss": true,
    "locations": [
     "The Scar"
+   ],
+   "spots": {
+    "The Scar": {
+     "x": 2081,
+     "y": 6372,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "The Leviathan"
    ]
   },
   {
@@ -5049,6 +9602,16 @@
    "boss": true,
    "locations": [
     "Vampyrium"
+   ],
+   "spots": {
+    "Vampyrium": {
+     "x": 2603,
+     "y": 7808,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Maggot King"
    ]
   },
   {
@@ -5060,6 +9623,16 @@
    "boss": true,
    "locations": [
     "Ghorrock Dungeon"
+   ],
+   "spots": {
+    "Ghorrock Dungeon": {
+     "x": 2909,
+     "y": 10317,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Phantom Muspah"
    ]
   },
   {
@@ -5071,6 +9644,16 @@
    "boss": true,
    "locations": [
     "Forthos Dungeon"
+   ],
+   "spots": {
+    "Forthos Dungeon": {
+     "x": 1840,
+     "y": 9900,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Sarachnis"
    ]
   },
   {
@@ -5082,6 +9665,16 @@
    "boss": true,
    "locations": [
     "Scorpion Pit"
+   ],
+   "spots": {
+    "Scorpion Pit": {
+     "x": 3233,
+     "y": 10341,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Scorpia"
    ]
   },
   {
@@ -5093,6 +9686,16 @@
    "boss": true,
    "locations": [
     "Shellbane Gryphon Cave"
+   ],
+   "spots": {
+    "Shellbane Gryphon Cave": {
+     "x": 3176,
+     "y": 2477,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Shellbane gryphon"
    ]
   },
   {
@@ -5104,6 +9707,16 @@
    "boss": true,
    "locations": [
     "Smoke Devil Dungeon"
+   ],
+   "spots": {
+    "Smoke Devil Dungeon": {
+     "x": 2360,
+     "y": 9452,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Thermonuclear smoke devil"
    ]
   },
   {
@@ -5115,6 +9728,16 @@
    "boss": true,
    "locations": [
     "The Stranglewood"
+   ],
+   "spots": {
+    "The Stranglewood": {
+     "x": 1128,
+     "y": 3417,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Vardorvis"
    ]
   },
   {
@@ -5127,6 +9750,16 @@
    "boss": true,
    "locations": [
     "Silk Chasm"
+   ],
+   "spots": {
+    "Silk Chasm": {
+     "x": 3319,
+     "y": 3798,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Venenatis"
    ]
   },
   {
@@ -5139,6 +9772,16 @@
    "boss": true,
    "locations": [
     "Vet'ion's Rest"
+   ],
+   "spots": {
+    "Vet'ion's Rest": {
+     "x": 3219,
+     "y": 3788,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Vet'ion"
    ]
   },
   {
@@ -5150,6 +9793,16 @@
    "boss": true,
    "locations": [
     "Ungael"
+   ],
+   "spots": {
+    "Ungael": {
+     "x": 2269,
+     "y": 4062,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Vorkath"
    ]
   },
   {
@@ -5161,6 +9814,16 @@
    "boss": true,
    "locations": [
     "Lassar Undercity"
+   ],
+   "spots": {
+    "Lassar Undercity": {
+     "x": 2656,
+     "y": 6369,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "The Whisperer"
    ]
   },
   {
@@ -5172,7 +9835,63 @@
    "boss": true,
    "locations": [
     "Poison Waste"
+   ],
+   "spots": {
+    "Poison Waste": {
+     "x": 2245,
+     "y": 3078,
+     "plane": 0
+    }
+   },
+   "monsters": [
+    "Zulrah"
    ]
+  },
+  {
+   "name": "TzTok-Jad",
+   "aliases": [
+    "TzTok-Jad",
+    "Jad"
+   ],
+   "masters": [
+    "Chaeldar",
+    "Nieve",
+    "Duradel"
+   ],
+   "boss": true,
+   "locations": [
+    "Mor Ul Rek"
+   ],
+   "spots": {
+    "Mor Ul Rek": {
+     "x": 2439,
+     "y": 5172,
+     "plane": 0
+    }
+   }
+  },
+  {
+   "name": "TzKal-Zuk",
+   "aliases": [
+    "TzKal-Zuk",
+    "Zuk"
+   ],
+   "masters": [
+    "Chaeldar",
+    "Nieve",
+    "Duradel"
+   ],
+   "boss": true,
+   "locations": [
+    "Mor Ul Rek"
+   ],
+   "spots": {
+    "Mor Ul Rek": {
+     "x": 2496,
+     "y": 5122,
+     "plane": 0
+    }
+   }
   }
  ],
  "masters": [
@@ -5191,7 +9910,12 @@
      "value": "Taverley"
     }
    ],
-   "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS)."
+   "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).",
+   "spot": {
+    "x": 2931,
+    "y": 3536,
+    "plane": 0
+   }
   },
   {
    "key": "MAZCHNA",
@@ -5205,8 +9929,18 @@
     {
      "type": "spell",
      "value": "Kharyrll Teleport"
+    },
+    {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Le-sabrè"
     }
-   ]
+   ],
+   "spot": {
+    "x": 3511,
+    "y": 3509,
+    "plane": 0
+   }
   },
   {
    "key": "VANNAKA",
@@ -5218,6 +9952,11 @@
      "value": "Edgeville"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic"
+    },
+    {
      "type": "fairy",
      "value": "DKR"
     },
@@ -5225,7 +9964,12 @@
      "type": "spell",
      "value": "Paddewwa Teleport"
     }
-   ]
+   ],
+   "spot": {
+    "x": 3147,
+    "y": 9914,
+    "plane": 0
+   }
   },
   {
    "key": "CHAELDAR",
@@ -5236,7 +9980,12 @@
      "type": "fairy",
      "value": "BKS"
     }
-   ]
+   ],
+   "spot": {
+    "x": 2444,
+    "y": 4431,
+    "plane": 0
+   }
   },
   {
    "key": "KONAR",
@@ -5256,8 +10005,22 @@
      "type": "item",
      "item": "skills_necklace",
      "value": "Farming Guild"
+    },
+    {
+     "type": "maxcape",
+     "value": "Farming Guild"
+    },
+    {
+     "type": "item",
+     "item": "farming_cape",
+     "value": "Teleport"
     }
-   ]
+   ],
+   "spot": {
+    "x": 1309,
+    "y": 3785,
+    "plane": 0
+   }
   },
   {
    "key": "NIEVE",
@@ -5275,10 +10038,20 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Elder Gnome child"
+    },
+    {
+     "type": "item",
      "item": "necklace_of_passage",
      "value": "The Outpost"
     }
-   ]
+   ],
+   "spot": {
+    "x": 2432,
+    "y": 3423,
+    "plane": 0
+   }
   },
   {
    "key": "DURADEL",
@@ -5291,6 +10064,11 @@
     },
     {
      "type": "item",
+     "item": "diary_cape",
+     "value": "Kaleb Paramaya"
+    },
+    {
+     "type": "item",
      "item": "karamja_gloves_3",
      "value": "Gem Mine"
     },
@@ -5298,7 +10076,12 @@
      "type": "fairy",
      "value": "CKR"
     }
-   ]
+   ],
+   "spot": {
+    "x": 2869,
+    "y": 2982,
+    "plane": 1
+   }
   },
   {
    "key": "KRYSTILIA",
@@ -5310,10 +10093,20 @@
      "value": "Edgeville"
     },
     {
+     "type": "item",
+     "item": "diary_cape",
+     "value": "Lesser Fanatic"
+    },
+    {
      "type": "fairy",
      "value": "DKR"
     }
-   ]
+   ],
+   "spot": {
+    "x": 3109,
+    "y": 3516,
+    "plane": 0
+   }
   },
   {
    "key": "MORTIMER",
@@ -5333,7 +10126,12 @@
      "type": "boat",
      "value": "Wyrmscraig"
     }
-   ]
+   ],
+   "spot": {
+    "x": 2589,
+    "y": 8614,
+    "plane": 0
+   }
   }
  ],
  "items": {
@@ -5561,7 +10359,24 @@
    "names": [
     "achievement diary cape"
    ],
-   "options": []
+   "options": [
+    "Two-pints",
+    "Jarr",
+    "Sir Rebral",
+    "Thorodin",
+    "Flax keeper",
+    "Pirate Jackie the Fruit",
+    "Kaleb Paramaya",
+    "Jungle forester",
+    "TzHaar-Mej",
+    "Elise",
+    "Hatius Cosaintus",
+    "Le-sabrè",
+    "Toby",
+    "Lesser Fanatic",
+    "Elder Gnome child",
+    "Twiggy O'Korn"
+   ]
   },
   "ring_of_shadows": {
    "label": "Ring of shadows",

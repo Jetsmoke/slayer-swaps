@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import com.google.gson.Gson;
 import org.junit.Test;
@@ -11,6 +12,59 @@ import org.junit.Test;
 public class SlayerDataTest
 {
 	private final SlayerData data = SlayerData.load(new Gson());
+
+	@Test
+	public void spotsAreForTheTasksOwnLocations()
+	{
+		for (SlayerData.TaskData task : data.getTasks())
+		{
+			if (task.getSpots() == null)
+			{
+				continue;
+			}
+			for (String location : task.getSpots().keySet())
+			{
+				boolean konar = task.getKonar() != null && task.getKonar().values().stream().anyMatch(l -> l.contains(location));
+				assertTrue(task.getName() + ": " + location, task.getLocations().contains(location) || konar);
+			}
+		}
+		// Warped jellies in the Catacombs, from the wiki's spawn pins
+		SlayerData.Spot catacombs = data.findTask("Jellies").getSpots().get("Catacombs of Kourend");
+		assertNotNull(catacombs);
+		assertTrue(catacombs.getY() > 9000);
+		assertNotNull(data.location("Catacombs of Kourend").getEntrance());
+	}
+
+	@Test
+	public void slayerGearIsRecognised()
+	{
+		for (String name : new String[]{"slayer helmet (i)", "tztok slayer helmet (i)", "black mask", "black mask (10)",
+			"black mask (i)", "enchanted gem", "eternal gem"})
+		{
+			assertTrue(name, SlayerSwapsPlugin.isSlayerGear(name));
+		}
+		assertTrue(SlayerSwapsPlugin.isSlayerHeadgear("black mask (5)"));
+		assertFalse(SlayerSwapsPlugin.isSlayerHeadgear("eternal gem"));
+		assertFalse(SlayerSwapsPlugin.isSlayerGear("gem bag"));
+	}
+
+	@Test
+	public void taskNamesBecomeOneMonster()
+	{
+		assertEquals("jelly", SlayerSwapsPlugin.singular("jellies"));
+		assertEquals("wolf", SlayerSwapsPlugin.singular("wolves"));
+		assertEquals("ogre", SlayerSwapsPlugin.singular("ogres"));
+		assertEquals("dagannoth", SlayerSwapsPlugin.singular("dagannoth"));
+	}
+
+	@Test
+	public void everyTaskNameFindsItsOwnTask()
+	{
+		for (SlayerData.TaskData task : data.getTasks())
+		{
+			assertSame(task.getName(), task, data.findTask(task.getName()));
+		}
+	}
 
 	@Test
 	public void findsTasksByGameAndWikiNames()
@@ -97,7 +151,7 @@ public class SlayerDataTest
 		}
 		for (SlayerMaster master : SlayerMaster.values())
 		{
-			assertTrue(master.name(), master == SlayerMaster.NONE || data.master(master.name()) != null);
+			assertTrue(master.name(), master == SlayerMaster.NONE || master == SlayerMaster.NOT_CHOSEN || data.master(master.name()) != null);
 		}
 	}
 

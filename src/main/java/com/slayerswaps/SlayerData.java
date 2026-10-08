@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.Data;
+import net.runelite.api.coords.WorldPoint;
 
 /**
  * Slayer tasks, the locations they're done at and the teleports that reach each location.
@@ -35,6 +36,8 @@ class SlayerData
 		private String item;
 		// What to do after teleporting, such as pulling a lever
 		private String note;
+		// The quetzal landing site to fly to after teleporting, such as "The Teomat"
+		private String quetzal;
 
 		RouteType routeType()
 		{
@@ -47,6 +50,24 @@ class SlayerData
 	{
 		private List<Route> routes;
 		private boolean wilderness;
+		// For places underground or otherwise apart from the surface map: the way in from the surface
+		private Spot entrance;
+	}
+
+	/**
+	 * A map tile, from the OSRS Wiki.
+	 */
+	@Data
+	static class Spot
+	{
+		private int x;
+		private int y;
+		private int plane;
+
+		WorldPoint toWorldPoint()
+		{
+			return new WorldPoint(x, y, plane);
+		}
 	}
 
 	@Data
@@ -59,6 +80,10 @@ class SlayerData
 		private List<String> locations;
 		// Konar's areas for this task: area name -> locations in it
 		private Map<String, List<String>> konar;
+		// The middle of the task monsters' spawns at each location
+		private Map<String, Spot> spots;
+		// The monsters that count for the task, as the wiki names them
+		private List<String> monsters;
 	}
 
 	@Data
@@ -78,6 +103,8 @@ class SlayerData
 		private String location;
 		private List<Route> routes;
 		private String note;
+		// Where the master stands
+		private Spot spot;
 	}
 
 	static SlayerData load(Gson gson)
@@ -98,6 +125,11 @@ class SlayerData
 	private void buildIndex()
 	{
 		taskIndex = new HashMap<>();
+		// A task's own name wins over another task's alias (Mogres also goes by "Ogres")
+		for (TaskData task : tasks)
+		{
+			taskIndex.put(normalize(task.getName()), task);
+		}
 		for (TaskData task : tasks)
 		{
 			for (String alias : task.getAliases())

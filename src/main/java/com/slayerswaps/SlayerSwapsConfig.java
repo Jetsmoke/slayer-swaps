@@ -30,14 +30,6 @@ public interface SlayerSwapsConfig extends Config
 	String wildernessSection = "wilderness";
 
 	@ConfigSection(
-		name = "Testing",
-		description = "For trying the plugin out",
-		position = 30,
-		closedByDefault = true
-	)
-	String testingSection = "testing";
-
-	@ConfigSection(
 		name = "Highlights",
 		description = "Outlines on items and teleport menus",
 		position = 20
@@ -52,7 +44,7 @@ public interface SlayerSwapsConfig extends Config
 	)
 	default SlayerMaster slayerMaster()
 	{
-		return SlayerMaster.MORTIMER;
+		return SlayerMaster.NOT_CHOSEN;
 	}
 
 	@ConfigItem(
@@ -70,7 +62,7 @@ public interface SlayerSwapsConfig extends Config
 	@ConfigItem(
 		keyName = "onlyWithSlayerHelmet",
 		name = "Only with slayer helmet",
-		description = "Only swap and highlight teleports while you're wearing a slayer helmet (any variant)",
+		description = "Only swap and highlight teleports while you're wearing a slayer helmet or black mask (any variant)",
 		position = 3
 	)
 	default boolean onlyWithSlayerHelmet()
@@ -144,28 +136,16 @@ public interface SlayerSwapsConfig extends Config
 		return true;
 	}
 
+	@ConfigItem(keyName = "portalNexus", name = "Portal nexus", description = "Your house has a portal nexus with the teleport spells you use: go home and use it for spell teleports. Its hotkeys show once you've opened its teleport menu", position = 11, section = teleportsSection)
+	default boolean portalNexus()
+	{
+		return false;
+	}
+
 	@ConfigItem(keyName = "useBoat", name = "Teleport to Boat", description = "Highlight the boat to teleport to when your task is on an island your boat can be moored at", position = 8, section = teleportsSection)
 	default boolean useBoat()
 	{
 		return true;
-	}
-
-	@ConfigItem(keyName = "simulatedTask", name = "Test mode", description = "Pretend to have this task, to see its swaps and highlights. Your real task is used when this, Konar task and Random Konar task are all off.", position = 0, section = testingSection)
-	default SimulatedTask simulatedTask()
-	{
-		return SimulatedTask.OFF;
-	}
-
-	@ConfigItem(keyName = "konarTestTask", name = "Konar task", description = "Pretend to have this Konar task in this one of her areas. Used instead of Test mode while it isn\'t Off.", position = 1, section = testingSection)
-	default KonarTestTask konarTestTask()
-	{
-		return KonarTestTask.OFF;
-	}
-
-	@ConfigItem(keyName = "randomKonarTask", name = "Random Konar task", description = "While ticked, pretend to have a random Konar task in a random one of her areas (said in chat). Untick and tick again for another; untick to go back to the settings above.", position = 2, section = testingSection)
-	default boolean randomKonarTask()
-	{
-		return false;
 	}
 
 	@ConfigItem(keyName = "highlightItems", name = "Highlight items", description = "Outline the teleport items to use in your inventory and equipment", position = 0, section = highlightsSection)
@@ -192,7 +172,25 @@ public interface SlayerSwapsConfig extends Config
 		return true;
 	}
 
-	@ConfigItem(keyName = "highlightColor", name = "Highlight colour", description = "Colour of the outlines", position = 4, section = highlightsSection)
+	@ConfigItem(keyName = "taskArrow", name = "Arrow to task", description = "Once you're close, an arrow on the minimap points the way to your task's monsters (or your slayer master), until they're in sight", position = 4, section = highlightsSection)
+	default boolean taskArrow()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "markOnMap", name = "Mark on world map", description = "Mark where your task's monsters (or your slayer master) are on the world map", position = 6, section = highlightsSection)
+	default boolean markOnMap()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "highlightTaskMonsters", name = "Highlight task monsters", description = "Outline the monsters that count for your task", position = 5, section = highlightsSection)
+	default boolean highlightTaskMonsters()
+	{
+		return true;
+	}
+
+	@ConfigItem(keyName = "highlightColor", name = "Highlight colour", description = "Colour of the outlines", position = 10, section = highlightsSection)
 	default Color highlightColor()
 	{
 		return Color.GREEN;

@@ -5,9 +5,13 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.inject.Provides;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,7 +20,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
@@ -30,8 +33,12 @@ import net.runelite.api.KeyCode;
 import net.runelite.api.Menu;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
+import net.runelite.api.NPC;
+import net.runelite.api.NPCComposition;
 import net.runelite.api.ObjectComposition;
+import net.runelite.api.Player;
 import net.runelite.api.TileObject;
+import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.GameObjectDespawned;
 import net.runelite.api.events.GameObjectSpawned;
 import net.runelite.api.events.GameStateChanged;
@@ -39,6 +46,8 @@ import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.events.MenuOptionClicked;
+import net.runelite.api.events.NpcDespawned;
+import net.runelite.api.events.NpcSpawned;
 import net.runelite.api.events.PostMenuSort;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.events.WallObjectDespawned;
@@ -48,6 +57,7 @@ import net.runelite.api.events.WidgetLoaded;
 import net.runelite.api.gameval.DBTableID;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.gameval.InventoryID;
+import net.runelite.api.gameval.NpcID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
@@ -64,13 +74,15 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.ui.overlay.worldmap.WorldMapPoint;
+import net.runelite.client.ui.overlay.worldmap.WorldMapPointManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
 	name = "Slayer Swaps",
-	description = "Automatically swaps menu entries, and highlights teleport items and spells to quickly teleport to your slayer task. Supports choosing your preferred slayer master and preferred task location. To start right click your slayer helmet or check settings panel.",
+	description = "Automatically swaps menu entries, and highlights teleport items and spells to quickly teleport to your slayer task. Supports choosing your preferred slayer master and preferred task location. To start, right-click your slayer helmet, black mask or enchanted gem.",
 	tags = {"slayer", "teleport", "menu", "swap", "ring", "fairy", "cape", "mortimer", "duradel", "highlight"}
 )
 public class SlayerSwapsPlugin extends Plugin
@@ -126,6 +138,15 @@ public class SlayerSwapsPlugin extends Plugin
 	private TeleportObjectOverlay teleportObjectOverlay;
 
 	@Inject
+	private MinimapArrowOverlay minimapArrowOverlay;
+
+	@Inject
+	private WorldMapPointManager worldMapPointManager;
+
+	@Inject
+	private TaskMonsterOverlay taskMonsterOverlay;
+
+	@Inject
 	private MenuHighlighter menuHighlighter;
 
 	@Inject
@@ -145,6 +166,23 @@ public class SlayerSwapsPlugin extends Plugin
 	// and its teleport menu's hotkeys ("kourend castle=6;varrock=1")
 	private static final String NEXUS_LEFT_CLICK_KEY = "nexusLeftClick";
 	private static final String NEXUS_KEYS_KEY = "nexusKeys";
+	private static final String JEWELLERY_KEYS_KEY = "jewelleryKeys";
+	// The jewellery box teleport menu's hotkeys, the same for every box (seen in the ornate box's menu)
+	private static final Map<String, String> JEWELLERY_KEYS = ImmutableMap.<String, String>builder()
+		.put("emir's arena", "1").put("castle wars", "2").put("ferox enclave", "3").put("fortis colosseum", "4")
+		.put("burthorpe", "5").put("barbarian outpost", "6").put("corporeal beast", "7").put("tears of guthix", "8")
+		.put("wintertodt camp", "9").put("warriors' guild", "A").put("champions' guild", "B").put("monastery", "C")
+		.put("ranging guild", "D").put("fishing guild", "E").put("mining guild", "F").put("crafting guild", "G")
+		.put("cooking guild", "H").put("woodcutting guild", "I").put("farming guild", "J").put("miscellania", "K")
+		.put("grand exchange", "L").put("falador park", "M").put("dondakan's rock", "N").put("edgeville", "O")
+		.put("karamja", "P").put("draynor village", "Q").put("al kharid", "R")
+		.build();
+	// Teleports the jewellery box names differently from the jewellery itself
+	private static final Map<String, String> JEWELLERY_MENU_NAMES = ImmutableMap.of(
+		"falador", "falador park",
+		"dondakan", "dondakan's rock");
+	private static final String HOUSE_PORTAL_SUFFIX = " portal";
+	private static final String OBELISK_KEYS_KEY = "obeliskKeys";
 	private static final String HOME = "Home";
 	private static final SlayerData.Route HOUSE_SPELL = new SlayerData.Route();
 	static
@@ -154,6 +192,25 @@ public class SlayerSwapsPlugin extends Plugin
 	}
 	// Slayer helmet, enchanted gem and slayer ring option that shows the task
 	private static final String CHECK_TASK = "Check";
+	// The quetzals you ride at each landing site
+	private static final Set<Integer> QUETZAL_IDS = ImmutableSet.of(NpcID.QUETZAL_FORTIS, NpcID.QUETZAL_TEOMAT,
+		NpcID.QUETZAL_SUNSETCOAST, NpcID.QUETZAL_HUNTERGUILD, NpcID.QUETZAL_CAMTORUM, NpcID.QUETZAL_COLOSSALWYRM,
+		NpcID.QUETZAL_OUTERFORTIS, NpcID.QUETZAL_COLOSSEUM, NpcID.QUETZAL_ALDARIN, NpcID.QUETZAL_QUETZACALLIGORGE,
+		NpcID.QUETZAL_SALVAGEROVERLOOK);
+	// The surface map ends here; underground areas, Zanaris and instances are north of it
+	private static final int SURFACE_MAX_Y = 4200;
+	// An objective underground this close is in the same underground area as the player
+	private static final int SAME_AREA_DISTANCE = 150;
+	// This close to the objective (or the way in), walk instead of teleporting
+	private static final int NEAR_DISTANCE = 100;
+	// Moving this far in one tick is a teleport
+	private static final int TELEPORT_JUMP = 30;
+	// A teleport that lands this close to the objective is on the way there, even if it isn't the one chosen
+	private static final int EN_ROUTE_DISTANCE = 300;
+	// This close, the monsters are in sight and the arrow goes away
+	private static final int ARRIVED_DISTANCE = 15;
+	// Lines the chatbox chooser shows at once
+	private static final int CHOOSER_LINES = 5;
 	// Charged jewellery names end in their charges, like "Necklace of passage(5)" or "Games necklace(8)"
 	private static final Pattern CHARGES = Pattern.compile("\\(\\d+\\)$");
 	// How long after the last task kill guidance comes back, for a trip away (like banking)
@@ -171,9 +228,16 @@ public class SlayerSwapsPlugin extends Plugin
 	private static final String JEWELLERY_TELEPORT_MENU = "Teleport Menu";
 	// The portal nexus's left-click names some destinations differently from the spell and its own lists (from the
 	// in-game menu log: set to Kourend Castle it shows "Great Kourend"; "Seers' Village" appeared for Camelot)
-	private static final Map<String, String> NEXUS_OPTION_NAMES = ImmutableMap.of(
-		"kourend castle", "great kourend",
-		"camelot", "seers' village");
+	// Teleport spells whose portal nexus and portal chamber name is the place, not the spell (from the nexus's menu)
+	private static final Map<String, String> NEXUS_OPTION_NAMES = ImmutableMap.<String, String>builder()
+		.put("kourend castle", "great kourend")
+		.put("camelot", "seers' village")
+		.put("moonclan", "lunar isle")
+		.put("barbarian", "barbarian outpost")
+		.put("khazard", "port khazard")
+		.put("waterbirth", "waterbirth island")
+		.put("fenkenstrain's castle", "fenken' castle")
+		.build();
 	private static final Set<String> TELEPORT_OBJECT_NAMES = ImmutableSet.<String>builder()
 		.add(FAIRY_RING, SPIRITUAL_FAIRY_TREE, OBELISK, LEVER, PORTAL_NEXUS)
 		.addAll(JEWELLERY_BOXES.keySet())
@@ -200,11 +264,23 @@ public class SlayerSwapsPlugin extends Plugin
 	private boolean krystiliaTask;
 	// The area Konar assigned the current task to, as the game names it, or null
 	private String konarArea;
-	// Test mode's random Konar task and area, picked when "Random Konar task" is ticked
-	private String[] randomKonarPick;
 	private boolean loggedKonarAreas;
 	// The chatbox chooser opened from the slayer helmet, while it's open
 	private ChatboxTextMenuInput chooser;
+	// Close to the task's monsters (or the slayer master) or the way in to them: walk there instead of teleporting
+	private boolean nearObjective;
+	// The player's tile last tick, to notice teleports
+	private WorldPoint lastTile;
+	// Teleported somewhere much closer to the objective, by any teleport: walk (or take the last step) from there
+	private boolean teleportedToward;
+	// The world map marker on the objective, while there is one
+	private WorldMapPoint mapMarker;
+	// The task's monsters in the scene, tracked as they spawn and despawn
+	private final Set<NPC> taskNpcs = new HashSet<>();
+	// Lower-case names of the task's monsters
+	private Set<String> taskMonsterNames = Collections.emptySet();
+	// The quetzals at landing sites in the scene, to outline when the next step is a quetzal ride
+	private final Set<NPC> quetzals = new HashSet<>();
 
 	@Override
 	protected void startUp()
@@ -216,7 +292,10 @@ public class SlayerSwapsPlugin extends Plugin
 		overlayManager.add(teleportItemOverlay);
 		overlayManager.add(destinationOverlay);
 		overlayManager.add(teleportObjectOverlay);
+		overlayManager.add(minimapArrowOverlay);
+		overlayManager.add(taskMonsterOverlay);
 		migrateOldChoices();
+		TaskOverride.refresh = () -> clientThread.invokeLater(this::updateTask);
 
 		clientThread.invokeLater(this::updateTask);
 	}
@@ -224,11 +303,22 @@ public class SlayerSwapsPlugin extends Plugin
 	@Override
 	protected void shutDown()
 	{
+		TaskOverride.refresh = null;
 		overlayManager.remove(menuHighlightOverlay);
 		overlayManager.remove(teleportItemOverlay);
 		overlayManager.remove(destinationOverlay);
 		overlayManager.remove(teleportObjectOverlay);
+		overlayManager.remove(minimapArrowOverlay);
+		overlayManager.remove(taskMonsterOverlay);
 		teleportObjects.clear();
+		taskNpcs.clear();
+		quetzals.clear();
+		nearObjective = false;
+		if (mapMarker != null)
+		{
+			worldMapPointManager.remove(mapMarker);
+			mapMarker = null;
+		}
 		lastTaskKill = null;
 		chatboxPanelManager.close();
 		menuHighlighter.clear();
@@ -246,6 +336,13 @@ public class SlayerSwapsPlugin extends Plugin
 		{
 			String norm = SlayerData.normalize(task.getName());
 			configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, OLD_DISABLED_KEY_PREFIX + norm);
+		}
+		// Development builds remembered portal chamber portals from other players' houses
+		configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, "housePortals");
+		// The jewellery box's teleport menu was once mistaken for the portal nexus's, saving its hotkeys as the nexus's
+		if (nexusKeys().containsKey("emir's arena"))
+		{
+			configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, NEXUS_KEYS_KEY);
 		}
 	}
 
@@ -268,6 +365,7 @@ public class SlayerSwapsPlugin extends Plugin
 	private void resumeGuidance()
 	{
 		lastTaskKill = null;
+		teleportedToward = false;
 		menusDirty = true;
 		updateCarriedRoute();
 	}
@@ -298,7 +396,7 @@ public class SlayerSwapsPlugin extends Plugin
 
 	private void trackObject(TileObject object)
 	{
-		if (TELEPORT_OBJECT_NAMES.contains(objectName(object)))
+		if (TELEPORT_OBJECT_NAMES.contains(objectName(object)) || isHousePortal(objectName(object)))
 		{
 			teleportObjects.add(object);
 			rememberHouseFurniture(objectName(object));
@@ -327,6 +425,61 @@ public class SlayerSwapsPlugin extends Plugin
 		{
 			configManager.setConfiguration(SlayerSwapsConfig.GROUP, JEWELLERY_BOX_KEY, tier);
 		}
+	}
+
+	/**
+	 * @return whether an object is a portal chamber's portal, like "Kourend Castle Portal": named for a place and
+	 * ending in "portal", but not the portal nexus or the house's exit portal
+	 */
+	private static boolean isHousePortal(String name)
+	{
+		return name.endsWith(HOUSE_PORTAL_SUFFIX) && !name.equals(PORTAL_NEXUS);
+	}
+
+	/**
+	 * @return the name (lower-case) of a portal chamber portal in the scene to a teleport spell's destination, or
+	 * null. Only ones in sight count, as in a friend's house: there's no telling the player's own house from another's,
+	 * so going home relies on the portal nexus
+	 */
+	private String housePortalFor(String spell)
+	{
+		String destination = spell.toLowerCase().replaceFirst(" teleport$", "");
+		for (TileObject object : teleportObjects)
+		{
+			String name = objectName(object);
+			if (isHousePortal(name))
+			{
+				String portal = name.substring(0, name.length() - HOUSE_PORTAL_SUFFIX.length());
+				if (portal.equals(destination) || portal.equals(NEXUS_OPTION_NAMES.get(destination)))
+				{
+					return name;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @return the destination of a portal chamber portal in the scene for a teleport spell, such as "Kourend
+	 * Castle", or null
+	 */
+	String housePortalOption(SlayerData.Route route)
+	{
+		if (route == null || route.routeType() != RouteType.SPELL)
+		{
+			return null;
+		}
+		String portal = housePortalFor(route.getValue());
+		for (TileObject object : teleportObjects)
+		{
+			ObjectComposition def = definition(object);
+			if (portal != null && def != null && portal.equalsIgnoreCase(def.getName()))
+			{
+				// The place as the portal names it: "Lunar Isle" for Moonclan Teleport
+				return def.getName().substring(0, def.getName().length() - HOUSE_PORTAL_SUFFIX.length());
+			}
+		}
+		return null;
 	}
 
 	private boolean fairyRingInScene()
@@ -385,8 +538,8 @@ public class SlayerSwapsPlugin extends Plugin
 	}
 
 	/**
-	 * @return how to use a portal nexus in the scene for a teleport spell's destination: its left-click when that
-	 * goes there, otherwise its teleport menu; or null with no nexus around
+	 * @return where a portal nexus in the scene takes the player for a teleport spell, such as "Kourend Castle", or
+	 * null with no nexus around
 	 */
 	String nexusOption(SlayerData.Route route)
 	{
@@ -406,25 +559,50 @@ public class SlayerSwapsPlugin extends Plugin
 	}
 
 	/**
-	 * @return how to take the player's portal nexus to a spell's destination, such as "Great Kourend" (its
-	 * left-click) or "Teleport Menu, 6: Kourend Castle"; or null if it's not known to go there
+	 * @return the player's portal nexus destination for a spell, such as "Great Kourend" (its left-click) or
+	 * "Kourend Castle" (in its teleport menu); or null if it's not known to go there
 	 */
 	String nexusHint(String spell)
 	{
-		String leftClick = configManager.getConfiguration(SlayerSwapsConfig.GROUP, NEXUS_LEFT_CLICK_KEY);
-		if (leftClick != null && isNexusOptionFor(leftClick, spell))
+		if (nexusLeftClickGoesTo(spell))
 		{
-			return leftClick;
+			return configManager.getConfiguration(SlayerSwapsConfig.GROUP, NEXUS_LEFT_CLICK_KEY);
 		}
 		String destination = spell.replaceFirst(" Teleport$", "");
-		String key = nexusKeys().get(destination.toLowerCase());
-		return key == null ? null : NEXUS_TELEPORT_MENU + ", " + key + ": " + destination;
+		// Known from its teleport menu, or the player says their house has one
+		return nexusKey(spell) != null || config.portalNexus() ? destination : null;
+	}
+
+	/**
+	 * @return the portal nexus menu hotkey for a spell's destination, under the spell's name or the place's
+	 * ("Lunar Isle" for Moonclan Teleport), or null if the menu hasn't been seen
+	 */
+	private String nexusKey(String spell)
+	{
+		String destination = spell.toLowerCase().replaceFirst(" teleport$", "");
+		Map<String, String> keys = nexusKeys();
+		String key = keys.get(destination);
+		return key != null ? key : keys.get(NEXUS_OPTION_NAMES.get(destination));
+	}
+
+	private boolean nexusLeftClickGoesTo(String spell)
+	{
+		String leftClick = configManager.getConfiguration(SlayerSwapsConfig.GROUP, NEXUS_LEFT_CLICK_KEY);
+		return leftClick != null && isNexusOptionFor(leftClick, spell);
 	}
 
 	private Map<String, String> nexusKeys()
 	{
+		return savedKeys(NEXUS_KEYS_KEY);
+	}
+
+	/**
+	 * @return a teleport menu's hotkeys by destination (lower-case), saved from the last time it was open
+	 */
+	private Map<String, String> savedKeys(String configKey)
+	{
 		Map<String, String> keys = new HashMap<>();
-		String saved = configManager.getConfiguration(SlayerSwapsConfig.GROUP, NEXUS_KEYS_KEY);
+		String saved = configManager.getConfiguration(SlayerSwapsConfig.GROUP, configKey);
 		if (saved != null)
 		{
 			for (String pair : saved.split(";"))
@@ -439,16 +617,16 @@ public class SlayerSwapsPlugin extends Plugin
 		return keys;
 	}
 
-	private void saveNexusKeys(Map<String, String> keys)
+	private void saveKeys(String configKey, Map<String, String> keys)
 	{
 		StringBuilder saved = new StringBuilder();
 		for (Map.Entry<String, String> e : new TreeMap<>(keys).entrySet())
 		{
 			saved.append(saved.length() == 0 ? "" : ";").append(e.getKey()).append('=').append(e.getValue());
 		}
-		if (!saved.toString().equals(configManager.getConfiguration(SlayerSwapsConfig.GROUP, NEXUS_KEYS_KEY)))
+		if (!saved.toString().equals(configManager.getConfiguration(SlayerSwapsConfig.GROUP, configKey)))
 		{
-			configManager.setConfiguration(SlayerSwapsConfig.GROUP, NEXUS_KEYS_KEY, saved.toString());
+			configManager.setConfiguration(SlayerSwapsConfig.GROUP, configKey, saved.toString());
 		}
 	}
 
@@ -468,8 +646,9 @@ public class SlayerSwapsPlugin extends Plugin
 			}
 			else if (route.routeType() == RouteType.SPELL)
 			{
-				// A house portal nexus can hold teleport spells' destinations
-				names.add(PORTAL_NEXUS);
+				// The house's portal chamber portal to the place, or else its portal nexus
+				String portal = housePortalFor(route.getValue());
+				names.add(portal != null ? portal : PORTAL_NEXUS);
 			}
 			else if (jewelleryTier(route) != null)
 			{
@@ -525,21 +704,6 @@ public class SlayerSwapsPlugin extends Plugin
 		if (event.getGroup().equals(SlayerSwapsConfig.GROUP))
 		{
 			menusDirty = true;
-			String key = event.getKey();
-			if (key.equals("randomKonarTask"))
-			{
-				// Ticking it picks a new random task; unticking goes back to the other test settings
-				randomKonarPick = null;
-			}
-			if (key.equals("simulatedTask") || key.equals("konarTestTask") || key.equals("randomKonarTask"))
-			{
-				clientThread.invokeLater(() ->
-				{
-					updateTask();
-					chat("Slayer Swaps test mode: " + (testTask() == null ? "off, using your real task"
-						: testTask()[0] + (testTask()[1] != null ? " in " + testTask()[1] + " (Konar)" : "")) + ".");
-				});
-			}
 			clientThread.invokeLater(this::updateCarriedRoute);
 		}
 	}
@@ -557,12 +721,29 @@ public class SlayerSwapsPlugin extends Plugin
 		}
 	}
 
+	/**
+	 * @return whether a lower-case item name is a slayer helmet (any variant) or black mask (any charge or imbue)
+	 */
+	static boolean isSlayerHeadgear(String name)
+	{
+		return name.contains("slayer helmet") || name.startsWith("black mask");
+	}
+
+	/**
+	 * @return whether a lower-case item name is slayer gear the plugin's options go on: slayer headgear, or an
+	 * enchanted or eternal gem
+	 */
+	static boolean isSlayerGear(String name)
+	{
+		return isSlayerHeadgear(name) || name.equals("enchanted gem") || name.equals("eternal gem");
+	}
+
 	private void updateSlayerHelmet()
 	{
 		ItemContainer worn = client.getItemContainer(InventoryID.WORN);
 		Item head = worn == null ? null : worn.getItem(EquipmentInventorySlot.HEAD.getSlotIdx());
 		boolean wearing = head != null && head.getId() > 0
-			&& client.getItemDefinition(head.getId()).getName().toLowerCase().contains("slayer helmet");
+			&& isSlayerHeadgear(client.getItemDefinition(head.getId()).getName().toLowerCase());
 		if (wearing != wearingSlayerHelmet)
 		{
 			wearingSlayerHelmet = wearing;
@@ -585,17 +766,24 @@ public class SlayerSwapsPlugin extends Plugin
 
 		int remaining = client.getVarpValue(VarPlayerID.SLAYER_COUNT);
 		String name = remaining > 0 ? lookupTaskName(client.getVarpValue(VarPlayerID.SLAYER_TARGET)) : null;
-		String[] test = testTask();
+		String[] test = TaskOverride.task;
 		boolean simulated = test != null;
 		if (simulated)
 		{
-			// Test mode: use the task picked in settings instead of the real one
+			// Testing: the task picked in the testing plugin instead of the real one
 			name = test[0];
 			remaining = 0;
 		}
+		if (TaskOverride.done)
+		{
+			// Testing: the task is done, so the way back to the slayer master shows
+			name = null;
+			remaining = 0;
+			simulated = true;
+		}
 		SlayerData.TaskData task = data.findTask(name);
 		boolean krystilia = !simulated && name != null && client.getVarbitValue(VarbitID.SLAYER_MASTER) == KRYSTILIA;
-		String area = simulated ? test[1] : name == null ? null : lookupKonarArea();
+		String area = name == null ? null : simulated ? test[1] : lookupKonarArea();
 		if (krystilia != krystiliaTask || !Objects.equals(area, konarArea))
 		{
 			krystiliaTask = krystilia;
@@ -617,6 +805,8 @@ public class SlayerSwapsPlugin extends Plugin
 		if (!sameTask)
 		{
 			taskName = name;
+			teleportedToward = false;
+			updateTaskNpcs();
 			lastTaskKill = null;
 			menusDirty = true;
 			updateCarriedRoute();
@@ -640,41 +830,6 @@ public class SlayerSwapsPlugin extends Plugin
 				&& t.getKonar().keySet().stream().anyMatch(a -> sameArea(areaKey(area), areaKey(a), false)));
 			log.debug("Konar area: {} -> {}", area, known ? "matches" : "no match");
 		}
-	}
-
-	/**
-	 * @return the task (and Konar area, or null) Test mode pretends to have, or null for the real task. Read
-	 * straight from the Testing settings, so what they show is what's used: Random Konar task when ticked, then
-	 * Konar task, then Test mode.
-	 */
-	private String[] testTask()
-	{
-		if (config.randomKonarTask())
-		{
-			if (randomKonarPick == null)
-			{
-				List<String[]> picks = new ArrayList<>();
-				for (SlayerData.TaskData task : data.getTasks())
-				{
-					if (task.getKonar() != null)
-					{
-						for (String area : task.getKonar().keySet())
-						{
-							picks.add(new String[]{task.getName(), area});
-						}
-					}
-				}
-				randomKonarPick = picks.get(ThreadLocalRandom.current().nextInt(picks.size()));
-			}
-			return randomKonarPick;
-		}
-		KonarTestTask konar = config.konarTestTask();
-		if (konar != KonarTestTask.OFF)
-		{
-			return new String[]{konar.getTask(), konar.getArea()};
-		}
-		SimulatedTask simulated = config.simulatedTask();
-		return simulated != SimulatedTask.OFF ? new String[]{simulated.getTask(), null} : null;
 	}
 
 	/**
@@ -704,7 +859,7 @@ public class SlayerSwapsPlugin extends Plugin
 		for (int i = 0; i < entries.length; i++)
 		{
 			int itemId = itemIdOf(entries[i]);
-			if (itemId > 0 && client.getItemDefinition(itemId).getName().toLowerCase().contains("slayer helmet"))
+			if (itemId > 0 && isSlayerGear(client.getItemDefinition(itemId).getName().toLowerCase()))
 			{
 				helmetIdx = i;
 				break;
@@ -715,53 +870,57 @@ public class SlayerSwapsPlugin extends Plugin
 			return;
 		}
 
-		List<String> labels = new ArrayList<>();
-		List<Runnable> actions = new ArrayList<>();
-		String option;
-		String target;
-		String title;
-		String selected;
 		SlayerData.TaskData task = data.findTask(taskName);
-		if (taskName != null)
+		if (taskName == null)
 		{
-			if (task == null)
-			{
-				return;
-			}
-			List<String> locations = taskLocations(task, true);
-			if (locations.isEmpty())
-			{
-				return;
-			}
-			selected = currentLocation();
-			option = "Location";
-			target = selected != null ? selected : konarArea != null ? konarArea : "Choose";
-			title = konarArea != null ? "Konar: " + konarArea + ". Where to do " + task.getName() + "?" : "Where to do " + task.getName() + "?";
+			// Entries added later at the same index sit lower in the menu: Master, then Teleport below it
+			addMasterChooser(helmetIdx);
+			addTeleportChooser(helmetIdx);
+			return;
+		}
+		// Master first, at the top, then Location and Teleport below it
+		addMasterChooser(helmetIdx);
+		List<String> locations = task == null ? Collections.emptyList() : taskLocations(task, true);
+		if (!locations.isEmpty())
+		{
+			List<String> labels = new ArrayList<>();
+			List<Runnable> actions = new ArrayList<>();
+			String selected = currentLocation() == null ? null : Routes.place(currentLocation());
+			String target = selected != null ? selected : konarArea != null ? konarArea : "Choose";
+			String title = konarArea != null ? "Konar: " + konarArea + ". Where to do " + task.getName() + "?"
+				: "Where to do " + task.getName() + "?";
 			for (String location : locations)
 			{
-				labels.add(location);
+				labels.add(Routes.place(location));
 				actions.add(() -> chooseLocation(task, location));
 			}
+			addChooserEntry(helmetIdx, "Location", target, title, labels, actions, selected);
+			addTeleportChooser(helmetIdx);
 		}
-		else
-		{
-			option = "Master";
-			target = config.slayerMaster().toString();
-			title = "Which slayer master?";
-			selected = target;
-			for (SlayerMaster master : SlayerMaster.values())
-			{
-				labels.add(master.toString());
-				actions.add(() ->
-				{
-					configManager.setConfiguration(SlayerSwapsConfig.GROUP, "slayerMaster", master);
-					chat("Slayer Swaps: slayer master set to " + master + ".");
-				});
-			}
-		}
+	}
 
-		addTeleportChooser(helmetIdx);
-		addChooserEntry(helmetIdx, option, target, title, labels, actions, selected);
+	/**
+	 * Adds "Master" to the slayer helmet's menu, to pick the slayer master to go back to after a task.
+	 */
+	private void addMasterChooser(int helmetIdx)
+	{
+		List<String> labels = new ArrayList<>();
+		List<Runnable> actions = new ArrayList<>();
+		String target = config.slayerMaster() == SlayerMaster.NOT_CHOSEN ? "Choose" : config.slayerMaster().toString();
+		for (SlayerMaster master : SlayerMaster.values())
+		{
+			if (master == SlayerMaster.NOT_CHOSEN)
+			{
+				continue;
+			}
+			labels.add(master.toString());
+			actions.add(() ->
+			{
+				configManager.setConfiguration(SlayerSwapsConfig.GROUP, "slayerMaster", master);
+				chat("Slayer Swaps: slayer master set to " + master + ".");
+			});
+		}
+		addChooserEntry(helmetIdx, "Master", target, "Which slayer master?", labels, actions, target);
 	}
 
 	/**
@@ -772,10 +931,20 @@ public class SlayerSwapsPlugin extends Plugin
 	{
 		String location = currentLocation();
 		List<SlayerData.Route> routes = baseRoutes();
-		SlayerData.Route next = nextRoute();
 		String key = chosenRouteKey();
-		if (routes.isEmpty() || next == null || key == null)
+		// The teleport chosen, or else the best one carried; shown even while guidance is paused (helmet off, at the
+		// task, or close enough to walk), since the choice still stands
+		String chosen = key == null ? null : configManager.getConfiguration(SlayerSwapsConfig.GROUP, key);
+		SlayerData.Route next = routes.stream().filter(r -> isChosen(r, chosen)).findFirst()
+			.orElse(chosen == null && !(taskName == null && awaitingChoice()) ? firstUsable(routes, carriedItemIds()) : null);
+		if (routes.isEmpty() || key == null)
 		{
+			// Still listed, so the menu always has the same three options: the teleports come with a location
+			client.getMenu().createMenuEntry(helmetIdx)
+				.setOption(ColorUtil.wrapWithColorTag("Teleport", config.highlightColor()))
+				.setTarget(ColorUtil.wrapWithColorTag(taskName == null ? "Choose a master first" : "Choose a location first",
+					Color.WHITE))
+				.setType(MenuAction.RUNELITE);
 			return;
 		}
 		String who = taskName != null ? taskName : config.slayerMaster().toString();
@@ -783,17 +952,17 @@ public class SlayerSwapsPlugin extends Plugin
 		List<Runnable> actions = new ArrayList<>();
 		for (SlayerData.Route route : routes)
 		{
-			String label = Routes.describe(data, route);
-			labels.add(label);
+			labels.add(Routes.shortName(data, route));
 			actions.add(() ->
 			{
 				configManager.setConfiguration(SlayerSwapsConfig.GROUP, key, Routes.key(route));
-				chat("Slayer Swaps: " + who + " teleport set to " + label + ".");
+				chat("Slayer Swaps: " + who + " teleport set to " + Routes.describe(data, route) + ".");
 			});
 		}
-		String current = Routes.describe(data, next);
-		addChooserEntry(helmetIdx, "Teleport", Routes.describeTeleport(data, next), "How to get to " + location + "?",
-			labels, actions, current);
+		// Before a slayer master's first teleport is chosen there's no next one yet
+		String current = next == null ? null : Routes.shortName(data, next);
+		addChooserEntry(helmetIdx, "Teleport", next == null ? "Choose" : current,
+			"How to get to " + Routes.place(location) + "?", labels, actions, current);
 	}
 
 	/**
@@ -837,10 +1006,26 @@ public class SlayerSwapsPlugin extends Plugin
 	 */
 	private void openChooser(String title, List<String> labels, List<Runnable> actions)
 	{
+		openChooser(title, labels, actions, 0);
+	}
+
+	/**
+	 * Shows one page of choices: the chatbox fits five lines, so longer lists show four with "More..." for the
+	 * next page, like the game's own dialogs.
+	 */
+	private void openChooser(String title, List<String> labels, List<Runnable> actions, int start)
+	{
 		ChatboxTextMenuInput menu = chatboxPanelManager.openTextMenuInput(title);
-		for (int i = 0; i < labels.size(); i++)
+		boolean paged = labels.size() > CHOOSER_LINES;
+		int end = paged ? Math.min(start + CHOOSER_LINES - 1, labels.size()) : labels.size();
+		for (int i = start; i < end; i++)
 		{
 			menu.option(labels.get(i), actions.get(i));
+		}
+		if (paged)
+		{
+			int next = end < labels.size() ? end : 0;
+			menu.option("More...", () -> openChooser(title, labels, actions, next));
 		}
 		chooser = menu.build();
 	}
@@ -854,7 +1039,7 @@ public class SlayerSwapsPlugin extends Plugin
 		MenuEntry clickedEntry = event.getMenuEntry();
 		String target = Text.removeTags(clickedEntry.getTarget()).toLowerCase();
 		if (CHECK_TASK.equalsIgnoreCase(Text.removeTags(clickedEntry.getOption()))
-			&& (target.contains("slayer helmet") || target.contains("enchanted gem") || target.contains("slayer ring")))
+			&& (isSlayerGear(target) || target.contains("slayer ring")))
 		{
 			// Checking the task shows the guidance again, like a fresh start
 			resumeGuidance();
@@ -883,16 +1068,17 @@ public class SlayerSwapsPlugin extends Plugin
 	 */
 	private void chooseLocation(SlayerData.TaskData task, String location)
 	{
+		teleportedToward = false;
 		if (!task.getLocations().contains(location))
 		{
 			// A location only Konar assigns isn't one of the task's usual places; it's used anyway while her task lasts
-			chat("Slayer Swaps: " + task.getName() + " at " + location + " (Konar's area).");
+			chat("Slayer Swaps: " + task.getName() + " at " + Routes.place(location) + " (Konar's area).");
 			return;
 		}
 		configManager.setConfiguration(SlayerSwapsConfig.GROUP, locationKey(task), location);
 		// A new location starts with its best teleport
 		configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, routeKey(task));
-		chat("Slayer Swaps: " + task.getName() + " set to " + location + ". Change it any time on your slayer helmet.");
+		chat("Slayer Swaps: " + task.getName() + " set to " + Routes.place(location) + ". Change it any time on your slayer helmet.");
 	}
 
 	private static String locationKey(SlayerData.TaskData task)
@@ -1051,12 +1237,378 @@ public class SlayerSwapsPlugin extends Plugin
 	}
 
 	/**
-	 * @return true when the current task has places to go but none has been chosen yet
+	 * @return true when there's a choice to make on the slayer helmet before teleports are swapped
 	 */
 	boolean awaitingChoice()
 	{
+		return choicePrompt() != null;
+	}
+
+	/**
+	 * @return what's still to be chosen on the slayer helmet, such as "to choose a location": a location for a
+	 * task with several, a slayer master with no task, and the first time back to each master, its teleport;
+	 * or null
+	 */
+	String choicePrompt()
+	{
+		if (taskName != null)
+		{
+			SlayerData.TaskData task = data.findTask(taskName);
+			return task != null && !atTask() && !taskLocations(task, true).isEmpty() && currentLocation() == null
+				? "to choose a location" : null;
+		}
+		if (config.slayerMaster() == SlayerMaster.NOT_CHOSEN)
+		{
+			return "to choose your slayer master";
+		}
+		return baseRoutes().size() > 1 && configManager.getConfiguration(SlayerSwapsConfig.GROUP, chosenRouteKey()) == null
+			? "to choose a teleport" : null;
+	}
+
+	/**
+	 * @return the tile the current task's monsters are around at the chosen location, or with no task the slayer
+	 * master's; null when the wiki doesn't say
+	 */
+	WorldPoint objective()
+	{
+		if (taskName == null)
+		{
+			SlayerData.MasterData master = data.master(config.slayerMaster().name());
+			return master == null || master.getSpot() == null ? null : master.getSpot().toWorldPoint();
+		}
 		SlayerData.TaskData task = data.findTask(taskName);
-		return task != null && !atTask() && !taskLocations(task, true).isEmpty() && currentLocation() == null;
+		String location = currentLocation();
+		SlayerData.Spot spot = task == null || location == null || task.getSpots() == null ? null
+			: task.getSpots().get(location);
+		return spot == null ? null : spot.toWorldPoint();
+	}
+
+	/**
+	 * @return where to walk now: the objective, or from the surface the way in to an objective underground; null
+	 * when that isn't known, or the objective is in another underground area
+	 */
+	WorldPoint heading()
+	{
+		WorldPoint target = objective();
+		WorldPoint player = playerLocation();
+		if (target == null || player == null)
+		{
+			return null;
+		}
+		boolean targetOnSurface = target.getY() < SURFACE_MAX_Y;
+		boolean playerOnSurface = player.getY() < SURFACE_MAX_Y;
+		if (targetOnSurface == playerOnSurface)
+		{
+			// Underground areas all share one part of the map, so only one that's close is the same area
+			return targetOnSurface || player.distanceTo2D(target) <= SAME_AREA_DISTANCE ? target : null;
+		}
+		SlayerData.LocationData location = playerOnSurface ? data.location(currentLocation()) : null;
+		return location == null || location.getEntrance() == null ? null : location.getEntrance().toWorldPoint();
+	}
+
+	/**
+	 * @return the player's tile, outside of instances too
+	 */
+	WorldPoint playerLocation()
+	{
+		Player player = client.getLocalPlayer();
+		return player == null ? null : WorldPoint.fromLocalInstance(client, player.getLocalLocation());
+	}
+
+	private void updateNearObjective()
+	{
+		WorldPoint heading = heading();
+		WorldPoint player = playerLocation();
+		WorldPoint before = lastTile;
+		lastTile = player;
+		if (heading == null)
+		{
+			teleportedToward = false;
+		}
+		else if (before != null && player != null && before.distanceTo2D(player) > TELEPORT_JUMP)
+		{
+			// A teleport: one of the location's other teleports counts too, when it lands much closer. Going home
+			// or anywhere farther away doesn't
+			int was = before.distanceTo2D(heading);
+			int now = player.distanceTo2D(heading);
+			teleportedToward = now <= EN_ROUTE_DISTANCE && now < was - TELEPORT_JUMP;
+		}
+		boolean near = heading != null && player != null
+			&& (player.distanceTo2D(heading) <= NEAR_DISTANCE || teleportedToward || atQuetzal())
+			// Where the wiki doesn't say where the monsters are, seeing them is arriving
+			|| taskName != null && objective() == null && !taskNpcs.isEmpty();
+		if (near != nearObjective)
+		{
+			nearObjective = near;
+			menusDirty = true;
+			updateCarriedRoute();
+		}
+	}
+
+	/**
+	 * @return after a teleport that lands on the way, the step left that the location's teleports share, like
+	 * "take the quetzal to the Teomat" for Ralos' Rise; null when it's a walk
+	 */
+	String walkNote()
+	{
+		if (!teleportedToward && !atQuetzal())
+		{
+			return null;
+		}
+		WorldPoint heading = heading();
+		WorldPoint player = playerLocation();
+		if (heading == null || player == null || player.distanceTo2D(heading) <= NEAR_DISTANCE)
+		{
+			return null;
+		}
+		String note = null;
+		for (SlayerData.Route route : baseRoutes())
+		{
+			if (route.getNote() != null)
+			{
+				if (note != null && !note.equals(route.getNote()))
+				{
+					return null;
+				}
+				note = route.getNote();
+			}
+		}
+		return note;
+	}
+
+	/**
+	 * @return the quetzal landing site to fly to, to outline on the quetzal map: the next teleport's, or after a
+	 * teleport that lands on the way, the one the location's teleports share; or null
+	 */
+	String quetzalStop()
+	{
+		SlayerData.Route next = nextRoute();
+		if (next != null && next.getQuetzal() != null)
+		{
+			return next.getQuetzal();
+		}
+		if (walkNote() == null)
+		{
+			return null;
+		}
+		for (SlayerData.Route route : baseRoutes())
+		{
+			if (route.getQuetzal() != null)
+			{
+				return route.getQuetzal();
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Keeps a marker on the world map at the task's monsters (or the slayer master), which also points from the map's
+	 * edge when it's out of view.
+	 */
+	private void updateMapMarker()
+	{
+		WorldPoint at = config.markOnMap() && !awaitingChoice() ? objective() : null;
+		String location = at == null ? null : currentLocation();
+		String tooltip = location == null ? null
+			: (taskName != null ? taskName : config.slayerMaster().toString()) + ": " + Routes.place(location);
+		if (mapMarker != null && at != null && at.equals(mapMarker.getWorldPoint()) && tooltip.equals(mapMarker.getTooltip()))
+		{
+			return;
+		}
+		if (mapMarker != null)
+		{
+			worldMapPointManager.remove(mapMarker);
+			mapMarker = null;
+		}
+		if (at != null && tooltip != null)
+		{
+			mapMarker = WorldMapPoint.builder()
+				.worldPoint(at)
+				.image(markerImage(config.highlightColor()))
+				.tooltip(tooltip)
+				.jumpOnClick(true)
+				.snapToEdge(true)
+				.build();
+			worldMapPointManager.add(mapMarker);
+		}
+	}
+
+	private static BufferedImage markerImage(Color colour)
+	{
+		BufferedImage image = new BufferedImage(15, 15, BufferedImage.TYPE_INT_ARGB);
+		Graphics2D g = image.createGraphics();
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setColor(Color.BLACK);
+		g.fillOval(0, 0, 15, 15);
+		g.setColor(colour);
+		g.fillOval(2, 2, 11, 11);
+		g.dispose();
+		return image;
+	}
+
+	boolean nearObjective()
+	{
+		return nearObjective;
+	}
+
+	/**
+	 * @return where the minimap arrow points, or null to hide it: close to the objective, until the monsters are
+	 * in sight, while guidance is on
+	 */
+	WorldPoint arrowTarget()
+	{
+		if (!config.taskArrow() || !nearObjective || atTask() || awaitingChoice()
+			|| config.onlyWithSlayerHelmet() && !wearingSlayerHelmet)
+		{
+			return null;
+		}
+		WorldPoint heading = heading();
+		WorldPoint player = playerLocation();
+		// Not while there's a step like a quetzal ride to take first: the arrow would point to a long run
+		return heading == null || player == null || player.distanceTo2D(heading) <= ARRIVED_DISTANCE
+			|| walkNote() != null ? null : heading;
+	}
+
+	/**
+	 * @return the task's monsters in the scene, to highlight
+	 */
+	Set<NPC> taskNpcs()
+	{
+		return taskNpcs;
+	}
+
+	@Subscribe
+	public void onNpcSpawned(NpcSpawned event)
+	{
+		if (isTaskNpc(event.getNpc()))
+		{
+			taskNpcs.add(event.getNpc());
+		}
+		if (isQuetzal(event.getNpc()))
+		{
+			quetzals.add(event.getNpc());
+		}
+	}
+
+	@Subscribe
+	public void onNpcDespawned(NpcDespawned event)
+	{
+		taskNpcs.remove(event.getNpc());
+		quetzals.remove(event.getNpc());
+	}
+
+	/**
+	 * @return whether an NPC is a quetzal to ride: Renu, a landing site's quetzal by ID, or one with the ride's own
+	 * options ("Travel" and "Last-destination")
+	 */
+	private static boolean isQuetzal(NPC npc)
+	{
+		// The quetzal is Renu wherever it lands
+		if (QUETZAL_IDS.contains(npc.getId()) || "Renu".equals(npc.getName()))
+		{
+			return true;
+		}
+		NPCComposition def = npc.getTransformedComposition();
+		List<String> actions = def == null || def.getActions() == null ? Collections.emptyList() : Arrays.asList(def.getActions());
+		return actions.contains("Travel") && actions.contains("Last-destination");
+	}
+
+	/**
+	 * @return true next to a quetzal landing site when the way to the location goes by quetzal, however the player
+	 * got there (logging in there, say): the ride is next, not another teleport
+	 */
+	private boolean atQuetzal()
+	{
+		if (quetzals.isEmpty())
+		{
+			return false;
+		}
+		for (SlayerData.Route route : baseRoutes())
+		{
+			if (route.getQuetzal() != null)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return the quetzals to outline: the landing site's, when the next step is a quetzal ride
+	 */
+	Set<NPC> quetzalsToHighlight()
+	{
+		return quetzalStop() != null && !atTask() && !(config.onlyWithSlayerHelmet() && !wearingSlayerHelmet)
+			? quetzals : Collections.emptySet();
+	}
+
+	private void updateTaskNpcs()
+	{
+		SlayerData.TaskData task = data.findTask(taskName);
+		Set<String> names = new HashSet<>();
+		if (task != null)
+		{
+			names.add(singular(task.getName().toLowerCase()));
+			for (String monster : task.getMonsters() == null ? Collections.<String>emptyList() : task.getMonsters())
+			{
+				// "Skeleton Hellhound (Vet'ion)" is called "Skeleton Hellhound" in the game
+				names.add(monster.replaceFirst("\\s*\\(.*\\)$", "").toLowerCase());
+			}
+		}
+		taskMonsterNames = names;
+		taskNpcs.clear();
+		if (client.getGameState() == GameState.LOGGED_IN)
+		{
+			for (NPC npc : client.getTopLevelWorldView().npcs())
+			{
+				if (isTaskNpc(npc))
+				{
+					taskNpcs.add(npc);
+				}
+			}
+		}
+	}
+
+	/**
+	 * @return whether an NPC is one of the task's monsters that can be attacked: its name is one the wiki gives the
+	 * task, or contains the task's name ("Ogre chieftain" for Ogres)
+	 */
+	private boolean isTaskNpc(NPC npc)
+	{
+		if (taskMonsterNames.isEmpty() || npc.getName() == null)
+		{
+			return false;
+		}
+		NPCComposition def = npc.getTransformedComposition();
+		if (def == null || def.getActions() == null || Arrays.stream(def.getActions()).noneMatch("Attack"::equals))
+		{
+			return false;
+		}
+		String name = Text.removeTags(npc.getName()).toLowerCase();
+		for (String monster : taskMonsterNames)
+		{
+			if (name.equals(monster) || Pattern.compile("\\b" + Pattern.quote(monster) + "\\b").matcher(name).find())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return a task's name for one monster: "Jellies" is "jelly", "Wolves" is "wolf", "Ogres" is "ogre"
+	 */
+	static String singular(String name)
+	{
+		if (name.endsWith("ies"))
+		{
+			return name.substring(0, name.length() - 3) + "y";
+		}
+		if (name.endsWith("ves"))
+		{
+			return name.substring(0, name.length() - 3) + "f";
+		}
+		return name.endsWith("s") && !name.endsWith("ss") ? name.substring(0, name.length() - 1) : name;
 	}
 
 	/**
@@ -1082,6 +1634,16 @@ public class SlayerSwapsPlugin extends Plugin
 		if (config.onlyWithSlayerHelmet() && !wearingSlayerHelmet || atTask())
 		{
 			// Nothing to guide: the player is at the task (until they leave, say to bank, or finish it)
+			return Collections.emptyList();
+		}
+		if (taskName == null && awaitingChoice())
+		{
+			// The first time back to a slayer master, wait for a teleport to be chosen
+			return Collections.emptyList();
+		}
+		if (nearObjective)
+		{
+			// Close enough to walk: no more teleports (the minimap arrow points the way)
 			return Collections.emptyList();
 		}
 
@@ -1142,8 +1704,13 @@ public class SlayerSwapsPlugin extends Plugin
 		{
 			return routes;
 		}
-		// The main teleport is done in the house
-		String step = houseStep(routes.get(0), carriedItemIds());
+		// The main teleport is done in the house: the chosen one, or else the best one usable without going home, so
+		// a carried max cape beats going home to the jewellery box for a combat bracelet
+		List<Integer> carried = carriedItemIds();
+		String key = chosenRouteKey();
+		String chosen = key == null ? null : configManager.getConfiguration(SlayerSwapsConfig.GROUP, key);
+		SlayerData.Route main = isChosen(routes.get(0), chosen) ? routes.get(0) : firstUsable(routes, carried);
+		String step = houseStep(main, carried);
 		if (step == null)
 		{
 			return routes;
@@ -1185,7 +1752,7 @@ public class SlayerSwapsPlugin extends Plugin
 		}
 		if (jewelleryBoxHas(route) && !isCarried(route, carried))
 		{
-			return "Jewellery box : " + jewelleryHint(route);
+			return "Jewellery box : " + route.getValue();
 		}
 		return null;
 	}
@@ -1214,7 +1781,8 @@ public class SlayerSwapsPlugin extends Plugin
 		for (TileObject object : teleportObjects)
 		{
 			String name = objectName(object);
-			if (name.equals(PORTAL_NEXUS) || name.equals(SPIRITUAL_FAIRY_TREE) || JEWELLERY_BOXES.containsKey(name))
+			if (name.equals(PORTAL_NEXUS) || name.equals(SPIRITUAL_FAIRY_TREE) || JEWELLERY_BOXES.containsKey(name)
+				|| isHousePortal(name))
 			{
 				return true;
 			}
@@ -1250,37 +1818,73 @@ public class SlayerSwapsPlugin extends Plugin
 	}
 
 	/**
-	 * @return the jewellery box destination, with its teleport menu hotkey when it's been seen
-	 */
-	String jewelleryHint(SlayerData.Route route)
-	{
-		String key = menuHighlighter.getJewelleryKeys().get(route.getValue().toLowerCase());
-		return key == null ? route.getValue() : key + ": " + route.getValue();
-	}
-
-	/**
 	 * @return the jewellery box destination to pick when the box stands in for jewellery that isn't carried, or null
 	 */
 	String jewelleryBoxOption(SlayerData.Route route)
 	{
 		return route != null && jewelleryTier(route) != null && jewelleryBoxInScene()
-			&& !isCarried(route, carriedItemIds()) ? jewelleryHint(route) : null;
+			&& !isCarried(route, carriedItemIds()) ? route.getValue() : null;
 	}
 
 	/**
-	 * @return text to show above a teleport object for the teleport in use, or null
+	 * @return the lines to show above a fairy ring (its code), or a portal nexus, jewellery box or Wilderness obelisk
+	 * for the teleport in use: "Press 6" for its teleport menu hotkey once the menu's been seen, otherwise "Click
+	 * here"; or null
 	 */
-	String objectLabel(String name, SlayerData.Route next)
+	List<String> objectLabel(TileObject object, String name, SlayerData.Route next)
 	{
+		if ((name.equals(FAIRY_RING) || name.equals(SPIRITUAL_FAIRY_TREE)) && next != null
+			&& next.routeType() == RouteType.FAIRY)
+		{
+			return Collections.singletonList(next.getValue());
+		}
+		if (isHousePortal(name) && next != null && next.routeType() == RouteType.SPELL)
+		{
+			return Collections.singletonList("Click here");
+		}
 		if (name.equals(PORTAL_NEXUS))
 		{
-			return nexusOption(next);
+			String destination = nexusOption(next);
+			if (destination == null)
+			{
+				return null;
+			}
+			String key = nexusKey(next.getValue());
+			return objectLines(nexusLeftClickGoesTo(next.getValue()), key);
 		}
 		if (JEWELLERY_BOXES.containsKey(name) && next != null && jewelleryTier(next) != null)
 		{
-			return jewelleryHint(next);
+			String destination = next.getValue();
+			ObjectComposition def = definition(object);
+			boolean leftClick = def != null && def.getActions() != null
+				&& Arrays.stream(def.getActions()).anyMatch(destination::equalsIgnoreCase);
+			return objectLines(leftClick, jewelleryKey(destination));
+		}
+		if (name.equals(OBELISK) && next != null && next.routeType() == RouteType.OBELISK)
+		{
+			return objectLines(false, savedKeys(OBELISK_KEYS_KEY).get(next.getValue().toLowerCase()));
 		}
 		return null;
+	}
+
+	/**
+	 * @return the jewellery box teleport menu's hotkey for a destination: the box's order is fixed, so it's known
+	 * before the menu has been opened
+	 */
+	private String jewelleryKey(String destination)
+	{
+		String name = destination.toLowerCase();
+		name = JEWELLERY_MENU_NAMES.getOrDefault(name, name);
+		String key = savedKeys(JEWELLERY_KEYS_KEY).get(name);
+		return key != null ? key : JEWELLERY_KEYS.get(name);
+	}
+
+	/**
+	 * @return "Click here" when the left-click goes there or the menu's hotkey isn't known yet, otherwise "Press 6"
+	 */
+	private static List<String> objectLines(boolean leftClick, String key)
+	{
+		return Collections.singletonList(leftClick || key == null ? "Click here" : "Press " + key);
 	}
 
 	/**
@@ -1291,9 +1895,14 @@ public class SlayerSwapsPlugin extends Plugin
 	{
 		String key = chosenRouteKey();
 		String chosen = key == null ? null : configManager.getConfiguration(SlayerSwapsConfig.GROUP, key);
+		if (!routes.isEmpty() && isHomeStep(routes.get(0)))
+		{
+			return routes.get(0);
+		}
+		// The teleport chosen on the slayer helmet, even when it isn't carried, so the choice shows what to bring
 		for (SlayerData.Route route : routes)
 		{
-			if (isChosen(route, chosen) && isUsable(route, carried))
+			if (isChosen(route, chosen))
 			{
 				return route;
 			}
@@ -1436,6 +2045,8 @@ public class SlayerSwapsPlugin extends Plugin
 	public void onGameTick(GameTick event)
 	{
 		checkLeftTask();
+		updateNearObjective();
+		updateMapMarker();
 		// Teleport dialogs are often built by scripts after the interface loads, so rescan each tick
 		menusDirty = true;
 		updateMenuHighlights();
@@ -1460,12 +2071,28 @@ public class SlayerSwapsPlugin extends Plugin
 				highlight.add(HOUSE_SPELL);
 			}
 		}
+		String quetzal = quetzalStop();
+		if (quetzal != null && config.highlightMenus())
+		{
+			SlayerData.Route ride = new SlayerData.Route();
+			ride.setType(RouteType.QUETZAL.getKey());
+			ride.setValue(quetzal);
+			highlight.add(ride);
+		}
 		menuHighlighter.update(highlight);
 		// The item to outline can change with things not tied to an event, like the house furniture nearby
 		updateCarriedRoute();
 		if (!menuHighlighter.getNexusKeys().isEmpty())
 		{
-			saveNexusKeys(menuHighlighter.getNexusKeys());
+			saveKeys(NEXUS_KEYS_KEY, menuHighlighter.getNexusKeys());
+		}
+		if (!menuHighlighter.getJewelleryKeys().isEmpty())
+		{
+			saveKeys(JEWELLERY_KEYS_KEY, menuHighlighter.getJewelleryKeys());
+		}
+		if (!menuHighlighter.getObeliskKeys().isEmpty())
+		{
+			saveKeys(OBELISK_KEYS_KEY, menuHighlighter.getObeliskKeys());
 		}
 	}
 

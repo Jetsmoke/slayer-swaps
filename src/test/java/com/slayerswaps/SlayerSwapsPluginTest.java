@@ -7,7 +7,7 @@ public class SlayerSwapsPluginTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(SlayerSwapsPlugin.class);
+		ExternalPluginManager.loadBuiltin(SlayerSwapsPlugin.class, SlayerSwapsTestingPlugin.class);
 		RuneLite.main(args);
 	}
 }

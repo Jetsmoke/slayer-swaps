@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum SlayerMaster
 {
+	// Until the player picks one on the slayer helmet
+	NOT_CHOSEN("Not chosen"),
 	MORTIMER("Mortimer"),
 	DURADEL("Duradel / Kuradal"),
 	NIEVE("Nieve / Steve"),

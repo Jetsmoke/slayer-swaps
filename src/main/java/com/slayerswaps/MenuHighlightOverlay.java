@@ -39,10 +39,11 @@ class MenuHighlightOverlay extends Overlay
 		graphics.setStroke(new BasicStroke(2));
 		for (Widget w : highlighter.getHighlighted())
 		{
-			if (!w.isHidden())
+			// Only the part its list shows, so an option scrolled half out of view isn't outlined over other panels
+			Rectangle visible = w.isHidden() ? null : MenuHighlighter.visibleBounds(w, 1);
+			if (visible != null)
 			{
-				Rectangle bounds = w.getBounds();
-				graphics.drawRect(bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2);
+				graphics.drawRect(visible.x, visible.y, visible.width - 1, visible.height - 1);
 			}
 		}
 		return null;

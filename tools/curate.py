@@ -8,6 +8,8 @@ import json, re, collections
 from autoroutes import routes_for
 import catalog
 import konar
+from fetch import raw
+import spots
 
 # ---- Teleport route constructors -------------------------------------------------------------
 # type: ring | fairy | portal (construction cape / max cape house portal) | maxcape | item | boat
@@ -75,7 +77,7 @@ LOCATIONS = {
     'Stalker Den': [fairy('AIS')],
     'Grimstone Dungeon': [fairy('DLP')],
     'Miscellania and Etceteria Dungeon': [fairy('CIP')],
-    'Feldip Hills': [fairy('AKS'), maxcape('Feldip Hunter area')],
+    'Feldip Hills': [fairy('AKS'), maxcape('Feldip Hills')],
     'Canifis': [fairy('CKS')],
     'Paterdomus': [fairy('CKS')],
     'Ardougne Zoo': [fairy('BIS')],
@@ -145,8 +147,8 @@ LOCATIONS = {
     "Dark Warriors' Fortress": [burning('Bandit Camp'), dueling('Ferox Enclave')],
     'Ferox Enclave': [dueling('Ferox Enclave'), obelisk(13)],
     'Bone Yard': [dueling('Ferox Enclave')],
-    'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
-    'Bone Yard Hunter area': [maxcape('Wilderness Hunter area')],
+    'Wilderness': [dueling('Ferox Enclave'), maxcape('Black chinchompas')],
+    'Bone Yard Hunter area': [maxcape('Black chinchompas')],
     'Edgeville': [glory('Edgeville'), fairy('DKR')],
     'Gryphons (dungeon)': [fairy('CJQ'), boat('The Great Conch')],
     'Shellbane Gryphon Cave': [fairy('CJQ'), boat('The Great Conch')],
@@ -256,7 +258,7 @@ OVERRIDE_ROUTES = {
     'Mor Ul Rek': [fairy('BLP'), item('ghommals_hilt', 'Mor Ul Rek'), glory('Karamja')],
     'Taverley Dungeon': [portal('Taverley'), spell('Falador Teleport')],
     'Varrock': [spell('Varrock Teleport'), item('ring_of_wealth', 'Grand Exchange')],
-    'Wilderness': [dueling('Ferox Enclave'), maxcape('Wilderness Hunter area')],
+    'Wilderness': [dueling('Ferox Enclave'), maxcape('Black chinchompas')],
     "Wizards' Tower": [item('necklace_of_passage', "Wizards' Tower"), fairy('DIS'), glory('Draynor Village')],
 }
 
@@ -275,6 +277,14 @@ OVERRIDE_ROUTES.update({
     'Deep Wilderness Dungeon': [spell('Ice Plateau Teleport'), lever(glory('Edgeville')), obelisk(44)],
     'Demonic Ruins': [spell('Annakarl Teleport'), obelisk(50)],
     'Ferox Enclave': [dueling('Ferox Enclave'), obelisk(13)],
+})
+
+# Varlamore: from Ralos' Rise's Transportation section, the quetzal from Civitas illa Fortis or the Hunter Guild to
+# the Teomat at the top
+TEOMAT = {'note': 'take the quetzal', 'quetzal': 'The Teomat'}
+OVERRIDE_ROUTES.update({
+    "Ralos' Rise": [item('pendant_of_ates', "Ralos' Rise"), dict(spell('Civitas illa Fortis Teleport'), **TEOMAT),
+                    dict(maxcape('Hunter Guild'), **TEOMAT), dict(item('hunter_cape', 'Teleport'), **TEOMAT)],
 })
 
 # Konar areas no task location covers, from each place's wiki page
@@ -307,11 +317,80 @@ EXTRA_LOCATIONS = {
     'Trolls': ['Keldagrim'],
 }
 
+# Teleports that land in the same place. Every location using one also gets the others, so whichever the player
+# carries is used (e.g. a max cape instead of a combat bracelet for the Warriors' Guild). Max cape labels are from the in-game menu; item labels from each item's wiki infobox options.
+SAME_DESTINATION = [
+    [item('combat_bracelet', "Warriors' Guild"), maxcape("Warrior's Guild"), item('strength_cape', "Warriors' Guild")],
+    [item('skills_necklace', 'Fishing Guild'), maxcape('Fishing Guild'), item('fishing_cape', 'Fishing Guild'),
+     spell('Fishing Guild Teleport')],
+    [item('skills_necklace', 'Crafting Guild'), maxcape('Crafting Guild'), item('crafting_cape', 'Teleport')],
+    [item('skills_necklace', 'Farming Guild'), maxcape('Farming Guild'), item('farming_cape', 'Teleport')],
+    [maxcape("Otto's Grotto"), item('fishing_cape', "Otto's Grotto")],
+    [item('games_necklace', 'Barbarian Outpost'), spell('Barbarian Teleport')],
+    [item('xerics_talisman', "Xeric's Heart"), spell('Kourend Castle Teleport'), item('diary_cape', 'Elise')],
+    [portal('Rellekka'), item('enchanted_lyre', 'Rellekka'), item('diary_cape', 'Thorodin')],
+    [portal('Prifddinas'), item('teleport_crystal', 'Prifddinas')],
+    [item('enchanted_lyre', 'Waterbirth Island'), spell('Waterbirth Teleport')],
+    [item('ghommals_hilt', 'Trollheim'), spell('Trollheim Teleport')],
+    # Achievement diary cape: each diary master stands where these other teleports land (positions from the wiki)
+    [gloves('Slayer Master'), item('diary_cape', 'Kaleb Paramaya')],
+    [item('ghommals_hilt', 'Mor Ul Rek'), item('diary_cape', 'TzHaar-Mej')],
+    [glory('Edgeville'), item('diary_cape', 'Lesser Fanatic')],
+    [glory('Draynor Village'), item('diary_cape', "Twiggy O'Korn")],
+    [item('royal_seed_pod', 'Commune'), item('diary_cape', 'Elder Gnome child')],
+    [spell('Falador Teleport'), item('diary_cape', 'Sir Rebral')],
+    [spell('Varrock Teleport'), item('diary_cape', 'Toby')],
+    [spell('Camelot Teleport'), item('diary_cape', 'Flax keeper')],
+    [spell('Ardougne Teleport'), item('diary_cape', 'Two-pints')],
+    [spell('Lumbridge Teleport'), item('diary_cape', 'Hatius Cosaintus')],
+    [spell('Kharyrll Teleport'), item('diary_cape', 'Le-sabrè')],
+    [portal('Brimhaven'), item('diary_cape', 'Pirate Jackie the Fruit')],
+    [item('ectophial', 'Teleport'), item('morytania_legs', 'Ecto Teleport')],
+    [boat('Lunar Isle'), spell('Moonclan Teleport')],
+    [boat('Weiss'), item('icy_basalt', 'Weiss')],
+]
+
+
+def same_key(r):
+    return r['type'], r.get('item'), r.get('value')
+
+
+def with_same_destination(routes):
+    """
+    Adds the other teleports to the same place after each route, keeping any step after arriving.
+    """
+    out = []
+    for r in routes:
+        for x in [r] + next((g for g in SAME_DESTINATION if same_key(r) in map(same_key, g)), []):
+            x = dict(x, **{k: r[k] for k in ('note', 'quetzal') if r.get(k)})
+            if same_key(x) not in map(same_key, out):
+                out.append(x)
+    return out
+
+
+def one_per_method(routes):
+    """
+    Keeps the best teleport of each kind (one fairy ring, one house portal, one spell, one option per item), so a
+    location doesn't list several fairy rings.
+    """
+    seen = set()
+    out = []
+    for r in routes:
+        method = r['type'], r.get('item')
+        if method not in seen:
+            seen.add(method)
+            out.append(r)
+    return out
+
+
+# Places whose own page has no entrance pin: the page of the place it's in, close enough to find the way in
+ENTRANCE_PAGE = {'Karuulm Slayer Dungeon': 'Mount Karuulm', 'Waterbirth Island Dungeon': 'Waterbirth Island'}
+
+FIGHT_CAVE_ENTRANCES = {'TzTok-Jad': {'x': 2439, 'y': 5172, 'plane': 0},
+                        'TzKal-Zuk': {'x': 2496, 'y': 5122, 'plane': 0}}
+
 BOSS_LOCATION_FIX = {'Waterbirth island': 'Waterbirth Island Dungeon', 'Morytania': 'Barrows'}
 
-# How many locations per task, and teleports per location, to keep (best first). Raise to show more.
-MAX_LOCATIONS = 3
-MAX_ROUTES = 3
 
 RANK = {'item': 2, 'spell': 2, 'obelisk': 3, 'amulet_of_glory': 1, 'ring': 0, 'portal': 1, 'fairy': 1, 'karamja_gloves': 1, 'burning_amulet': 1, 'ring_of_dueling': 1,
         'maxcape': 2, 'boat': 3}
@@ -327,7 +406,7 @@ _auto = {}
 def routes(loc):
     loc = canon(loc)
     if loc in OVERRIDE_ROUTES:
-        return OVERRIDE_ROUTES[loc][:MAX_ROUTES]
+        return one_per_method(with_same_destination(OVERRIDE_ROUTES[loc]))
     if loc not in _auto:
         merged = list(LOCATIONS.get(loc, []))
         for r in routes_for(loc) if loc else []:
@@ -337,7 +416,7 @@ def routes(loc):
         merged = [r for r in merged if not (r['type'] == 'item' and not r.get('value'))]
         # Best teleport types first; the hand-curated routes stay ahead of wiki-derived ones of the same rank
         merged.sort(key=route_rank)
-        _auto[loc] = merged[:MAX_ROUTES]
+        _auto[loc] = one_per_method(with_same_destination(merged))
     return _auto[loc]
 
 
@@ -367,9 +446,12 @@ def build():
         if routed:
             # Keep the best few normal and Wilderness locations; drop places no supported teleport reaches
             pinned = [canon(l) for l in EXTRA_LOCATIONS.get(name, []) if routes(l)]
-            normal = [l for l in routed if l not in WILDERNESS and l not in pinned][:MAX_LOCATIONS]
-            locs = list(dict.fromkeys(normal + pinned + [l for l in routed if l in WILDERNESS][:MAX_LOCATIONS]))
-        aliases = list(dict.fromkeys([name, t['page'].split('/')[-1]] + [m for m in t['monsters'] if m not in LOCATIONS]))
+            normal = [l for l in routed if l not in WILDERNESS and l not in pinned]
+            locs = list(dict.fromkeys(normal + pinned + [l for l in routed if l in WILDERNESS]))
+        # Never another task's name (Mogres links to the Ogres task page)
+        others = {x['task'].lower() for x in tasks if x['task'] != name}
+        aliases = list(dict.fromkeys(a for a in [name, t['page'].split('/')[-1]] + [m for m in t['monsters'] if m not in LOCATIONS]
+                                     if a.lower() not in others))
         out_tasks.append({'name': name, 'aliases': aliases, 'masters': t['masters'], 'boss': False,
                           'locations': locs})
 
@@ -389,6 +471,11 @@ def build():
             aliases = ['Crazy archaeologist', 'Deranged archaeologist']
         loc = BOSS_LOCATION_BY_NAME.get(aliases[0], loc)
         out_tasks.append({'name': aliases[0], 'aliases': aliases, 'masters': [], 'boss': True, 'locations': [loc]})
+
+    # TzTok-Jad and TzKal-Zuk: offered instead of a TzHaar task, done in Mor Ul Rek's Fight Cave and Inferno
+    for name, alias in (('TzTok-Jad', 'Jad'), ('TzKal-Zuk', 'Zuk')):
+        out_tasks.append({'name': name, 'aliases': [name, alias], 'masters': ['Chaeldar', 'Nieve', 'Duradel'],
+                          'boss': True, 'locations': ['Mor Ul Rek']})
 
     # Konar names the area with each task; keep her areas' locations that a teleport reaches
     for name, areas in konar.konar_areas().items():
@@ -416,10 +503,55 @@ def build():
         locations[l] = {'routes': routes(l), 'wilderness': l in WILDERNESS}
     for m in MASTERS:
         # Master routes are hand-checked: the wiki pages list too many detours to rely on extraction
-        locations.setdefault(m['location'], {'routes': m['routes'], 'wilderness': False})
+        locations.setdefault(m['location'], {'routes': with_same_destination(m['routes']), 'wilderness': False})
+
+    # Where the task's monsters are at each of its locations, for the minimap arrow, and their names, for
+    # highlighting them
+    task_pages = {t['task']: t for t in tasks}
+    for t in out_tasks:
+        src = task_pages.get(t['name'])
+        monsters = [t['name']] if t['boss'] else spots.monster_pages(raw(src['page'])) if src else []
+        found = {}
+        for page in ([src['page']] if src else []) + monsters:
+            for loc, pts in spots.spawns(raw(page)).items():
+                found.setdefault(canon(loc), []).extend(pts)
+        places = t['locations'] + [l for locs in t.get('konar', {}).values() for l in locs]
+        t['spots'] = {l: spots.target(found[l]) for l in dict.fromkeys(places) if found.get(l)}
+        # No spawns pinned there: the place's own pin, its entrance or the middle of it, is close enough to know
+        # the teleport is done
+        for l in dict.fromkeys(places):
+            if l not in t['spots']:
+                pin = spots.entrance(ENTRANCE_PAGE.get(l, l), surface_only=False)
+                if pin:
+                    t['spots'][l] = pin
+        if monsters:
+            t['monsters'] = list(dict.fromkeys(monsters))
+    # Their entrances in Mor Ul Rek, from the TzHaar Fight Cave and Inferno pages' maps
+    for t in out_tasks:
+        if t['name'] in FIGHT_CAVE_ENTRANCES:
+            t['spots'] = {'Mor Ul Rek': FIGHT_CAVE_ENTRANCES[t['name']]}
+            t.pop('monsters', None)
+    masters = [dict(m, routes=with_same_destination(m['routes'])) for m in MASTERS]
+    for m in masters:
+        spot = spots.master_spot(m['name'].split(' / ')[0])
+        if spot:
+            m['spot'] = spot
+    # The way in from the surface, for places underground or otherwise apart from the surface map
+    for t in out_tasks:
+        for l, spot in t['spots'].items():
+            if not spots.on_surface(spot) and l in locations and 'entrance' not in locations[l]:
+                e = spots.entrance(ENTRANCE_PAGE.get(l, l))
+                if e:
+                    locations[l]['entrance'] = e
+    for m in masters:
+        l = m['location']
+        if m.get('spot') and not spots.on_surface(m['spot']) and l in locations and 'entrance' not in locations[l]:
+            e = spots.entrance(ENTRANCE_PAGE.get(l, l))
+            if e:
+                locations[l]['entrance'] = e
 
     items = {k: {'label': v[0], 'names': v[1], 'options': v[2]} for k, v in catalog.ITEMS.items()}
-    data = {'locations': locations, 'tasks': out_tasks, 'masters': MASTERS, 'items': items}
+    data = {'locations': locations, 'tasks': out_tasks, 'masters': masters, 'items': items}
     return data
 
 
