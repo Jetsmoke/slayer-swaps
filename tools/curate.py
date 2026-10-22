@@ -64,7 +64,7 @@ LOCATIONS = {
     'Tower of Voices': [portal('Prifddinas')],
     'Zanaris': [fairy('BKS')],
     'Isle of Souls Dungeon': [fairy('BJP')],
-    'Isle of Souls': [fairy('BJP')],
+    'Isle of Souls': [fairy('BJP'), boat('Isle of Souls')],
     'Brine Rat Cavern': [fairy('DKS')],
     'Dorgesh-Kaan South Dungeon': [fairy('AJQ')],
     'Lizardman Settlement': [fairy('BLS')],
@@ -75,7 +75,7 @@ LOCATIONS = {
     'Morytania Spider Cave': [fairy('ALQ')],
     'Haunted Woods': [fairy('ALQ')],
     'Stalker Den': [fairy('AIS')],
-    'Grimstone Dungeon': [fairy('DLP')],
+    'Grimstone Dungeon': [fairy('DLP'), boat('Grimstone')],
     'Miscellania and Etceteria Dungeon': [fairy('CIP')],
     'Feldip Hills': [fairy('AKS'), maxcape('Feldip Hills')],
     'Canifis': [fairy('CKS')],
@@ -154,11 +154,12 @@ LOCATIONS = {
     'Shellbane Gryphon Cave': [fairy('CJQ'), boat('The Great Conch')],
     'Sophanem Dungeon': [fairy('AKP'), portal('Pollnivneach')],
     'Ghorrock Prison': [boat('Weiss')],
+    'Waterbirth Island': [boat('Waterbirth Island')],
     # Gaps filled from each place's wiki page (entrances, levers, nearby towns)
     'Stronghold of Security': [item('skull_sceptre', 'Invoke'), glory('Edgeville')],
     'Sourhog Cave': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
     'Killerwatt plane': [spell('Draynor Manor Teleport'), glory('Draynor Village')],
-    'Waterbirth Island Dungeon': [spell('Waterbirth Teleport'), item('enchanted_lyre', 'Waterbirth Island')],
+    'Waterbirth Island Dungeon': [spell('Waterbirth Teleport'), item('enchanted_lyre', 'Waterbirth Island'), boat('Waterbirth Island')],
     'Mole Lair': [spell('Falador Teleport'), item('ring_of_wealth', 'Falador')],
     'River Elid': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
     'Ruins of Unkah': [item('desert_amulet', 'Nardah'), fairy('DLQ')],
@@ -558,6 +559,9 @@ def build():
 if __name__ == '__main__':
     data = build()
     json.dump(data, open('slayer_locations.json', 'w'), indent=1, ensure_ascii=False)
+    # Where each teleport lands, for the world map
+    import landings
+    landings.main('slayer_locations.json')
     n_loc = sum(1 for v in data['locations'].values() if v['routes'])
     covered = sum(1 for t in data['tasks'] if any(data['locations'][l]['routes'] for l in t['locations']))
     print(len(data['tasks']), 'tasks;', covered, 'with at least one teleport;', len(data['locations']), 'locations,', n_loc, 'with teleports')

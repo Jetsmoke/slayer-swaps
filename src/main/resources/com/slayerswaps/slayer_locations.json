@@ -4,28 +4,48 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Stronghold"
+     "value": "Stronghold",
+     "landing": {
+      "x": 2433,
+      "y": 3421,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "royal_seed_pod",
-     "value": "Commune"
+     "value": "Commune",
+     "landing": {
+      "x": 2465,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elder Gnome child"
+     "value": "Elder Gnome child",
+     "landing": {
+      "x": 2467,
+      "y": 3459,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2428,
-    "y": 3425,
+    "x": 2427,
+    "y": 3424,
     "plane": 0
    }
   },
@@ -33,30 +53,60 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Slayer Tower"
+     "value": "Slayer Tower",
+     "landing": {
+      "x": 3423,
+      "y": 3536,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CKS"
+     "value": "CKS",
+     "landing": {
+      "x": 3446,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Salve Graveyard Teleport"
+     "value": "Salve Graveyard Teleport",
+     "landing": {
+      "x": 3433,
+      "y": 3461,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Le-sabrè"
+     "value": "Le-sabrè",
+     "landing": {
+      "x": 3465,
+      "y": 3477,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -66,26 +116,46 @@
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Heart"
+     "value": "Xeric's Heart",
+     "landing": {
+      "x": 1641,
+      "y": 3670,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DJR"
+     "value": "DJR",
+     "landing": {
+      "x": 1452,
+      "y": 3659,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1639,
-    "y": 3674,
+    "x": 1636,
+    "y": 3673,
     "plane": 0
    }
   },
@@ -93,7 +163,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "ALR"
+     "value": "ALR",
+     "landing": {
+      "x": 3059,
+      "y": 4877,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -102,7 +177,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DIP"
+     "value": "DIP",
+     "landing": {
+      "x": 3036,
+      "y": 4761,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -111,32 +191,64 @@
    "routes": [
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Corporeal Beast"
+     "value": "Corporeal Beast",
+     "landing": {
+      "x": 2967,
+      "y": 4384,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3202,
+       "y": 3681,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "wilderness_crabs_teleport",
-     "value": "Break"
+     "value": "Break",
+     "landing": {
+      "x": 3348,
+      "y": 3783,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "hunter_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1558,
+      "y": 3046,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true,
    "entrance": {
-    "x": 3260,
-    "y": 3664,
+    "x": 3259,
+    "y": 3666,
     "plane": 0
    }
   },
@@ -144,17 +256,32 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Edgeville"
+     "value": "Edgeville",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Lesser Fanatic"
+     "value": "Lesser Fanatic",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skull_sceptre",
-     "value": "Invoke"
+     "value": "Invoke",
+     "landing": {
+      "x": 3081,
+      "y": 3421,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -163,11 +290,21 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Lava Maze"
+     "value": "Lava Maze",
+     "landing": {
+      "x": 3028,
+      "y": 3840,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Cemetery Teleport"
+     "value": "Cemetery Teleport",
+     "landing": {
+      "x": 2978,
+      "y": 3763,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -176,47 +313,78 @@
    "routes": [
     {
      "type": "boat",
-     "value": "Ynysdail"
+     "value": "Ynysdail",
+     "landing": {
+      "x": 2222,
+      "y": 3466,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2218,
-    "y": 3477,
-    "plane": 0
+    "x": 2219,
+    "y": 3478,
+    "plane": 0,
+    "link": true
    }
   },
   "Morytania Spider Cave": {
    "routes": [
     {
      "type": "fairy",
-     "value": "ALQ"
+     "value": "ALQ",
+     "landing": {
+      "x": 3598,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "spider_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3658,
+      "y": 3403,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "hallowed_crystal_shard",
-     "value": "Activate"
+     "value": "Activate",
+     "landing": {
+      "x": 3653,
+      "y": 3386,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3657,
-    "y": 3407,
+    "x": 3656,
+    "y": 3409,
     "plane": 0
    }
   },
@@ -225,27 +393,47 @@
     {
      "type": "item",
      "item": "ghommals_hilt",
-     "value": "Trollheim"
+     "value": "Trollheim",
+     "landing": {
+      "x": 2898,
+      "y": 3709,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Trollheim Teleport"
+     "value": "Trollheim Teleport",
+     "landing": {
+      "x": 2891,
+      "y": 3678,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "stony_basalt",
-     "value": "Troll Stronghold"
+     "value": "Troll Stronghold",
+     "landing": {
+      "x": 2844,
+      "y": 3693,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2918,
-    "y": 3745,
+    "x": 2917,
+    "y": 3747,
     "plane": 0
    }
   },
@@ -253,20 +441,40 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Bandit Camp"
+     "value": "Bandit Camp",
+     "landing": {
+      "x": 3038,
+      "y": 3651,
+      "plane": 0
+     }
     },
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Cemetery Teleport"
+     "value": "Cemetery Teleport",
+     "landing": {
+      "x": 2978,
+      "y": 3763,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "revenant_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3127,
+      "y": 3833,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true,
@@ -280,7 +488,12 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Bandit Camp"
+     "value": "Bandit Camp",
+     "landing": {
+      "x": 3038,
+      "y": 3651,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -289,36 +502,73 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Fremennik Dungeon"
+     "value": "Fremennik Dungeon",
+     "landing": {
+      "x": 2800,
+      "y": 9998,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2796,
+       "y": 3615,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "fairy",
-     "value": "AJR"
+     "value": "AJR",
+     "landing": {
+      "x": 2779,
+      "y": 3615,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fremennik_sea_boots",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2640,
+      "y": 3675,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2797,
-    "y": 3616,
+    "x": 2796,
+    "y": 3615,
     "plane": 0
    }
   },
@@ -327,25 +577,40 @@
     {
      "type": "portal",
      "value": "Rellekka",
-     "note": "talk to Haskell on Rellekka's west dock"
+     "note": "talk to Haskell on Rellekka's west dock",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
      "value": "Rellekka",
-     "note": "talk to Haskell on Rellekka's west dock"
+     "note": "talk to Haskell on Rellekka's west dock",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Thorodin",
-     "note": "talk to Haskell on Rellekka's west dock"
+     "note": "talk to Haskell on Rellekka's west dock",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2621,
-    "y": 3691,
+    "x": 2620,
+    "y": 3695,
     "plane": 0
    }
   },
@@ -353,16 +618,38 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Wyrmscraig Cavern"
+     "value": "Wyrmscraig Cavern",
+     "landing": {
+      "x": 2773,
+      "y": 8633,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2529,
+       "y": 2206,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "Wyrmscraig"
+     "value": "Wyrmscraig",
+     "landing": {
+      "x": 2591,
+      "y": 2221,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Wyrmscraig"
+     "value": "Wyrmscraig",
+     "landing": {
+      "x": 2567,
+      "y": 2297,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -371,16 +658,31 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CKS"
+     "value": "CKS",
+     "landing": {
+      "x": 3446,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "lumberyard_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3303,
+      "y": 3487,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Salve Graveyard Teleport"
+     "value": "Salve Graveyard Teleport",
+     "landing": {
+      "x": 3433,
+      "y": 3461,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -389,7 +691,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKR"
+     "value": "BKR",
+     "landing": {
+      "x": 3468,
+      "y": 3433,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -398,44 +705,89 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIS"
+     "value": "CIS",
+     "landing": {
+      "x": 1636,
+      "y": 3869,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Hosidius"
+     "value": "Hosidius",
+     "landing": {
+      "x": 1744,
+      "y": 3517,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Heart"
+     "value": "Xeric's Heart",
+     "landing": {
+      "x": 1641,
+      "y": 3670,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Wintertodt Camp"
+     "value": "Wintertodt Camp",
+     "landing": {
+      "x": 1624,
+      "y": 3938,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -444,7 +796,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "ALQ"
+     "value": "ALQ",
+     "landing": {
+      "x": 3598,
+      "y": 3496,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -453,12 +810,22 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Aldarin"
+     "value": "Aldarin",
+     "landing": {
+      "x": 1422,
+      "y": 2966,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "North Aldarin"
+     "value": "North Aldarin",
+     "landing": {
+      "x": 1425,
+      "y": 2995,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -468,17 +835,39 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Slepe"
+     "value": "Slepe",
+     "landing": {
+      "x": 3808,
+      "y": 9700,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3727,
+       "y": 3300,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -488,12 +877,29 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Slepe"
+     "value": "Slepe",
+     "landing": {
+      "x": 3808,
+      "y": 9700,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3727,
+       "y": 3300,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -507,35 +913,70 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJP"
+     "value": "DJP",
+     "landing": {
+      "x": 2657,
+      "y": 3232,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Farm Teleport"
+     "value": "Farm Teleport",
+     "landing": {
+      "x": 2673,
+      "y": 3375,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2613,
+      "y": 3390,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -544,11 +985,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AIQ"
+     "value": "AIQ",
+     "landing": {
+      "x": 2995,
+      "y": 3112,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rimmington"
+     "value": "Rimmington",
+     "landing": {
+      "x": 2954,
+      "y": 3224,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -558,11 +1009,21 @@
     {
      "type": "item",
      "item": "mythical_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2458,
+      "y": 2851,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Corsair Cove"
+     "value": "Corsair Cove",
+     "landing": {
+      "x": 2579,
+      "y": 2843,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -572,21 +1033,41 @@
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "The Fisher's Flute"
+     "value": "The Fisher's Flute",
+     "landing": {
+      "x": 1802,
+      "y": 3748,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Heart"
+     "value": "Xeric's Heart",
+     "landing": {
+      "x": 1641,
+      "y": 3670,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -595,36 +1076,66 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJR"
+     "value": "DJR",
+     "landing": {
+      "x": 1452,
+      "y": 3659,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "History and Hearsay"
+     "value": "History and Hearsay",
+     "landing": {
+      "x": 1478,
+      "y": 3576,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Battlefront Teleport"
+     "value": "Battlefront Teleport",
+     "landing": {
+      "x": 1349,
+      "y": 3739,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1435,
-    "y": 3668,
+    "x": 1432,
+    "y": 3670,
     "plane": 0
    }
   },
@@ -632,22 +1143,37 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Taverley"
+     "value": "Taverley",
+     "landing": {
+      "x": 2894,
+      "y": 3465,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Falador Teleport",
+     "landing": {
+      "x": 2965,
+      "y": 3381,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2884,
-    "y": 3398,
+    "x": 2883,
+    "y": 3397,
     "plane": 0
    }
   },
@@ -655,25 +1181,52 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Edgeville"
+     "value": "Edgeville",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Lesser Fanatic"
+     "value": "Lesser Fanatic",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DKR"
+     "value": "DKR",
+     "landing": {
+      "x": 3126,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Paddewwa Teleport"
+     "value": "Paddewwa Teleport",
+     "landing": {
+      "x": 3097,
+      "y": 9880,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3096,
+       "y": 3469,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3097,
+    "x": 3096,
     "y": 3469,
     "plane": 0
    }
@@ -682,22 +1235,37 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Brimhaven"
+     "value": "Brimhaven",
+     "landing": {
+      "x": 2758,
+      "y": 3178,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Pirate Jackie the Fruit"
+     "value": "Pirate Jackie the Fruit",
+     "landing": {
+      "x": 2810,
+      "y": 3191,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CKR"
+     "value": "CKR",
+     "landing": {
+      "x": 2800,
+      "y": 3005,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2744,
-    "y": 3155,
+    "x": 2743,
+    "y": 3154,
     "plane": 0
    }
   },
@@ -706,12 +1274,22 @@
     {
      "type": "item",
      "item": "royal_seed_pod",
-     "value": "Commune"
+     "value": "Commune",
+     "landing": {
+      "x": 2465,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elder Gnome child"
+     "value": "Elder Gnome child",
+     "landing": {
+      "x": 2467,
+      "y": 3459,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -725,14 +1303,20 @@
    "routes": [
     {
      "type": "boat",
-     "value": "Charred Island"
+     "value": "Charred Island",
+     "landing": {
+      "x": 2660,
+      "y": 2395,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
     "x": 2637,
     "y": 2416,
-    "plane": 0
+    "plane": 0,
+    "link": true
    }
   },
   "Evil Chicken's Lair": {
@@ -740,26 +1324,55 @@
     {
      "type": "fairy",
      "value": "BKS",
-     "note": "use a raw chicken on the Chicken Shrine in Zanaris"
+     "note": "use a raw chicken on the Chicken Shrine in Zanaris",
+     "landing": {
+      "x": 2411,
+      "y": 4436,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3203,
+       "y": 3169,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3203,
+    "y": 3169,
+    "plane": 0,
+    "link": true
+   }
   },
   "Corsair Cove Dungeon": {
    "routes": [
     {
      "type": "item",
      "item": "mythical_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2458,
+      "y": 2851,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Corsair Cove"
+     "value": "Corsair Cove",
+     "landing": {
+      "x": 2579,
+      "y": 2843,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2523,
+    "x": 2522,
     "y": 2861,
     "plane": 0
    }
@@ -768,7 +1381,12 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Lava Maze"
+     "value": "Lava Maze",
+     "landing": {
+      "x": 3028,
+      "y": 3840,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -777,16 +1395,31 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DIS"
+     "value": "DIS",
+     "landing": {
+      "x": 3109,
+      "y": 3149,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -795,17 +1428,32 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Varrock Teleport"
+     "value": "Varrock Teleport",
+     "landing": {
+      "x": 3213,
+      "y": 3424,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Toby"
+     "value": "Toby",
+     "landing": {
+      "x": 3224,
+      "y": 3414,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_wealth",
-     "value": "Grand Exchange"
+     "value": "Grand Exchange",
+     "landing": {
+      "x": 3162,
+      "y": 3480,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -814,22 +1462,42 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Mind Altar Teleport"
+     "value": "Mind Altar Teleport",
+     "landing": {
+      "x": 2979,
+      "y": 3509,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Monastery"
+     "value": "Monastery",
+     "landing": {
+      "x": 3053,
+      "y": 3487,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -838,16 +1506,31 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Lava Maze"
+     "value": "Lava Maze",
+     "landing": {
+      "x": 3028,
+      "y": 3840,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ghorrock Teleport"
+     "value": "Ghorrock Teleport",
+     "landing": {
+      "x": 2977,
+      "y": 3872,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "revenant_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3127,
+      "y": 3833,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -856,16 +1539,38 @@
    "routes": [
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Corporeal Beast"
+     "value": "Corporeal Beast",
+     "landing": {
+      "x": 2967,
+      "y": 4384,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3202,
+       "y": 3681,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -874,12 +1579,74 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3239,
+      "y": 6076,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     },
     {
      "type": "item",
      "item": "teleport_crystal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3264,
+      "y": 6065,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
    "wilderness": false
@@ -888,17 +1655,32 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLS"
+     "value": "DLS",
+     "landing": {
+      "x": 3494,
+      "y": 3464,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "hallowed_crystal_shard",
-     "value": "Activate"
+     "value": "Activate",
+     "landing": {
+      "x": 3653,
+      "y": 3386,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Darkmeyer"
+     "value": "Darkmeyer",
+     "landing": {
+      "x": 3592,
+      "y": 3337,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -908,7 +1690,12 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Ver Sinhaza"
+     "value": "Ver Sinhaza",
+     "landing": {
+      "x": 3649,
+      "y": 3230,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -917,15 +1704,30 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CIQ"
+     "value": "CIQ",
+     "landing": {
+      "x": 2527,
+      "y": 3129,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Watchtower Teleport"
+     "value": "Watchtower Teleport",
+     "landing": {
+      "x": 2547,
+      "y": 3114,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -934,32 +1736,57 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Taverley"
+     "value": "Taverley",
+     "landing": {
+      "x": 2894,
+      "y": 3465,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Warriors' Guild"
+     "value": "Warriors' Guild",
+     "landing": {
+      "x": 2883,
+      "y": 3549,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Warrior's Guild"
+     "value": "Warrior's Guild",
+     "landing": {
+      "x": 2865,
+      "y": 3546,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "strength_cape",
-     "value": "Warriors' Guild"
+     "value": "Warriors' Guild",
+     "landing": {
+      "x": 2865,
+      "y": 3546,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2893,
-    "y": 3510,
+    "x": 2891,
+    "y": 3507,
     "plane": 0
    }
   },
@@ -967,12 +1794,17 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BJP"
+     "value": "BJP",
+     "landing": {
+      "x": 2264,
+      "y": 2976,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2309,
+    "x": 2308,
     "y": 2919,
     "plane": 0
    }
@@ -981,17 +1813,32 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1001,13 +1848,18 @@
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "Twilight Temple"
+     "value": "Twilight Temple",
+     "landing": {
+      "x": 1666,
+      "y": 3223,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
     "x": 1693,
-    "y": 3232,
+    "y": 3231,
     "plane": 0
    }
   },
@@ -1015,21 +1867,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DKS"
+     "value": "DKS",
+     "landing": {
+      "x": 2743,
+      "y": 3721,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -1043,7 +1915,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AJQ"
+     "value": "AJQ",
+     "landing": {
+      "x": 3208,
+      "y": 3218,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1052,17 +1929,27 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lumbridge Teleport"
+     "value": "Lumbridge Teleport",
+     "landing": {
+      "x": 3222,
+      "y": 3218,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Hatius Cosaintus"
+     "value": "Hatius Cosaintus",
+     "landing": {
+      "x": 3239,
+      "y": 3220,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3169,
+    "x": 3168,
     "y": 3172,
     "plane": 0
    }
@@ -1072,13 +1959,18 @@
     {
      "type": "item",
      "item": "mos_leharmless_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3701,
+      "y": 2996,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3748,
-    "y": 2974,
+    "x": 3747,
+    "y": 2973,
     "plane": 0
    }
   },
@@ -1086,17 +1978,27 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AKQ"
+     "value": "AKQ",
+     "landing": {
+      "x": 2318,
+      "y": 3617,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "western_banner",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2329,
+      "y": 3685,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2278,
+    "x": 2277,
     "y": 3611,
     "plane": 0
    }
@@ -1105,17 +2007,27 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Watchtower Teleport"
+     "value": "Watchtower Teleport",
+     "landing": {
+      "x": 2547,
+      "y": 3114,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2570,
-    "y": 3123,
+    "x": 2568,
+    "y": 3122,
     "plane": 0
    }
   },
@@ -1124,35 +2036,70 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2613,
+      "y": 3390,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Fishing Guild Teleport"
+     "value": "Fishing Guild Teleport",
+     "landing": {
+      "x": 2612,
+      "y": 3391,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Farm Teleport"
+     "value": "Farm Teleport",
+     "landing": {
+      "x": 2673,
+      "y": 3375,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1162,17 +2109,39 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Slepe"
+     "value": "Slepe",
+     "landing": {
+      "x": 3808,
+      "y": 9700,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3727,
+       "y": 3300,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1181,7 +2150,12 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Chaos Temple"
+     "value": "Chaos Temple",
+     "landing": {
+      "x": 3234,
+      "y": 3637,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -1190,21 +2164,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJP"
+     "value": "DJP",
+     "landing": {
+      "x": 2657,
+      "y": 3232,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1213,35 +2207,70 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIR"
+     "value": "CIR",
+     "landing": {
+      "x": 1303,
+      "y": 3762,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Battlefront Teleport"
+     "value": "Battlefront Teleport",
+     "landing": {
+      "x": 1349,
+      "y": 3739,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "radas_blessing",
-     "value": "Mount Karuulm"
+     "value": "Mount Karuulm",
+     "landing": {
+      "x": 1311,
+      "y": 3795,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Honour"
+     "value": "Xeric's Honour",
+     "landing": {
+      "x": 1254,
+      "y": 3559,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1250,21 +2279,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CJR"
+     "value": "CJR",
+     "landing": {
+      "x": 2704,
+      "y": 3578,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Camelot Teleport"
+     "value": "Camelot Teleport",
+     "landing": {
+      "x": 2757,
+      "y": 3477,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Flax keeper"
+     "value": "Flax keeper",
+     "landing": {
+      "x": 2744,
+      "y": 3444,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kandarin_headgear",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2729,
+      "y": 3411,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1273,16 +2322,31 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Watchtower Teleport"
+     "value": "Watchtower Teleport",
+     "landing": {
+      "x": 2547,
+      "y": 3114,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1291,49 +2355,152 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3239,
+      "y": 6076,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     },
     {
      "type": "item",
      "item": "teleport_crystal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3264,
+      "y": 6065,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2297,
+    "y": 3327,
+    "plane": 0,
+    "link": true
+   }
   },
   "Hosidius": {
    "routes": [
     {
      "type": "portal",
-     "value": "Hosidius"
+     "value": "Hosidius",
+     "landing": {
+      "x": 1744,
+      "y": 3517,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "AKR"
+     "value": "AKR",
+     "landing": {
+      "x": 1823,
+      "y": 3539,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Glade"
+     "value": "Xeric's Glade",
+     "landing": {
+      "x": 1754,
+      "y": 3564,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "Lunch by the Lancalliums"
+     "value": "Lunch by the Lancalliums",
+     "landing": {
+      "x": 1713,
+      "y": 3612,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Woodcutting Guild"
+     "value": "Woodcutting Guild",
+     "landing": {
+      "x": 1662,
+      "y": 3505,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1342,16 +2509,31 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Rimmington"
+     "value": "Rimmington",
+     "landing": {
+      "x": 2954,
+      "y": 3224,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Falador Teleport",
+     "landing": {
+      "x": 2965,
+      "y": 3381,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1360,16 +2542,49 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKS"
+     "value": "BKS",
+     "landing": {
+      "x": 2411,
+      "y": 4436,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3203,
+       "y": 3169,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3203,
+    "y": 3169,
+    "plane": 0,
+    "link": true
+   }
   },
   "Isle of Souls": {
    "routes": [
     {
      "type": "fairy",
-     "value": "BJP"
+     "value": "BJP",
+     "landing": {
+      "x": 2264,
+      "y": 2976,
+      "plane": 0
+     }
+    },
+    {
+     "type": "boat",
+     "value": "Isle of Souls",
+     "landing": {
+      "x": 2282,
+      "y": 2823,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1378,12 +2593,22 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lumbridge Teleport"
+     "value": "Lumbridge Teleport",
+     "landing": {
+      "x": 3222,
+      "y": 3218,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Hatius Cosaintus"
+     "value": "Hatius Cosaintus",
+     "landing": {
+      "x": 3239,
+      "y": 3220,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1392,12 +2617,22 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lumbridge Teleport"
+     "value": "Lumbridge Teleport",
+     "landing": {
+      "x": 3222,
+      "y": 3218,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Hatius Cosaintus"
+     "value": "Hatius Cosaintus",
+     "landing": {
+      "x": 3239,
+      "y": 3220,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1406,17 +2641,32 @@
    "routes": [
     {
      "type": "maxcape",
-     "value": "Crafting Guild"
+     "value": "Crafting Guild",
+     "landing": {
+      "x": 2931,
+      "y": 3286,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Crafting Guild"
+     "value": "Crafting Guild",
+     "landing": {
+      "x": 2934,
+      "y": 3294,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "crafting_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2931,
+      "y": 3286,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1426,7 +2676,12 @@
     {
      "type": "item",
      "item": "digsite_pendant",
-     "value": "Fossil Island"
+     "value": "Fossil Island",
+     "landing": {
+      "x": 3763,
+      "y": 3869,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1435,12 +2690,31 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Waterbirth Teleport"
+     "value": "Waterbirth Teleport",
+     "landing": {
+      "x": 2546,
+      "y": 3755,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Waterbirth Island"
+     "value": "Waterbirth Island",
+     "landing": {
+      "x": 2550,
+      "y": 3756,
+      "plane": 0
+     }
+    },
+    {
+     "type": "boat",
+     "value": "Waterbirth Island",
+     "landing": {
+      "x": 2543,
+      "y": 3765,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1449,12 +2723,22 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLQ"
+     "value": "DLQ",
+     "landing": {
+      "x": 3422,
+      "y": 3018,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "desert_amulet",
-     "value": "Nardah"
+     "value": "Nardah",
+     "landing": {
+      "x": 3425,
+      "y": 2928,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1463,12 +2747,22 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLQ"
+     "value": "DLQ",
+     "landing": {
+      "x": 3422,
+      "y": 3018,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "desert_amulet",
-     "value": "Nardah"
+     "value": "Nardah",
+     "landing": {
+      "x": 3425,
+      "y": 2928,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1477,12 +2771,22 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLQ"
+     "value": "DLQ",
+     "landing": {
+      "x": 3422,
+      "y": 3018,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "desert_amulet",
-     "value": "Nardah"
+     "value": "Nardah",
+     "landing": {
+      "x": 3425,
+      "y": 2928,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1491,22 +2795,37 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AIS"
+     "value": "AIS",
+     "landing": {
+      "x": 1430,
+      "y": 3323,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "Nemus Retreat"
+     "value": "Nemus Retreat",
+     "landing": {
+      "x": 1364,
+      "y": 3277,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Honour"
+     "value": "Xeric's Honour",
+     "landing": {
+      "x": 1254,
+      "y": 3559,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1325,
+    "x": 1324,
     "y": 3364,
     "plane": 0
    }
@@ -1515,36 +2834,66 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "ALP"
+     "value": "ALP",
+     "landing": {
+      "x": 2502,
+      "y": 3638,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Barbarian Outpost"
+     "value": "Barbarian Outpost",
+     "landing": {
+      "x": 2520,
+      "y": 3571,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barbarian Teleport"
+     "value": "Barbarian Teleport",
+     "landing": {
+      "x": 2543,
+      "y": 3568,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2509,
-    "y": 3641,
+    "x": 2508,
+    "y": 3644,
     "plane": 0
    }
   },
@@ -1552,18 +2901,37 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Waterbirth Teleport"
+     "value": "Waterbirth Teleport",
+     "landing": {
+      "x": 2546,
+      "y": 3755,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Waterbirth Island"
+     "value": "Waterbirth Island",
+     "landing": {
+      "x": 2550,
+      "y": 3756,
+      "plane": 0
+     }
+    },
+    {
+     "type": "boat",
+     "value": "Waterbirth Island",
+     "landing": {
+      "x": 2543,
+      "y": 3765,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2525,
-    "y": 3743,
+    "x": 2520,
+    "y": 3740,
     "plane": 0
    }
   },
@@ -1571,7 +2939,12 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Dark Beasts"
+     "value": "Dark Beasts",
+     "landing": {
+      "x": 2028,
+      "y": 4638,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -1585,31 +2958,61 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJR"
+     "value": "DJR",
+     "landing": {
+      "x": 1452,
+      "y": 3659,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Lookout"
+     "value": "Xeric's Lookout",
+     "landing": {
+      "x": 1576,
+      "y": 3528,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "History and Hearsay"
+     "value": "History and Hearsay",
+     "landing": {
+      "x": 1478,
+      "y": 3576,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Woodcutting Guild"
+     "value": "Woodcutting Guild",
+     "landing": {
+      "x": 1662,
+      "y": 3505,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1618,22 +3021,42 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJR"
+     "value": "DJR",
+     "landing": {
+      "x": 1452,
+      "y": 3659,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Inferno"
+     "value": "Xeric's Inferno",
+     "landing": {
+      "x": 1504,
+      "y": 3819,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "Jewellery of Jubilation"
+     "value": "Jewellery of Jubilation",
+     "landing": {
+      "x": 1544,
+      "y": 3762,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Wintertodt Camp"
+     "value": "Wintertodt Camp",
+     "landing": {
+      "x": 1624,
+      "y": 3938,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1642,15 +3065,30 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Bandit Camp"
+     "value": "Bandit Camp",
+     "landing": {
+      "x": 3038,
+      "y": 3651,
+      "plane": 0
+     }
     },
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Dareeyak Teleport"
+     "value": "Dareeyak Teleport",
+     "landing": {
+      "x": 2969,
+      "y": 3695,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -1659,7 +3097,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "ALS"
+     "value": "ALS",
+     "landing": {
+      "x": 2643,
+      "y": 3497,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1669,30 +3112,55 @@
     {
      "type": "item",
      "item": "radas_blessing",
-     "value": "Mount Karuulm"
+     "value": "Mount Karuulm",
+     "landing": {
+      "x": 1311,
+      "y": 3795,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CIR"
+     "value": "CIR",
+     "landing": {
+      "x": 1303,
+      "y": 3762,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1311,
+    "x": 1308,
     "y": 3807,
     "plane": 0
    }
@@ -1701,16 +3169,26 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Pollnivneach"
+     "value": "Pollnivneach",
+     "landing": {
+      "x": 3340,
+      "y": 3004,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DLQ"
+     "value": "DLQ",
+     "landing": {
+      "x": 3422,
+      "y": 3018,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3310,
+    "x": 3309,
     "y": 2962,
     "plane": 0
    }
@@ -1720,26 +3198,58 @@
     {
      "type": "item",
      "item": "fremennik_sea_boots",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2640,
+      "y": 3675,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_wealth",
-     "value": "Dondakan"
+     "value": "Dondakan",
+     "landing": {
+      "x": 2831,
+      "y": 10165,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2795,
+       "y": 3718,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": false
@@ -1748,15 +3258,30 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CLS"
+     "value": "CLS",
+     "landing": {
+      "x": 2681,
+      "y": 3083,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Watchtower Teleport"
+     "value": "Watchtower Teleport",
+     "landing": {
+      "x": 2547,
+      "y": 3114,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1765,22 +3290,42 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lassar Teleport"
+     "value": "Lassar Teleport",
+     "landing": {
+      "x": 3002,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Monastery"
+     "value": "Monastery",
+     "landing": {
+      "x": 3053,
+      "y": 3487,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skull_sceptre",
-     "value": "Invoke"
+     "value": "Invoke",
+     "landing": {
+      "x": 3081,
+      "y": 3421,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "chronicle",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3202,
+      "y": 3357,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1790,16 +3335,38 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Mining Guild"
+     "value": "Mining Guild",
+     "landing": {
+      "x": 3049,
+      "y": 9762,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3058,
+       "y": 3377,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Falador Teleport",
+     "landing": {
+      "x": 2965,
+      "y": 3381,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1809,26 +3376,53 @@
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Monastery"
+     "value": "Monastery",
+     "landing": {
+      "x": 3053,
+      "y": 3487,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Lassar Teleport"
+     "value": "Lassar Teleport",
+     "landing": {
+      "x": 3002,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Mining Guild"
+     "value": "Mining Guild",
+     "landing": {
+      "x": 3049,
+      "y": 9762,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3058,
+       "y": 3377,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3018,
+    "x": 3017,
     "y": 3450,
     "plane": 0
    }
@@ -1837,17 +3431,32 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Falador Teleport",
+     "landing": {
+      "x": 2965,
+      "y": 3381,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_wealth",
-     "value": "Falador"
+     "value": "Falador",
+     "landing": {
+      "x": 2995,
+      "y": 3375,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1856,22 +3465,95 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3239,
+      "y": 6076,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     },
     {
      "type": "item",
      "item": "teleport_crystal",
-     "value": "Prifddinas"
+     "value": "Prifddinas",
+     "landing": {
+      "x": 3264,
+      "y": 6065,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2183,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3270,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2297,
+       "y": 3327,
+       "plane": 0,
+       "link": true
+      },
+      {
+       "x": 2239,
+       "y": 3384,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 2297,
+    "y": 3327,
+    "plane": 0,
+    "link": true
+   }
   },
   "Lletya": {
    "routes": [
     {
      "type": "item",
      "item": "teleport_crystal",
-     "value": "Lletya"
+     "value": "Lletya",
+     "landing": {
+      "x": 2330,
+      "y": 3172,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1881,7 +3563,12 @@
     {
      "type": "item",
      "item": "teleport_crystal",
-     "value": "Lletya"
+     "value": "Lletya",
+     "landing": {
+      "x": 2330,
+      "y": 3172,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -1890,35 +3577,70 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AKR"
+     "value": "AKR",
+     "landing": {
+      "x": 1823,
+      "y": 3539,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Hosidius"
+     "value": "Hosidius",
+     "landing": {
+      "x": 1744,
+      "y": 3517,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Woodcutting Guild"
+     "value": "Woodcutting Guild",
+     "landing": {
+      "x": 1662,
+      "y": 3505,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "radas_blessing",
-     "value": "Kourend Woodland"
+     "value": "Kourend Woodland",
+     "landing": {
+      "x": 1553,
+      "y": 3454,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Lookout"
+     "value": "Xeric's Lookout",
+     "landing": {
+      "x": 1576,
+      "y": 3528,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -1933,18 +3655,28 @@
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3679,
-    "y": 3537,
+    "x": 3680,
+    "y": 3538,
     "plane": 0
    }
   },
@@ -1953,20 +3685,40 @@
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Barbarian Outpost"
+     "value": "Barbarian Outpost",
+     "landing": {
+      "x": 2520,
+      "y": 3571,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barbarian Teleport"
+     "value": "Barbarian Teleport",
+     "landing": {
+      "x": 2543,
+      "y": 3568,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Otto's Grotto"
+     "value": "Otto's Grotto",
+     "landing": {
+      "x": 2504,
+      "y": 3484,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Otto's Grotto"
+     "value": "Otto's Grotto",
+     "landing": {
+      "x": 2504,
+      "y": 3484,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -1981,26 +3733,46 @@
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Heart"
+     "value": "Xeric's Heart",
+     "landing": {
+      "x": 1641,
+      "y": 3670,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kourend Castle Teleport"
+     "value": "Kourend Castle Teleport",
+     "landing": {
+      "x": 1643,
+      "y": 3672,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elise"
+     "value": "Elise",
+     "landing": {
+      "x": 1647,
+      "y": 3666,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "History and Hearsay"
+     "value": "History and Hearsay",
+     "landing": {
+      "x": 1478,
+      "y": 3576,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1420,
+    "x": 1419,
     "y": 3588,
     "plane": 0
    }
@@ -2009,28 +3781,48 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Ice Plateau Teleport"
+     "value": "Ice Plateau Teleport",
+     "landing": {
+      "x": 2973,
+      "y": 3939,
+      "plane": 0
+     }
     },
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Lesser Fanatic",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 44 Wilderness"
+     "value": "Level 44 Wilderness",
+     "landing": {
+      "x": 2980,
+      "y": 3866,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true,
    "entrance": {
-    "x": 3045,
-    "y": 3925,
+    "x": 3044,
+    "y": 3924,
     "plane": 0
    }
   },
@@ -2039,12 +3831,17 @@
     {
      "type": "item",
      "item": "digsite_pendant",
-     "value": "Fossil Island"
+     "value": "Fossil Island",
+     "landing": {
+      "x": 3763,
+      "y": 3869,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3678,
+    "x": 3677,
     "y": 3854,
     "plane": 0
    }
@@ -2053,26 +3850,59 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLP"
+     "value": "DLP",
+     "landing": {
+      "x": 2923,
+      "y": 10455,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2913,
+       "y": 4067,
+       "plane": 0,
+       "link": true
+      }
+     ]
+    },
+    {
+     "type": "boat",
+     "value": "Grimstone",
+     "landing": {
+      "x": 2927,
+      "y": 4056,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2912,
-    "y": 4066,
-    "plane": 0
+    "x": 2913,
+    "y": 4067,
+    "plane": 0,
+    "link": true
    }
   },
   "Draynor Manor": {
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2081,12 +3911,22 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2095,7 +3935,12 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Ourania Teleport"
+     "value": "Ourania Teleport",
+     "landing": {
+      "x": 2468,
+      "y": 3246,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2105,12 +3950,22 @@
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2120,11 +3975,21 @@
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barrows Teleport"
+     "value": "Barrows Teleport",
+     "landing": {
+      "x": 3565,
+      "y": 3315,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2133,21 +3998,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKR"
+     "value": "BKR",
+     "landing": {
+      "x": 3468,
+      "y": 3433,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barrows Teleport"
+     "value": "Barrows Teleport",
+     "landing": {
+      "x": 3565,
+      "y": 3315,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2157,25 +4042,50 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2613,
+      "y": 3390,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Fishing Guild Teleport"
+     "value": "Fishing Guild Teleport",
+     "landing": {
+      "x": 2612,
+      "y": 3391,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Farm Teleport"
+     "value": "Farm Teleport",
+     "landing": {
+      "x": 2673,
+      "y": 3375,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -2190,11 +4100,21 @@
     {
      "type": "item",
      "item": "wilderness_sword",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3377,
+      "y": 3891,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2203,11 +4123,21 @@
    "routes": [
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Black chinchompas"
+     "value": "Black chinchompas",
+     "landing": {
+      "x": 3144,
+      "y": 3772,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2216,11 +4146,21 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 50 Wilderness"
+     "value": "Level 50 Wilderness",
+     "landing": {
+      "x": 3307,
+      "y": 3916,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2229,11 +4169,21 @@
    "routes": [
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2242,16 +4192,38 @@
    "routes": [
     {
      "type": "maxcape",
-     "value": "Black chinchompas"
+     "value": "Black chinchompas",
+     "landing": {
+      "x": 3144,
+      "y": 3772,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Corporeal Beast"
+     "value": "Corporeal Beast",
+     "landing": {
+      "x": 2967,
+      "y": 4384,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3202,
+       "y": 3681,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": true
@@ -2260,17 +4232,27 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CJQ"
+     "value": "CJQ",
+     "landing": {
+      "x": 3178,
+      "y": 2445,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "The Great Conch"
+     "value": "The Great Conch",
+     "landing": {
+      "x": 3174,
+      "y": 2367,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
     "x": 3120,
-    "y": 2489,
+    "y": 2490,
     "plane": 0
    }
   },
@@ -2278,7 +4260,12 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Karamja"
+     "value": "Karamja",
+     "landing": {
+      "x": 2918,
+      "y": 3176,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2287,7 +4274,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CKR"
+     "value": "CKR",
+     "landing": {
+      "x": 2800,
+      "y": 3005,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2296,16 +4288,31 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLR"
+     "value": "BLR",
+     "landing": {
+      "x": 2739,
+      "y": 3353,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2314,21 +4321,36 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLR"
+     "value": "BLR",
+     "landing": {
+      "x": 2739,
+      "y": 3353,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2696,
+    "x": 2695,
     "y": 3283,
     "plane": 0
    }
@@ -2337,25 +4359,50 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIQ"
+     "value": "CIQ",
+     "landing": {
+      "x": 2527,
+      "y": 3129,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2365,17 +4412,32 @@
     {
      "type": "item",
      "item": "royal_seed_pod",
-     "value": "Commune"
+     "value": "Commune",
+     "landing": {
+      "x": 2465,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elder Gnome child"
+     "value": "Elder Gnome child",
+     "landing": {
+      "x": 2467,
+      "y": 3459,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2384,16 +4446,26 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AIQ"
+     "value": "AIQ",
+     "landing": {
+      "x": 2995,
+      "y": 3112,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rimmington"
+     "value": "Rimmington",
+     "landing": {
+      "x": 2954,
+      "y": 3224,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3008,
+    "x": 3007,
     "y": 3150,
     "plane": 0
    }
@@ -2403,16 +4475,31 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Crafting Guild"
+     "value": "Crafting Guild",
+     "landing": {
+      "x": 2934,
+      "y": 3294,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Crafting Guild"
+     "value": "Crafting Guild",
+     "landing": {
+      "x": 2931,
+      "y": 3286,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "crafting_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2931,
+      "y": 3286,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2422,26 +4509,46 @@
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "Ralos' Rise"
+     "value": "Ralos' Rise",
+     "landing": {
+      "x": 1459,
+      "y": 3137,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
      "value": "Civitas illa Fortis Teleport",
      "note": "take the quetzal",
-     "quetzal": "The Teomat"
+     "quetzal": "The Teomat",
+     "landing": {
+      "x": 1681,
+      "y": 3133,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
      "value": "Hunter Guild",
      "note": "take the quetzal",
-     "quetzal": "The Teomat"
+     "quetzal": "The Teomat",
+     "landing": {
+      "x": 1558,
+      "y": 3046,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "hunter_cape",
      "value": "Teleport",
      "note": "take the quetzal",
-     "quetzal": "The Teomat"
+     "quetzal": "The Teomat",
+     "landing": {
+      "x": 1558,
+      "y": 3046,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2451,7 +4558,12 @@
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Wintertodt Camp"
+     "value": "Wintertodt Camp",
+     "landing": {
+      "x": 1624,
+      "y": 3938,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2460,7 +4572,12 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Ghorrock Teleport"
+     "value": "Ghorrock Teleport",
+     "landing": {
+      "x": 2977,
+      "y": 3872,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2470,17 +4587,32 @@
     {
      "type": "item",
      "item": "mos_leharmless_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3701,
+      "y": 2996,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Ecto Teleport"
+     "value": "Ecto Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2489,7 +4621,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BIQ"
+     "value": "BIQ",
+     "landing": {
+      "x": 3248,
+      "y": 3095,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2498,21 +4635,36 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BIQ"
+     "value": "BIQ",
+     "landing": {
+      "x": 3248,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "amulet_of_glory",
-     "value": "Al Kharid"
+     "value": "Al Kharid",
+     "landing": {
+      "x": 3293,
+      "y": 3163,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "desert_amulet",
-     "value": "Kalphite cave"
+     "value": "Kalphite cave",
+     "landing": {
+      "x": 3322,
+      "y": 3122,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3320,
+    "x": 3319,
     "y": 3122,
     "plane": 0
    }
@@ -2521,16 +4673,31 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Draynor Manor Teleport"
+     "value": "Draynor Manor Teleport",
+     "landing": {
+      "x": 3108,
+      "y": 3352,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2539,14 +4706,20 @@
    "routes": [
     {
      "type": "boat",
-     "value": "Laguna Aurorae"
+     "value": "Laguna Aurorae",
+     "landing": {
+      "x": 1202,
+      "y": 2733,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
     "x": 1191,
-    "y": 2786,
-    "plane": 0
+    "y": 2787,
+    "plane": 0,
+    "link": true
    }
   },
   "Lava Dragon Isle": {
@@ -2554,11 +4727,21 @@
     {
      "type": "item",
      "item": "revenant_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3127,
+      "y": 3833,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2568,20 +4751,40 @@
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "Wizards' Tower"
+     "value": "Wizards' Tower",
+     "landing": {
+      "x": 3114,
+      "y": 3181,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DIS"
+     "value": "DIS",
+     "landing": {
+      "x": 3109,
+      "y": 3149,
+      "plane": 0
+     }
     },
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2591,7 +4794,12 @@
     {
      "type": "item",
      "item": "calcified_moth",
-     "value": "Crush"
+     "value": "Crush",
+     "landing": {
+      "x": 1447,
+      "y": 3108,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2601,7 +4809,12 @@
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "North of Kastori"
+     "value": "North of Kastori",
+     "landing": {
+      "x": 1366,
+      "y": 3086,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -2616,7 +4829,12 @@
     {
      "type": "item",
      "item": "pendant_of_ates",
-     "value": "North of Kastori"
+     "value": "North of Kastori",
+     "landing": {
+      "x": 1366,
+      "y": 3086,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2625,21 +4843,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLS"
+     "value": "BLS",
+     "landing": {
+      "x": 1293,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2648,7 +4886,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DJR"
+     "value": "DJR",
+     "landing": {
+      "x": 1452,
+      "y": 3659,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2657,11 +4900,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIR"
+     "value": "CIR",
+     "landing": {
+      "x": 1303,
+      "y": 3762,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Battlefront Teleport"
+     "value": "Battlefront Teleport",
+     "landing": {
+      "x": 1349,
+      "y": 3739,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2671,16 +4924,31 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2689,7 +4957,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "DLQ"
+     "value": "DLQ",
+     "landing": {
+      "x": 3422,
+      "y": 3018,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2699,22 +4972,42 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Lesser Fanatic",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
      "value": "Ardougne Teleport",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 50 Wilderness"
+     "value": "Level 50 Wilderness",
+     "landing": {
+      "x": 3307,
+      "y": 3916,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2723,11 +5016,21 @@
    "routes": [
     {
      "type": "ring_of_dueling",
-     "value": "Ferox Enclave"
+     "value": "Ferox Enclave",
+     "landing": {
+      "x": 3151,
+      "y": 3636,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 13 Wilderness"
+     "value": "Level 13 Wilderness",
+     "landing": {
+      "x": 3156,
+      "y": 3620,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2736,21 +5039,41 @@
    "routes": [
     {
      "type": "maxcape",
-     "value": "Otto's Grotto"
+     "value": "Otto's Grotto",
+     "landing": {
+      "x": 2504,
+      "y": 3484,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Otto's Grotto"
+     "value": "Otto's Grotto",
+     "landing": {
+      "x": 2504,
+      "y": 3484,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Barbarian Outpost"
+     "value": "Barbarian Outpost",
+     "landing": {
+      "x": 2520,
+      "y": 3571,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barbarian Teleport"
+     "value": "Barbarian Teleport",
+     "landing": {
+      "x": 2543,
+      "y": 3568,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -2765,7 +5088,12 @@
     {
      "type": "item",
      "item": "digsite_pendant",
-     "value": "Digsite"
+     "value": "Digsite",
+     "landing": {
+      "x": 3339,
+      "y": 3445,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2774,11 +5102,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AIQ"
+     "value": "AIQ",
+     "landing": {
+      "x": 2995,
+      "y": 3112,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rimmington"
+     "value": "Rimmington",
+     "landing": {
+      "x": 2954,
+      "y": 3224,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2787,21 +5125,41 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BIS"
+     "value": "BIS",
+     "landing": {
+      "x": 2635,
+      "y": 3268,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2810,16 +5168,31 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Brimhaven"
+     "value": "Brimhaven",
+     "landing": {
+      "x": 2758,
+      "y": 3178,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Pirate Jackie the Fruit"
+     "value": "Pirate Jackie the Fruit",
+     "landing": {
+      "x": 2810,
+      "y": 3191,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2828,25 +5201,50 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2664,
+      "y": 3643,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Moonclan Teleport"
+     "value": "Moonclan Teleport",
+     "landing": {
+      "x": 2113,
+      "y": 3915,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Lunar Isle"
+     "value": "Lunar Isle",
+     "landing": {
+      "x": 2151,
+      "y": 3880,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2855,11 +5253,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AKS"
+     "value": "AKS",
+     "landing": {
+      "x": 2570,
+      "y": 2958,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Feldip Hills"
+     "value": "Feldip Hills",
+     "landing": {
+      "x": 2556,
+      "y": 2916,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2868,25 +5276,50 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIQ"
+     "value": "CIQ",
+     "landing": {
+      "x": 2527,
+      "y": 3129,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2896,16 +5329,31 @@
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2915,40 +5363,75 @@
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2613,
+      "y": 3390,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "fishing_cape",
-     "value": "Fishing Guild"
+     "value": "Fishing Guild",
+     "landing": {
+      "x": 2604,
+      "y": 3401,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Fishing Guild Teleport"
+     "value": "Fishing Guild Teleport",
+     "landing": {
+      "x": 2612,
+      "y": 3391,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Farm Teleport"
+     "value": "Farm Teleport",
+     "landing": {
+      "x": 2673,
+      "y": 3375,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2563,
+    "x": 2561,
     "y": 3356,
     "plane": 0
    }
@@ -2957,12 +5440,22 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Brimhaven"
+     "value": "Brimhaven",
+     "landing": {
+      "x": 2758,
+      "y": 3178,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Pirate Jackie the Fruit"
+     "value": "Pirate Jackie the Fruit",
+     "landing": {
+      "x": 2810,
+      "y": 3191,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -2972,18 +5465,33 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Lesser Fanatic",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
      "value": "Ardougne Teleport",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -2992,27 +5500,47 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Hosidius"
+     "value": "Hosidius",
+     "landing": {
+      "x": 1744,
+      "y": 3517,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "xerics_talisman",
-     "value": "Xeric's Glade"
+     "value": "Xeric's Glade",
+     "landing": {
+      "x": 1754,
+      "y": 3564,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kharedsts_memoirs",
-     "value": "Lunch by the Lancalliums"
+     "value": "Lunch by the Lancalliums",
+     "landing": {
+      "x": 1713,
+      "y": 3612,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Woodcutting Guild"
+     "value": "Woodcutting Guild",
+     "landing": {
+      "x": 1662,
+      "y": 3505,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 1702,
+    "x": 1701,
     "y": 3574,
     "plane": 0
    }
@@ -3021,16 +5549,31 @@
    "routes": [
     {
      "type": "burning_amulet",
-     "value": "Lava Maze"
+     "value": "Lava Maze",
+     "landing": {
+      "x": 3028,
+      "y": 3840,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "revenant_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3127,
+      "y": 3833,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3040,18 +5583,33 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Lesser Fanatic",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
      "value": "Ardougne Teleport",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3060,16 +5618,31 @@
    "routes": [
     {
      "type": "obelisk",
-     "value": "Level 50 Wilderness"
+     "value": "Level 50 Wilderness",
+     "landing": {
+      "x": 3307,
+      "y": 3916,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "wilderness_sword",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3377,
+      "y": 3891,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3078,11 +5651,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "AKP"
+     "value": "AKP",
+     "landing": {
+      "x": 3283,
+      "y": 2704,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Pollnivneach"
+     "value": "Pollnivneach",
+     "landing": {
+      "x": 3340,
+      "y": 3004,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3092,12 +5675,23 @@
     {
      "type": "item",
      "item": "desert_amulet",
-     "value": "Nardah"
+     "value": "Nardah",
+     "landing": {
+      "x": 3425,
+      "y": 2928,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_shadows",
-     "value": "Ancient Vault"
+     "value": "Ancient Vault",
+     "landing": {
+      "x": 3508,
+      "y": 2971,
+      "plane": 0
+     },
+     "nearIcon": true
     }
    ],
    "wilderness": false,
@@ -3111,7 +5705,12 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Al Kharid"
+     "value": "Al Kharid",
+     "landing": {
+      "x": 3293,
+      "y": 3163,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3121,21 +5720,48 @@
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Monastery"
+     "value": "Monastery",
+     "landing": {
+      "x": 3053,
+      "y": 3487,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Lassar Teleport"
+     "value": "Lassar Teleport",
+     "landing": {
+      "x": 3002,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Mining Guild"
+     "value": "Mining Guild",
+     "landing": {
+      "x": 3049,
+      "y": 9762,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3058,
+       "y": 3377,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": false
@@ -3144,12 +5770,17 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CIP"
+     "value": "CIP",
+     "landing": {
+      "x": 2512,
+      "y": 3886,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2509,
+    "x": 2508,
     "y": 3846,
     "plane": 0
    }
@@ -3158,12 +5789,22 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BIP"
+     "value": "BIP",
+     "landing": {
+      "x": 3409,
+      "y": 3326,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3173,31 +5814,61 @@
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barrows Teleport"
+     "value": "Barrows Teleport",
+     "landing": {
+      "x": 3565,
+      "y": 3315,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Le-sabrè"
+     "value": "Le-sabrè",
+     "landing": {
+      "x": 3465,
+      "y": 3477,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ectophial",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3660,
+      "y": 3522,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Ver Sinhaza"
+     "value": "Ver Sinhaza",
+     "landing": {
+      "x": 3649,
+      "y": 3230,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3207,7 +5878,12 @@
     {
      "type": "item",
      "item": "skull_sceptre",
-     "value": "Invoke"
+     "value": "Invoke",
+     "landing": {
+      "x": 3081,
+      "y": 3421,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3216,36 +5892,71 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLR"
+     "value": "BLR",
+     "landing": {
+      "x": 2739,
+      "y": 3353,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "quest_point_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2729,
+      "y": 3348,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Farm Teleport"
+     "value": "Farm Teleport",
+     "landing": {
+      "x": 2673,
+      "y": 3375,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ardougne Teleport"
+     "value": "Ardougne Teleport",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Two-pints"
+     "value": "Two-pints",
+     "landing": {
+      "x": 2574,
+      "y": 3324,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Ranging Guild"
+     "value": "Ranging Guild",
+     "landing": {
+      "x": 2654,
+      "y": 3441,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "kandarin_headgear",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 2729,
+      "y": 3411,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -3259,17 +5970,27 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3084,
+    "x": 3083,
     "y": 3272,
     "plane": 0
    }
@@ -3278,11 +5999,21 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Karamja"
+     "value": "Karamja",
+     "landing": {
+      "x": 2918,
+      "y": 3176,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "BLP"
+     "value": "BLP",
+     "landing": {
+      "x": 2432,
+      "y": 5127,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3291,31 +6022,61 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKR"
+     "value": "BKR",
+     "landing": {
+      "x": 3468,
+      "y": 3433,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Barrows Teleport"
+     "value": "Barrows Teleport",
+     "landing": {
+      "x": 3565,
+      "y": 3315,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Le-sabrè"
+     "value": "Le-sabrè",
+     "landing": {
+      "x": 3465,
+      "y": 3477,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Ver Sinhaza"
+     "value": "Ver Sinhaza",
+     "landing": {
+      "x": 3649,
+      "y": 3230,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -3329,12 +6090,17 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKP"
+     "value": "BKP",
+     "landing": {
+      "x": 2384,
+      "y": 3037,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2412,
+    "x": 2411,
     "y": 3061,
     "plane": 0
    }
@@ -3343,21 +6109,36 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Draynor Village"
+     "value": "Draynor Village",
+     "landing": {
+      "x": 3105,
+      "y": 3251,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Twiggy O'Korn"
+     "value": "Twiggy O'Korn",
+     "landing": {
+      "x": 3097,
+      "y": 3226,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Draynor Manor Teleport"
+     "value": "Draynor Manor Teleport",
+     "landing": {
+      "x": 3108,
+      "y": 3352,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 3150,
+    "x": 3149,
     "y": 3347,
     "plane": 0
    }
@@ -3366,11 +6147,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CLR"
+     "value": "CLR",
+     "landing": {
+      "x": 2737,
+      "y": 2739,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Ape Atoll Teleport"
+     "value": "Ape Atoll Teleport",
+     "landing": {
+      "x": 2796,
+      "y": 2791,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3379,12 +6170,22 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lumbridge Teleport"
+     "value": "Lumbridge Teleport",
+     "landing": {
+      "x": 3222,
+      "y": 3218,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Hatius Cosaintus"
+     "value": "Hatius Cosaintus",
+     "landing": {
+      "x": 3239,
+      "y": 3220,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -3398,11 +6199,21 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Moonclan Teleport"
+     "value": "Moonclan Teleport",
+     "landing": {
+      "x": 2113,
+      "y": 3915,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Lunar Isle"
+     "value": "Lunar Isle",
+     "landing": {
+      "x": 2151,
+      "y": 3880,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3411,21 +6222,41 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Tarn's Lair"
+     "value": "Tarn's Lair",
+     "landing": {
+      "x": 3187,
+      "y": 4601,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "BIP"
+     "value": "BIP",
+     "landing": {
+      "x": 3409,
+      "y": 3326,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "morytania_legs",
-     "value": "Burgh Teleport"
+     "value": "Burgh Teleport",
+     "landing": {
+      "x": 3482,
+      "y": 3231,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "mortton_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3489,
+      "y": 3288,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3434,17 +6265,32 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Trollheim Teleport"
+     "value": "Trollheim Teleport",
+     "landing": {
+      "x": 2891,
+      "y": 3678,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ghommals_hilt",
-     "value": "Trollheim"
+     "value": "Trollheim",
+     "landing": {
+      "x": 2898,
+      "y": 3709,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "stony_basalt",
-     "value": "Troll Stronghold"
+     "value": "Troll Stronghold",
+     "landing": {
+      "x": 2844,
+      "y": 3693,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3454,21 +6300,41 @@
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "combat_bracelet",
-     "value": "Warriors' Guild"
+     "value": "Warriors' Guild",
+     "landing": {
+      "x": 2883,
+      "y": 3549,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Warrior's Guild"
+     "value": "Warrior's Guild",
+     "landing": {
+      "x": 2865,
+      "y": 3546,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "strength_cape",
-     "value": "Warriors' Guild"
+     "value": "Warriors' Guild",
+     "landing": {
+      "x": 2865,
+      "y": 3546,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3477,17 +6343,32 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Trollheim Teleport"
+     "value": "Trollheim Teleport",
+     "landing": {
+      "x": 2891,
+      "y": 3678,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ghommals_hilt",
-     "value": "Trollheim"
+     "value": "Trollheim",
+     "landing": {
+      "x": 2898,
+      "y": 3709,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "stony_basalt",
-     "value": "Troll Stronghold"
+     "value": "Troll Stronghold",
+     "landing": {
+      "x": 2844,
+      "y": 3693,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -3502,16 +6383,31 @@
     {
      "type": "item",
      "item": "enchanted_lyre",
-     "value": "Neitiznot"
+     "value": "Neitiznot",
+     "landing": {
+      "x": 2336,
+      "y": 3801,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Rellekka"
+     "value": "Rellekka",
+     "landing": {
+      "x": 2670,
+      "y": 3632,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Thorodin"
+     "value": "Thorodin",
+     "landing": {
+      "x": 2659,
+      "y": 3627,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3520,26 +6416,46 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLP"
+     "value": "BLP",
+     "landing": {
+      "x": 2432,
+      "y": 5127,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ghommals_hilt",
-     "value": "Mor Ul Rek"
+     "value": "Mor Ul Rek",
+     "landing": {
+      "x": 2554,
+      "y": 5130,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "TzHaar-Mej"
+     "value": "TzHaar-Mej",
+     "landing": {
+      "x": 2455,
+      "y": 5133,
+      "plane": 0
+     }
     },
     {
      "type": "amulet_of_glory",
-     "value": "Karamja"
+     "value": "Karamja",
+     "landing": {
+      "x": 2918,
+      "y": 3176,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
    "entrance": {
-    "x": 2856,
+    "x": 2855,
     "y": 3168,
     "plane": 0
    }
@@ -3549,12 +6465,22 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Darkmeyer"
+     "value": "Darkmeyer",
+     "landing": {
+      "x": 3592,
+      "y": 3337,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "hallowed_crystal_shard",
-     "value": "Activate"
+     "value": "Activate",
+     "landing": {
+      "x": 3653,
+      "y": 3386,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3564,7 +6490,12 @@
     {
      "type": "item",
      "item": "drakans_medallion",
-     "value": "Castle Drakan"
+     "value": "Castle Drakan",
+     "landing": {
+      "x": 3557,
+      "y": 3358,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3577,16 +6508,31 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CKS"
+     "value": "CKS",
+     "landing": {
+      "x": 3446,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kharyrll Teleport"
+     "value": "Kharyrll Teleport",
+     "landing": {
+      "x": 3494,
+      "y": 3473,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Le-sabrè"
+     "value": "Le-sabrè",
+     "landing": {
+      "x": 3465,
+      "y": 3477,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3595,7 +6541,12 @@
    "routes": [
     {
      "type": "boat",
-     "value": "Charred Island"
+     "value": "Charred Island",
+     "landing": {
+      "x": 2660,
+      "y": 2395,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3605,7 +6556,12 @@
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "Wyrmscraig"
+     "value": "Wyrmscraig",
+     "landing": {
+      "x": 2591,
+      "y": 2221,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3614,16 +6570,31 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Yanille"
+     "value": "Yanille",
+     "landing": {
+      "x": 2544,
+      "y": 3095,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Watchtower Teleport"
+     "value": "Watchtower Teleport",
+     "landing": {
+      "x": 2547,
+      "y": 3114,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ardougne_cloak",
-     "value": "Monastery Teleport"
+     "value": "Monastery Teleport",
+     "landing": {
+      "x": 2606,
+      "y": 3222,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false,
@@ -3637,17 +6608,39 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "wilderness_sword",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3377,
+      "y": 3891,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Corporeal Beast"
+     "value": "Corporeal Beast",
+     "landing": {
+      "x": 2967,
+      "y": 4384,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3202,
+       "y": 3681,
+       "plane": 0
+      }
+     ]
     }
    ],
    "wilderness": true
@@ -3656,7 +6649,12 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Taverley"
+     "value": "Taverley",
+     "landing": {
+      "x": 2894,
+      "y": 3465,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3665,15 +6663,30 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Ghorrock Teleport"
+     "value": "Ghorrock Teleport",
+     "landing": {
+      "x": 2977,
+      "y": 3872,
+      "plane": 0
+     }
     },
     {
      "type": "burning_amulet",
-     "value": "Lava Maze"
+     "value": "Lava Maze",
+     "landing": {
+      "x": 3028,
+      "y": 3840,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 44 Wilderness"
+     "value": "Level 44 Wilderness",
+     "landing": {
+      "x": 2980,
+      "y": 3866,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3682,11 +6695,21 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Dareeyak Teleport"
+     "value": "Dareeyak Teleport",
+     "landing": {
+      "x": 2969,
+      "y": 3695,
+      "plane": 0
+     }
     },
     {
      "type": "burning_amulet",
-     "value": "Bandit Camp"
+     "value": "Bandit Camp",
+     "landing": {
+      "x": 3038,
+      "y": 3651,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3696,16 +6719,31 @@
     {
      "type": "item",
      "item": "ring_of_shadows",
-     "value": "Ghorrock Dungeon"
+     "value": "Ghorrock Dungeon",
+     "landing": {
+      "x": 2866,
+      "y": 3941,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "icy_basalt",
-     "value": "Weiss"
+     "value": "Weiss",
+     "landing": {
+      "x": 2846,
+      "y": 3940,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Weiss"
+     "value": "Weiss",
+     "landing": {
+      "x": 2860,
+      "y": 3972,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3714,17 +6752,32 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Falador Teleport"
+     "value": "Falador Teleport",
+     "landing": {
+      "x": 2965,
+      "y": 3381,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Sir Rebral"
+     "value": "Sir Rebral",
+     "landing": {
+      "x": 2977,
+      "y": 3345,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_wealth",
-     "value": "Falador"
+     "value": "Falador",
+     "landing": {
+      "x": 2995,
+      "y": 3375,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3734,7 +6787,12 @@
     {
      "type": "item",
      "item": "ring_of_shadows",
-     "value": "The Scar"
+     "value": "The Scar",
+     "landing": {
+      "x": 2019,
+      "y": 6434,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3744,16 +6802,31 @@
     {
      "type": "item",
      "item": "ring_of_shadows",
-     "value": "Ghorrock Dungeon"
+     "value": "Ghorrock Dungeon",
+     "landing": {
+      "x": 2866,
+      "y": 3941,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "icy_basalt",
-     "value": "Weiss"
+     "value": "Weiss",
+     "landing": {
+      "x": 2846,
+      "y": 3940,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Weiss"
+     "value": "Weiss",
+     "landing": {
+      "x": 2860,
+      "y": 3972,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3763,22 +6836,42 @@
     {
      "type": "amulet_of_glory",
      "value": "Edgeville",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
      "value": "Lesser Fanatic",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
      "value": "Ardougne Teleport",
-     "note": "pull the lever to the Deserted Keep"
+     "note": "pull the lever to the Deserted Keep",
+     "landing": {
+      "x": 2664,
+      "y": 3306,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 50 Wilderness"
+     "value": "Level 50 Wilderness",
+     "landing": {
+      "x": 3307,
+      "y": 3916,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true,
@@ -3792,11 +6885,21 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CJQ"
+     "value": "CJQ",
+     "landing": {
+      "x": 3178,
+      "y": 2445,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "The Great Conch"
+     "value": "The Great Conch",
+     "landing": {
+      "x": 3174,
+      "y": 2367,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3805,12 +6908,22 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BLS"
+     "value": "BLS",
+     "landing": {
+      "x": 1293,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "ring_of_shadows",
-     "value": "The Stranglewood"
+     "value": "The Stranglewood",
+     "landing": {
+      "x": 1175,
+      "y": 3422,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3820,15 +6933,30 @@
     {
      "type": "item",
      "item": "wilderness_crabs_teleport",
-     "value": "Break"
+     "value": "Break",
+     "landing": {
+      "x": 3348,
+      "y": 3783,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Annakarl Teleport"
+     "value": "Annakarl Teleport",
+     "landing": {
+      "x": 3288,
+      "y": 3888,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 35 Wilderness"
+     "value": "Level 35 Wilderness",
+     "landing": {
+      "x": 3106,
+      "y": 3794,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3838,15 +6966,30 @@
     {
      "type": "item",
      "item": "revenant_cave_teleport",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 3127,
+      "y": 3833,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Carrallanger Teleport"
+     "value": "Carrallanger Teleport",
+     "landing": {
+      "x": 3157,
+      "y": 3667,
+      "plane": 0
+     }
     },
     {
      "type": "obelisk",
-     "value": "Level 35 Wilderness"
+     "value": "Level 35 Wilderness",
+     "landing": {
+      "x": 3106,
+      "y": 3794,
+      "plane": 0
+     }
     }
    ],
    "wilderness": true
@@ -3855,7 +6998,12 @@
    "routes": [
     {
      "type": "spell",
-     "value": "Lassar Teleport"
+     "value": "Lassar Teleport",
+     "landing": {
+      "x": 3002,
+      "y": 3472,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3864,7 +7012,12 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BJS"
+     "value": "BJS",
+     "landing": {
+      "x": 2147,
+      "y": 3069,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3874,7 +7027,12 @@
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3884,25 +7042,50 @@
     {
      "type": "item",
      "item": "radas_blessing",
-     "value": "Mount Karuulm"
+     "value": "Mount Karuulm",
+     "landing": {
+      "x": 1311,
+      "y": 3795,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Battlefront Teleport"
+     "value": "Battlefront Teleport",
+     "landing": {
+      "x": 1349,
+      "y": 3739,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3912,17 +7095,32 @@
     {
      "type": "item",
      "item": "royal_seed_pod",
-     "value": "Commune"
+     "value": "Commune",
+     "landing": {
+      "x": 2465,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elder Gnome child"
+     "value": "Elder Gnome child",
+     "landing": {
+      "x": 2467,
+      "y": 3459,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3931,12 +7129,22 @@
    "routes": [
     {
      "type": "portal",
-     "value": "Brimhaven"
+     "value": "Brimhaven",
+     "landing": {
+      "x": 2758,
+      "y": 3178,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Pirate Jackie the Fruit"
+     "value": "Pirate Jackie the Fruit",
+     "landing": {
+      "x": 2810,
+      "y": 3191,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -3945,16 +7153,31 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Edgeville"
+     "value": "Edgeville",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Lesser Fanatic"
+     "value": "Lesser Fanatic",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DKR"
+     "value": "DKR",
+     "landing": {
+      "x": 3126,
+      "y": 3496,
+      "plane": 0
+     }
     }
    ],
    "wilderness": false
@@ -9903,11 +13126,21 @@
     {
      "type": "item",
      "item": "games_necklace",
-     "value": "Burthorpe"
+     "value": "Burthorpe",
+     "landing": {
+      "x": 2898,
+      "y": 3554,
+      "plane": 0
+     }
     },
     {
      "type": "portal",
-     "value": "Taverley"
+     "value": "Taverley",
+     "landing": {
+      "x": 2894,
+      "y": 3465,
+      "plane": 0
+     }
     }
    ],
    "note": "Burthorpe; Taverley house portal then run north. Spria is in Draynor Village (amulet of glory: Draynor Village, or fairy ring DIS).",
@@ -9924,16 +13157,31 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "CKS"
+     "value": "CKS",
+     "landing": {
+      "x": 3446,
+      "y": 3472,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Kharyrll Teleport"
+     "value": "Kharyrll Teleport",
+     "landing": {
+      "x": 3494,
+      "y": 3473,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Le-sabrè"
+     "value": "Le-sabrè",
+     "landing": {
+      "x": 3465,
+      "y": 3477,
+      "plane": 0
+     }
     }
    ],
    "spot": {
@@ -9949,20 +13197,47 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Edgeville"
+     "value": "Edgeville",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Lesser Fanatic"
+     "value": "Lesser Fanatic",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DKR"
+     "value": "DKR",
+     "landing": {
+      "x": 3126,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "spell",
-     "value": "Paddewwa Teleport"
+     "value": "Paddewwa Teleport",
+     "landing": {
+      "x": 3097,
+      "y": 9880,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3096,
+       "y": 3469,
+       "plane": 0
+      }
+     ]
     }
    ],
    "spot": {
@@ -9978,7 +13253,20 @@
    "routes": [
     {
      "type": "fairy",
-     "value": "BKS"
+     "value": "BKS",
+     "landing": {
+      "x": 2411,
+      "y": 4436,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 3203,
+       "y": 3169,
+       "plane": 0,
+       "link": true
+      }
+     ]
     }
    ],
    "spot": {
@@ -9995,25 +13283,50 @@
     {
      "type": "item",
      "item": "radas_blessing",
-     "value": "Mount Karuulm"
+     "value": "Mount Karuulm",
+     "landing": {
+      "x": 1311,
+      "y": 3795,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CIR"
+     "value": "CIR",
+     "landing": {
+      "x": 1303,
+      "y": 3762,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "skills_necklace",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1249,
+      "y": 3717,
+      "plane": 0
+     }
     },
     {
      "type": "maxcape",
-     "value": "Farming Guild"
+     "value": "Farming Guild",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "farming_cape",
-     "value": "Teleport"
+     "value": "Teleport",
+     "landing": {
+      "x": 1248,
+      "y": 3725,
+      "plane": 0
+     }
     }
    ],
    "spot": {
@@ -10029,22 +13342,42 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Stronghold"
+     "value": "Stronghold",
+     "landing": {
+      "x": 2433,
+      "y": 3421,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "royal_seed_pod",
-     "value": "Commune"
+     "value": "Commune",
+     "landing": {
+      "x": 2465,
+      "y": 3495,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Elder Gnome child"
+     "value": "Elder Gnome child",
+     "landing": {
+      "x": 2467,
+      "y": 3459,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "The Outpost"
+     "value": "The Outpost",
+     "landing": {
+      "x": 2431,
+      "y": 3348,
+      "plane": 0
+     }
     }
    ],
    "spot": {
@@ -10060,21 +13393,41 @@
    "routes": [
     {
      "type": "karamja_gloves",
-     "value": "Slayer Master"
+     "value": "Slayer Master",
+     "landing": {
+      "x": 2870,
+      "y": 2981,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Kaleb Paramaya"
+     "value": "Kaleb Paramaya",
+     "landing": {
+      "x": 2861,
+      "y": 2995,
+      "plane": 1
+     }
     },
     {
      "type": "item",
      "item": "karamja_gloves_3",
-     "value": "Gem Mine"
+     "value": "Gem Mine",
+     "landing": {
+      "x": 2827,
+      "y": 2997,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "CKR"
+     "value": "CKR",
+     "landing": {
+      "x": 2800,
+      "y": 3005,
+      "plane": 0
+     }
     }
    ],
    "spot": {
@@ -10090,16 +13443,31 @@
    "routes": [
     {
      "type": "amulet_of_glory",
-     "value": "Edgeville"
+     "value": "Edgeville",
+     "landing": {
+      "x": 3087,
+      "y": 3496,
+      "plane": 0
+     }
     },
     {
      "type": "item",
      "item": "diary_cape",
-     "value": "Lesser Fanatic"
+     "value": "Lesser Fanatic",
+     "landing": {
+      "x": 3122,
+      "y": 3516,
+      "plane": 0
+     }
     },
     {
      "type": "fairy",
-     "value": "DKR"
+     "value": "DKR",
+     "landing": {
+      "x": 3126,
+      "y": 3496,
+      "plane": 0
+     }
     }
    ],
    "spot": {
@@ -10115,16 +13483,38 @@
    "routes": [
     {
      "type": "ring",
-     "value": "Wyrmscraig Cavern"
+     "value": "Wyrmscraig Cavern",
+     "landing": {
+      "x": 2773,
+      "y": 8633,
+      "plane": 0
+     },
+     "entrances": [
+      {
+       "x": 2529,
+       "y": 2206,
+       "plane": 0
+      }
+     ]
     },
     {
      "type": "item",
      "item": "necklace_of_passage",
-     "value": "Wyrmscraig"
+     "value": "Wyrmscraig",
+     "landing": {
+      "x": 2591,
+      "y": 2221,
+      "plane": 0
+     }
     },
     {
      "type": "boat",
-     "value": "Wyrmscraig"
+     "value": "Wyrmscraig",
+     "landing": {
+      "x": 2567,
+      "y": 2297,
+      "plane": 0
+     }
     }
    ],
    "spot": {

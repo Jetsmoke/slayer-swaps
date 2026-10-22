@@ -14,7 +14,9 @@ The plugin highlights your chosen method of travel to quickly get you to your ne
 - **Wilderness:** obelisks, levers and Wilderness locations, used automatically for Krystilia tasks.
 - **No Slayer Helmet?:** black mask and enchanted gem also supported for slayers of all levels
 
-Most methods of travel are supported, but if see anything I've missed or have any other sort of suggestions feel free to reach out. 
+Most methods of travel are supported, but if you see anything I've missed or have any other sort of suggestions feel free to reach out on Discord.
+
+[![Discord](https://img.shields.io/badge/Discord-The%20Lion%27s%20Den-5865F2?logo=discord&logoColor=white)](https://discord.gg/zkyFZZbxNW) 
 
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed in each update.

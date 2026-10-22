@@ -38,6 +38,13 @@ class SlayerData
 		private String note;
 		// The quetzal landing site to fly to after teleporting, such as "The Teomat"
 		private String quetzal;
+		// Where the teleport lands, from the OSRS Wiki
+		private Spot landing;
+		// For a landing in a city on a map area of its own, like Prifddinas, its entrances on the surface map
+		private List<Spot> entrances;
+		// The landing is the wiki's pin by one of the game's own map icons, like a boat's docking point, which the
+		// world map ring moves onto once the map shows it
+		private boolean nearIcon;
 
 		RouteType routeType()
 		{
@@ -63,6 +70,9 @@ class SlayerData
 		private int x;
 		private int y;
 		private int plane;
+		// It's one of the world map's links between map areas, like a dungeon entrance's, which the map draws at the
+		// tile's corner rather than its middle
+		private boolean link;
 
 		WorldPoint toWorldPoint()
 		{

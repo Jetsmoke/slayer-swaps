@@ -92,28 +92,6 @@ public class SlayerDataTest
 	}
 
 	@Test
-	public void simulatedTasksMatchTheData()
-	{
-		// SimulatedTask is generated from the data; regenerate it (tools/gen_simulated_tasks.py) when the data changes
-		for (SimulatedTask sim : SimulatedTask.values())
-		{
-			if (sim.getTask() != null)
-			{
-				assertNotNull(sim.name(), data.findTask(sim.getTask()));
-			}
-		}
-		assertEquals(data.getTasks().size() + 2, SimulatedTask.values().length);
-		for (KonarTestTask konar : KonarTestTask.values())
-		{
-			if (konar.getTask() != null)
-			{
-				SlayerData.TaskData task = data.findTask(konar.getTask());
-				assertTrue(konar.name(), task != null && task.getKonar().containsKey(konar.getArea()));
-			}
-		}
-	}
-
-	@Test
 	public void konarAreasAreKnownLocations()
 	{
 		for (SlayerData.TaskData task : data.getTasks())

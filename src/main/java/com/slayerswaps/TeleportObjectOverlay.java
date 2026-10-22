@@ -21,7 +21,7 @@ import net.runelite.client.ui.overlay.outline.ModelOutlineRenderer;
 
 /**
  * Outlines the objects in the world that teleport to the current destination, such as fairy rings,
- * Wilderness obelisks and the Wilderness levers.
+ * Wilderness obelisks and the Wilderness levers, and the way in to an underground task.
  */
 class TeleportObjectOverlay extends Overlay
 {
@@ -47,9 +47,15 @@ class TeleportObjectOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
-		if (!config.highlightObjects())
+		if (!config.objectHighlights())
 		{
 			return null;
+		}
+		TileObject entrance = plugin.entranceObject();
+		if (entrance != null)
+		{
+			// The way in to an underground task, while walking there
+			outlineRenderer.drawOutline(entrance, 2, config.highlightColor(), 4);
 		}
 		Set<String> names = plugin.objectNamesToHighlight();
 		if (names.isEmpty())

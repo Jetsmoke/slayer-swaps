@@ -11,7 +11,7 @@ import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.outline.ModelOutlineRenderer;
 
 /**
- * Outlines the monsters that count for the current task.
+ * Outlines the monsters that count for the current task, the slayer master to go back to, and the quetzal to ride.
  */
 class TaskMonsterOverlay extends Overlay
 {
@@ -32,7 +32,7 @@ class TaskMonsterOverlay extends Overlay
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
-		if (config.highlightObjects())
+		if (config.objectHighlights())
 		{
 			// The quetzal to ride next, outlined like any other step
 			for (NPC quetzal : plugin.quetzalsToHighlight())
@@ -40,7 +40,7 @@ class TaskMonsterOverlay extends Overlay
 				outlineRenderer.drawOutline(quetzal, 2, config.highlightColor(), 4);
 			}
 		}
-		if (!config.highlightTaskMonsters())
+		if (!config.npcHighlights())
 		{
 			return null;
 		}
@@ -53,6 +53,10 @@ class TaskMonsterOverlay extends Overlay
 			{
 				outlineRenderer.drawOutline(npc, 2, colour, 4);
 			}
+		}
+		for (NPC master : plugin.mastersToHighlight())
+		{
+			outlineRenderer.drawOutline(master, 2, colour, 4);
 		}
 		return null;
 	}

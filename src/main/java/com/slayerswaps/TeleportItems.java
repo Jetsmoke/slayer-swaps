@@ -138,8 +138,12 @@ class TeleportItems
 		return false;
 	}
 
+	/**
+	 * @return true for the max cape itself: a max cape combined with another cape (fire, infernal, god capes and so
+	 * on) loses its teleports
+	 */
 	private static boolean isMaxCape(String name)
 	{
-		return name.contains("max cape");
+		return name.equals("max cape");
 	}
 }

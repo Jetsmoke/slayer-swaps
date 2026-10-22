@@ -5,6 +5,17 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-10-22
+
+### Added
+- Slayer master outlines and teleport markers on the world map.
+
+### Changed
+- Various UI and settings tweaks.
+
+### Fixed
+- Max cape variants without teleports were treated as max capes.
+
 ## [1.0.3] - 2026-10-08
 
 ### Added
@@ -140,7 +151,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
   helmet" (on by default).
 - Locations and teleports for every slayer task and boss task, from the OSRS Wiki.
 
-[Unreleased]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Jetsmoke/slayer-swaps/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Jetsmoke/slayer-swaps/compare/666ffcc...v1.0.2
 [1.0.1]: https://github.com/Jetsmoke/slayer-swaps/compare/c6e1cc3...666ffcc
