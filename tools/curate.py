@@ -68,7 +68,8 @@ LOCATIONS = {
     'Brine Rat Cavern': [fairy('DKS')],
     'Dorgesh-Kaan South Dungeon': [fairy('AJQ')],
     'Lizardman Settlement': [fairy('BLS')],
-    'Meiyerditch Laboratories': [fairy('DLS')],
+    # DLS is through the Myreque tunnels' 93 Agility shortcut; without it, Darkmeyer and the cracked wall
+    'Meiyerditch Laboratories': [dict(fairy('DLS'), agility=93)],
     'Witchaven Dungeon': [fairy('BLR')],
     'Witchaven Shrine Dungeon': [fairy('BLR')],
     "Legends' Guild": [fairy('BLR')],

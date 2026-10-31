@@ -38,6 +38,8 @@ class SlayerData
 		private String note;
 		// The quetzal landing site to fly to after teleporting, such as "The Teomat"
 		private String quetzal;
+		// The Agility level the way on from the landing needs, like the Myreque tunnels' shortcut; 0 for none
+		private int agility;
 		// Where the teleport lands, from the OSRS Wiki
 		private Spot landing;
 		// For a landing in a city on a map area of its own, like Prifddinas, its entrances on the surface map

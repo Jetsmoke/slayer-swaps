@@ -38,6 +38,11 @@ class DestinationOverlay extends OverlayPanel
 		String prompt = plugin.choicePrompt();
 		if (prompt != null)
 		{
+			if (!plugin.slayerGearAtHand())
+			{
+				// Nothing to right-click: no slayer helmet, black mask or gem with them
+				return null;
+			}
 			// With no task, the master being set up (the teleport back to them), or "No task" before one is chosen
 			String title = task != null ? task : config.slayerMaster() == SlayerMaster.NOT_CHOSEN ? "No task"
 				: "Back to " + config.slayerMaster();

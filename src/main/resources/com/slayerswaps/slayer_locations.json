@@ -1660,7 +1660,8 @@
       "x": 3494,
       "y": 3464,
       "plane": 0
-     }
+     },
+     "agility": 93
     },
     {
      "type": "item",
@@ -1683,7 +1684,12 @@
      }
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3638,
+    "y": 3304,
+    "plane": 0
+   }
   },
   "Meiyerditch": {
    "routes": [
@@ -4228,7 +4234,35 @@
    ],
    "wilderness": true
   },
-  "Gryphons (dungeon)": {
+  "Gryphon Cave (east)": {
+   "routes": [
+    {
+     "type": "fairy",
+     "value": "CJQ",
+     "landing": {
+      "x": 3178,
+      "y": 2445,
+      "plane": 0
+     }
+    },
+    {
+     "type": "boat",
+     "value": "The Great Conch",
+     "landing": {
+      "x": 3174,
+      "y": 2367,
+      "plane": 0
+     }
+    }
+   ],
+   "wilderness": false,
+   "entrance": {
+    "x": 3234,
+    "y": 2418,
+    "plane": 0
+   }
+  },
+  "Gryphon Cave (west)": {
    "routes": [
     {
      "type": "fairy",
@@ -6902,7 +6936,12 @@
      }
     }
    ],
-   "wilderness": false
+   "wilderness": false,
+   "entrance": {
+    "x": 3175,
+    "y": 2478,
+    "plane": 0
+   }
   },
   "The Stranglewood": {
    "routes": [
@@ -9634,12 +9673,24 @@
    ],
    "boss": false,
    "locations": [
-    "Gryphons (dungeon)"
+    "Gryphon Cave (east)",
+    "Gryphon Cave (west)",
+    "Shellbane Gryphon Cave"
    ],
    "spots": {
-    "Gryphons (dungeon)": {
-     "x": 3166,
+    "Gryphon Cave (east)": {
+     "x": 3225,
+     "y": 8860,
+     "plane": 0
+    },
+    "Gryphon Cave (west)": {
+     "x": 3104,
      "y": 8865,
+     "plane": 0
+    },
+    "Shellbane Gryphon Cave": {
+     "x": 3179,
+     "y": 8876,
      "plane": 0
     }
    },
@@ -12912,8 +12963,8 @@
    ],
    "spots": {
     "Shellbane Gryphon Cave": {
-     "x": 3176,
-     "y": 2477,
+     "x": 3179,
+     "y": 8876,
      "plane": 0
     }
    },

@@ -63,13 +63,19 @@ public interface SlayerSwapsConfig extends Config
 		return true;
 	}
 
-	@ConfigItem(keyName = "useSpells", name = "Spells and tablets", description = "Teleport spells and their tablets", position = 3, section = teleportsSection)
+	@ConfigItem(keyName = "houseFairyRing", name = "Fairy ring in house", description = "Teleport home and use the fairy ring there, unless one is closer", position = 3, section = teleportsSection)
+	default boolean houseFairyRing()
+	{
+		return false;
+	}
+
+	@ConfigItem(keyName = "useSpells", name = "Spells and tablets", description = "Teleport spells and their tablets", position = 4, section = teleportsSection)
 	default boolean useSpells()
 	{
 		return true;
 	}
 
-	@ConfigItem(keyName = "useHouse", name = "House teleports", description = "Portals, portal nexus, jewellery box, fairy ring and obelisk in your house", position = 4, section = teleportsSection)
+	@ConfigItem(keyName = "useHouse", name = "House teleports", description = "Portals, portal nexus, jewellery box and obelisk in your house", position = 5, section = teleportsSection)
 	default boolean useHouse()
 	{
 		return true;

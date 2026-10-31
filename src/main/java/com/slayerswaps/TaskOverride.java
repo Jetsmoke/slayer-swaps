@@ -11,11 +11,15 @@ final class TaskOverride
 	// Pretend the task is done, to see the way back to the slayer master
 	static volatile boolean done;
 	// The location and teleport (Routes.key) to use for the pretend task, or null for the saved choices. Choosing on
-	// the slayer helmet clears them, so the player's own saved choices are never overwritten by a test
+	// the slayer helmet during a test changes these instead, so the player's own saved choices are never overwritten
 	static volatile String location;
 	static volatile String route;
+	// The Agility level to pretend to have, or null for the real one
+	static volatile Integer agility;
 	// Set while Slayer Swaps runs: reads the task again after the above change
 	static volatile Runnable refresh;
+	// Set by the testing plugin: told when a choice on the slayer helmet changed the location or teleport above
+	static volatile Runnable changed;
 
 	private TaskOverride()
 	{

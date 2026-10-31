@@ -5,6 +5,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); ver
 
 ## [Unreleased]
 
+## [1.0.5] - 2026-10-31
+
+### Added
+- "Fairy ring in house" setting: fairy ring teleports go through your house.
+
+### Changed
+- Gryphon tasks offer the east, west and Shellbane caves as locations.
+
+### Fixed
+- Only the chosen teleport is swapped; other carried teleport items, like a max cape's boat teleport, were swapped too.
+- The fairy ring route to the Meiyerditch Laboratories needs 93 Agility; below that, the way in through Meiyerditch is used.
+- The "choose a location" prompt showed without a slayer helmet to right-click.
+
 ## [1.0.4] - 2026-10-22
 
 ### Added

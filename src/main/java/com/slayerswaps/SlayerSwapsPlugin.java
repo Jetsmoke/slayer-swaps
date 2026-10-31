@@ -40,6 +40,7 @@ import net.runelite.api.NPCComposition;
 import net.runelite.api.ObjectComposition;
 import net.runelite.api.Player;
 import net.runelite.api.Scene;
+import net.runelite.api.Skill;
 import net.runelite.api.Tile;
 import net.runelite.api.TileObject;
 import net.runelite.api.coords.LocalPoint;
@@ -163,6 +164,9 @@ public class SlayerSwapsPlugin extends Plugin
 
 	// Names of objects that teleport, lower-case; the ones to outline depend on the current routes
 	private static final String FAIRY_RING = "fairy ring";
+	// How close a fairy ring has to be to use it rather than the one in the house, in tiles: about as long to run
+	// as teleporting home takes
+	private static final int HOUSE_FAIRY_RING_TILES = 10;
 	private static final String SPIRITUAL_FAIRY_TREE = "spiritual fairy tree";
 	private static final String OBELISK = "obelisk";
 	private static final String LEVER = "lever";
@@ -222,7 +226,6 @@ public class SlayerSwapsPlugin extends Plugin
 	// How long after the last task kill guidance comes back, for a trip away (like banking)
 	private static final Duration GUIDANCE_RETURNS_AFTER = Duration.ofMinutes(3);
 	// House furniture the player has, remembered from seeing it in the house
-	private static final String HOUSE_FAIRY_RING_KEY = "houseFairyRing";
 	private static final String JEWELLERY_BOX_KEY = "jewelleryBox";
 	// Jewellery box tiers by name: each holds the jewellery of the ones below it too
 	private static final Map<String, Integer> JEWELLERY_BOXES = ImmutableMap.of(
@@ -271,6 +274,8 @@ public class SlayerSwapsPlugin extends Plugin
 	// The route whose item to outline: the first one in order that the player is carrying
 	private SlayerData.Route carriedRoute;
 	private boolean wearingSlayerHelmet;
+	// Carrying or wearing slayer gear the plugin's options go on, so there's somewhere to make its choices
+	private boolean carryingSlayerGear;
 	// Whether the current task is from Krystilia
 	private boolean krystiliaTask;
 	// The area Konar assigned the current task to, as the game names it, or null
@@ -501,10 +506,6 @@ public class SlayerSwapsPlugin extends Plugin
 		{
 			return;
 		}
-		if (name.equals(SPIRITUAL_FAIRY_TREE) || name.equals(FAIRY_RING))
-		{
-			configManager.setConfiguration(SlayerSwapsConfig.GROUP, HOUSE_FAIRY_RING_KEY, true);
-		}
 		Integer tier = JEWELLERY_BOXES.get(name);
 		if (tier != null)
 		{
@@ -567,12 +568,22 @@ public class SlayerSwapsPlugin extends Plugin
 		return null;
 	}
 
-	private boolean fairyRingInScene()
+	/**
+	 * @return true when a fairy ring (or spiritual fairy tree) is within some tiles of the player
+	 */
+	private boolean fairyRingWithin(int tiles)
 	{
+		Player player = client.getLocalPlayer();
+		if (player == null)
+		{
+			return false;
+		}
+		WorldPoint at = player.getWorldLocation();
 		for (TileObject object : teleportObjects)
 		{
 			String name = objectName(object);
-			if (name.equals(FAIRY_RING) || name.equals(SPIRITUAL_FAIRY_TREE))
+			if ((name.equals(FAIRY_RING) || name.equals(SPIRITUAL_FAIRY_TREE))
+				&& object.getWorldLocation().distanceTo2D(at) <= tiles)
 			{
 				return true;
 			}
@@ -890,6 +901,7 @@ public class SlayerSwapsPlugin extends Plugin
 		}
 		if (event.getContainerId() == InventoryID.INV || event.getContainerId() == InventoryID.WORN)
 		{
+			updateSlayerGear();
 			updateCarriedRoute();
 		}
 	}
@@ -909,6 +921,25 @@ public class SlayerSwapsPlugin extends Plugin
 	static boolean isSlayerGear(String name)
 	{
 		return isSlayerHeadgear(name) || name.equals("enchanted gem") || name.equals("eternal gem");
+	}
+
+	private void updateSlayerGear()
+	{
+		boolean carrying = false;
+		for (int id : carriedItemIds())
+		{
+			carrying |= isSlayerGear(client.getItemDefinition(id).getName().toLowerCase());
+		}
+		carryingSlayerGear = carrying;
+	}
+
+	/**
+	 * @return whether the choices on the slayer gear can be made now: it's carried or worn, and worn when the
+	 * plugin only works with the slayer helmet on
+	 */
+	boolean slayerGearAtHand()
+	{
+		return config.onlyWithSlayerHelmet() ? wearingSlayerHelmet : carryingSlayerGear;
 	}
 
 	private void updateSlayerHelmet()
@@ -936,6 +967,7 @@ public class SlayerSwapsPlugin extends Plugin
 			return;
 		}
 		updateSlayerHelmet();
+		updateSlayerGear();
 
 		int remaining = client.getVarpValue(VarPlayerID.SLAYER_COUNT);
 		String name = remaining > 0 ? lookupTaskName(client.getVarpValue(VarPlayerID.SLAYER_TARGET)) : null;
@@ -1178,8 +1210,15 @@ public class SlayerSwapsPlugin extends Plugin
 			labels.add(Routes.shortName(data, route));
 			actions.add(() ->
 			{
-				TaskOverride.route = null;
-				configManager.setConfiguration(SlayerSwapsConfig.GROUP, key, Routes.key(route));
+				if (testing())
+				{
+					TaskOverride.route = Routes.key(route);
+					testChanged();
+				}
+				else
+				{
+					configManager.setConfiguration(SlayerSwapsConfig.GROUP, key, Routes.key(route));
+				}
 				chat("Slayer Swaps: " + who + " teleport set to " + Routes.describe(data, route) + ".");
 			});
 		}
@@ -1297,8 +1336,15 @@ public class SlayerSwapsPlugin extends Plugin
 	private void chooseLocation(SlayerData.TaskData task, String location)
 	{
 		teleportedToward = false;
-		TaskOverride.location = null;
-		TaskOverride.route = null;
+		if (testing())
+		{
+			// A test's pretend task: the choice is the test's, leaving the player's own saved ones alone
+			TaskOverride.location = location;
+			TaskOverride.route = null;
+			testChanged();
+			chat("Slayer Swaps: " + task.getName() + " set to " + Routes.place(location) + " (test).");
+			return;
+		}
 		if (!task.getLocations().contains(location))
 		{
 			// A location only Konar assigns isn't one of the task's usual places; it's used anyway while her task lasts
@@ -1309,6 +1355,37 @@ public class SlayerSwapsPlugin extends Plugin
 		// A new location starts with its best teleport
 		configManager.unsetConfiguration(SlayerSwapsConfig.GROUP, routeKey(task));
 		chat("Slayer Swaps: " + task.getName() + " set to " + Routes.place(location) + ". Change it any time on your slayer helmet.");
+	}
+
+	/**
+	 * @return whether the task is a pretend one from the testing plugin
+	 */
+	private boolean testing()
+	{
+		return TaskOverride.task != null && taskName != null;
+	}
+
+	/**
+	 * Uses the test's changed location or teleport, and tells the testing plugin so its panel shows them.
+	 */
+	private void testChanged()
+	{
+		menusDirty = true;
+		clientThread.invokeLater(this::updateTask);
+		Runnable changed = TaskOverride.changed;
+		if (changed != null)
+		{
+			changed.run();
+		}
+	}
+
+	/**
+	 * @return the player's Agility level, or a test's pretend one
+	 */
+	private int agilityLevel()
+	{
+		Integer test = TaskOverride.agility;
+		return test != null ? test : client.getRealSkillLevel(Skill.AGILITY);
 	}
 
 	private static String locationKey(SlayerData.TaskData task)
@@ -2307,7 +2384,7 @@ public class SlayerSwapsPlugin extends Plugin
 			return Collections.emptyList();
 		}
 
-		// The teleport chosen on the slayer helmet goes first; the rest stay as fallbacks if it isn't carried
+		// The teleport chosen on the slayer helmet goes first
 		List<SlayerData.Route> routes = new ArrayList<>(baseRoutes());
 		String key = chosenRouteKey();
 		String chosen = chosenRoute(key);
@@ -2382,6 +2459,24 @@ public class SlayerSwapsPlugin extends Plugin
 		return withHome;
 	}
 
+	/**
+	 * @return the teleports whose options to swap: the one chosen on the slayer helmet (or, before one is chosen, the
+	 * best one carried), after any way home it needs; never any other carried teleport item
+	 */
+	private List<SlayerData.Route> swapRoutes(List<SlayerData.Route> routes)
+	{
+		SlayerData.Route main = mainRoute();
+		List<SlayerData.Route> swap = new ArrayList<>();
+		for (SlayerData.Route route : routes)
+		{
+			if (isHomeStep(route) || main != null && Routes.key(route).equals(Routes.key(main)))
+			{
+				swap.add(route);
+			}
+		}
+		return swap;
+	}
+
 	private static SlayerData.Route homeRoute(String step)
 	{
 		SlayerData.Route home = new SlayerData.Route();
@@ -2397,22 +2492,21 @@ public class SlayerSwapsPlugin extends Plugin
 	 */
 	private String houseStep(SlayerData.Route route, List<Integer> carried)
 	{
+		RouteType type = route.routeType();
+		if (type == RouteType.FAIRY)
+		{
+			// Only a fairy ring a few steps away is quicker than going home to the house's
+			return config.houseFairyRing() && !fairyRingWithin(HOUSE_FAIRY_RING_TILES)
+				? "House fairy ring : " + route.getValue() : null;
+		}
 		if (!config.useHouse())
 		{
 			return null;
 		}
-		RouteType type = route.routeType();
 		if (type == RouteType.SPELL)
 		{
 			String hint = nexusHint(route.getValue());
 			return hint == null ? null : "Nexus : " + hint;
-		}
-		if (type == RouteType.FAIRY)
-		{
-			// A fairy ring nearby is quicker than going home to the house's
-			return !fairyRingInScene()
-				&& Boolean.parseBoolean(configManager.getConfiguration(SlayerSwapsConfig.GROUP, HOUSE_FAIRY_RING_KEY))
-				? "House fairy ring : " + route.getValue() : null;
 		}
 		if (jewelleryBoxHas(route) && !isCarried(route, carried))
 		{
@@ -2770,7 +2864,7 @@ public class SlayerSwapsPlugin extends Plugin
 			return;
 		}
 
-		List<SlayerData.Route> routes = routesWithHome();
+		List<SlayerData.Route> routes = swapRoutes(routesWithHome());
 		if (routes.isEmpty())
 		{
 			return;
@@ -3115,7 +3209,7 @@ public class SlayerSwapsPlugin extends Plugin
 	private boolean isEnabled(SlayerData.Route route)
 	{
 		RouteType type = route.routeType();
-		if (type == null)
+		if (type == null || route.getAgility() > agilityLevel())
 		{
 			return false;
 		}

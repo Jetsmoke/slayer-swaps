@@ -15,10 +15,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import net.runelite.api.ChatMessageType;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.QueuedMessage;
+import net.runelite.client.config.ConfigManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
@@ -28,7 +30,8 @@ import net.runelite.client.ui.PluginPanel;
 /**
  * Development only: a side panel to pretend to have a slayer task, at one of its locations, by one of its teleports,
  * picked from drop-downs or at random. Lives in the test sources, so it's only in the dev client, never in Plugin Hub
- * releases. Nothing is saved: the pretend location and teleport aren't written over the player's own choices.
+ * releases. The pretend task is kept (in its own config group) until changed, so it's still there after a restart; it's
+ * never written over the player's own choices.
  */
 @PluginDescriptor(
 	name = "Slayer Swaps Testing",
@@ -39,6 +42,15 @@ public class SlayerSwapsTestingPlugin extends Plugin
 {
 	private static final String REAL_TASK = "My real task";
 	private static final String KONAR = "Konar: ";
+	private static final String REAL_LEVEL = "Real level";
+	// Where the pretend task is kept between restarts: the drop-downs' monster, location label and teleport
+	// (Routes.key), the Agility level and whether it's done
+	private static final String GROUP = "slayerswapstesting";
+	private static final String TASK_KEY = "task";
+	private static final String LOCATION_KEY = "location";
+	private static final String ROUTE_KEY = "route";
+	private static final String AGILITY_KEY = "agility";
+	private static final String DONE_KEY = "done";
 
 	@Inject
 	private ClientThread clientThread;
@@ -52,11 +64,15 @@ public class SlayerSwapsTestingPlugin extends Plugin
 	@Inject
 	private Gson gson;
 
+	@Inject
+	private ConfigManager configManager;
+
 	private SlayerData data;
 	private NavigationButton navButton;
 	private final JComboBox<String> taskBox = new JComboBox<>();
 	private final JComboBox<String> locationBox = new JComboBox<>();
 	private final JComboBox<String> teleportBox = new JComboBox<>();
+	private final JComboBox<String> agilityBox = new JComboBox<>();
 	private final JCheckBox done = new JCheckBox("Task done");
 	// The locations and teleports behind the drop-downs' labels, in the same order
 	private final List<String> locations = new ArrayList<>();
@@ -75,6 +91,21 @@ public class SlayerSwapsTestingPlugin extends Plugin
 			.map(SlayerData.TaskData::getName)
 			.sorted(Comparator.comparing(String::toLowerCase))
 			.forEach(taskBox::addItem);
+		agilityBox.addItem(REAL_LEVEL);
+		for (int level = 99; level >= 1; level--)
+		{
+			agilityBox.addItem(String.valueOf(level));
+		}
+		agilityBox.setToolTipText("Pretend to have this Agility level, for teleports that need one");
+		agilityBox.addActionListener(e ->
+		{
+			int i = agilityBox.getSelectedIndex();
+			TaskOverride.agility = i <= 0 ? null : 100 - i;
+			save(AGILITY_KEY, TaskOverride.agility);
+			refresh();
+		});
+		// A location or teleport chosen on the slayer helmet during a test shows here too
+		TaskOverride.changed = () -> SwingUtilities.invokeLater(this::showOverride);
 		taskBox.addActionListener(e -> taskChosen());
 		locationBox.addActionListener(e -> locationChosen());
 		teleportBox.addActionListener(e -> apply());
@@ -90,6 +121,7 @@ public class SlayerSwapsTestingPlugin extends Plugin
 		done.addActionListener(e ->
 		{
 			TaskOverride.done = done.isSelected();
+			save(DONE_KEY, TaskOverride.done ? true : null);
 			refresh();
 		});
 
@@ -101,6 +133,8 @@ public class SlayerSwapsTestingPlugin extends Plugin
 		controls.add(locationBox);
 		controls.add(new JLabel("Teleport"));
 		controls.add(teleportBox);
+		controls.add(new JLabel("Agility"));
+		controls.add(agilityBox);
 		controls.add(done);
 		controls.add(real);
 
@@ -116,6 +150,75 @@ public class SlayerSwapsTestingPlugin extends Plugin
 			.panel(panel)
 			.build();
 		clientToolbar.addNavigation(navButton);
+		restore();
+	}
+
+	/**
+	 * Puts back the pretend task kept from before a restart.
+	 */
+	private void restore()
+	{
+		String agility = configManager.getConfiguration(GROUP, AGILITY_KEY);
+		if (agility != null)
+		{
+			agilityBox.setSelectedItem(agility);
+		}
+		String task = configManager.getConfiguration(GROUP, TASK_KEY);
+		if (task == null)
+		{
+			return;
+		}
+		filling = true;
+		taskBox.setSelectedItem(task);
+		fillLocations();
+		String location = configManager.getConfiguration(GROUP, LOCATION_KEY);
+		if (location != null)
+		{
+			locationBox.setSelectedItem(location);
+		}
+		fillTeleports();
+		selectRoute(configManager.getConfiguration(GROUP, ROUTE_KEY));
+		filling = false;
+		apply();
+		if (Boolean.parseBoolean(configManager.getConfiguration(GROUP, DONE_KEY)))
+		{
+			done.doClick();
+		}
+	}
+
+	private void save(String key, Object value)
+	{
+		if (value == null)
+		{
+			configManager.unsetConfiguration(GROUP, key);
+		}
+		else
+		{
+			configManager.setConfiguration(GROUP, key, value.toString());
+		}
+	}
+
+	/**
+	 * Keeps the drop-downs' task, location and teleport for after a restart.
+	 */
+	private void saveTask()
+	{
+		boolean real = TaskOverride.task == null;
+		save(TASK_KEY, real ? null : taskBox.getSelectedItem());
+		save(LOCATION_KEY, real ? null : locationBox.getSelectedItem());
+		save(ROUTE_KEY, real ? null : TaskOverride.route);
+		save(DONE_KEY, null);
+	}
+
+	private void selectRoute(String key)
+	{
+		for (int r = 0; r < routes.size(); r++)
+		{
+			if (Routes.key(routes.get(r)).equals(key))
+			{
+				teleportBox.setSelectedIndex(r);
+			}
+		}
 	}
 
 	@Override
@@ -126,6 +229,8 @@ public class SlayerSwapsTestingPlugin extends Plugin
 		TaskOverride.location = null;
 		TaskOverride.route = null;
 		TaskOverride.done = false;
+		TaskOverride.agility = null;
+		TaskOverride.changed = null;
 		refresh();
 	}
 
@@ -252,6 +357,7 @@ public class SlayerSwapsTestingPlugin extends Plugin
 		TaskOverride.route = route == null ? null : Routes.key(route);
 		TaskOverride.done = false;
 		done.setSelected(false);
+		saveTask();
 		refresh();
 		String what = pretend == null ? "off, using your real task"
 			: pretend[0] + (pretend[1] != null ? " in " + pretend[1] + " (Konar)"
@@ -260,6 +366,27 @@ public class SlayerSwapsTestingPlugin extends Plugin
 		String message = "Slayer Swaps test: " + what + ".";
 		clientThread.invokeLater(() -> chatMessageManager.queue(QueuedMessage.builder()
 			.type(ChatMessageType.GAMEMESSAGE).runeLiteFormattedMessage(message).build()));
+	}
+
+	/**
+	 * Shows the test's location and teleport after they were changed on the slayer helmet, without applying them
+	 * again.
+	 */
+	private void showOverride()
+	{
+		String location = TaskOverride.location;
+		String route = TaskOverride.route;
+		filling = true;
+		int i = location == null ? -1 : locations.indexOf(location);
+		if (i >= 0)
+		{
+			locationBox.setSelectedIndex(i);
+			fillTeleports();
+		}
+		selectRoute(route);
+		filling = false;
+		save(LOCATION_KEY, locationBox.getSelectedItem());
+		save(ROUTE_KEY, route);
 	}
 
 	private SlayerData.TaskData selectedTask()
